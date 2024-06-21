@@ -1,0 +1,59 @@
+{
+  "OnInitSequece": [],
+  "OnStartSequece": [
+    {
+      "TaskList": [
+        {
+          "$type": "RPG.GameCore.WaitRogueSelectBuff",
+          "TaskEnabled": true
+        },
+        {
+          "$type": "RPG.GameCore.SetRogueRoomFinish",
+          "TaskEnabled": true
+        },
+        {
+          "$type": "RPG.GameCore.SetAllRogueDoorState",
+          "TaskEnabled": true
+        }
+      ]
+    },
+    {
+      "TaskList": [
+        {
+          "$type": "RPG.GameCore.WaitPredicateSucc",
+          "TaskEnabled": true
+        },
+        {
+          "$type": "RPG.GameCore.PredicateTaskList",
+          "Predicate": {
+            "$type": "RPG.GameCore.ByCompareGroupMonsterNumByState",
+            "TaskEnabled": true
+          },
+          "SuccessTaskList": [
+            {
+              "$type": "RPG.GameCore.ChangePropState",
+              "TaskEnabled": true
+            },
+            {
+              "$type": "RPG.GameCore.ChangePropState",
+              "TaskEnabled": true
+            }
+          ],
+          "FailedTaskList": [
+            {
+              "$type": "RPG.GameCore.SetRogueRoomFinish",
+              "TaskEnabled": true
+            },
+            {
+              "$type": "RPG.GameCore.SetAllRogueDoorState",
+              "TaskEnabled": true
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "ValueSource": {
+    "Values": []
+  }
+}

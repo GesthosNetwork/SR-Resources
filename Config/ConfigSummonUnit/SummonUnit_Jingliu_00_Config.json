@@ -1,0 +1,163 @@
+{
+  "GroupConfigName": "FollowField",
+  "ConfigEntityPath": "Config/ConfigEntity/SummonUnit/SummonUnit_Common_TeamField_Entity.json",
+  "ResidentEffects": [
+    {
+      "$type": "TriggerEffect",
+      "EffectPath": "Effects/Eff_Prefab/Eff_Avatar/Eff_Jingliu/Eff_Avatar_Jingliu_00_MazeSkill01_04.prefab"
+    }
+  ],
+  "AttachPoint": "Origin",
+  "OnDestroy": [
+    {
+      "$type": "TriggerSound",
+      "SoundName": "Ev_sfx_avatar_skill_maze_outro_jingliu",
+      "EmitterType": "DefaultEmitter"
+    }
+  ],
+  "OnBeReplaced": [
+    {
+      "$type": "RemoveMazeBuff",
+      "TargetType": {
+        "$type": "TargetAlias",
+        "Alias": "CasterSummoner"
+      },
+      "ID": 121202
+    }
+  ],
+  "TriggerConfig": {
+    "CustomTriggers": [
+      {
+        "TriggerName": "HitNpcMonsterTrigger",
+        "Radius": {
+          "IsDynamic": false,
+          "FixedValue": {
+            "Value": 6.0
+          }
+        },
+        "UseVerticalBound": true,
+        "NeedRaycast": true,
+        "TargetTypes": [
+          "NPCMonster"
+        ],
+        "OnTriggerEnter": [
+          {
+            "$type": "AddMazeBuff",
+            "TargetType": {
+              "$type": "TargetAlias",
+              "Alias": "TaskActionTarget"
+            },
+            "ID": 121201,
+            "LifeTime": {
+              "IsDynamic": false,
+              "FixedValue": {
+                "Value": 500.0
+              }
+            }
+          },
+          {
+            "$type": "AddMazeBuff",
+            "TargetType": {
+              "$type": "TargetAlias",
+              "Alias": "TaskActionTarget"
+            },
+            "ID": 121203,
+            "LifeTime": {
+              "IsDynamic": false,
+              "FixedValue": {
+                "Value": 500.0
+              }
+            }
+          },
+          {
+            "$type": "TriggerEffect",
+            "TargetType": {
+              "$type": "TargetAlias",
+              "Alias": "TaskActionTarget"
+            },
+            "EffectPath": "Effects/Eff_Prefab/Eff_Common/Eff_Buff_Common_Ice_Add.prefab",
+            "AttachPoint": "SelectRoot"
+          },
+          {
+            "$type": "TriggerSound",
+            "SoundName": "Ev_sfx_avatar_skill_maze_hit_01_jingliu",
+            "EmitterType": "DefaultEmitter"
+          }
+        ],
+        "OnTriggerExit": [
+          {
+            "$type": "RefreshMazeBuffTime",
+            "TargetType": {
+              "$type": "TargetAlias",
+              "Alias": "TaskActionTarget"
+            },
+            "ID": 121203,
+            "LifeTime": {
+              "IsDynamic": false,
+              "FixedValue": {
+                "Value": 1.5000000004656613
+              }
+            }
+          },
+          {
+            "$type": "RemoveMazeBuff",
+            "TargetType": {
+              "$type": "TargetAlias",
+              "Alias": "TaskActionTarget"
+            },
+            "ID": 121201
+          }
+        ]
+      },
+      {
+        "TriggerName": "HitPropTrigger",
+        "Radius": {
+          "IsDynamic": false,
+          "FixedValue": {
+            "Value": 6.0
+          }
+        },
+        "UseVerticalBound": true,
+        "NeedRaycast": true,
+        "TargetTypes": [
+          "Prop"
+        ],
+        "TargetFilter": {
+          "$type": "ByComparePropType",
+          "TargetType": {
+            "$type": "TargetAlias",
+            "Alias": "ParamEntity"
+          },
+          "Types": [
+            "PROP_DESTRUCT"
+          ]
+        },
+        "OnTriggerEnter": [
+          {
+            "$type": "TriggerHitProp",
+            "TargetType": {
+              "$type": "TargetAlias",
+              "Alias": "TaskActionTarget"
+            },
+            "ClientMode": "PreShow"
+          },
+          {
+            "$type": "TriggerSound",
+            "SoundName": "Ev_sfx_avatar_skill_maze_hit_02_jingliu",
+            "EmitterType": "DefaultEmitter"
+          }
+        ],
+        "OnTriggerExit": [],
+        "OnTriggerEnterRollback": [
+          {
+            "$type": "PropDestructReset",
+            "TargetType": {
+              "$type": "TargetAlias",
+              "Alias": "TaskActionTarget"
+            }
+          }
+        ]
+      }
+    ]
+  }
+}

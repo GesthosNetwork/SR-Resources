@@ -1,0 +1,76 @@
+{
+  "GroupConfigName": "Default",
+  "ConfigEntityPath": "Config/ConfigEntity/SummonUnit/SummonUnit_Common_TeamField_Entity.json",
+  "TickLodTemplateName": "DefaultStaticEntity",
+  "ResidentEffects": [],
+  "ShoesType": "boot",
+  "AttachPoint": "Origin",
+  "Duration": {
+    "fixedValue": {
+      "RawValue": -4294967296
+    }
+  },
+  "OnCreate": [],
+  "OnDestroy": [],
+  "TriggerConfig": {
+    "CustomTriggers": [
+      {
+        "TriggerName": "AcheronNpcMonsterTrigger",
+        "DefaultEnable": true,
+        "Radius": {
+          "fixedValue": {
+            "RawValue": 85899345920
+          }
+        },
+        "RayStartOffsetY": 1.0,
+        "ForceSyncTargetToSever": true,
+        "TargetTypes": [
+          "NPCMonster"
+        ],
+        "ColliderRelativePath": "Trigger",
+        "OnTriggerEnter": [
+          {
+            "$type": "RPG.GameCore.PredicateTaskList, RPG.GameCore.Config",
+            "Predicate": {
+              "$type": "RPG.GameCore.ByAllowInstantKill, RPG.GameCore.Config",
+              "TargetType": {
+                "$type": "RPG.GameCore.TargetAlias, RPG.GameCore.Config",
+                "Alias": "TaskActionTarget"
+              },
+              "TaskEnabled": true
+            },
+            "SuccessTaskList": [
+              {
+                "$type": "RPG.GameCore.AddMazeBuff, RPG.GameCore.Config",
+                "TargetType": {
+                  "$type": "RPG.GameCore.TargetAlias, RPG.GameCore.Config",
+                  "Alias": "TaskActionTarget"
+                },
+                "ID": 130802,
+                "TaskEnabled": true
+              }
+            ],
+            "TaskEnabled": true
+          }
+        ],
+        "OnTriggerExit": [
+          {
+            "$type": "RPG.GameCore.RefreshMazeBuffTime, RPG.GameCore.Config",
+            "TargetType": {
+              "$type": "RPG.GameCore.TargetAlias, RPG.GameCore.Config",
+              "Alias": "TaskActionTarget"
+            },
+            "ID": 130802,
+            "LifeTime": {
+              "fixedValue": {
+                "RawValue": 2147483650
+              }
+            },
+            "TaskEnabled": true
+          }
+        ],
+        "SkipFakeAvatar": true
+      }
+    ]
+  }
+}

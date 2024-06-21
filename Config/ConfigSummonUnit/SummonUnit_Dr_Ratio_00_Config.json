@@ -1,0 +1,104 @@
+{
+  "GroupConfigName": "StaticUnit",
+  "ConfigEntityPath": "Config/ConfigEntity/SummonUnit/SummonUnit_Dr_Ratio_00_MazeSkill_Entity.json",
+  "TickLodTemplateName": "DefaultStaticEntity",
+  "ResidentEffects": [
+    {
+      "EffectPath": "Effects/Eff_Prefab/Eff_Avatar/Eff_Dr_Ratio/Eff_Avatar_Dr_Ratio_00_MazeSkill_Appear01.prefab",
+      "Scale": {
+        "X": -1.0,
+        "Y": -1.0,
+        "Z": -1.0
+      },
+      "ParamEntityUsage": 1,
+      "TowardMaxPitchAngle": 90.0,
+      "MaxMutexCount": 1,
+      "TaskEnabled": true
+    }
+  ],
+  "ShoesType": "boot",
+  "Duration": {
+    "fixedValue": {
+      "RawValue": -4294967296
+    }
+  },
+  "OnCreate": [
+    {
+      "$type": "AdvMarkAsTauntProxy",
+      "TargetType": {
+        "$type": "TargetAlias",
+        "Alias": "CasterSummoner"
+      },
+      "ProxyTargetType": {
+        "$type": "TargetAlias",
+        "Alias": "Caster"
+      },
+      "TaskEnabled": true
+    }
+  ],
+  "OnDestroy": [],
+  "TriggerConfig": {
+    "CustomTriggers": [
+      {
+        "TriggerName": "HitNpcMonsterTrigger",
+        "DefaultEnable": true,
+        "Radius": {
+          "fixedValue": {
+            "RawValue": 25769803776
+          }
+        },
+        "UseVerticalBound": true,
+        "NeedRaycast": true,
+        "RayStartOffsetY": 1.0,
+        "TargetTypes": [
+          5
+        ],
+        "ColliderRelativePath": "Trigger",
+        "OnTriggerEnter": [
+          {
+            "$type": "AddMazeBuff",
+            "TargetType": {
+              "$type": "TargetAlias",
+              "Alias": "TaskActionTarget"
+            },
+            "ID": 130501,
+            "TaskEnabled": true
+          }
+        ],
+        "OnTriggerExit": [
+          {
+            "$type": "RemoveMazeBuff",
+            "TargetType": {
+              "$type": "TargetAlias",
+              "Alias": "TaskActionTarget"
+            },
+            "ID": 130501,
+            "TaskEnabled": true
+          }
+        ],
+        "SkipFakeAvatar": true
+      }
+    ]
+  },
+  "BeAttackConfig": {
+    "OnBeAttack": [
+      {
+        "$type": "TriggerEffect",
+        "TargetType": {
+          "$type": "TargetAlias",
+          "Alias": "Caster"
+        },
+        "EffectPath": "Effects/Eff_Prefab/Eff_Avatar/Eff_Dr_Ratio/Eff_Avatar_Dr_Ratio_00_MazeSkill_Hit.prefab",
+        "Scale": {
+          "X": -1.0,
+          "Y": -1.0,
+          "Z": -1.0
+        },
+        "ParamEntityUsage": 1,
+        "TowardMaxPitchAngle": 90.0,
+        "MaxMutexCount": 1,
+        "TaskEnabled": true
+      }
+    ]
+  }
+}
