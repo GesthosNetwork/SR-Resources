@@ -1,0 +1,250 @@
+{
+  "AbilityList": [
+    {
+      "Modifiers": {
+        "WModifier_BattleEventAbility_Challenge_LevelBuff": {
+          "_CallbackList": [
+            {
+              "Event": "OnStack",
+              "CallbackConfig": [
+                {
+                  "$type": "RPG.GameCore.AddModifier",
+                  "TargetType": {
+                    "$type": "RPG.GameCore.TargetAlias",
+                    "Alias": "AllLightTeam"
+                  },
+                  "ModifierName": "WModifier_BattleEventAbility_Challenge_LevelBuff_01",
+                  "InheritCaster": "TargetSelf"
+                }
+              ]
+            },
+            {
+              "Event": "OnListenCharacterCreate",
+              "CallbackConfig": [
+                {
+                  "$type": "RPG.GameCore.PredicateTaskList",
+                  "Predicate": {
+                    "$type": "RPG.GameCore.ByTargetTeam",
+                    "TargetType": {
+                      "$type": "RPG.GameCore.TargetAlias",
+                      "Alias": "ParamEntity"
+                    },
+                    "Team": "TeamLight"
+                  },
+                  "SuccessTaskList": [
+                    {
+                      "$type": "RPG.GameCore.AddModifier",
+                      "TargetType": {
+                        "$type": "RPG.GameCore.TargetAlias",
+                        "Alias": "ParamEntity"
+                      },
+                      "ModifierName": "WModifier_BattleEventAbility_Challenge_LevelBuff_01",
+                      "InheritCaster": "TargetSelf"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        "WModifier_BattleEventAbility_Challenge_LevelBuff_01": {
+          "_CallbackList": [
+            {
+              "Event": "OnStack",
+              "CallbackConfig": [
+                {
+                  "$type": "RPG.GameCore.OwnerEntityAddAbility",
+                  "AbilityName": "W_BattleEventAbility_Challenge_SummonTest_InsertDamage"
+                }
+              ]
+            },
+            {
+              "Event": "OnTriggerDeath",
+              "CallbackConfig": [
+                {
+                  "$type": "RPG.GameCore.AddModifier",
+                  "TargetType": {
+                    "$type": "RPG.GameCore.TargetAlias",
+                    "Alias": "ModifierOwnerEntity"
+                  },
+                  "ModifierName": "WModifier_BattleEventAbility_Challenge_InsertKillMark"
+                }
+              ]
+            },
+            {
+              "Event": "OnAfterAttack",
+              "CallbackConfig": [
+                {
+                  "$type": "RPG.GameCore.TriggerAbility",
+                  "TargetType": {
+                    "$type": "RPG.GameCore.TargetAlias",
+                    "Alias": "ModifierOwnerEntity"
+                  },
+                  "AbilityInherentTargetType": {
+                    "$type": "RPG.GameCore.TargetAlias",
+                    "Alias": "ModifierOwnerEntity"
+                  },
+                  "AbilityName": "W_BattleEventAbility_Challenge_SummonTest_InsertDamage",
+                  "IsSkillPerform": true
+                }
+              ]
+            }
+          ]
+        }
+      },
+      "Name": "W_BattleEventAbility_Challenge_SummonTest",
+      "OnAdd": [
+        {
+          "$type": "RPG.GameCore.AddModifier",
+          "TargetType": {
+            "$type": "RPG.GameCore.TargetAlias",
+            "Alias": "Caster"
+          },
+          "ModifierName": "WModifier_BattleEventAbility_Challenge_LevelBuff"
+        }
+      ]
+    },
+    {
+      "Name": "W_BattleEventAbility_Challenge_SummonTest_InsertDamage",
+      "TargetInfo": {
+        "TargetType": "InherentTargetEntity"
+      },
+      "OnStart": [
+        {
+          "$type": "RPG.GameCore.PredicateTaskList",
+          "Predicate": {
+            "$type": "RPG.GameCore.ByAny",
+            "PredicateList": [
+              {
+                "$type": "RPG.GameCore.ByCurrentSkillType",
+                "SkillType": "Skill"
+              },
+              {
+                "$type": "RPG.GameCore.ByCurrentSkillType",
+                "SkillType": "Ultra"
+              }
+            ]
+          },
+          "SuccessTaskList": [
+            {
+              "$type": "RPG.GameCore.TriggerEffect",
+              "TargetType": {
+                "$type": "RPG.GameCore.TargetAlias",
+                "Alias": "AllTeamCenter"
+              },
+              "EffectPath": "Effects/Eff_Prefab/Eff_Common/Eff_BattleEvent_ShenYuan_Damage.prefab",
+              "PositionOffset": {
+                "X": 0,
+                "Y": 3.8,
+                "Z": 0
+              }
+            },
+            {
+              "$type": "RPG.GameCore.WaitSecond",
+              "WaitTime": 1.2
+            },
+            {
+              "$type": "RPG.GameCore.TriggerEffect",
+              "TargetType": {
+                "$type": "RPG.GameCore.TargetAlias",
+                "Alias": "AllTeamCenter"
+              },
+              "EffectPath": "Effects/Eff_Prefab/Eff_Common/Eff_BattleEvent_ShenYuan_Damage_hit.prefab"
+            },
+            {
+              "$type": "RPG.GameCore.WaitSecond",
+              "WaitTime": 0.1
+            },
+            {
+              "$type": "RPG.GameCore.LoopExecuteTaskList",
+              "MaxLoopCount": {
+                "IsDynamic": false,
+                "FixedValue": {
+                  "Value": 9
+                }
+              },
+              "TaskList": [
+                {
+                  "$type": "RPG.GameCore.Retarget",
+                  "TargetType": {
+                    "$type": "RPG.GameCore.TargetAlias",
+                    "Alias": "AllEnemy"
+                  },
+                  "MaxNumber": {
+                    "IsDynamic": false,
+                    "FixedValue": {
+                      "Value": 1
+                    }
+                  },
+                  "TaskList": [
+                    {
+                      "$type": "RPG.GameCore.DamageByAttackProperty",
+                      "TargetType": {
+                        "$type": "RPG.GameCore.TargetAlias",
+                        "Alias": "ParamEntity"
+                      },
+                      "AttackProperty": {
+                        "DamageTypeFromAttacker": true,
+                        "DamagePercentage": {
+                          "IsDynamic": true,
+                          "PostfixExpr": {
+                            "OpCodes": "AQAK",
+                            "FixedValues": [],
+                            "DynamicHashes": [
+                              546201620
+                            ]
+                          }
+                        },
+                        "AttackType": "Pursued"
+                      }
+                    }
+                  ]
+                },
+                {
+                  "$type": "RPG.GameCore.WaitSecond",
+                  "WaitTime": 0.02
+                }
+              ]
+            },
+            {
+              "$type": "RPG.GameCore.TriggerEffect",
+              "TargetType": {
+                "$type": "RPG.GameCore.TargetAlias",
+                "Alias": "AllDarkTeam"
+              },
+              "EffectPath": "Effects/Eff_Prefab/Eff_Common/Eff_BattleEvent_ShenYuan_Damage_hit2.prefab"
+            },
+            {
+              "$type": "RPG.GameCore.WaitSecond",
+              "WaitTime": 1.3
+            },
+            {
+              "$type": "RPG.GameCore.DamagePerformFinish"
+            },
+            {
+              "$type": "RPG.GameCore.WaitSecond",
+              "WaitTime": 1
+            },
+            {
+              "$type": "RPG.GameCore.TargetTimeSlow",
+              "TargetType": {
+                "$type": "RPG.GameCore.TargetAlias",
+                "Alias": "AllDarkTeam"
+              },
+              "TimeScale": 0.25,
+              "UnscaledDuration": 0.6
+            }
+          ]
+        }
+      ],
+      "DynamicValues": {
+        "Values": {
+          "546201620": {}
+        }
+      }
+    }
+  ],
+  "GlobalModifiers": {
+    "WModifier_BattleEventAbility_Challenge_InsertKillMark": {}
+  }
+}

@@ -1,0 +1,109 @@
+{
+  "OnInitSequece": [],
+  "OnStartSequece": [
+    {
+      "TaskList": [
+        {
+          "$type": "RPG.GameCore.WaitUINodeOpen",
+          "NodeID": "HeliobusMainEntrancePage.BtnHome",
+          "SkipCheck": true
+        },
+        {
+          "$type": "RPG.GameCore.WaitUIControllerClose",
+          "UIControllerName": "HeliobusActionDayPostPhaseDialog"
+        },
+        {
+          "$type": "RPG.GameCore.WaitSecond",
+          "WaitTime": 0.5
+        },
+        {
+          "$type": "RPG.GameCore.ShowTutorialGuideTalk",
+          "GuideResID": 22,
+          "GuideTalkIDList": [
+            50761
+          ],
+          "NodeID": "HeliobusMainEntrancePage.BtnHome",
+          "OffsetX": -370,
+          "OffsetY": -127
+        },
+        {
+          "$type": "RPG.GameCore.ShowGuideText",
+          "ID": 507603,
+          "GuideResID": 15,
+          "NodeID": "HeliobusMainEntrancePage.BtnMission",
+          "Show": true,
+          "Text": "TutorialTextmap_507603",
+          "Follow": false,
+          "OffsetX": -375,
+          "PCGuide": {}
+        },
+        {
+          "$type": "RPG.GameCore.ShowGuide",
+          "ID": 50763,
+          "GuideResID": 11,
+          "NodeID": "HeliobusMainEntrancePage.BtnMission",
+          "Show": true,
+          "CopyAnchorAndSale": true,
+          "Follow": false,
+          "PCGuide": {},
+          "AnimConfig": {}
+        },
+        {
+          "$type": "RPG.GameCore.ShowTutorialMask",
+          "NodeIDList": [
+            "HeliobusMainEntrancePage.BtnMission"
+          ],
+          "Show": true,
+          "BlockClick": true,
+          "AnimConfig": {}
+        },
+        {
+          "$type": "RPG.GameCore.MoveUINodeToMask",
+          "NodeID": "HeliobusMainEntrancePage.BtnMission",
+          "Follow": true
+        },
+        {
+          "$type": "RPG.GameCore.WaitTutorial",
+          "Event": "ClickBtnWithPath",
+          "Param": "HeliobusMainEntrancePage.BtnMission"
+        },
+        {
+          "$type": "RPG.GameCore.ShowGuideText",
+          "ID": 507603,
+          "GuideResID": 15,
+          "NodeID": "HeliobusMainEntrancePage.BtnMission",
+          "Text": "TutorialTextmap_507603",
+          "Follow": false,
+          "PCGuide": {}
+        },
+        {
+          "$type": "RPG.GameCore.ShowGuide",
+          "ID": 50763,
+          "GuideResID": 11,
+          "NodeID": "HeliobusMainEntrancePage.BtnMission",
+          "CopyAnchorAndSale": true,
+          "Follow": false,
+          "PCGuide": {},
+          "AnimConfig": {}
+        },
+        {
+          "$type": "RPG.GameCore.ShowTutorialMask",
+          "NodeIDList": [
+            "HeliobusMainEntrancePage.BtnMission"
+          ],
+          "BlockClick": true,
+          "AnimConfig": {}
+        },
+        {
+          "$type": "RPG.GameCore.MoveUINodeToMask",
+          "NodeID": "HeliobusMainEntrancePage.BtnMission",
+          "Reset": true
+        },
+        {
+          "$type": "RPG.GameCore.TutorialFinish",
+          "TutorialID": 5076
+        }
+      ]
+    }
+  ]
+}

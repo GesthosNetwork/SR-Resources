@@ -1,0 +1,115 @@
+{
+  "OnInitSequece": [],
+  "OnStartSequece": [
+    {
+      "TaskList": [
+        {
+          "$type": "RPG.GameCore.LevelPerformanceInitialize",
+          "PerformanceType": "E",
+          "CreateCharacterList": [],
+          "CaptureNPCList": [],
+          "EntityVisiableList": [],
+          "HideMunicipalCrowd": false,
+          "HideMunicipalPedestrian": false,
+          "PropVisiableList": [],
+          "StreamingSourcesInBlackMask": [],
+          "StreamingSourcesAfterBlackMask": [],
+          "MarkStreamingItems": []
+        },
+        {
+          "$type": "RPG.GameCore.ShowTalkBackground",
+          "TalkBgID": 110006
+        },
+        {
+          "$type": "RPG.GameCore.AdvNpcFaceToPlayer",
+          "FinishImmadiate": true
+        },
+        {
+          "$type": "RPG.GameCore.PlaySimpleTalk",
+          "SimpleTalkList": [
+            {
+              "TalkSentenceID": 403810038,
+              "ProtectTime": 0.3
+            },
+            {
+              "TalkSentenceID": 403810039,
+              "ProtectTime": 0.3
+            }
+          ]
+        },
+        {
+          "$type": "RPG.GameCore.WaitSimpleTalkFinish"
+        },
+        {
+          "$type": "RPG.GameCore.PlayOptionTalk",
+          "OptionList": [
+            {
+              "OptionTextmapID": {
+                "Hash": -1526285970
+              },
+              "OptionIconType": "ChatContinueIcon",
+              "TriggerCustomString": "Go_Exit",
+              "DialogueEventID": 210003
+            },
+            {
+              "OptionTextmapID": {
+                "Hash": -1526285967
+              },
+              "OptionIconType": "ChatContinueIcon",
+              "TriggerCustomString": "Go_Exit",
+              "DialogueEventID": 210004
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "IsLoop": true,
+      "TaskList": [
+        {
+          "$type": "RPG.GameCore.WaitCustomString",
+          "CustomString": {
+            "Value": "Go_Buff"
+          }
+        },
+        {
+          "$type": "RPG.GameCore.ShowUI",
+          "Name": "Ui.Rogue.Buff.RogueEnhanceBuffPage",
+          "WaitForExit": true,
+          "OnUICustomEvent": [],
+          "OnUIExitImmediately": [
+            {
+              "$type": "RPG.GameCore.EndPerformance"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "TaskList": [
+        {
+          "$type": "RPG.GameCore.WaitCustomString",
+          "CustomString": {
+            "Value": "Go_Exit"
+          }
+        },
+        {
+          "$type": "RPG.GameCore.EndPerformance"
+        },
+        {
+          "$type": "RPG.GameCore.FinishLevelGraph"
+        }
+      ]
+    },
+    {
+      "TaskList": [
+        {
+          "$type": "RPG.GameCore.WaitPerformanceEnd"
+        },
+        {
+          "$type": "RPG.GameCore.FinishLevelGraph"
+        }
+      ]
+    }
+  ]
+}

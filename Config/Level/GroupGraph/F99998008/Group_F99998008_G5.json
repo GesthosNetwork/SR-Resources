@@ -1,0 +1,44 @@
+{
+  "OnInitSequece": [
+    {
+      "TaskList": []
+    }
+  ],
+  "OnStartSequece": [
+    {
+      "TaskList": [
+        {
+          "$type": "RPG.GameCore.WaitGroupEvent",
+          "EventName": {
+            "Value": "DialogueGroupEvent"
+          },
+          "OnEvent": [
+            {
+              "$type": "RPG.GameCore.DebugLog",
+              "Level": "Warn",
+              "Message": "ReceiveDialogueGroupEvent"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "TaskList": [
+        {
+          "$type": "RPG.GameCore.WaitGroupEvent",
+          "EventName": {
+            "Value": "PerformanceGroupEvent"
+          },
+          "OnEvent": [
+            {
+              "$type": "RPG.GameCore.DebugLog",
+              "Level": "Warn",
+              "Message": "ReceivePerformanceGroupEvent"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "Type": "Group"
+}

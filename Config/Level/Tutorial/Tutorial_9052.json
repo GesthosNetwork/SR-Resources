@@ -1,0 +1,70 @@
+{
+  "OnInitSequece": [],
+  "OnStartSequece": [
+    {
+      "TaskList": [
+        {
+          "$type": "RPG.GameCore.WaitTutorial",
+          "Event": "ShowUIContext",
+          "Param": "RogueSelectMainPage"
+        },
+        {
+          "$type": "RPG.GameCore.WaitUINodeOpen",
+          "NodeID": "RogueSelectMain.BtnDLC"
+        },
+        {
+          "$type": "RPG.GameCore.BlockInputController",
+          "Enable": true,
+          "ActionNameList": [
+            "Menu_UnchangeLeftBumper"
+          ]
+        },
+        {
+          "$type": "RPG.GameCore.ShowGuide",
+          "ID": 202,
+          "GuideResID": 1,
+          "NodeID": "RogueSelectMain.BtnDLC",
+          "Show": true,
+          "PCGuide": {},
+          "AnimConfig": {}
+        },
+        {
+          "$type": "RPG.GameCore.ShowGuideTalk",
+          "ID": 301,
+          "Show": true,
+          "GuideResID": 19,
+          "GuideTalkID": 90521,
+          "NodeID": "RogueSelectMain.BtnDLC",
+          "OffsetX": 60,
+          "OffsetY": 30
+        },
+        {
+          "$type": "RPG.GameCore.ShowTutorialMask",
+          "NodeIDList": [
+            "RogueSelectMain.BtnDLC"
+          ],
+          "Show": true,
+          "BlockClick": true,
+          "Type": 1,
+          "AnimConfig": {}
+        },
+        {
+          "$type": "RPG.GameCore.WaitTutorial",
+          "Event": "ClickBtnWithPath",
+          "Param": "RogueSelectMain.BtnDLC"
+        },
+        {
+          "$type": "RPG.GameCore.ClearTutorialGuide"
+        },
+        {
+          "$type": "RPG.GameCore.BlockInputController",
+          "ActionNameList": []
+        },
+        {
+          "$type": "RPG.GameCore.TutorialFinish",
+          "TutorialID": 9052
+        }
+      ]
+    }
+  ]
+}

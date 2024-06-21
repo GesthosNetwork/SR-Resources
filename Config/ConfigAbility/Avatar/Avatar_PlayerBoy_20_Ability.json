@@ -1,0 +1,2760 @@
+{
+  "AbilityList": [
+    {
+      "Name": "Avatar_PlayerBoy_20_Skill01_Phase01",
+      "TargetInfo": {
+        "TargetType": "SkillTargetEntityList"
+      },
+      "OnStart": [
+        {
+          "$type": "RPG.GameCore.TriggerAbility",
+          "TargetType": {
+            "$type": "RPG.GameCore.TargetAlias",
+            "Alias": "Caster"
+          },
+          "AbilityName": "Avatar_PlayerBoy_20_Skill01_Camera",
+          "IsSkillPerform": true
+        },
+        {
+          "$type": "RPG.GameCore.TriggerAbility",
+          "TargetType": {
+            "$type": "RPG.GameCore.TargetAlias",
+            "Alias": "Caster"
+          },
+          "AbilityName": "Avatar_PlayerBoy_20_Skill01_Phase02",
+          "IsSkillPerform": true
+        },
+        {
+          "$type": "RPG.GameCore.LookAt",
+          "TargetType": "AbilityTargetEntity"
+        },
+        {
+          "$type": "RPG.GameCore.TriggerAnimStateWithMove",
+          "TargetType": {
+            "$type": "RPG.GameCore.TargetAlias",
+            "Alias": "Caster"
+          },
+          "AnimStateName": "Skill01",
+          "MovingRangeList": [
+            {
+              "TargetType": {
+                "$type": "RPG.GameCore.TargetAlias",
+                "Alias": "AbilityTargetEntity"
+              },
+              "OffsetTargetDistance": {
+                "IsDynamic": false,
+                "FixedValue": {
+                  "Value": 2
+                }
+              },
+              "NormalizedTimeStart": {
+                "IsDynamic": false,
+                "FixedValue": {
+                  "Value": 0.02099999994970858
+                }
+              },
+              "NormalizedTimeEnd": {
+                "IsDynamic": false,
+                "FixedValue": {
+                  "Value": 0.08799999952316284
+                }
+              }
+            },
+            {
+              "TargetType": {
+                "$type": "RPG.GameCore.TargetAlias",
+                "Alias": "TeamFormation"
+              },
+              "OffsetTargetDistance": {
+                "IsDynamic": false,
+                "FixedValue": {
+                  "Value": 0
+                }
+              },
+              "NormalizedTimeStart": {
+                "IsDynamic": false,
+                "FixedValue": {
+                  "Value": 0.6320000004488975
+                }
+              },
+              "NormalizedTimeEnd": {
+                "IsDynamic": false,
+                "FixedValue": {
+                  "Value": 0.7850000003818423
+                }
+              }
+            }
+          ]
+        },
+        {
+          "$type": "RPG.GameCore.WaitAnimState",
+          "TargetType": {
+            "$type": "RPG.GameCore.TargetAlias",
+            "Alias": "Caster"
+          },
+          "AnimStateName": "Skill01",
+          "NormalizedTimeEnd": {
+            "IsDynamic": false,
+            "FixedValue": {
+              "Value": 0.030000000027939677
+            }
+          }
+        },
+        {
+          "$type": "RPG.GameCore.RadialBlurEffect",
+          "TargetType": {
+            "$type": "RPG.GameCore.TargetAlias",
+            "Alias": "AbilityTargetEntity"
+          },
+          "BlurX": 0.3,
+          "BlurY": 0,
+          "BlurRadius": 0.8,
+          "Iteration": 4,
+          "BlurFeather": 0.2
+        },
+        {
+          "$type": "RPG.GameCore.WaitAnimState",
+          "AnimStateName": "Skill01",
+          "NormalizedTimeEnd": {
+            "IsDynamic": false,
+            "FixedValue": {
+              "Value": 0.0800000000745058
+            }
+          }
+        },
+        {
+          "$type": "RPG.GameCore.RadialBlurEffect",
+          "TargetType": {
+            "$type": "RPG.GameCore.TargetAlias",
+            "Alias": "AbilityTargetEntity"
+          },
+          "Active": false
+        },
+        {
+          "$type": "RPG.GameCore.WaitAnimState",
+          "AnimStateName": "Skill01",
+          "NormalizedTimeEnd": {
+            "IsDynamic": false,
+            "FixedValue": {
+              "Value": 0.7850000003818423
+            }
+          }
+        }
+      ]
+    },
+    {
+      "Name": "Avatar_PlayerBoy_20_Skill01_Phase02",
+      "TargetInfo": {
+        "TargetType": "SkillTargetEntityList"
+      },
+      "OnStart": [
+        {
+          "$type": "RPG.GameCore.WaitAnimState",
+          "TargetType": {
+            "$type": "RPG.GameCore.TargetAlias",
+            "Alias": "Caster"
+          },
+          "AnimStateName": "Skill01",
+          "NormalizedTimeEnd": {
+            "IsDynamic": false,
+            "FixedValue": {
+              "Value": 0.31000000028871
+            }
+          }
+        },
+        {
+          "$type": "RPG.GameCore.RadialBlurEffect",
+          "TargetType": {
+            "$type": "RPG.GameCore.TargetAlias",
+            "Alias": "Caster"
+          },
+          "Duration": 0.08,
+          "BlurX": 0.4,
+          "BlurRadius": 1,
+          "Iteration": 4,
+          "BlurStart": 0.005,
+          "BlurFeather": 0.01
+        },
+        {
+          "$type": "RPG.GameCore.DamageByAttackProperty",
+          "TargetType": {
+            "$type": "RPG.GameCore.TargetAlias",
+            "Alias": "AbilityTargetEntity"
+          },
+          "AttackProperty": {
+            "DamageType": "Imaginary",
+            "DamagePercentage": {
+              "IsDynamic": true,
+              "PostfixExpr": {
+                "OpCodes": "AQAK",
+                "FixedValues": [],
+                "DynamicHashes": [
+                  -1126825319
+                ]
+              }
+            },
+            "StanceValue": {
+              "IsDynamic": true,
+              "PostfixExpr": {
+                "OpCodes": "AQAK",
+                "FixedValues": [],
+                "DynamicHashes": [
+                  1659254037
+                ]
+              }
+            },
+            "SPHitRatio": {
+              "IsDynamic": false,
+              "FixedValue": {
+                "Value": 1
+              }
+            },
+            "HitAnimation": "Hit"
+          },
+          "TriggerHitSound": true,
+          "SpecialHitSoundEvent": "Ev_sfx_avatar_atk_cast_hit_bronya",
+          "CanTriggerLastKill": true,
+          "DisplayData": {
+            "DitherRangeX": 0,
+            "DitherRangeY": 0,
+            "AttachPoint": "SelectRoot"
+          }
+        },
+        {
+          "$type": "RPG.GameCore.DamagePerformFinish"
+        },
+        {
+          "$type": "RPG.GameCore.SkillPerformFinish"
+        }
+      ]
+    },
+    {
+      "Name": "Avatar_PlayerBoy_20_Skill02_Phase01",
+      "TargetInfo": {
+        "TargetType": "SkillTargetEntityList"
+      },
+      "OnStart": [
+        {
+          "$type": "RPG.GameCore.TriggerAbility",
+          "TargetType": {
+            "$type": "RPG.GameCore.TargetAlias",
+            "Alias": "Caster"
+          },
+          "AbilityName": "Avatar_PlayerBoy_20_Skill02_Camera",
+          "IsSkillPerform": true
+        },
+        {
+          "$type": "RPG.GameCore.TriggerAbility",
+          "TargetType": {
+            "$type": "RPG.GameCore.TargetAlias",
+            "Alias": "Caster"
+          },
+          "AbilityName": "Avatar_PlayerBoy_20_Skill02_Phase02",
+          "IsSkillPerform": true
+        },
+        {
+          "$type": "RPG.GameCore.LookAt",
+          "TargetType": "AbilityTargetEntity"
+        },
+        {
+          "$type": "RPG.GameCore.TriggerAnimState",
+          "AnimStateName": "Skill02",
+          "NormalizedTimeEnd": {
+            "IsDynamic": false,
+            "FixedValue": {
+              "Value": 1
+            }
+          }
+        },
+        {
+          "$type": "RPG.GameCore.SyncCharLightAndCameraDir",
+          "IsSync": false
+        }
+      ]
+    },
+    {
+      "Name": "Avatar_PlayerBoy_20_Skill02_Phase02",
+      "TargetInfo": {
+        "TargetType": "SkillTargetEntityList"
+      },
+      "OnStart": [
+        {
+          "$type": "RPG.GameCore.WaitAnimState",
+          "TargetType": {
+            "$type": "RPG.GameCore.TargetAlias",
+            "Alias": "Caster"
+          },
+          "AnimStateName": "Skill02",
+          "NormalizedTimeEnd": {
+            "IsDynamic": false,
+            "FixedValue": {
+              "Value": 0.31000000028871
+            }
+          }
+        },
+        {
+          "$type": "RPG.GameCore.RadialBlurEffect",
+          "TargetType": {
+            "$type": "RPG.GameCore.TargetAlias",
+            "Alias": "Caster"
+          },
+          "Duration": 0.08,
+          "BlurX": 0.4,
+          "BlurRadius": 1,
+          "Iteration": 4,
+          "BlurStart": 0.005,
+          "BlurFeather": 0.01
+        },
+        {
+          "$type": "RPG.GameCore.TargetTimeSlow",
+          "TargetType": {
+            "$type": "RPG.GameCore.TargetAlias",
+            "Alias": "Caster"
+          },
+          "TimeScale": 0.5,
+          "UnscaledDuration": 0.3
+        },
+        {
+          "$type": "RPG.GameCore.TriggerEffect",
+          "TargetType": {
+            "$type": "RPG.GameCore.TargetAlias",
+            "Alias": "AbilityTargetEntity"
+          },
+          "EffectPath": "Effects/Eff_Prefab/Eff_Avatar/Eff_Asta/Eff_Avatar_Asta_00_Skill02_Hit01.prefab",
+          "AttachPoint": "Origin"
+        },
+        {
+          "$type": "RPG.GameCore.WaitSecond",
+          "WaitTime": 0.13
+        },
+        {
+          "$type": "RPG.GameCore.DamageByAttackProperty",
+          "TargetType": {
+            "$type": "RPG.GameCore.TargetAlias",
+            "Alias": "AbilityTargetEntity"
+          },
+          "AttackProperty": {
+            "DamageType": "Imaginary",
+            "DamagePercentage": {
+              "IsDynamic": true,
+              "PostfixExpr": {
+                "OpCodes": "AQAK",
+                "FixedValues": [],
+                "DynamicHashes": [
+                  -1847083384
+                ]
+              }
+            },
+            "StanceValue": {
+              "IsDynamic": true,
+              "PostfixExpr": {
+                "OpCodes": "AQAK",
+                "FixedValues": [],
+                "DynamicHashes": [
+                  1659254037
+                ]
+              }
+            },
+            "SPHitRatio": {
+              "IsDynamic": false,
+              "FixedValue": {
+                "Value": 1
+              }
+            },
+            "HitAnimation": "Hit",
+            "HitTimeSlowIntensity": "Middle"
+          },
+          "CanTriggerLastKill": true,
+          "DisplayData": {
+            "UIMessageHeight": 0.8,
+            "DitherRangeX": 0.01,
+            "DitherRangeY": 0.02
+          }
+        },
+        {
+          "$type": "RPG.GameCore.VCameraConfigChange",
+          "CameraConfig": {
+            "ShakeConfigV2": {
+              "ShakeRange": 0.1,
+              "ShakeTime": 0.06,
+              "ShakeDir": {
+                "X": 0.07,
+                "Y": 0,
+                "Z": 0.07
+              },
+              "BaseCycle": 0.07,
+              "CycleDamping": 0,
+              "RangeAttenuation": 0.95
+            }
+          }
+        },
+        {
+          "$type": "RPG.GameCore.LoopExecuteTaskList",
+          "MaxLoopCount": {
+            "IsDynamic": false,
+            "FixedValue": {
+              "Value": 4
+            }
+          },
+          "TaskList": [
+            {
+              "$type": "RPG.GameCore.Retarget",
+              "TargetType": {
+                "$type": "RPG.GameCore.TargetAlias",
+                "Alias": "AllEnemy"
+              },
+              "Predicate": {
+                "$type": "RPG.GameCore.ByAny",
+                "PredicateList": [
+                  {
+                    "$type": "RPG.GameCore.ByHaveEnemyAlive",
+                    "TargetType": {
+                      "$type": "RPG.GameCore.TargetAlias",
+                      "Alias": "Caster"
+                    },
+                    "Inverse": true
+                  },
+                  {
+                    "$type": "RPG.GameCore.ByCompareHP",
+                    "TargetType": {
+                      "$type": "RPG.GameCore.TargetAlias",
+                      "Alias": "ParamEntity"
+                    },
+                    "CompareType": "Greater",
+                    "CompareValue": {
+                      "IsDynamic": false,
+                      "FixedValue": {
+                        "Value": 0
+                      }
+                    }
+                  }
+                ]
+              },
+              "IncludeLimbo": true,
+              "MaxNumber": {
+                "IsDynamic": false,
+                "FixedValue": {
+                  "Value": 1
+                }
+              },
+              "TaskList": [
+                {
+                  "$type": "RPG.GameCore.TriggerEffect",
+                  "TargetType": {
+                    "$type": "RPG.GameCore.TargetAlias",
+                    "Alias": "ParamEntity"
+                  },
+                  "EffectPath": "Effects/Eff_Prefab/Eff_Avatar/Eff_Asta/Eff_Avatar_Asta_00_Skill02_Hit01.prefab",
+                  "AttachPoint": "Origin"
+                },
+                {
+                  "$type": "RPG.GameCore.WaitSecond",
+                  "WaitTime": 0.2
+                },
+                {
+                  "$type": "RPG.GameCore.VCameraConfigChange",
+                  "CameraConfig": {
+                    "ShakeConfigV2": {
+                      "ShakeRange": 0.1,
+                      "ShakeTime": 0.06,
+                      "ShakeDir": {
+                        "X": 0.07,
+                        "Y": 0,
+                        "Z": 0.07
+                      },
+                      "BaseCycle": 0.07,
+                      "CycleDamping": 0,
+                      "RangeAttenuation": 0.95
+                    }
+                  }
+                },
+                {
+                  "$type": "RPG.GameCore.DamageByAttackProperty",
+                  "TargetType": {
+                    "$type": "RPG.GameCore.TargetAlias",
+                    "Alias": "ParamEntity"
+                  },
+                  "AttackProperty": {
+                    "DamageType": "Imaginary",
+                    "DamagePercentage": {
+                      "IsDynamic": true,
+                      "PostfixExpr": {
+                        "OpCodes": "AQAK",
+                        "FixedValues": [],
+                        "DynamicHashes": [
+                          -1847083384
+                        ]
+                      }
+                    },
+                    "StanceValue": {
+                      "IsDynamic": true,
+                      "PostfixExpr": {
+                        "OpCodes": "AQAAAAQK",
+                        "FixedValues": [
+                          {
+                            "Value": 0.5000000004656613
+                          }
+                        ],
+                        "DynamicHashes": [
+                          1659254037
+                        ]
+                      }
+                    },
+                    "SPHitRatio": {
+                      "IsDynamic": false,
+                      "FixedValue": {
+                        "Value": 1
+                      }
+                    },
+                    "HitAnimation": "Hit",
+                    "HitTimeSlowIntensity": "Middle"
+                  },
+                  "CanTriggerLastKill": true,
+                  "DisplayData": {
+                    "UIMessageHeight": 0.8,
+                    "DitherRangeX": 0.01,
+                    "DitherRangeY": 0.02
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "$type": "RPG.GameCore.DamagePerformFinish"
+        },
+        {
+          "$type": "RPG.GameCore.SkillPerformFinish"
+        }
+      ]
+    },
+    {
+      "Name": "Avatar_PlayerBoy_20_Skill03_EnterReady",
+      "TargetInfo": {
+        "TargetType": "Caster"
+      },
+      "OnStart": [
+        {
+          "$type": "RPG.GameCore.SyncCharLightAndCameraDir"
+        },
+        {
+          "$type": "RPG.GameCore.WaitSecond",
+          "WaitTime": 0.5
+        },
+        {
+          "$type": "RPG.GameCore.TriggerAnimState",
+          "TargetType": {
+            "$type": "RPG.GameCore.TargetAlias",
+            "Alias": "AllTeammate"
+          },
+          "AnimLogicState": "Idle",
+          "AnimStateName": "StandBy"
+        },
+        {
+          "$type": "RPG.GameCore.SetTeamFormation",
+          "Team": "TeamLight",
+          "CustomFormationName": "Bronya_00_Skill03_Ready"
+        },
+        {
+          "$type": "RPG.GameCore.VCameraConfigChange",
+          "CameraConfig": {
+            "NormalConfig": {
+              "CameraState": "UseSkillPerform",
+              "IsLocalOffset": true,
+              "AnchorOffset": {
+                "X": 0,
+                "Y": 0.5,
+                "Z": 0.2
+              },
+              "AimTargetType": {
+                "$type": "RPG.GameCore.TargetAlias",
+                "Alias": "Caster"
+              },
+              "AimOffset": {
+                "X": 0,
+                "Y": 1.5,
+                "Z": 0
+              },
+              "FollowPoleAngle": 20,
+              "FollowRadius": 3,
+              "FOV": 60
+            },
+            "BlendConfig": {
+              "BlendType": "Cut"
+            }
+          }
+        },
+        {
+          "$type": "RPG.GameCore.WaitSecond",
+          "WaitTime": 0.6
+        },
+        {
+          "$type": "RPG.GameCore.VCameraConfigChange",
+          "CameraConfig": {
+            "NormalConfig": {
+              "CameraState": "UseSkillPerform",
+              "IsLocalOffset": true,
+              "AnchorOffset": {
+                "X": 1.4,
+                "Y": 0,
+                "Z": 0.4
+              },
+              "AimTargetType": {
+                "$type": "RPG.GameCore.TargetAlias",
+                "Alias": "Caster"
+              },
+              "AimOffset": {
+                "X": -0.1,
+                "Y": -0.3,
+                "Z": 0.2
+              },
+              "FollowPoleAngle": 90,
+              "FollowRadius": 1.7,
+              "FollowDamp": 0.8,
+              "AimDamp": 0.1,
+              "FOV": 45
+            },
+            "BlendConfig": {
+              "BlendType": "Custom",
+              "CustomCurveName": "Blend_UltraReady",
+              "BlendTime": 1.3
+            },
+            "ShowEntityConfig": {
+              "ShowTargetType": {
+                "$type": "RPG.GameCore.TargetAlias",
+                "Alias": "AllLightTeam"
+              }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "Name": "Avatar_PlayerBoy_20_Skill03_Phase01",
+      "TargetInfo": {
+        "TargetType": "AllTeamMember"
+      },
+      "OnStart": [
+        {
+          "$type": "RPG.GameCore.SyncCharLightAndCameraDir",
+          "IsSync": false
+        },
+        {
+          "$type": "RPG.GameCore.HideLevelStage",
+          "IsHide": true
+        },
+        {
+          "$type": "RPG.GameCore.TriggerAbility",
+          "TargetType": {
+            "$type": "RPG.GameCore.TargetAlias",
+            "Alias": "Caster"
+          },
+          "AbilityName": "Avatar_Bronya_00_Skill03_Camera",
+          "IsSkillPerform": true
+        },
+        {
+          "$type": "RPG.GameCore.TriggerAbility",
+          "TargetType": {
+            "$type": "RPG.GameCore.TargetAlias",
+            "Alias": "Caster"
+          },
+          "AbilityName": "Avatar_PlayerBoy_20_Skill03_Phase02"
+        },
+        {
+          "$type": "RPG.GameCore.ShowBattleUI"
+        },
+        {
+          "$type": "RPG.GameCore.TriggerAnimState",
+          "AnimStateName": "Skill03"
+        },
+        {
+          "$type": "RPG.GameCore.WaitAnimState",
+          "AnimStateName": "Skill03",
+          "NormalizedTimeEnd": {
+            "IsDynamic": false,
+            "FixedValue": {
+              "Value": 0.6500000006053597
+            }
+          }
+        },
+        {
+          "$type": "RPG.GameCore.SetTeamFormation",
+          "Team": "TeamLight",
+          "CustomFormationName": "Bronya_00_Skill03",
+          "CustomCenterTargetType": {
+            "$type": "RPG.GameCore.TargetAlias",
+            "Alias": "Caster"
+          }
+        },
+        {
+          "$type": "RPG.GameCore.WaitAnimState",
+          "AnimStateName": "Skill03",
+          "NormalizedTimeEnd": {
+            "IsDynamic": false,
+            "FixedValue": {
+              "Value": 0.7500000006984919
+            }
+          }
+        },
+        {
+          "$type": "RPG.GameCore.TriggerEffect",
+          "TargetType": {
+            "$type": "RPG.GameCore.TargetAlias",
+            "Alias": "AllTeammate"
+          },
+          "EffectPath": "Effects/Eff_Prefab/Eff_Avatar/Eff_Bronya/Eff_Avatar_Bronya_00_Skill03_Buff.prefab"
+        },
+        {
+          "$type": "RPG.GameCore.TriggerEffect",
+          "TargetType": {
+            "$type": "RPG.GameCore.TargetAlias",
+            "Alias": "Caster"
+          },
+          "EffectPath": "Effects/Eff_Prefab/Eff_Avatar/Eff_Bronya/Eff_Avatar_Bronya_00_Skill03_Buff_Self.prefab"
+        },
+        {
+          "$type": "RPG.GameCore.WaitAnimState",
+          "AnimStateName": "Skill03",
+          "NormalizedTimeEnd": {
+            "IsDynamic": false,
+            "FixedValue": {
+              "Value": 0.8000000007450581
+            }
+          }
+        },
+        {
+          "$type": "RPG.GameCore.WaitTimelineFinish",
+          "TimelineName": "Character_Bronya_00_Skill03_TimeLine"
+        },
+        {
+          "$type": "RPG.GameCore.WaitAnimState",
+          "AnimStateName": "Skill03",
+          "NormalizedTimeEnd": {
+            "IsDynamic": false,
+            "FixedValue": {
+              "Value": 0.9980000003706664
+            }
+          }
+        },
+        {
+          "$type": "RPG.GameCore.HideLevelStage"
+        },
+        {
+          "$type": "RPG.GameCore.ShowBattleUI",
+          "IsShow": true
+        }
+      ]
+    },
+    {
+      "Name": "Avatar_PlayerBoy_20_Skill03_Phase02",
+      "TargetInfo": {
+        "TargetType": "AllTeamMember"
+      },
+      "OnStart": [
+        {
+          "$type": "RPG.GameCore.WaitAnimState",
+          "TargetType": {
+            "$type": "RPG.GameCore.TargetAlias",
+            "Alias": "Caster"
+          },
+          "AnimStateName": "Skill03",
+          "NormalizedTimeEnd": {
+            "IsDynamic": false,
+            "FixedValue": {
+              "Value": 0.8000000007450581
+            }
+          }
+        },
+        {
+          "$type": "RPG.GameCore.TriggerEffect",
+          "TargetType": {
+            "$type": "RPG.GameCore.TargetAlias",
+            "Alias": "AllTeamCenter"
+          },
+          "Flags": [
+            "Field"
+          ],
+          "EffectPath": "Effects/Eff_Prefab/Eff_Avatar/Eff_Luocha/Eff_Avatar_Luocha_00_PassiveSkill_loop.prefab",
+          "MinMutexTime": -1,
+          "MinMutexType": "Entity"
+        },
+        {
+          "$type": "RPG.GameCore.AddModifier",
+          "TargetType": {
+            "$type": "RPG.GameCore.TargetAlias",
+            "Alias": "Caster"
+          },
+          "ModifierName": "MAvatar_PlayerBoy_20_SkillP01_ListenRedShieldModifier",
+          "LifeTime": {
+            "IsDynamic": true,
+            "PostfixExpr": {
+              "OpCodes": "AQAK",
+              "FixedValues": [],
+              "DynamicHashes": [
+                245746263
+              ]
+            }
+          }
+        },
+        {
+          "$type": "RPG.GameCore.AddModifier",
+          "TargetType": {
+            "$type": "RPG.GameCore.TargetAlias",
+            "Alias": "AllLightTeam"
+          },
+          "ModifierName": "MAvatar_PlayerBoy_20_SkillP01_ListenBreakDamage",
+          "DynamicValues": {
+            "MDF_RealMaxStance": {
+              "IsDynamic": false,
+              "FixedValue": {
+                "Value": 30
+              }
+            },
+            "MDF_PassiveDamage2": {
+              "IsDynamic": true,
+              "PostfixExpr": {
+                "OpCodes": "AQAK",
+                "FixedValues": [],
+                "DynamicHashes": [
+                  734867428
+                ]
+              }
+            }
+          }
+        },
+        {
+          "$type": "RPG.GameCore.SetDynamicValue",
+          "DynamicKey": "MDF_HarmonyEnergy",
+          "Value": {
+            "IsDynamic": true,
+            "PostfixExpr": {
+              "OpCodes": "AQAK",
+              "FixedValues": [],
+              "DynamicHashes": [
+                245746263
+              ]
+            }
+          }
+        },
+        {
+          "$type": "RPG.GameCore.SetEnergyBarState",
+          "Active": "True",
+          "BarType": 3,
+          "CurrentState": "Active",
+          "IconPath": "SpriteOutput/BuffIcon/Inlevel/Icon1207Passive.png",
+          "MaxCount": {
+            "IsDynamic": true,
+            "PostfixExpr": {
+              "OpCodes": "AQAK",
+              "FixedValues": [],
+              "DynamicHashes": [
+                245746263
+              ]
+            }
+          },
+          "CurrentCount": {
+            "IsDynamic": true,
+            "PostfixExpr": {
+              "OpCodes": "AQAK",
+              "FixedValues": [],
+              "DynamicHashes": [
+                831781838
+              ]
+            }
+          }
+        },
+        {
+          "$type": "RPG.GameCore.ModifySPNew",
+          "TargetType": {
+            "$type": "RPG.GameCore.TargetAlias",
+            "Alias": "Caster"
+          },
+          "AddRatio": {
+            "IsDynamic": false,
+            "FixedValue": {
+              "Value": 1
+            }
+          }
+        },
+        {
+          "$type": "RPG.GameCore.CharacterPlayVO",
+          "VOType": "ReceiveBuff",
+          "TargetType": {
+            "$type": "RPG.GameCore.TargetAlias",
+            "Alias": "AllTeamMember"
+          }
+        },
+        {
+          "$type": "RPG.GameCore.SkillPerformFinish"
+        }
+      ]
+    },
+    {
+      "Name": "Avatar_PlayerBoy_20_PassiveSkill_01",
+      "TargetInfo": {
+        "TargetType": "Caster"
+      },
+      "OnStart": [
+        {
+          "$type": "RPG.GameCore.PredicateTaskList",
+          "Predicate": {
+            "$type": "RPG.GameCore.BySkillPointActivated",
+            "PointTriggerKey": {
+              "Hash": 1455742903
+            }
+          },
+          "SuccessTaskList": [
+            {
+              "$type": "RPG.GameCore.AddModifier",
+              "TargetType": {
+                "$type": "RPG.GameCore.TargetAlias",
+                "Alias": "Caster"
+              },
+              "ModifierName": "MAvatar_PlayerBoy_20_PointB1_Buff"
+            }
+          ]
+        },
+        {
+          "$type": "RPG.GameCore.PredicateTaskList",
+          "Predicate": {
+            "$type": "RPG.GameCore.BySkillPointActivated",
+            "PointTriggerKey": {
+              "Hash": 1455742904
+            }
+          },
+          "SuccessTaskList": [
+            {
+              "$type": "RPG.GameCore.AddModifier",
+              "TargetType": {
+                "$type": "RPG.GameCore.TargetAlias",
+                "Alias": "Caster"
+              },
+              "ModifierName": "MAvatar_PlayerBoy_20_PointB2_Buff"
+            }
+          ]
+        },
+        {
+          "$type": "RPG.GameCore.PredicateTaskList",
+          "Predicate": {
+            "$type": "RPG.GameCore.BySkillPointActivated",
+            "PointTriggerKey": {
+              "Hash": 1455742905
+            }
+          },
+          "SuccessTaskList": [
+            {
+              "$type": "RPG.GameCore.AddModifier",
+              "TargetType": {
+                "$type": "RPG.GameCore.TargetAlias",
+                "Alias": "Caster"
+              },
+              "ModifierName": "MAvatar_PlayerBoy_20_PointB3_Buff",
+              "DynamicValues": {
+                "MDF_PropertyValue": {
+                  "IsDynamic": true,
+                  "PostfixExpr": {
+                    "OpCodes": "AQAK",
+                    "FixedValues": [],
+                    "DynamicHashes": [
+                      -704936013
+                    ]
+                  }
+                }
+              }
+            }
+          ]
+        },
+        {
+          "$type": "RPG.GameCore.SetEnergyBarState",
+          "Active": "True",
+          "BarType": 3,
+          "CurrentState": "Normal",
+          "IconPath": "SpriteOutput/BuffIcon/Inlevel/Icon1207Passive.png",
+          "MaxCount": {
+            "IsDynamic": true,
+            "PostfixExpr": {
+              "OpCodes": "AQAK",
+              "FixedValues": [],
+              "DynamicHashes": [
+                245746263
+              ]
+            }
+          },
+          "CurrentCount": {
+            "IsDynamic": false,
+            "FixedValue": {
+              "Value": 0
+            }
+          }
+        },
+        {
+          "$type": "RPG.GameCore.AddModifier",
+          "TargetType": {
+            "$type": "RPG.GameCore.TargetAlias",
+            "Alias": "Caster"
+          },
+          "ModifierName": "MAvatar_PlayerBoy_20_Passive_BuffArea"
+        }
+      ]
+    }
+  ],
+  "GlobalModifiers": {
+    "MAvatar_PlayerBoy_20_Skill02_ListenOtherUseSkillModifier": {},
+    "MAvatar_PlayerBoy_20_Skill02_Buff": {},
+    "MAvatar_PlayerBoy_20_Skill02_Mark": {
+      "_CallbackList": [
+        {
+          "Event": "OnBeingBreak",
+          "CallbackConfig": [
+            {
+              "$type": "RPG.GameCore.AddModifier",
+              "TargetType": {
+                "$type": "RPG.GameCore.TargetAlias",
+                "Alias": "ModifierOwnerEntity"
+              },
+              "ModifierName": "MCommon_Element_Confine",
+              "Chance": {
+                "IsDynamic": false,
+                "FixedValue": {
+                  "Value": 1.5000000004656613
+                }
+              },
+              "LifeTime": {
+                "IsDynamic": false,
+                "FixedValue": {
+                  "Value": 1
+                }
+              },
+              "DynamicValues": {
+                "MDF_ActionDelayRatio": {
+                  "IsDynamic": false,
+                  "FixedValue": {
+                    "Value": 0.3000000002793968
+                  }
+                },
+                "MDF_SpeedDownRatio": {
+                  "IsDynamic": false,
+                  "FixedValue": {
+                    "Value": 0.10000000009313226
+                  }
+                }
+              }
+            }
+          ]
+        }
+      ],
+      "Stacking": "ReplaceByCaster"
+    },
+    "MAvatar_PlayerBoy_20_PointB1_Buff": {
+      "_CallbackList": [
+        {
+          "Event": "OnDestroy",
+          "CallbackConfig": [
+            {
+              "$type": "RPG.GameCore.RemoveModifier",
+              "TargetType": {
+                "$type": "RPG.GameCore.TargetAlias",
+                "Alias": "AllLightTeam"
+              },
+              "ModifierName": "MAvatar_PlayerBoy_20_PointB1_BreakDamageBuff"
+            }
+          ]
+        },
+        {
+          "Event": "OnBeforeDying",
+          "CallbackConfig": [
+            {
+              "$type": "RPG.GameCore.RemoveModifier",
+              "TargetType": {
+                "$type": "RPG.GameCore.TargetAlias",
+                "Alias": "AllLightTeam"
+              },
+              "ModifierName": "MAvatar_PlayerBoy_20_PointB1_BreakDamageBuff"
+            }
+          ]
+        },
+        {
+          "Event": "OnEnterBattle",
+          "CallbackConfig": [
+            {
+              "$type": "RPG.GameCore.SetDynamicValueByProperty",
+              "DynamicKey": "MDF_BreakDamageBase",
+              "ReadTargetType": {
+                "$type": "RPG.GameCore.TargetAlias",
+                "Alias": "Caster"
+              },
+              "Value": "BreakDamageAddedRatioBase"
+            },
+            {
+              "$type": "RPG.GameCore.SetDynamicValue",
+              "DynamicKey": "MDF_BreakDamageAdd",
+              "Value": {
+                "IsDynamic": true,
+                "PostfixExpr": {
+                  "OpCodes": "AQABAQQBAgIK",
+                  "FixedValues": [],
+                  "DynamicHashes": [
+                    1352923805,
+                    357008265,
+                    1494095301
+                  ]
+                }
+              }
+            },
+            {
+              "$type": "RPG.GameCore.AddModifier",
+              "TargetType": {
+                "$type": "RPG.GameCore.TargetAlias",
+                "Alias": "AllTeammate"
+              },
+              "ModifierName": "MAvatar_PlayerBoy_20_PointB1_BreakDamageBuff",
+              "DynamicValues": {
+                "MDF_AddBreakDamageRatio": {
+                  "IsDynamic": true,
+                  "PostfixExpr": {
+                    "OpCodes": "AQAK",
+                    "FixedValues": [],
+                    "DynamicHashes": [
+                      -744887263
+                    ]
+                  }
+                }
+              }
+            }
+          ]
+        }
+      ],
+      "Stacking": "ReplaceByCaster"
+    },
+    "MAvatar_PlayerBoy_20_PointB1_BreakDamageBuff": {
+      "_CallbackList": [
+        {
+          "Event": "OnStack",
+          "CallbackConfig": [
+            {
+              "$type": "RPG.GameCore.StackProperty",
+              "TargetType": {
+                "$type": "RPG.GameCore.TargetAlias",
+                "Alias": "ModifierOwnerEntity"
+              },
+              "Property": "BreakDamageAddedRatioConvert",
+              "PropertyValue": {
+                "IsDynamic": true,
+                "PostfixExpr": {
+                  "OpCodes": "AQAK",
+                  "FixedValues": [],
+                  "DynamicHashes": [
+                    -744887263
+                  ]
+                }
+              }
+            }
+          ]
+        }
+      ],
+      "Stacking": "Replace"
+    },
+    "MAvatar_PlayerBoy_20_SkillP01_ListenRedShieldModifier": {
+      "BehaviorFlagList": [
+        "RemoveWhenCasterDead"
+      ],
+      "_CallbackList": [
+        {
+          "Event": "OnDestroy",
+          "CallbackConfig": [
+            {
+              "$type": "RPG.GameCore.SetEnergyBarState",
+              "Active": "True",
+              "BarType": 3,
+              "CurrentState": "Normal",
+              "IconPath": "SpriteOutput/BuffIcon/Inlevel/Icon1207Passive.png",
+              "MaxCount": {
+                "IsDynamic": true,
+                "PostfixExpr": {
+                  "OpCodes": "AQAK",
+                  "FixedValues": [],
+                  "DynamicHashes": [
+                    245746263
+                  ]
+                }
+              },
+              "CurrentCount": {
+                "IsDynamic": false,
+                "FixedValue": {
+                  "Value": 0
+                }
+              }
+            },
+            {
+              "$type": "RPG.GameCore.RemoveModifier",
+              "TargetType": {
+                "$type": "RPG.GameCore.TargetAlias",
+                "Alias": "AllDarkTeam"
+              },
+              "ModifierName": "MAvatar_PlayerBoy_20_SkillP01_RedShieldPreModifier"
+            },
+            {
+              "$type": "RPG.GameCore.RemoveModifier",
+              "TargetType": {
+                "$type": "RPG.GameCore.TargetAlias",
+                "Alias": "AllLightTeam"
+              },
+              "ModifierName": "MAvatar_PlayerBoy_20_SkillP01_ListenBreakDamage"
+            },
+            {
+              "$type": "RPG.GameCore.RemoveEffect",
+              "TargetType": {
+                "$type": "RPG.GameCore.TargetAlias",
+                "Alias": "AllTeamCenter"
+              },
+              "EffectPath": "Effects/Eff_Prefab/Eff_Avatar/Eff_Luocha/Eff_Avatar_Luocha_00_PassiveSkill_loop.prefab"
+            },
+            {
+              "$type": "RPG.GameCore.TriggerEffect",
+              "TargetType": {
+                "$type": "RPG.GameCore.TargetAlias",
+                "Alias": "AllTeamCenter"
+              },
+              "EffectPath": "Effects/Eff_Prefab/Eff_Avatar/Eff_Luocha/Eff_Avatar_Luocha_00_PassiveSkill_disappear.prefab"
+            }
+          ]
+        },
+        {
+          "Event": "OnListenTurnEnd",
+          "CallbackConfig": [
+            {
+              "$type": "RPG.GameCore.SetDynamicValueByModifierValue",
+              "ReadTargetType": {
+                "$type": "RPG.GameCore.TargetAlias",
+                "Alias": "ModifierOwnerEntity"
+              },
+              "ModifierName": "MAvatar_PlayerBoy_20_SkillP01_ListenRedShieldModifier",
+              "ValueType": "LifeTime",
+              "Multiplier": {
+                "IsDynamic": false,
+                "FixedValue": {
+                  "Value": 1
+                }
+              },
+              "DynamicKey": "MDF_HarmonyEnergy"
+            },
+            {
+              "$type": "RPG.GameCore.SetEnergyBarState",
+              "Active": "True",
+              "BarType": 3,
+              "CurrentState": "Active",
+              "IconPath": "SpriteOutput/BuffIcon/Inlevel/Icon1207Passive.png",
+              "MaxCount": {
+                "IsDynamic": true,
+                "PostfixExpr": {
+                  "OpCodes": "AQAK",
+                  "FixedValues": [],
+                  "DynamicHashes": [
+                    245746263
+                  ]
+                }
+              },
+              "CurrentCount": {
+                "IsDynamic": true,
+                "PostfixExpr": {
+                  "OpCodes": "AQAK",
+                  "FixedValues": [],
+                  "DynamicHashes": [
+                    831781838
+                  ]
+                }
+              }
+            }
+          ]
+        },
+        {
+          "Event": "OnStack",
+          "CallbackConfig": [
+            {
+              "$type": "RPG.GameCore.AddModifier",
+              "TargetType": {
+                "$type": "RPG.GameCore.TargetAlias",
+                "Alias": "AllDarkTeam"
+              },
+              "ModifierName": "MAvatar_PlayerBoy_20_SkillP01_RedShieldPreModifier",
+              "DynamicValues": {
+                "MDF_PassiveDamage": {
+                  "IsDynamic": true,
+                  "PostfixExpr": {
+                    "OpCodes": "AQAK",
+                    "FixedValues": [],
+                    "DynamicHashes": [
+                      734867428
+                    ]
+                  }
+                }
+              }
+            }
+          ]
+        },
+        {
+          "Event": "OnListenCharacterCreate",
+          "CallbackConfig": [
+            {
+              "$type": "RPG.GameCore.PredicateTaskList",
+              "Predicate": {
+                "$type": "RPG.GameCore.ByTargetTeam",
+                "TargetType": {
+                  "$type": "RPG.GameCore.TargetAlias",
+                  "Alias": "ParamEntity"
+                },
+                "Team": "TeamDark"
+              },
+              "SuccessTaskList": [
+                {
+                  "$type": "RPG.GameCore.AddModifier",
+                  "TargetType": {
+                    "$type": "RPG.GameCore.TargetAlias",
+                    "Alias": "ParamEntity"
+                  },
+                  "ModifierName": "MAvatar_PlayerBoy_20_SkillP01_RedShieldPreModifier",
+                  "DynamicValues": {
+                    "MDF_PassiveDamage": {
+                      "IsDynamic": true,
+                      "PostfixExpr": {
+                        "OpCodes": "AQAK",
+                        "FixedValues": [],
+                        "DynamicHashes": [
+                          734867428
+                        ]
+                      }
+                    }
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "Stacking": "Replace",
+      "DynamicValues": {
+        "Values": {
+          "991190183": {}
+        }
+      }
+    },
+    "MAvatar_PlayerBoy_20_SkillP01_ListenBreakDamage": {
+      "BehaviorFlagList": [
+        "RemoveWhenCasterDead"
+      ],
+      "_CallbackList": [
+        {
+          "Event": "OnBeforeAttack",
+          "CallbackConfig": [
+            {
+              "$type": "RPG.GameCore.SetDynamicValueByBreakBaseDamage",
+              "DynamicKey": "MDF_Damage",
+              "ContextScope": "ContextModifier",
+              "ReadTargetType": {
+                "$type": "RPG.GameCore.TargetAlias",
+                "Alias": "ModifierOwnerEntity"
+              }
+            },
+            {
+              "$type": "RPG.GameCore.SetDynamicValue",
+              "DynamicKey": "MDF_TotalStanceDamage",
+              "ContextScope": "ContextCater",
+              "Value": {
+                "IsDynamic": false,
+                "FixedValue": {
+                  "Value": 0
+                }
+              }
+            },
+            {
+              "$type": "RPG.GameCore.SetDynamicValueByProperty",
+              "DynamicKey": "MDF_BreakDamageAddedRatio",
+              "ReadTargetType": {
+                "$type": "RPG.GameCore.TargetAlias",
+                "Alias": "ModifierOwnerEntity"
+              },
+              "Value": "BreakDamageAddedRatio"
+            }
+          ]
+        },
+        {
+          "Event": "OnAfterAttack",
+          "CallbackConfig": [
+            {
+              "$type": "RPG.GameCore.AddModifier",
+              "TargetType": {
+                "$type": "RPG.GameCore.TargetAlias",
+                "Alias": "ModifierOwnerEntity"
+              },
+              "ModifierName": "MAvatar_PlayerBoy_20_Skill03_ElementDamage",
+              "DynamicValues": {
+                "MDF_BreakDamageAddedRatio2": {
+                  "IsDynamic": true,
+                  "PostfixExpr": {
+                    "OpCodes": "AQAK",
+                    "FixedValues": [],
+                    "DynamicHashes": [
+                      -1046855615
+                    ]
+                  }
+                },
+                "MDF_PassiveDamage3": {
+                  "IsDynamic": true,
+                  "PostfixExpr": {
+                    "OpCodes": "AQAK",
+                    "FixedValues": [],
+                    "DynamicHashes": [
+                      -1675547166
+                    ]
+                  }
+                },
+                "MDF_Damage2": {
+                  "IsDynamic": true,
+                  "PostfixExpr": {
+                    "OpCodes": "AQAK",
+                    "FixedValues": [],
+                    "DynamicHashes": [
+                      991190183
+                    ]
+                  }
+                },
+                "MDF_TotalStanceDamage2": {
+                  "IsDynamic": true,
+                  "PostfixExpr": {
+                    "OpCodes": "AQAK",
+                    "FixedValues": [],
+                    "DynamicHashes": [
+                      2124587683
+                    ]
+                  }
+                }
+              },
+              "InheritCaster": "TargetSelf"
+            }
+          ]
+        }
+      ],
+      "Stacking": "ReplaceByCaster",
+      "DynamicValues": {
+        "Values": {
+          "-1046855615": {},
+          "991190183": {},
+          "1596048623": {},
+          "1843395898": {},
+          "-276098552": {},
+          "-1675547166": {}
+        }
+      }
+    },
+    "MAvatar_PlayerBoy_20_Skill03_ElementDamage": {
+      "_CallbackList": [
+        {
+          "Event": "OnStack",
+          "CallbackConfig": [
+            {
+              "$type": "RPG.GameCore.Retarget",
+              "TargetType": {
+                "$type": "RPG.GameCore.TargetAlias",
+                "Alias": "AttackTargetList"
+              },
+              "Predicate": {
+                "$type": "RPG.GameCore.ByContainBehaviorFlag",
+                "TargetType": {
+                  "$type": "RPG.GameCore.TargetAlias",
+                  "Alias": "ParamEntity"
+                },
+                "Flag": "RedStance"
+              },
+              "MaxNumber": {
+                "IsDynamic": false,
+                "FixedValue": {
+                  "Value": 5
+                }
+              },
+              "TaskList": [
+                {
+                  "$type": "RPG.GameCore.PredicateTaskList",
+                  "Predicate": {
+                    "$type": "RPG.GameCore.ByCharacterDamageType",
+                    "TargetType": {
+                      "$type": "RPG.GameCore.TargetAlias",
+                      "Alias": "ModifierOwnerEntity"
+                    },
+                    "DamageType": "Ice"
+                  },
+                  "SuccessTaskList": [
+                    {
+                      "$type": "RPG.GameCore.PredicateTaskList",
+                      "Predicate": {
+                        "$type": "RPG.GameCore.ByIsContainModifier",
+                        "TargetType": {
+                          "$type": "RPG.GameCore.TargetAlias",
+                          "Alias": "ModifierOwnerEntity"
+                        },
+                        "ModifierName": "StageAbility_MazeCommon_EnterBattle_StanceBreakModifier"
+                      },
+                      "SuccessTaskList": [
+                        {
+                          "$type": "RPG.GameCore.RemoveModifier",
+                          "TargetType": {
+                            "$type": "RPG.GameCore.TargetAlias",
+                            "Alias": "ModifierOwnerEntity"
+                          },
+                          "ModifierName": "StageAbility_MazeCommon_EnterBattle_StanceBreakModifier"
+                        }
+                      ],
+                      "FailedTaskList": [
+                        {
+                          "$type": "RPG.GameCore.TriggerEffect",
+                          "TargetType": {
+                            "$type": "RPG.GameCore.TargetAlias",
+                            "Alias": "ParamEntity"
+                          },
+                          "EffectPath": "Effects/Eff_Prefab/Eff_Common/Eff_StanceBreak_Common_Ice.prefab"
+                        }
+                      ]
+                    },
+                    {
+                      "$type": "RPG.GameCore.DamageByAttackProperty",
+                      "TargetType": {
+                        "$type": "RPG.GameCore.TargetAlias",
+                        "Alias": "ParamEntity"
+                      },
+                      "AttackProperty": {
+                        "DamageType": "Ice",
+                        "DamageValue": {
+                          "IsDynamic": true,
+                          "PostfixExpr": {
+                            "OpCodes": "AQABAQQBAgEDBQQAAAEEAgQK",
+                            "FixedValues": [
+                              {
+                                "Value": 1
+                              }
+                            ],
+                            "DynamicHashes": [
+                              -109463225,
+                              -832434983,
+                              639597289,
+                              1843395898,
+                              -195741017
+                            ]
+                          }
+                        },
+                        "AttackType": "ElementDamage",
+                        "FinalFormulaType": "ByPureDamage"
+                      },
+                      "CanTriggerLastKill": true,
+                      "DisplayData": {
+                        "DitherRangeX": 0,
+                        "DitherRangeY": 0,
+                        "AttachPoint": "SelectRoot",
+                        "AdditionalDisplay": {
+                          "UIMessageHeight": {
+                            "IsDynamic": false,
+                            "FixedValue": {
+                              "Value": 0.7500000006984919
+                            }
+                          },
+                          "DitherRangeX": {
+                            "IsDynamic": false,
+                            "FixedValue": {
+                              "Value": 0.05000000004656613
+                            }
+                          },
+                          "DitherRangeY": {
+                            "IsDynamic": false,
+                            "FixedValue": {
+                              "Value": 0.10000000009313226
+                            }
+                          }
+                        }
+                      }
+                    }
+                  ]
+                },
+                {
+                  "$type": "RPG.GameCore.PredicateTaskList",
+                  "Predicate": {
+                    "$type": "RPG.GameCore.ByCharacterDamageType",
+                    "TargetType": {
+                      "$type": "RPG.GameCore.TargetAlias",
+                      "Alias": "ModifierOwnerEntity"
+                    },
+                    "DamageType": "Physical"
+                  },
+                  "SuccessTaskList": [
+                    {
+                      "$type": "RPG.GameCore.TriggerEffect",
+                      "TargetType": {
+                        "$type": "RPG.GameCore.TargetAlias",
+                        "Alias": "ParamEntity"
+                      },
+                      "EffectPath": "Effects/Eff_Prefab/Eff_Common/Eff_StanceBreak_Common_Physical.prefab"
+                    },
+                    {
+                      "$type": "RPG.GameCore.DamageByAttackProperty",
+                      "TargetType": {
+                        "$type": "RPG.GameCore.TargetAlias",
+                        "Alias": "ParamEntity"
+                      },
+                      "AttackProperty": {
+                        "DamageValue": {
+                          "IsDynamic": true,
+                          "PostfixExpr": {
+                            "OpCodes": "AQABAQQBAgEDBQQAAAEEAgQK",
+                            "FixedValues": [
+                              {
+                                "Value": 1
+                              }
+                            ],
+                            "DynamicHashes": [
+                              -109463225,
+                              -832434983,
+                              639597289,
+                              1843395898,
+                              -195741017
+                            ]
+                          }
+                        },
+                        "AttackType": "ElementDamage",
+                        "FinalFormulaType": "ByPureDamage"
+                      },
+                      "CanTriggerLastKill": true,
+                      "DisplayData": {
+                        "DitherRangeX": 0,
+                        "DitherRangeY": 0,
+                        "AttachPoint": "SelectRoot",
+                        "AdditionalDisplay": {
+                          "UIMessageHeight": {
+                            "IsDynamic": false,
+                            "FixedValue": {
+                              "Value": 0.7500000006984919
+                            }
+                          },
+                          "DitherRangeX": {
+                            "IsDynamic": false,
+                            "FixedValue": {
+                              "Value": 0.05000000004656613
+                            }
+                          },
+                          "DitherRangeY": {
+                            "IsDynamic": false,
+                            "FixedValue": {
+                              "Value": 0.10000000009313226
+                            }
+                          }
+                        }
+                      }
+                    }
+                  ]
+                },
+                {
+                  "$type": "RPG.GameCore.PredicateTaskList",
+                  "Predicate": {
+                    "$type": "RPG.GameCore.ByCharacterDamageType",
+                    "TargetType": {
+                      "$type": "RPG.GameCore.TargetAlias",
+                      "Alias": "ModifierOwnerEntity"
+                    },
+                    "DamageType": "Fire"
+                  },
+                  "SuccessTaskList": [
+                    {
+                      "$type": "RPG.GameCore.TriggerEffect",
+                      "TargetType": {
+                        "$type": "RPG.GameCore.TargetAlias",
+                        "Alias": "ParamEntity"
+                      },
+                      "EffectPath": "Effects/Eff_Prefab/Eff_Common/Eff_StanceBreak_Common_Fire.prefab"
+                    },
+                    {
+                      "$type": "RPG.GameCore.DamageByAttackProperty",
+                      "TargetType": {
+                        "$type": "RPG.GameCore.TargetAlias",
+                        "Alias": "ParamEntity"
+                      },
+                      "AttackProperty": {
+                        "DamageType": "Fire",
+                        "DamageValue": {
+                          "IsDynamic": true,
+                          "PostfixExpr": {
+                            "OpCodes": "AQABAQQBAgEDBQQAAAEEAgQK",
+                            "FixedValues": [
+                              {
+                                "Value": 1
+                              }
+                            ],
+                            "DynamicHashes": [
+                              -109463225,
+                              -832434983,
+                              639597289,
+                              1843395898,
+                              -195741017
+                            ]
+                          }
+                        },
+                        "AttackType": "ElementDamage",
+                        "FinalFormulaType": "ByPureDamage"
+                      },
+                      "CanTriggerLastKill": true,
+                      "DisplayData": {
+                        "DitherRangeX": 0,
+                        "DitherRangeY": 0,
+                        "AttachPoint": "SelectRoot",
+                        "AdditionalDisplay": {
+                          "UIMessageHeight": {
+                            "IsDynamic": false,
+                            "FixedValue": {
+                              "Value": 0.7500000006984919
+                            }
+                          },
+                          "DitherRangeX": {
+                            "IsDynamic": false,
+                            "FixedValue": {
+                              "Value": 0.05000000004656613
+                            }
+                          },
+                          "DitherRangeY": {
+                            "IsDynamic": false,
+                            "FixedValue": {
+                              "Value": 0.10000000009313226
+                            }
+                          }
+                        }
+                      }
+                    }
+                  ]
+                },
+                {
+                  "$type": "RPG.GameCore.PredicateTaskList",
+                  "Predicate": {
+                    "$type": "RPG.GameCore.ByCharacterDamageType",
+                    "TargetType": {
+                      "$type": "RPG.GameCore.TargetAlias",
+                      "Alias": "ModifierOwnerEntity"
+                    },
+                    "DamageType": "Wind"
+                  },
+                  "SuccessTaskList": [
+                    {
+                      "$type": "RPG.GameCore.TriggerEffect",
+                      "TargetType": {
+                        "$type": "RPG.GameCore.TargetAlias",
+                        "Alias": "ParamEntity"
+                      },
+                      "EffectPath": "Effects/Eff_Prefab/Eff_Common/Eff_StanceBreak_Common_Wind.prefab"
+                    },
+                    {
+                      "$type": "RPG.GameCore.DamageByAttackProperty",
+                      "TargetType": {
+                        "$type": "RPG.GameCore.TargetAlias",
+                        "Alias": "ParamEntity"
+                      },
+                      "AttackProperty": {
+                        "DamageType": "Wind",
+                        "DamageValue": {
+                          "IsDynamic": true,
+                          "PostfixExpr": {
+                            "OpCodes": "AQABAQQBAgEDBQQAAAEEAgQK",
+                            "FixedValues": [
+                              {
+                                "Value": 1
+                              }
+                            ],
+                            "DynamicHashes": [
+                              -109463225,
+                              -832434983,
+                              639597289,
+                              1843395898,
+                              -195741017
+                            ]
+                          }
+                        },
+                        "AttackType": "ElementDamage",
+                        "FinalFormulaType": "ByPureDamage"
+                      },
+                      "CanTriggerLastKill": true,
+                      "DisplayData": {
+                        "DitherRangeX": 0,
+                        "DitherRangeY": 0,
+                        "AttachPoint": "SelectRoot",
+                        "AdditionalDisplay": {
+                          "UIMessageHeight": {
+                            "IsDynamic": false,
+                            "FixedValue": {
+                              "Value": 0.7500000006984919
+                            }
+                          },
+                          "DitherRangeX": {
+                            "IsDynamic": false,
+                            "FixedValue": {
+                              "Value": 0.05000000004656613
+                            }
+                          },
+                          "DitherRangeY": {
+                            "IsDynamic": false,
+                            "FixedValue": {
+                              "Value": 0.10000000009313226
+                            }
+                          }
+                        }
+                      }
+                    }
+                  ]
+                },
+                {
+                  "$type": "RPG.GameCore.PredicateTaskList",
+                  "Predicate": {
+                    "$type": "RPG.GameCore.ByCharacterDamageType",
+                    "TargetType": {
+                      "$type": "RPG.GameCore.TargetAlias",
+                      "Alias": "ModifierOwnerEntity"
+                    },
+                    "DamageType": "Thunder"
+                  },
+                  "SuccessTaskList": [
+                    {
+                      "$type": "RPG.GameCore.PredicateTaskList",
+                      "Predicate": {
+                        "$type": "RPG.GameCore.ByIsContainModifier",
+                        "TargetType": {
+                          "$type": "RPG.GameCore.TargetAlias",
+                          "Alias": "ModifierOwnerEntity"
+                        },
+                        "ModifierName": "StageAbility_MazeCommon_EnterBattle_StanceBreakModifier"
+                      },
+                      "SuccessTaskList": [
+                        {
+                          "$type": "RPG.GameCore.RemoveModifier",
+                          "TargetType": {
+                            "$type": "RPG.GameCore.TargetAlias",
+                            "Alias": "ModifierOwnerEntity"
+                          },
+                          "ModifierName": "StageAbility_MazeCommon_EnterBattle_StanceBreakModifier"
+                        }
+                      ],
+                      "FailedTaskList": [
+                        {
+                          "$type": "RPG.GameCore.TriggerEffect",
+                          "TargetType": {
+                            "$type": "RPG.GameCore.TargetAlias",
+                            "Alias": "ParamEntity"
+                          },
+                          "EffectPath": "Effects/Eff_Prefab/Eff_Common/Eff_StanceBreak_Common_Thunder.prefab"
+                        }
+                      ]
+                    },
+                    {
+                      "$type": "RPG.GameCore.DamageByAttackProperty",
+                      "TargetType": {
+                        "$type": "RPG.GameCore.TargetAlias",
+                        "Alias": "ParamEntity"
+                      },
+                      "AttackProperty": {
+                        "DamageType": "Thunder",
+                        "DamageValue": {
+                          "IsDynamic": true,
+                          "PostfixExpr": {
+                            "OpCodes": "AQABAQQBAgEDBQQAAAEEAgQK",
+                            "FixedValues": [
+                              {
+                                "Value": 1
+                              }
+                            ],
+                            "DynamicHashes": [
+                              -109463225,
+                              -832434983,
+                              639597289,
+                              1843395898,
+                              -195741017
+                            ]
+                          }
+                        },
+                        "AttackType": "ElementDamage",
+                        "FinalFormulaType": "ByPureDamage"
+                      },
+                      "CanTriggerLastKill": true,
+                      "DisplayData": {
+                        "DitherRangeX": 0,
+                        "DitherRangeY": 0,
+                        "AttachPoint": "SelectRoot",
+                        "AdditionalDisplay": {
+                          "UIMessageHeight": {
+                            "IsDynamic": false,
+                            "FixedValue": {
+                              "Value": 0.7500000006984919
+                            }
+                          },
+                          "DitherRangeX": {
+                            "IsDynamic": false,
+                            "FixedValue": {
+                              "Value": 0.05000000004656613
+                            }
+                          },
+                          "DitherRangeY": {
+                            "IsDynamic": false,
+                            "FixedValue": {
+                              "Value": 0.10000000009313226
+                            }
+                          }
+                        }
+                      }
+                    }
+                  ]
+                },
+                {
+                  "$type": "RPG.GameCore.PredicateTaskList",
+                  "Predicate": {
+                    "$type": "RPG.GameCore.ByCharacterDamageType",
+                    "TargetType": {
+                      "$type": "RPG.GameCore.TargetAlias",
+                      "Alias": "ModifierOwnerEntity"
+                    },
+                    "DamageType": "Quantum"
+                  },
+                  "SuccessTaskList": [
+                    {
+                      "$type": "RPG.GameCore.PredicateTaskList",
+                      "Predicate": {
+                        "$type": "RPG.GameCore.ByIsContainModifier",
+                        "TargetType": {
+                          "$type": "RPG.GameCore.TargetAlias",
+                          "Alias": "ModifierOwnerEntity"
+                        },
+                        "ModifierName": "StageAbility_MazeCommon_EnterBattle_StanceBreakModifier"
+                      },
+                      "SuccessTaskList": [
+                        {
+                          "$type": "RPG.GameCore.RemoveModifier",
+                          "TargetType": {
+                            "$type": "RPG.GameCore.TargetAlias",
+                            "Alias": "ModifierOwnerEntity"
+                          },
+                          "ModifierName": "StageAbility_MazeCommon_EnterBattle_StanceBreakModifier"
+                        }
+                      ],
+                      "FailedTaskList": [
+                        {
+                          "$type": "RPG.GameCore.TriggerEffect",
+                          "TargetType": {
+                            "$type": "RPG.GameCore.TargetAlias",
+                            "Alias": "ParamEntity"
+                          },
+                          "EffectPath": "Effects/Eff_Prefab/Eff_Common/Eff_StanceBreak_Common_Quantum.prefab"
+                        }
+                      ]
+                    },
+                    {
+                      "$type": "RPG.GameCore.DamageByAttackProperty",
+                      "TargetType": {
+                        "$type": "RPG.GameCore.TargetAlias",
+                        "Alias": "ParamEntity"
+                      },
+                      "AttackProperty": {
+                        "DamageType": "Quantum",
+                        "DamageValue": {
+                          "IsDynamic": true,
+                          "PostfixExpr": {
+                            "OpCodes": "AQABAQQBAgEDBQQAAAEEAgQK",
+                            "FixedValues": [
+                              {
+                                "Value": 1
+                              }
+                            ],
+                            "DynamicHashes": [
+                              -109463225,
+                              -832434983,
+                              639597289,
+                              1843395898,
+                              -195741017
+                            ]
+                          }
+                        },
+                        "AttackType": "ElementDamage",
+                        "FinalFormulaType": "ByPureDamage"
+                      },
+                      "CanTriggerLastKill": true,
+                      "DisplayData": {
+                        "DitherRangeX": 0,
+                        "DitherRangeY": 0,
+                        "AttachPoint": "SelectRoot",
+                        "AdditionalDisplay": {
+                          "UIMessageHeight": {
+                            "IsDynamic": false,
+                            "FixedValue": {
+                              "Value": 0.7500000006984919
+                            }
+                          },
+                          "DitherRangeX": {
+                            "IsDynamic": false,
+                            "FixedValue": {
+                              "Value": 0.05000000004656613
+                            }
+                          },
+                          "DitherRangeY": {
+                            "IsDynamic": false,
+                            "FixedValue": {
+                              "Value": 0.10000000009313226
+                            }
+                          }
+                        }
+                      }
+                    }
+                  ]
+                },
+                {
+                  "$type": "RPG.GameCore.PredicateTaskList",
+                  "Predicate": {
+                    "$type": "RPG.GameCore.ByCharacterDamageType",
+                    "TargetType": {
+                      "$type": "RPG.GameCore.TargetAlias",
+                      "Alias": "ModifierOwnerEntity"
+                    },
+                    "DamageType": "Imaginary"
+                  },
+                  "SuccessTaskList": [
+                    {
+                      "$type": "RPG.GameCore.PredicateTaskList",
+                      "Predicate": {
+                        "$type": "RPG.GameCore.ByIsContainModifier",
+                        "TargetType": {
+                          "$type": "RPG.GameCore.TargetAlias",
+                          "Alias": "ModifierOwnerEntity"
+                        },
+                        "ModifierName": "StageAbility_MazeCommon_EnterBattle_StanceBreakModifier"
+                      },
+                      "SuccessTaskList": [
+                        {
+                          "$type": "RPG.GameCore.RemoveModifier",
+                          "TargetType": {
+                            "$type": "RPG.GameCore.TargetAlias",
+                            "Alias": "ModifierOwnerEntity"
+                          },
+                          "ModifierName": "StageAbility_MazeCommon_EnterBattle_StanceBreakModifier"
+                        }
+                      ],
+                      "FailedTaskList": [
+                        {
+                          "$type": "RPG.GameCore.TriggerEffect",
+                          "TargetType": {
+                            "$type": "RPG.GameCore.TargetAlias",
+                            "Alias": "ParamEntity"
+                          },
+                          "EffectPath": "Effects/Eff_Prefab/Eff_Common/Eff_StanceBreak_Common_Imaginary.prefab"
+                        }
+                      ]
+                    },
+                    {
+                      "$type": "RPG.GameCore.DamageByAttackProperty",
+                      "TargetType": {
+                        "$type": "RPG.GameCore.TargetAlias",
+                        "Alias": "ParamEntity"
+                      },
+                      "AttackProperty": {
+                        "DamageType": "Imaginary",
+                        "DamageValue": {
+                          "IsDynamic": true,
+                          "PostfixExpr": {
+                            "OpCodes": "AQABAQQBAgEDBQQAAAEEAgQK",
+                            "FixedValues": [
+                              {
+                                "Value": 1
+                              }
+                            ],
+                            "DynamicHashes": [
+                              -109463225,
+                              -832434983,
+                              639597289,
+                              1843395898,
+                              -195741017
+                            ]
+                          }
+                        },
+                        "AttackType": "ElementDamage",
+                        "FinalFormulaType": "ByPureDamage"
+                      },
+                      "CanTriggerLastKill": true,
+                      "DisplayData": {
+                        "DitherRangeX": 0,
+                        "DitherRangeY": 0,
+                        "AttachPoint": "SelectRoot",
+                        "AdditionalDisplay": {
+                          "UIMessageHeight": {
+                            "IsDynamic": false,
+                            "FixedValue": {
+                              "Value": 0.7500000006984919
+                            }
+                          },
+                          "DitherRangeX": {
+                            "IsDynamic": false,
+                            "FixedValue": {
+                              "Value": 0.05000000004656613
+                            }
+                          },
+                          "DitherRangeY": {
+                            "IsDynamic": false,
+                            "FixedValue": {
+                              "Value": 0.10000000009313226
+                            }
+                          }
+                        }
+                      }
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "Stacking": "Replace",
+      "DynamicValues": {
+        "Values": {
+          "-195741017": {},
+          "-832434983": {},
+          "1596048623": {},
+          "1843395898": {},
+          "-276098552": {},
+          "639597289": {},
+          "-109463225": {}
+        }
+      }
+    },
+    "MAvatar_PlayerBoy_20_SkillP01_RedShieldPreModifier": {
+      "BehaviorFlagList": [
+        "RemoveWhenCasterDead"
+      ],
+      "_CallbackList": [
+        {
+          "Event": "OnCreate",
+          "CallbackConfig": []
+        },
+        {
+          "Event": "OnDestroy",
+          "CallbackConfig": [
+            {
+              "$type": "RPG.GameCore.RemoveModifier",
+              "TargetType": {
+                "$type": "RPG.GameCore.TargetAlias",
+                "Alias": "ModifierOwnerEntity"
+              },
+              "ModifierName": "MAvatar_PlayerBoy_20_SkillP01_FeverBreak"
+            }
+          ]
+        },
+        {
+          "Event": "OnStack",
+          "CallbackConfig": [
+            {
+              "$type": "RPG.GameCore.PredicateTaskList",
+              "Predicate": {
+                "$type": "RPG.GameCore.ByAnd",
+                "PredicateList": [
+                  {
+                    "$type": "RPG.GameCore.ByIsContainModifier",
+                    "TargetType": {
+                      "$type": "RPG.GameCore.TargetAlias",
+                      "Alias": "ModifierOwnerEntity"
+                    },
+                    "ModifierName": "MAvatar_PlayerBoy_20_SkillP01_FeverBreak",
+                    "Inverse": true
+                  },
+                  {
+                    "$type": "RPG.GameCore.ByContainBehaviorFlag",
+                    "TargetType": {
+                      "$type": "RPG.GameCore.TargetAlias",
+                      "Alias": "ModifierOwnerEntity"
+                    },
+                    "Flag": "Break"
+                  }
+                ]
+              },
+              "SuccessTaskList": [
+                {
+                  "$type": "RPG.GameCore.AddModifier",
+                  "TargetType": {
+                    "$type": "RPG.GameCore.TargetAlias",
+                    "Alias": "ModifierOwnerEntity"
+                  },
+                  "ModifierName": "MAvatar_PlayerBoy_20_SkillP01_FeverBreak",
+                  "DynamicValues": {
+                    "MDF_RedStance": {
+                      "IsDynamic": true,
+                      "PostfixExpr": {
+                        "OpCodes": "AQAK",
+                        "FixedValues": [],
+                        "DynamicHashes": [
+                          274888183
+                        ]
+                      }
+                    }
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Event": "OnBeingBreak",
+          "CallbackConfig": [
+            {
+              "$type": "RPG.GameCore.PredicateTaskList",
+              "Predicate": {
+                "$type": "RPG.GameCore.ByIsContainModifier",
+                "TargetType": {
+                  "$type": "RPG.GameCore.TargetAlias",
+                  "Alias": "ModifierOwnerEntity"
+                },
+                "ModifierName": "MAvatar_PlayerBoy_20_SkillP01_FeverBreak",
+                "Inverse": true
+              },
+              "SuccessTaskList": [
+                {
+                  "$type": "RPG.GameCore.AddModifier",
+                  "TargetType": {
+                    "$type": "RPG.GameCore.TargetAlias",
+                    "Alias": "ModifierOwnerEntity"
+                  },
+                  "ModifierName": "MAvatar_PlayerBoy_20_SkillP01_FeverBreak",
+                  "DynamicValues": {
+                    "MDF_RedStance": {
+                      "IsDynamic": true,
+                      "PostfixExpr": {
+                        "OpCodes": "AQAK",
+                        "FixedValues": [],
+                        "DynamicHashes": [
+                          274888183
+                        ]
+                      }
+                    }
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Event": "OnEndBreak",
+          "CallbackConfig": [
+            {
+              "$type": "RPG.GameCore.RemoveModifier",
+              "TargetType": {
+                "$type": "RPG.GameCore.TargetAlias",
+                "Alias": "ModifierOwnerEntity"
+              },
+              "ModifierName": "MAvatar_PlayerBoy_20_SkillP01_FeverBreak"
+            }
+          ]
+        }
+      ],
+      "Stacking": "Replace",
+      "DynamicValues": {
+        "Values": {
+          "189888706": {},
+          "793524170": {},
+          "274888183": {},
+          "1396980104": {}
+        }
+      }
+    },
+    "MAvatar_PlayerBoy_20_SkillP01_RedShieldModifier": {
+      "BehaviorFlagList": [
+        "RedStance"
+      ],
+      "_CallbackList": [
+        {
+          "Event": "OnCreate",
+          "CallbackConfig": [
+            {
+              "$type": "RPG.GameCore.StackProperty",
+              "TargetType": {
+                "$type": "RPG.GameCore.TargetAlias",
+                "Alias": "ModifierOwnerEntity"
+              },
+              "Property": "MaxStance",
+              "PropertyValue": {
+                "IsDynamic": true,
+                "PostfixExpr": {
+                  "OpCodes": "AQAK",
+                  "FixedValues": [],
+                  "DynamicHashes": [
+                    96332985
+                  ]
+                }
+              }
+            },
+            {
+              "$type": "RPG.GameCore.ResetRedStance",
+              "TargetType": {
+                "$type": "RPG.GameCore.TargetAlias",
+                "Alias": "ModifierOwnerEntity"
+              }
+            }
+          ]
+        },
+        {
+          "Event": "OnRedStanceBeingBreak",
+          "CallbackConfig": [
+            {
+              "$type": "RPG.GameCore.SetDynamicValueByProperty",
+              "DynamicKey": "RedShieldBreakDamage",
+              "ReadTargetType": {
+                "$type": "RPG.GameCore.TargetAlias",
+                "Alias": "Caster"
+              },
+              "Value": "BreakDamageAddedRatio"
+            },
+            {
+              "$type": "RPG.GameCore.ResetRedStance",
+              "TargetType": {
+                "$type": "RPG.GameCore.TargetAlias",
+                "Alias": "ModifierOwnerEntity"
+              }
+            }
+          ]
+        }
+      ],
+      "DynamicValues": {
+        "Values": {
+          "189888706": {},
+          "96332985": {}
+        }
+      }
+    },
+    "MAvatar_PlayerBoy_20_SkillP01_FeverBreak": {
+      "BehaviorFlagList": [
+        "RedStance",
+        "RemoveWhenCasterDead"
+      ],
+      "_CallbackList": [
+        {
+          "Event": "OnDestroy",
+          "CallbackConfig": [
+            {
+              "$type": "RPG.GameCore.RemoveModifier",
+              "TargetType": {
+                "$type": "RPG.GameCore.TargetAlias",
+                "Alias": "ModifierOwnerEntity"
+              },
+              "ModifierName": "MAvatar_PlayerBoy_20_SkillP01_Paper"
+            }
+          ]
+        },
+        {
+          "Event": "OnStack",
+          "CallbackConfig": [
+            {
+              "$type": "RPG.GameCore.SetDynamicValueByProperty",
+              "DynamicKey": "TargetStance",
+              "ReadTargetType": {
+                "$type": "RPG.GameCore.TargetAlias",
+                "Alias": "ModifierOwnerEntity"
+              },
+              "Value": "MaxStance"
+            },
+            {
+              "$type": "RPG.GameCore.ResetRedStance",
+              "TargetType": {
+                "$type": "RPG.GameCore.TargetAlias",
+                "Alias": "ModifierOwnerEntity"
+              }
+            },
+            {
+              "$type": "RPG.GameCore.AddModifier",
+              "TargetType": {
+                "$type": "RPG.GameCore.TargetAlias",
+                "Alias": "ModifierOwnerEntity"
+              },
+              "ModifierName": "MAvatar_PlayerBoy_20_SkillP01_Paper"
+            }
+          ]
+        },
+        {
+          "Event": "OnBeforeBeingAttacked",
+          "CallbackConfig": [
+            {
+              "$type": "RPG.GameCore.SetDynamicValue",
+              "DynamicKey": "MDF_TotalStanceDamage",
+              "ContextScope": "ContextCater",
+              "Value": {
+                "IsDynamic": false,
+                "FixedValue": {
+                  "Value": 0
+                }
+              }
+            }
+          ]
+        },
+        {
+          "Event": "OnAfterBeingAttacked",
+          "CallbackConfig": [
+            {
+              "$type": "RPG.GameCore.ResetRedStance",
+              "TargetType": {
+                "$type": "RPG.GameCore.TargetAlias",
+                "Alias": "ModifierOwnerEntity"
+              }
+            }
+          ]
+        },
+        {
+          "Event": "OnRedStanceBeingBreak",
+          "CallbackConfig": [
+            {
+              "$type": "RPG.GameCore.ResetRedStance",
+              "TargetType": {
+                "$type": "RPG.GameCore.TargetAlias",
+                "Alias": "ModifierOwnerEntity"
+              }
+            },
+            {
+              "$type": "RPG.GameCore.DebugLog",
+              "Level": "Warn",
+              "Message": "=========feverbreak================="
+            }
+          ]
+        },
+        {
+          "Event": "OnBeingStanceDamage",
+          "CallbackConfig": [
+            {
+              "$type": "RPG.GameCore.SetDynamicValueByVariateType",
+              "DynamicKey": "MDF_HitStanceDamage",
+              "VariateType": "ParamValue"
+            },
+            {
+              "$type": "RPG.GameCore.SetDynamicValue",
+              "DynamicKey": "MDF_TotalStanceDamage",
+              "Value": {
+                "IsDynamic": true,
+                "PostfixExpr": {
+                  "OpCodes": "AQABAQIK",
+                  "FixedValues": [],
+                  "DynamicHashes": [
+                    2124587683,
+                    -1094919248
+                  ]
+                }
+              }
+            }
+          ]
+        }
+      ],
+      "DynamicValues": {
+        "Values": {
+          "-1800273296": {},
+          "142612140": {},
+          "-1293338785": {},
+          "-276098552": {},
+          "-2054634397": {},
+          "-46276406": {},
+          "189888706": {},
+          "96332985": {},
+          "793524170": {}
+        }
+      }
+    },
+    "MAvatar_PlayerBoy_20_SkillP01_Paper": {
+      "BehaviorFlagList": [
+        "RemoveWhenCasterDead"
+      ],
+      "_CallbackList": [
+        {
+          "Event": "OnDestroy",
+          "CallbackConfig": [
+            {
+              "$type": "RPG.GameCore.PredicateTaskList",
+              "Predicate": {
+                "$type": "RPG.GameCore.ByContainBehaviorFlag",
+                "TargetType": {
+                  "$type": "RPG.GameCore.TargetAlias",
+                  "Alias": "ModifierOwnerEntity"
+                },
+                "Flag": "Break"
+              },
+              "SuccessTaskList": [
+                {
+                  "$type": "RPG.GameCore.ModifyStance",
+                  "TargetType": {
+                    "$type": "RPG.GameCore.TargetAlias",
+                    "Alias": "ModifierOwnerEntity"
+                  },
+                  "ForbidWhenEmpty": false,
+                  "StanceCountConst": {
+                    "IsDynamic": false,
+                    "FixedValue": {
+                      "Value": 0
+                    }
+                  },
+                  "StanceCountAdd": {
+                    "IsDynamic": false,
+                    "FixedValue": {
+                      "Value": 0
+                    }
+                  },
+                  "StanceValueConst": {
+                    "IsDynamic": false,
+                    "FixedValue": {
+                      "Value": 0
+                    }
+                  },
+                  "StanceValueAdd": {
+                    "IsDynamic": false,
+                    "FixedValue": {
+                      "Value": 0
+                    }
+                  },
+                  "StanceRatioConst": {
+                    "IsDynamic": false,
+                    "FixedValue": {
+                      "Value": 0
+                    }
+                  },
+                  "StanceRatioAdd": {
+                    "IsDynamic": false,
+                    "FixedValue": {
+                      "Value": 0
+                    }
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Event": "OnStack",
+          "CallbackConfig": [
+            {
+              "$type": "RPG.GameCore.PredicateTaskList",
+              "Predicate": {
+                "$type": "RPG.GameCore.ByContainBehaviorFlag",
+                "TargetType": {
+                  "$type": "RPG.GameCore.TargetAlias",
+                  "Alias": "ModifierOwnerEntity"
+                },
+                "Flag": "Break"
+              },
+              "SuccessTaskList": [
+                {
+                  "$type": "RPG.GameCore.SetDynamicValueByProperty",
+                  "DynamicKey": "MDF_CurMaxStance2",
+                  "ReadTargetType": {
+                    "$type": "RPG.GameCore.TargetAlias",
+                    "Alias": "ModifierOwnerEntity"
+                  },
+                  "Value": "MaxStance"
+                },
+                {
+                  "$type": "RPG.GameCore.SetDynamicValue",
+                  "DynamicKey": "MDF_RedStancePaper",
+                  "Value": {
+                    "IsDynamic": true,
+                    "PostfixExpr": {
+                      "OpCodes": "AQAK",
+                      "FixedValues": [],
+                      "DynamicHashes": [
+                        -657189758
+                      ]
+                    }
+                  }
+                },
+                {
+                  "$type": "RPG.GameCore.StackProperty",
+                  "TargetType": {
+                    "$type": "RPG.GameCore.TargetAlias",
+                    "Alias": "ModifierOwnerEntity"
+                  },
+                  "Property": "MaxStance",
+                  "PropertyValue": {
+                    "IsDynamic": true,
+                    "PostfixExpr": {
+                      "OpCodes": "AQAK",
+                      "FixedValues": [],
+                      "DynamicHashes": [
+                        -853205541
+                      ]
+                    }
+                  }
+                },
+                {
+                  "$type": "RPG.GameCore.ResetRedStance",
+                  "TargetType": {
+                    "$type": "RPG.GameCore.TargetAlias",
+                    "Alias": "ModifierOwnerEntity"
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "Stacking": "ReplaceByCaster",
+      "DynamicValues": {
+        "Values": {
+          "-657189758": {},
+          "-853205541": {}
+        }
+      }
+    },
+    "MAvatar_PlayerBoy_20_Passive_BuffArea": {
+      "_CallbackList": [
+        {
+          "Event": "OnListenBreak",
+          "CallbackConfig": [
+            {
+              "$type": "RPG.GameCore.ModifySPNew",
+              "TargetType": {
+                "$type": "RPG.GameCore.TargetAlias",
+                "Alias": "Caster"
+              },
+              "AddValue": {
+                "IsDynamic": true,
+                "PostfixExpr": {
+                  "OpCodes": "AQAK",
+                  "FixedValues": [],
+                  "DynamicHashes": [
+                    -709475417
+                  ]
+                }
+              }
+            }
+          ]
+        }
+      ],
+      "DynamicValues": {
+        "Values": {
+          "-1800273296": {},
+          "142612140": {},
+          "-1293338785": {},
+          "-276098552": {},
+          "-2054634397": {},
+          "-46276406": {}
+        }
+      }
+    },
+    "MAvatar_PlayerBoy_20_PointB2_Buff": {
+      "ModifierStancePreshowConfig": {
+        "SkillType": "Skill",
+        "MultiplyRatio": {
+          "IsDynamic": true,
+          "PostfixExpr": {
+            "OpCodes": "AQAAAAIK",
+            "FixedValues": [
+              {
+                "Value": 1
+              }
+            ],
+            "DynamicHashes": [
+              -1974058900
+            ]
+          }
+        }
+      },
+      "_CallbackList": [
+        {
+          "Event": "OnAfterHit",
+          "CallbackConfig": [
+            {
+              "$type": "RPG.GameCore.PredicateTaskList",
+              "Predicate": {
+                "$type": "RPG.GameCore.ByCurrentSkillType",
+                "SkillType": "Skill"
+              },
+              "SuccessTaskList": [
+                {
+                  "$type": "RPG.GameCore.RemoveModifier",
+                  "TargetType": {
+                    "$type": "RPG.GameCore.TargetAlias",
+                    "Alias": "ModifierOwnerEntity"
+                  },
+                  "ModifierName": "MAvatar_PlayerBoy_20_PointB2_Buff_Sub"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Event": "OnBeforeAttack",
+          "CallbackConfig": [
+            {
+              "$type": "RPG.GameCore.PredicateTaskList",
+              "Predicate": {
+                "$type": "RPG.GameCore.ByCurrentSkillType",
+                "SkillType": "Skill"
+              },
+              "SuccessTaskList": [
+                {
+                  "$type": "RPG.GameCore.AddModifier",
+                  "TargetType": {
+                    "$type": "RPG.GameCore.TargetAlias",
+                    "Alias": "ModifierOwnerEntity"
+                  },
+                  "ModifierName": "MAvatar_PlayerBoy_20_PointB2_Buff_Sub"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "MAvatar_PlayerBoy_20_PointB2_Buff_Sub": {
+      "_CallbackList": [
+        {
+          "Event": "OnStack",
+          "CallbackConfig": [
+            {
+              "$type": "RPG.GameCore.StackProperty",
+              "TargetType": {
+                "$type": "RPG.GameCore.TargetAlias",
+                "Alias": "ModifierOwnerEntity"
+              },
+              "Property": "StanceBreakAddedRatio",
+              "PropertyValue": {
+                "IsDynamic": true,
+                "PostfixExpr": {
+                  "OpCodes": "AQAK",
+                  "FixedValues": [],
+                  "DynamicHashes": [
+                    -1974058900
+                  ]
+                }
+              }
+            }
+          ]
+        }
+      ],
+      "Stacking": "ReplaceByCaster"
+    },
+    "MAvatar_PlayerBoy_20_PointB3_Buff": {
+      "_CallbackList": [
+        {
+          "Event": "OnListenBreak",
+          "CallbackConfig": [
+            {
+              "$type": "RPG.GameCore.ModifyActionDelay",
+              "TargetType": {
+                "$type": "RPG.GameCore.TargetAlias",
+                "Alias": "ParamEntity"
+              },
+              "AddNormalizedValue": {
+                "IsDynamic": true,
+                "PostfixExpr": {
+                  "OpCodes": "AQAK",
+                  "FixedValues": [],
+                  "DynamicHashes": [
+                    2128130574
+                  ]
+                }
+              }
+            }
+          ]
+        }
+      ],
+      "DynamicValues": {
+        "Values": {
+          "2128130574": {}
+        }
+      }
+    }
+  }
+}

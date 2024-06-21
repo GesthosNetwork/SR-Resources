@@ -1,0 +1,68 @@
+{
+  "OnInitSequece": [],
+  "OnStartSequece": [
+    {
+      "TaskList": [
+        {
+          "$type": "RPG.GameCore.PropSetupTrigger",
+          "TargetType": {
+            "$type": "RPG.GameCore.TargetFetchAdvPropEx"
+          },
+          "TargetEntityType": "LocalPlayer",
+          "TargetGroupID": {
+            "IsDynamic": false,
+            "FixedValue": {
+              "Value": 0
+            }
+          },
+          "TargetID": {
+            "IsDynamic": false,
+            "FixedValue": {
+              "Value": 0
+            }
+          },
+          "TargetTypes": [],
+          "OnTriggerEnter": [
+            {
+              "$type": "RPG.GameCore.PlayMunicipalChat",
+              "MunicipalChatConfigPath": "Config/Level/MunicipalChat/MunicipalChatConfig00012.json",
+              "MunicipalChatName": "MunicipalChat01"
+            },
+            {
+              "$type": "RPG.GameCore.TutorialTaskUnlock",
+              "TriggerParam": {
+                "Value": "6026"
+              }
+            }
+          ],
+          "OnTriggerExit": [
+            {
+              "$type": "RPG.GameCore.StopMunicipalChat",
+              "MunicipalChatName": "MunicipalChat01"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "ValueSource": {
+    "Values": [
+      {
+        "$type": "RPG.GameCore.SharedString",
+        "Key": "Chest"
+      },
+      {
+        "$type": "RPG.GameCore.SharedString",
+        "Key": "Bird"
+      },
+      {
+        "$type": "RPG.GameCore.SharedString",
+        "Key": "Bird_Restart"
+      },
+      {
+        "$type": "RPG.GameCore.SharedString",
+        "Key": "Bird_UniqueName"
+      }
+    ]
+  }
+}

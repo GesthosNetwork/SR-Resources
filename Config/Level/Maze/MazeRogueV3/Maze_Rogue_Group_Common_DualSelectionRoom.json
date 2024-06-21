@@ -1,0 +1,140 @@
+{
+  "OnInitSequece": [],
+  "OnStartSequece": [
+    {
+      "TaskList": [
+        {
+          "$type": "RPG.GameCore.WaitPredicateSucc",
+          "TaskEnabled": true
+        },
+        {
+          "$type": "RPG.GameCore.ChangePropState",
+          "TaskEnabled": true
+        },
+        {
+          "$type": "RPG.GameCore.SetAllRogueDoorState",
+          "TaskEnabled": true
+        },
+        {
+          "$type": "RPG.GameCore.SetRogueRoomFinish",
+          "TaskEnabled": true
+        }
+      ]
+    },
+    {
+      "TaskList": [
+        {
+          "$type": "RPG.GameCore.TriggerBattle",
+          "EventID": {
+            "IsDynamic": false,
+            "FixedValue": {
+              "Value": 900048
+            }
+          },
+          "GroupID": {
+            "IsDynamic": false,
+            "FixedValue": {
+              "Value": 1
+            }
+          },
+          "BattleAreaID": {
+            "IsDynamic": false,
+            "FixedValue": {
+              "Value": 1
+            }
+          }
+        },
+        {
+          "$type": "RPG.GameCore.TriggerBattle",
+          "EventID": {
+            "IsDynamic": false,
+            "FixedValue": {
+              "Value": 900049
+            }
+          },
+          "GroupID": {
+            "IsDynamic": false,
+            "FixedValue": {
+              "Value": 1
+            }
+          },
+          "BattleAreaID": {
+            "IsDynamic": false,
+            "FixedValue": {
+              "Value": 1
+            }
+          }
+        },
+        {
+          "$type": "RPG.GameCore.TriggerBattle",
+          "EventID": {
+            "IsDynamic": false,
+            "FixedValue": {
+              "Value": 900050
+            }
+          },
+          "GroupID": {
+            "IsDynamic": false,
+            "FixedValue": {
+              "Value": 1
+            }
+          },
+          "BattleAreaID": {
+            "IsDynamic": false,
+            "FixedValue": {
+              "Value": 1
+            }
+          }
+        }
+      ]
+    },
+    {
+      "TaskList": [
+        {
+          "$type": "RPG.GameCore.LoopWaitBattleWin",
+          "TaskEnabled": true
+        }
+      ]
+    },
+    {
+      "TaskList": [
+        {
+          "$type": "RPG.GameCore.LoopWaitBattleWin",
+          "TaskEnabled": true
+        }
+      ]
+    },
+    {
+      "TaskList": [
+        {
+          "$type": "RPG.GameCore.LoopWaitBattleWin",
+          "TaskEnabled": true
+        }
+      ]
+    }
+  ],
+  "ValueSource": {
+    "Values": [
+      {
+        "$type": "RPG.GameCore.SharedFloat",
+        "Key": "MazeDF_CurrentGroup"
+      },
+      {
+        "$type": "RPG.GameCore.SharedFloat",
+        "Key": "BuffA_Normal_Group"
+      },
+      {
+        "$type": "RPG.GameCore.SharedFloat",
+        "Key": "BuffB_Normal_Group"
+      },
+      {
+        "$type": "RPG.GameCore.SharedFloat",
+        "Key": "BuffA_Rare_Group"
+      },
+      {
+        "$type": "RPG.GameCore.SharedFloat",
+        "Key": "BuffB_Rare_Group"
+      }
+    ]
+  }
+}

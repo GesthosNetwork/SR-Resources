@@ -1,0 +1,139 @@
+{
+  "OnInitSequece": [],
+  "OnStartSequece": [
+    {
+      "TaskList": [
+        {
+          "$type": "RPG.GameCore.CaptureNPCToCharacter",
+          "GroupID": {
+            "IsDynamic": false,
+            "FixedValue": {
+              "Value": 71
+            }
+          },
+          "GroupNpcID": {
+            "IsDynamic": false,
+            "FixedValue": {
+              "Value": 400001
+            }
+          },
+          "CharacterUniqueName": {
+            "Value": "Soldier_4040105"
+          }
+        }
+      ]
+    },
+    {
+      "TaskList": [
+        {
+          "$type": "RPG.GameCore.LevelPerformanceInitialize",
+          "PerformanceType": "E",
+          "CreateCharacterList": [],
+          "EntityVisiableList": [],
+          "HideMunicipalCrowd": false,
+          "HideMunicipalPedestrian": false,
+          "MarkStreamingItems": []
+        },
+        {
+          "$type": "RPG.GameCore.SwitchCharacterAnchor",
+          "IsLocalPlayer": true,
+          "CharacterUniqueName": "LocalPlayer",
+          "AreaName": {
+            "Value": "LevelArea_P20131_F20131001_G71"
+          },
+          "AnchorName": {
+            "Value": "PlayerAnchor_404010501"
+          },
+          "ResetAnimation": false
+        },
+        {
+          "$type": "RPG.GameCore.PerformanceTransition",
+          "SwitchInTime": 0,
+          "SwitchKeepTime": 1,
+          "CreateNpcList": [],
+          "CaptureNpcList": [],
+          "DestroyNpcList": [],
+          "ActiveVirtualCamera": {
+            "IsActive": false,
+            "TaskEnabled": false
+          },
+          "SwitchCharacterAnchor": {
+            "CharacterUniqueName": "Soldier_4040105",
+            "AreaName": {
+              "Value": "LevelArea_P20131_F20131001_G71"
+            },
+            "AnchorName": {
+              "Value": "NPCAnchor_404010501"
+            }
+          }
+        },
+        {
+          "$type": "RPG.GameCore.AdvNpcFaceToPlayer",
+          "FromDialog": false,
+          "GroupID": 71,
+          "GroupNpcID": 400001,
+          "FinishImmadiate": true
+        },
+        {
+          "$type": "RPG.GameCore.PlayAndWaitSimpleTalk",
+          "SimpleTalkList": [
+            {
+              "TalkSentenceID": 411050211,
+              "ProtectTime": 0.3
+            },
+            {
+              "TalkSentenceID": 411050212,
+              "ProtectTime": 0.3
+            },
+            {
+              "TalkSentenceID": 411050213,
+              "ProtectTime": 0.3
+            },
+            {
+              "TalkSentenceID": 411050214,
+              "ProtectTime": 0.3
+            }
+          ]
+        },
+        {
+          "$type": "RPG.GameCore.PerformanceTransition",
+          "SwitchInTime": 0,
+          "SwitchKeepTime": 1.5,
+          "CreateNpcList": [],
+          "CaptureNpcList": [],
+          "DestroyNpcList": [
+            {
+              "GroupID": 71,
+              "GroupNpcID": 400001
+            }
+          ],
+          "ActiveVirtualCamera": {
+            "TaskEnabled": false
+          },
+          "SwitchCharacterAnchor": {
+            "CharacterUniqueName": "Soldier_4040105",
+            "AreaName": {
+              "Value": "LevelArea_P20131_F20131001_G71"
+            },
+            "AnchorName": {
+              "Value": "NPCAnchor_404010501"
+            }
+          }
+        },
+        {
+          "$type": "RPG.GameCore.EndPerformance"
+        }
+      ]
+    },
+    {
+      "TaskList": [
+        {
+          "$type": "RPG.GameCore.WaitPerformanceEnd"
+        },
+        {
+          "$type": "RPG.GameCore.FinishLevelGraph"
+        }
+      ]
+    }
+  ]
+}
