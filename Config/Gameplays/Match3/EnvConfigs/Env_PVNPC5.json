@@ -1,0 +1,89 @@
+{
+  "EnvActionConfigs": [
+    {
+      "Trigger": {
+        "$type": "RPG.GameCore.StartRoundTrigger"
+      },
+      "Actions": [
+        {
+          "$type": "RPG.GameCore.ApplyChessBoardTemplateRuleAction",
+          "Mode": "PVNPC5"
+        }
+      ]
+    },
+    {
+      "Trigger": {
+        "$type": "RPG.GameCore.StartRoundTrigger"
+      },
+      "Condition": {
+        "$type": "RPG.GameCore.RoundCondition",
+        "TargetRound": 1
+      },
+      "Actions": [
+        {
+          "$type": "RPG.GameCore.ApplyOpponentCurveAction",
+          "CurveID": 2131
+        }
+      ]
+    },
+    {},
+    {
+      "Trigger": {
+        "$type": "RPG.GameCore.EndRoundTrigger"
+      },
+      "Condition": {
+        "$type": "RPG.GameCore.GemPouchExistsCondition"
+      },
+      "Actions": [
+        {
+          "$type": "RPG.GameCore.AddScoreByGemPouchAction"
+        }
+      ]
+    },
+    {
+      "Trigger": {
+        "$type": "RPG.GameCore.StartRoundTrigger"
+      },
+      "Condition": {
+        "$type": "RPG.GameCore.RoundCondition",
+        "TargetRound": 2
+      },
+      "Actions": [
+        {
+          "$type": "RPG.GameCore.ApplyOpponentCurveAction",
+          "CurveID": 2131
+        }
+      ]
+    },
+    {
+      "Trigger": {
+        "$type": "RPG.GameCore.StartRoundTrigger"
+      },
+      "Condition": {
+        "$type": "RPG.GameCore.RoundCondition",
+        "TargetRound": 3
+      },
+      "Actions": [
+        {
+          "$type": "RPG.GameCore.ApplyOpponentCurveAction",
+          "CurveID": 2131
+        }
+      ]
+    },
+    {
+      "Trigger": {
+        "$type": "RPG.GameCore.StartRoundTrigger"
+      },
+      "Condition": {
+        "$type": "RPG.GameCore.RoundAfterCondition",
+        "TargetRound": 4
+      },
+      "Actions": [
+        {
+          "$type": "RPG.GameCore.ApplyOpponentCurveAction",
+          "CurveID": 2131
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,52 @@
+{
+  "OnInitSequece": [
+    {
+      "TaskList": []
+    }
+  ],
+  "OnStartSequece": [
+    {
+      "TaskList": [
+        {
+          "$type": "RPG.GameCore.LoopWaitServerRotatableRegionChange",
+          "TaskEnabled": true
+        }
+      ]
+    },
+    {
+      "TaskList": [
+        {
+          "$type": "RPG.GameCore.WaitMapPoseSwitcherRemove",
+          "VolumeInstanceIDs": {
+            "Value": [
+              "300001",
+              "300002",
+              "300003",
+              "300004",
+              "300005",
+              "300006",
+              "300007",
+              "300008",
+              "300009"
+            ]
+          },
+          "OnChange": [
+            {
+              "$type": "RPG.GameCore.SetFloorSavedValue",
+              "TaskEnabled": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "TaskList": [
+        {
+          "$type": "RPG.GameCore.LoopWaitServerFloorSavedValueChange",
+          "TaskEnabled": true
+        }
+      ]
+    }
+  ],
+  "Type": "Group"
+}

@@ -1,0 +1,74 @@
+{
+  "OnInitSequece": [],
+  "OnStartSequece": [
+    {
+      "TaskList": [
+        {
+          "$type": "RPG.GameCore.LoopWaitServerGroupStateChange",
+          "TaskEnabled": true
+        }
+      ]
+    },
+    {
+      "TaskList": [
+        {
+          "$type": "RPG.GameCore.WaitGroupStateChange",
+          "OnChange": [
+            {
+              "$type": "RPG.GameCore.WaitSecond",
+              "WaitTime": {
+                "IsDynamic": false,
+                "FixedValue": {
+                  "Value": 3
+                }
+              }
+            },
+            {
+              "$type": "RPG.GameCore.RequestGroupStateChange",
+              "TargetState": 2
+            }
+          ],
+          "FromStates": [
+            0
+          ],
+          "FromAnyState": false,
+          "ToStates": [
+            1
+          ],
+          "ToAnyState": false
+        }
+      ]
+    },
+    {
+      "TaskList": [
+        {
+          "$type": "RPG.GameCore.WaitPredicateSucc",
+          "TaskEnabled": true
+        },
+        {
+          "$type": "RPG.GameCore.ChangeGroupState",
+          "TaskEnabled": true
+        }
+      ]
+    },
+    {
+      "TaskList": [
+        {
+          "$type": "RPG.GameCore.PredicateTaskList",
+          "Predicate": {
+            "$type": "RPG.GameCore.ByCompareGroupState",
+            "EquationType": "Equal",
+            "Value": 1
+          },
+          "SuccessTaskList": [
+            {
+              "$type": "RPG.GameCore.RequestGroupStateChange",
+              "TargetState": 2
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "Type": "Group"
+}

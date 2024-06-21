@@ -1,0 +1,335 @@
+{
+  "OnInitSequece": [],
+  "OnStartSequece": [
+    {
+      "TaskList": [
+        {
+          "$type": "RPG.GameCore.CollectDataConditions",
+          "TaskIDList": [
+            202100102
+          ],
+          "MainMissionIDList": [],
+          "PerformanceIDList": [],
+          "CustomValueMainMissionIDList": []
+        },
+        {
+          "$type": "RPG.GameCore.PredicateTaskList",
+          "Predicate": {
+            "$type": "RPG.GameCore.ByCompareSubMissionState",
+            "SubMissionID": 202100102,
+            "SubMissionState": "Started"
+          },
+          "SuccessTaskList": [
+            {
+              "$type": "RPG.GameCore.TriggerPerformance",
+              "ValueSource": {},
+              "PerformanceType": "C",
+              "PerformanceID": 202110229
+            },
+            {
+              "$type": "RPG.GameCore.TriggerPerformance",
+              "ValueSource": {},
+              "PerformanceType": "D",
+              "PerformanceID": 202110104
+            },
+            {
+              "$type": "RPG.GameCore.TriggerCustomString",
+              "CustomString": {
+                "Value": "Talk_202100102"
+              }
+            },
+            {
+              "$type": "RPG.GameCore.AdvEntityFaceTo",
+              "SourceType": {
+                "$type": "RPG.GameCore.TargetFetchAdvNpcEx",
+                "FetchType": "SingleNpcByNpcID",
+                "SingleNpcID": {
+                  "GroupID": {
+                    "IsDynamic": false,
+                    "FixedValue": {
+                      "Value": 23
+                    }
+                  },
+                  "GroupNpcID": {
+                    "IsDynamic": false,
+                    "FixedValue": {
+                      "Value": 400001
+                    }
+                  }
+                }
+              },
+              "TargetType": {
+                "$type": "RPG.GameCore.TargetFetchAnchor",
+                "GroupID": 23,
+                "GroupInstanceID": 2
+              },
+              "EnableSteer": true,
+              "SteerImmediately": true,
+              "ForceToStandBy": true
+            },
+            {
+              "$type": "RPG.GameCore.AdvEntityStopLookAt",
+              "SourceType": {
+                "$type": "RPG.GameCore.TargetFetchAdvNpcEx",
+                "FetchType": "SingleNpcByNpcID",
+                "SingleNpcID": {
+                  "GroupID": {
+                    "IsDynamic": false,
+                    "FixedValue": {
+                      "Value": 23
+                    }
+                  },
+                  "GroupNpcID": {
+                    "IsDynamic": false,
+                    "FixedValue": {
+                      "Value": 400001
+                    }
+                  }
+                }
+              },
+              "TargetType": {
+                "$type": "RPG.GameCore.TargetFetchAdvLocalPlayer"
+              }
+            },
+            {
+              "$type": "RPG.GameCore.StartDialogueEntityInteract",
+              "TargetType": {
+                "$type": "RPG.GameCore.TargetFetchAdvNpcEx",
+                "FetchType": "SingleNpcByNpcID",
+                "SingleNpcID": {
+                  "GroupID": {
+                    "IsDynamic": false,
+                    "FixedValue": {
+                      "Value": 23
+                    }
+                  },
+                  "GroupNpcID": {
+                    "IsDynamic": false,
+                    "FixedValue": {
+                      "Value": 400001
+                    }
+                  }
+                }
+              },
+              "LevelGraphPath": "Config/Level/Props/InteractMode/TriggerEvent_TriggerType_08.json",
+              "UseOverrideData": true,
+              "ValueSource": {
+                "Values": [
+                  {
+                    "$type": "RPG.GameCore.SharedString",
+                    "Value": "Level/Common_Adventure/UseInteractNPCFront.prefab",
+                    "Key": "DialogueEntityInteract_AreaPath"
+                  },
+                  {
+                    "$type": "RPG.GameCore.SharedString",
+                    "Value": "UseInteractNPCFront,UseInteractNPCFront_Camera",
+                    "Key": "DialogueEntityInteract_CameraKey"
+                  },
+                  {
+                    "$type": "RPG.GameCore.SharedString",
+                    "Value": "UseInteractNPCFront",
+                    "Key": "DialogueEntityInteract_AreaName"
+                  },
+                  {
+                    "$type": "RPG.GameCore.SharedFloat",
+                    "Key": "ResetEntityTransform"
+                  }
+                ]
+              }
+            },
+            {
+              "$type": "RPG.GameCore.OpenTreasureChallenge",
+              "RaidID": 43202,
+              "OnCancel": [
+                {
+                  "$type": "RPG.GameCore.EndDialogueEntityInteract",
+                  "TargetType": {
+                    "$type": "RPG.GameCore.TargetFetchAdvNpcEx",
+                    "FetchType": "SingleNpcByNpcID",
+                    "SingleNpcID": {
+                      "GroupID": {
+                        "IsDynamic": false,
+                        "FixedValue": {
+                          "Value": 23
+                        }
+                      },
+                      "GroupNpcID": {
+                        "IsDynamic": false,
+                        "FixedValue": {
+                          "Value": 400001
+                        }
+                      }
+                    }
+                  },
+                  "LevelGraphPath": "Config/Level/Props/InteractMode/TriggerEvent_ExitTriggerType_08.json"
+                },
+                {
+                  "$type": "RPG.GameCore.FinishLevelGraph"
+                }
+              ]
+            },
+            {
+              "$type": "RPG.GameCore.EndDialogueEntityInteract",
+              "TargetType": {
+                "$type": "RPG.GameCore.TargetFetchAdvNpcEx",
+                "FetchType": "SingleNpcByNpcID",
+                "SingleNpcID": {
+                  "GroupID": {
+                    "IsDynamic": false,
+                    "FixedValue": {
+                      "Value": 23
+                    }
+                  },
+                  "GroupNpcID": {
+                    "IsDynamic": false,
+                    "FixedValue": {
+                      "Value": 400001
+                    }
+                  }
+                }
+              },
+              "LevelGraphPath": "Config/Level/Props/InteractMode/TriggerEvent_ExitTriggerType_08.json"
+            },
+            {
+              "$type": "RPG.GameCore.FinishLevelGraph"
+            }
+          ],
+          "FailedTaskList": [
+            {
+              "$type": "RPG.GameCore.TriggerPerformance",
+              "ValueSource": {},
+              "PerformanceType": "E",
+              "PerformanceID": 202110103
+            },
+            {
+              "$type": "RPG.GameCore.AdvEntityStopLookAt",
+              "SourceType": {
+                "$type": "RPG.GameCore.TargetFetchAdvNpcEx",
+                "FetchType": "SingleNpcByNpcID",
+                "SingleNpcID": {
+                  "GroupID": {
+                    "IsDynamic": false,
+                    "FixedValue": {
+                      "Value": 23
+                    }
+                  },
+                  "GroupNpcID": {
+                    "IsDynamic": false,
+                    "FixedValue": {
+                      "Value": 400001
+                    }
+                  }
+                }
+              },
+              "TargetType": {
+                "$type": "RPG.GameCore.TargetFetchAdvLocalPlayer"
+              }
+            },
+            {
+              "$type": "RPG.GameCore.StartDialogueEntityInteract",
+              "TargetType": {
+                "$type": "RPG.GameCore.TargetFetchAdvNpcEx",
+                "FetchType": "SingleNpcByNpcID",
+                "SingleNpcID": {
+                  "GroupID": {
+                    "IsDynamic": false,
+                    "FixedValue": {
+                      "Value": 23
+                    }
+                  },
+                  "GroupNpcID": {
+                    "IsDynamic": false,
+                    "FixedValue": {
+                      "Value": 400001
+                    }
+                  }
+                }
+              },
+              "LevelGraphPath": "Config/Level/Props/InteractMode/TriggerEvent_TriggerType_08.json",
+              "UseOverrideData": true,
+              "ValueSource": {
+                "Values": [
+                  {
+                    "$type": "RPG.GameCore.SharedString",
+                    "Value": "Level/Common_Adventure/UseInteractNPCFront.prefab",
+                    "Key": "DialogueEntityInteract_AreaPath"
+                  },
+                  {
+                    "$type": "RPG.GameCore.SharedString",
+                    "Value": "UseInteractNPCFront,UseInteractNPCFront_Camera",
+                    "Key": "DialogueEntityInteract_CameraKey"
+                  },
+                  {
+                    "$type": "RPG.GameCore.SharedString",
+                    "Value": "UseInteractNPCFront",
+                    "Key": "DialogueEntityInteract_AreaName"
+                  },
+                  {
+                    "$type": "RPG.GameCore.SharedFloat",
+                    "Key": "ResetEntityTransform"
+                  }
+                ]
+              }
+            },
+            {
+              "$type": "RPG.GameCore.OpenTreasureChallenge",
+              "RaidID": 43202,
+              "OnCancel": [
+                {
+                  "$type": "RPG.GameCore.EndDialogueEntityInteract",
+                  "TargetType": {
+                    "$type": "RPG.GameCore.TargetFetchAdvNpcEx",
+                    "FetchType": "SingleNpcByNpcID",
+                    "SingleNpcID": {
+                      "GroupID": {
+                        "IsDynamic": false,
+                        "FixedValue": {
+                          "Value": 23
+                        }
+                      },
+                      "GroupNpcID": {
+                        "IsDynamic": false,
+                        "FixedValue": {
+                          "Value": 400001
+                        }
+                      }
+                    }
+                  },
+                  "LevelGraphPath": "Config/Level/Props/InteractMode/TriggerEvent_ExitTriggerType_08.json"
+                },
+                {
+                  "$type": "RPG.GameCore.FinishLevelGraph"
+                }
+              ]
+            },
+            {
+              "$type": "RPG.GameCore.EndDialogueEntityInteract",
+              "TargetType": {
+                "$type": "RPG.GameCore.TargetFetchAdvNpcEx",
+                "FetchType": "SingleNpcByNpcID",
+                "SingleNpcID": {
+                  "GroupID": {
+                    "IsDynamic": false,
+                    "FixedValue": {
+                      "Value": 23
+                    }
+                  },
+                  "GroupNpcID": {
+                    "IsDynamic": false,
+                    "FixedValue": {
+                      "Value": 400001
+                    }
+                  }
+                }
+              },
+              "LevelGraphPath": "Config/Level/Props/InteractMode/TriggerEvent_ExitTriggerType_08.json"
+            },
+            {
+              "$type": "RPG.GameCore.FinishLevelGraph"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
