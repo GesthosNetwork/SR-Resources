@@ -1,0 +1,114 @@
+{
+  "OnInitSequece": [
+    {
+      "TaskList": []
+    }
+  ],
+  "OnStartSequece": [
+    {
+      "TaskList": [
+        {
+          "$type": "RPG.GameCore.LoopWaitServerFloorSavedValueChange",
+          "TaskEnabled": true
+        }
+      ]
+    },
+    {
+      "TaskList": [
+        {
+          "$type": "RPG.GameCore.WaitEntityServerEvent",
+          "TaskEnabled": true
+        },
+        {
+          "$type": "RPG.GameCore.SetFloorSavedValue",
+          "TaskEnabled": true
+        }
+      ]
+    },
+    {
+      "TaskList": [
+        {
+          "$type": "RPG.GameCore.WaitEntityServerEvent",
+          "TaskEnabled": true
+        },
+        {
+          "$type": "RPG.GameCore.SetFloorSavedValue",
+          "TaskEnabled": true
+        },
+        {
+          "$type": "RPG.GameCore.ChangePropState",
+          "TaskEnabled": true
+        },
+        {
+          "$type": "RPG.GameCore.ChangePropState",
+          "TaskEnabled": true
+        }
+      ]
+    },
+    {
+      "TaskList": [
+        {
+          "$type": "RPG.GameCore.WaitEntityServerEvent",
+          "TaskEnabled": true
+        },
+        {
+          "$type": "RPG.GameCore.SetFloorSavedValue",
+          "TaskEnabled": true
+        }
+      ]
+    },
+    {
+      "TaskList": [
+        {
+          "$type": "RPG.GameCore.LoopWaitEntityServerEvent",
+          "TaskEnabled": true
+        }
+      ]
+    },
+    {
+      "TaskList": [
+        {
+          "$type": "RPG.GameCore.WaitEntityEvent",
+          "EventName": {
+            "Value": "Clt_OnUseFinish"
+          },
+          "OnEvent": [
+            {
+              "$type": "RPG.GameCore.TriggerEntityEvent",
+              "EventName": {
+                "Value": "CltSrv_TriggerOpen"
+              },
+              "InstanceID": {
+                "IsDynamic": false,
+                "FixedValue": {
+                  "Value": 300012
+                }
+              }
+            }
+          ],
+          "InstanceID": {
+            "IsDynamic": false,
+            "FixedValue": {
+              "Value": 300012
+            }
+          }
+        }
+      ]
+    }
+  ],
+  "ValueSource": {
+    "Values": [
+      {
+        "$type": "RPG.GameCore.SharedString",
+        "Value": "fake_BoardStateFSVName",
+        "Key": "BoardStateFSVName"
+      },
+      {
+        "$type": "RPG.GameCore.SharedString",
+        "Value": "fake_PieceCountFSVName",
+        "Key": "PieceCountFSVName"
+      }
+    ]
+  },
+  "Type": "Group"
+}

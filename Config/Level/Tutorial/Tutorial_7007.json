@@ -1,0 +1,104 @@
+{
+  "OnInitSequece": [],
+  "OnStartSequece": [
+    {
+      "TaskList": [
+        {
+          "$type": "RPG.GameCore.WaitCustomString",
+          "CustomString": {
+            "Value": "BattlePerform_103329922_01_End"
+          },
+          "GoNextImmediately": true
+        },
+        {
+          "$type": "RPG.GameCore.WaitTutorial",
+          "Event": "ShowUIContext",
+          "Param": "BattleGamePageContext",
+          "BlockOnWaiting": true
+        },
+        {
+          "$type": "RPG.GameCore.ShowGuideHintWithText",
+          "Block": true,
+          "TargetEvent": [
+            {
+              "$type": "RPG.GameCore.WaitTutorial",
+              "Event": "SelectUltra",
+              "Param": "60012"
+            }
+          ],
+          "NodeIDList": [
+            "BattleGamePhaseUI.BattleSkillSpecialButton"
+          ],
+          "GuideTextType": "InfoTip",
+          "GuideText": "TutorialTextmap_700701",
+          "GuideHintShowConfig": {},
+          "GuideTextShowConfig": {},
+          "GuideUIContextConfig": {},
+          "EnableActionList": [],
+          "EnableBattleOperationList": [
+            "BattleEventButton"
+          ]
+        }
+      ]
+    },
+    {
+      "TaskList": [
+        {
+          "$type": "RPG.GameCore.WaitCustomString",
+          "CustomString": {
+            "Value": "Tutorial_W3_Sunday_00_P3"
+          },
+          "GoNextImmediately": true
+        },
+        {
+          "$type": "RPG.GameCore.WaitTutorial",
+          "Event": "LevelCharacterActionWithoutUltra"
+        },
+        {
+          "$type": "RPG.GameCore.ShowGuideHintWithText",
+          "Block": true,
+          "TargetEvent": [
+            {
+              "$type": "RPG.GameCore.WaitPlayerAction",
+              "ActionType": "AnyAction"
+            }
+          ],
+          "NodeIDList": [
+            "BattleGameUI.StanceCount"
+          ],
+          "GuideTextType": "InfoTip",
+          "GuideText": "TutorialTextmap_700702",
+          "GuideHintShowConfig": {},
+          "GuideTextShowConfig": {},
+          "GuideUIContextConfig": {},
+          "EnableActionList": []
+        },
+        {
+          "$type": "RPG.GameCore.ShowGuideHintWithText",
+          "Block": true,
+          "TargetEvent": [
+            {
+              "$type": "RPG.GameCore.WaitPlayerAction",
+              "ActionType": "AnyAction"
+            }
+          ],
+          "NodeIDList": [
+            "TeamShieldPanel.Shield"
+          ],
+          "GuideTextType": "InfoTip",
+          "GuideText": "TutorialTextmap_700703",
+          "GuideUIContextConfig": {}
+        },
+        {
+          "$type": "RPG.GameCore.WaitSecond",
+          "WaitTime": {
+            "IsDynamic": false,
+            "FixedValue": {
+              "Value": 0.5
+            }
+          }
+        }
+      ]
+    }
+  ]
+}
