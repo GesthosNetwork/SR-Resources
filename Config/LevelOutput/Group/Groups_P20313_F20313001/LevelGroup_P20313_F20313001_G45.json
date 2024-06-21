@@ -1,0 +1,603 @@
+{
+  "GroupGUID": "91a0c8c0-3c76-4ba2-9b83-c48ab45cc48e",
+  "GroupName": "DLC_MPF02",
+  "LevelGraph": "Config/Level/GroupGraph/F20313001/Group_F20313001_G45.json",
+  "AreaAnchorName": "LevelArea_P20313_F20313001_G45",
+  "SavedValueCondition": {
+    "Conditions": [],
+    "Operation": "And"
+  },
+  "LoadSide": "Server",
+  "LoadOnInitial": true,
+  "ValueSource": {},
+  "ConflictIDList": [],
+  "IsHoyoGroup": true,
+  "ConflictSpatialInfo": {
+    "CompactGridList": [],
+    "LowerUpperBounds": {}
+  },
+  "StreamingSpatialInfo": {
+    "CompactGridList": [
+      103,
+      179,
+      105,
+      183,
+      101,
+      184,
+      104,
+      184,
+      103,
+      188,
+      101,
+      193,
+      104,
+      193,
+      103,
+      194,
+      101,
+      196,
+      104,
+      196,
+      103,
+      197
+    ],
+    "LowerUpperBounds": {
+      "x": 55,
+      "y": 56
+    }
+  },
+  "ConflictWhiteList": [],
+  "TagContainer": {},
+  "AnchorList": [
+    {
+      "ID": 1,
+      "PosX": 206.8,
+      "PosY": 110.7,
+      "PosZ": 389.4,
+      "Name": "pos1",
+      "MapLayerID": 1
+    },
+    {
+      "ID": 2,
+      "PosX": 206.8,
+      "PosY": 110.7,
+      "PosZ": 365.5,
+      "Name": "pos2",
+      "MapLayerID": 1
+    },
+    {
+      "ID": 3,
+      "PosX": 230.0429,
+      "PosY": 144.5265,
+      "PosZ": 372.7185,
+      "Name": "MPFCameraAnchor",
+      "RotY": 270.0352,
+      "RotX": 55.79451,
+      "RotZ": 1.49E-4,
+      "MapLayerID": 1,
+      "Usage": "Camera",
+      "CustomParameter": {
+        "$type": "LevelAnchorCameraParameter",
+        "fov": 45.0
+      }
+    },
+    {
+      "ID": 4,
+      "PosX": 168.7,
+      "PosY": 159.1,
+      "PosZ": 409.4,
+      "Name": "DLC_IsoCam",
+      "RotY": 139.0516,
+      "RotX": 41.93356,
+      "RotZ": -1.8E-5,
+      "MapLayerID": 1,
+      "Usage": "Camera",
+      "CustomParameter": {
+        "$type": "LevelAnchorCameraParameter",
+        "fov": 45.0
+      }
+    }
+  ],
+  "MonsterList": [],
+  "PropList": [
+    {
+      "ID": 300001,
+      "PosX": 206.8,
+      "PosY": 110.7,
+      "PosZ": 389.4,
+      "Name": "MPF",
+      "PropID": 103076,
+      "InitLevelGraph": "Config/Level/Props/Chap03/InitLevelGraph_Prop_Chap03_Isometric_MovePlatform.json",
+      "ValueSource": {
+        "Values": [
+          {
+            "$type": "SharedString",
+            "Key": "TargetAnchor1",
+            "Value": "LevelArea_P20313_F20313001_G45,pos1"
+          },
+          {
+            "$type": "SharedString",
+            "Key": "TargetAnchor2",
+            "Value": "LevelArea_P20313_F20313001_G45,pos2"
+          },
+          {
+            "$type": "SharedFloat",
+            "Key": "MoveDuration",
+            "Value": 2.0
+          },
+          {
+            "$type": "SharedUint",
+            "Key": "OnAnchor2ConnectorGroup",
+            "Value": 94
+          },
+          {
+            "$type": "SharedUint",
+            "Key": "IsMovingPlatform",
+            "Value": 2
+          }
+        ]
+      },
+      "CampID": 4,
+      "MapLayerID": 1,
+      "CustomTriggerMap": {},
+      "CustomTriggerMapV2": {},
+      "BridgeStateRotations": [],
+      "DialogueGroups": [],
+      "TalkDialogGroupIDList": [],
+      "ServerInteractVerificationIDList": [],
+      "OverrideMapStateIcons": [
+        {
+          "State": "Open",
+          "IconID": 193,
+          "AnchorKey": "LevelArea_P20313_F20313001_G45,pos2"
+        },
+        {
+          "IconID": 193,
+          "AnchorKey": "LevelArea_P20313_F20313001_G45,pos1"
+        }
+      ],
+      "TriggerValidGuest": {},
+      "TagContainer": {},
+      "SpawnConfig": {
+        "EntitySpawnConfig": {}
+      }
+    },
+    {
+      "ID": 300002,
+      "PosX": 211.749,
+      "PosY": 110.679,
+      "PosZ": 367.239,
+      "Name": "switch01",
+      "RotY": 90.0,
+      "PropID": 103078,
+      "InitLevelGraph": "Config/Level/Props/Chap03/InitLevelGraph_Prop_Chap03_Isometric_MPFSwitch.json",
+      "ValueSource": {
+        "Values": [
+          {
+            "$type": "SharedString",
+            "Key": "OnInteractTriggerCustomString",
+            "Value": "TriggerDLCMPF02"
+          },
+          {
+            "$type": "SharedString",
+            "Key": "MPFVirtualCamera",
+            "Value": "LevelArea_P20313_F20313001_G45,MPFCameraAnchor"
+          },
+          {
+            "$type": "SharedFloat",
+            "Key": "DirForClose",
+            "Value": 2.0
+          },
+          {
+            "$type": "SharedFloat",
+            "Key": "DirForOpen",
+            "Value": 4.0
+          },
+          {
+            "$type": "SharedString",
+            "Key": "MPFProp",
+            "Value": "45,300001"
+          },
+          {
+            "$type": "SharedString",
+            "Key": "LookAtAnchor",
+            "Value": "LevelArea_P20313_F20313001_G45,MPFCameraAnchor"
+          },
+          {
+            "$type": "SharedString",
+            "Key": "LookAtAnchor_Iso",
+            "Value": "LevelArea_P20313_F20313001_G45,DLC_IsoCam"
+          },
+          {
+            "$type": "SharedFloat",
+            "Key": "UsePerspCam",
+            "Value": 1.0
+          },
+          {
+            "$type": "SharedString",
+            "Key": "CaseFollowCamera",
+            "Value": "LevelArea_P20313_F20313001_G38,Case5_FollowCam"
+          }
+        ]
+      },
+      "CampID": 4,
+      "MapLayerID": 1,
+      "CustomTriggerMap": {},
+      "CustomTriggerMapV2": {},
+      "BridgeStateRotations": [],
+      "DialogueGroups": [],
+      "TalkDialogGroupIDList": [],
+      "ServerInteractVerificationIDList": [],
+      "TriggerValidGuest": {},
+      "TagContainer": {},
+      "SpawnConfig": {
+        "EntitySpawnConfig": {}
+      }
+    },
+    {
+      "ID": 300003,
+      "PosX": 206.9873,
+      "PosY": 110.179,
+      "PosZ": 395.4,
+      "Name": "Anchor1_Eff_01_Persp",
+      "PropID": 103085,
+      "InitLevelGraph": "Config/Level/Props/Chap03/InitLevelGraph_Prop_Chap03_IsometricModuleEff_01.json",
+      "ValueSource": {
+        "Values": [
+          {
+            "$type": "SharedString",
+            "Key": "GroupEventStringForEmit",
+            "Value": "EffectEmit_OnAnchor1"
+          },
+          {
+            "$type": "SharedFloat",
+            "Key": "IsEmitInIsometric"
+          }
+        ]
+      },
+      "CampID": 4,
+      "MapLayerID": 1,
+      "CustomTriggerMap": {},
+      "CustomTriggerMapV2": {},
+      "BridgeStateRotations": [],
+      "DialogueGroups": [],
+      "TalkDialogGroupIDList": [],
+      "ServerInteractVerificationIDList": [],
+      "TriggerValidGuest": {},
+      "TagContainer": {},
+      "SpawnConfig": {
+        "EntitySpawnConfig": {}
+      }
+    },
+    {
+      "ID": 300004,
+      "PosX": 206.8,
+      "PosY": 110.6,
+      "PosZ": 377.88,
+      "Name": "TrackSign_Eff_01",
+      "Scale": {
+        "x": 1.0,
+        "y": 1.0,
+        "z": 1.94048
+      },
+      "PropID": 103092,
+      "ValueSource": {
+        "Values": [
+          {
+            "$type": "SharedString",
+            "Key": "GroupEventStringForOpen",
+            "Value": "EffectOpen_OnAnchor2"
+          },
+          {
+            "$type": "SharedString",
+            "Key": "GroupEventStringForClose",
+            "Value": "EffectClose_OnAnchor2"
+          }
+        ]
+      },
+      "CampID": 4,
+      "MapLayerID": 1,
+      "CustomTriggerMap": {},
+      "CustomTriggerMapV2": {},
+      "BridgeStateRotations": [],
+      "DialogueGroups": [],
+      "TalkDialogGroupIDList": [],
+      "ServerInteractVerificationIDList": [],
+      "TriggerValidGuest": {},
+      "TagContainer": {},
+      "SpawnConfig": {
+        "EntitySpawnConfig": {}
+      }
+    },
+    {
+      "ID": 300005,
+      "PosX": 206.8,
+      "PosY": 110.6,
+      "PosZ": 377.07,
+      "Name": "TrackSign_Eff_02",
+      "RotY": 180.0,
+      "Scale": {
+        "x": 1.0,
+        "y": 1.0,
+        "z": 1.94048
+      },
+      "PropID": 103092,
+      "ValueSource": {
+        "Values": [
+          {
+            "$type": "SharedString",
+            "Key": "GroupEventStringForOpen",
+            "Value": "EffectOpen_OnAnchor1"
+          },
+          {
+            "$type": "SharedString",
+            "Key": "GroupEventStringForClose",
+            "Value": "EffectClose_OnAnchor1"
+          }
+        ]
+      },
+      "CampID": 4,
+      "MapLayerID": 1,
+      "CustomTriggerMap": {},
+      "CustomTriggerMapV2": {},
+      "BridgeStateRotations": [],
+      "DialogueGroups": [],
+      "TalkDialogGroupIDList": [],
+      "ServerInteractVerificationIDList": [],
+      "TriggerValidGuest": {},
+      "TagContainer": {},
+      "SpawnConfig": {
+        "EntitySpawnConfig": {}
+      }
+    },
+    {
+      "ID": 300008,
+      "PosX": 203.81,
+      "PosY": 110.179,
+      "PosZ": 392.14,
+      "Name": "Anchor1_Eff_02_Persp",
+      "RotY": 90.0,
+      "PropID": 103085,
+      "InitLevelGraph": "Config/Level/Props/Chap03/InitLevelGraph_Prop_Chap03_IsometricModuleEff_01.json",
+      "ValueSource": {
+        "Values": [
+          {
+            "$type": "SharedString",
+            "Key": "GroupEventStringForEmit",
+            "Value": "EffectEmit_OnAnchor1"
+          },
+          {
+            "$type": "SharedFloat",
+            "Key": "IsEmitInIsometric"
+          }
+        ]
+      },
+      "CampID": 4,
+      "MapLayerID": 1,
+      "CustomTriggerMap": {},
+      "CustomTriggerMapV2": {},
+      "BridgeStateRotations": [],
+      "DialogueGroups": [],
+      "TalkDialogGroupIDList": [],
+      "ServerInteractVerificationIDList": [],
+      "TriggerValidGuest": {},
+      "TagContainer": {},
+      "SpawnConfig": {
+        "EntitySpawnConfig": {}
+      }
+    },
+    {
+      "ID": 300009,
+      "PosX": 209.837,
+      "PosY": 110.179,
+      "PosZ": 392.14,
+      "Name": "Anchor1_Eff_03_Persp",
+      "RotY": 90.0,
+      "PropID": 103085,
+      "InitLevelGraph": "Config/Level/Props/Chap03/InitLevelGraph_Prop_Chap03_IsometricModuleEff_01.json",
+      "ValueSource": {
+        "Values": [
+          {
+            "$type": "SharedString",
+            "Key": "GroupEventStringForEmit",
+            "Value": "EffectEmit_OnAnchor1"
+          },
+          {
+            "$type": "SharedFloat",
+            "Key": "IsEmitInIsometric"
+          }
+        ]
+      },
+      "CampID": 4,
+      "MapLayerID": 1,
+      "CustomTriggerMap": {},
+      "CustomTriggerMapV2": {},
+      "BridgeStateRotations": [],
+      "DialogueGroups": [],
+      "TalkDialogGroupIDList": [],
+      "ServerInteractVerificationIDList": [],
+      "TriggerValidGuest": {},
+      "TagContainer": {},
+      "SpawnConfig": {
+        "EntitySpawnConfig": {}
+      }
+    },
+    {
+      "ID": 300010,
+      "PosX": 203.81,
+      "PosY": 110.179,
+      "PosZ": 386.14,
+      "Name": "Anchor1_Eff_04_Persp",
+      "RotY": 90.0,
+      "PropID": 103085,
+      "InitLevelGraph": "Config/Level/Props/Chap03/InitLevelGraph_Prop_Chap03_IsometricModuleEff_01.json",
+      "ValueSource": {
+        "Values": [
+          {
+            "$type": "SharedString",
+            "Key": "GroupEventStringForEmit",
+            "Value": "EffectEmit_OnAnchor1"
+          },
+          {
+            "$type": "SharedFloat",
+            "Key": "IsEmitInIsometric"
+          }
+        ]
+      },
+      "CampID": 4,
+      "MapLayerID": 1,
+      "CustomTriggerMap": {},
+      "CustomTriggerMapV2": {},
+      "BridgeStateRotations": [],
+      "DialogueGroups": [],
+      "TalkDialogGroupIDList": [],
+      "ServerInteractVerificationIDList": [],
+      "TriggerValidGuest": {},
+      "TagContainer": {},
+      "SpawnConfig": {
+        "EntitySpawnConfig": {}
+      }
+    },
+    {
+      "ID": 300011,
+      "PosX": 209.837,
+      "PosY": 110.179,
+      "PosZ": 386.14,
+      "Name": "Anchor1_Eff_05_Persp",
+      "RotY": 90.0,
+      "PropID": 103085,
+      "InitLevelGraph": "Config/Level/Props/Chap03/InitLevelGraph_Prop_Chap03_IsometricModuleEff_01.json",
+      "ValueSource": {
+        "Values": [
+          {
+            "$type": "SharedString",
+            "Key": "GroupEventStringForEmit",
+            "Value": "EffectEmit_OnAnchor1"
+          },
+          {
+            "$type": "SharedFloat",
+            "Key": "IsEmitInIsometric"
+          }
+        ]
+      },
+      "CampID": 4,
+      "MapLayerID": 1,
+      "CustomTriggerMap": {},
+      "CustomTriggerMapV2": {},
+      "BridgeStateRotations": [],
+      "DialogueGroups": [],
+      "TalkDialogGroupIDList": [],
+      "ServerInteractVerificationIDList": [],
+      "TriggerValidGuest": {},
+      "TagContainer": {},
+      "SpawnConfig": {
+        "EntitySpawnConfig": {}
+      }
+    },
+    {
+      "ID": 300006,
+      "PosX": 206.9873,
+      "PosY": 110.179,
+      "PosZ": 359.48,
+      "Name": "Anchor2_Eff_01_Iso",
+      "PropID": 103085,
+      "InitLevelGraph": "Config/Level/Props/Chap03/InitLevelGraph_Prop_Chap03_IsometricModuleEff_01.json",
+      "ValueSource": {
+        "Values": [
+          {
+            "$type": "SharedString",
+            "Key": "GroupEventStringForEmit",
+            "Value": "EffectEmit_OnAnchor2"
+          },
+          {
+            "$type": "SharedFloat",
+            "Key": "IsEmitInPersp"
+          }
+        ]
+      },
+      "CampID": 4,
+      "MapLayerID": 1,
+      "CustomTriggerMap": {},
+      "CustomTriggerMapV2": {},
+      "BridgeStateRotations": [],
+      "DialogueGroups": [],
+      "TalkDialogGroupIDList": [],
+      "ServerInteractVerificationIDList": [],
+      "TriggerValidGuest": {},
+      "TagContainer": {},
+      "SpawnConfig": {
+        "EntitySpawnConfig": {}
+      }
+    },
+    {
+      "ID": 300007,
+      "PosX": 209.7,
+      "PosY": 110.179,
+      "PosZ": 368.55,
+      "Name": "Anchor2_Eff_02_Iso",
+      "RotY": 90.0,
+      "PropID": 103085,
+      "InitLevelGraph": "Config/Level/Props/Chap03/InitLevelGraph_Prop_Chap03_IsometricModuleEff_01.json",
+      "ValueSource": {
+        "Values": [
+          {
+            "$type": "SharedString",
+            "Key": "GroupEventStringForEmit",
+            "Value": "EffectEmit_OnAnchor2"
+          },
+          {
+            "$type": "SharedFloat",
+            "Key": "IsEmitInPersp",
+            "Value": 1.0
+          }
+        ]
+      },
+      "CampID": 4,
+      "MapLayerID": 1,
+      "CustomTriggerMap": {},
+      "CustomTriggerMapV2": {},
+      "BridgeStateRotations": [],
+      "DialogueGroups": [],
+      "TalkDialogGroupIDList": [],
+      "ServerInteractVerificationIDList": [],
+      "TriggerValidGuest": {},
+      "TagContainer": {},
+      "SpawnConfig": {
+        "EntitySpawnConfig": {}
+      }
+    },
+    {
+      "ID": 300012,
+      "PosX": 203.85,
+      "PosY": 110.23,
+      "PosZ": 368.3636,
+      "Name": "Anchor2_Eff_03_Special",
+      "RotY": 90.0,
+      "PropID": 103085,
+      "InitLevelGraph": "Config/Level/Props/Chap03/InitLevelGraph_Prop_Chap03_IsometricModuleEff_01.json",
+      "ValueSource": {
+        "Values": [
+          {
+            "$type": "SharedString",
+            "Key": "GroupEventStringForEmit",
+            "Value": "EffectEmit_OnAnchor2_Special"
+          }
+        ]
+      },
+      "CampID": 4,
+      "MapLayerID": 1,
+      "CustomTriggerMap": {},
+      "CustomTriggerMapV2": {},
+      "BridgeStateRotations": [],
+      "DialogueGroups": [],
+      "TalkDialogGroupIDList": [],
+      "ServerInteractVerificationIDList": [],
+      "TriggerValidGuest": {},
+      "TagContainer": {},
+      "SpawnConfig": {
+        "EntitySpawnConfig": {}
+      }
+    }
+  ],
+  "NPCList": []
+}

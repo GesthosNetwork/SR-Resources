@@ -1,0 +1,53 @@
+{
+  "GroupConfigName": "Field",
+  "ConfigEntityPath": "Config/ConfigEntity/SummonUnit/SummonUnit_Common_TeamField_Entity.json",
+  "ResidentEffects": [
+    {
+      "$type": "TriggerEffect",
+      "EffectPath": "Effects/Eff_Prefab/Eff_Avatar/Eff_Welt/Eff_Avatar_Welt_00_MazeSkill_Appear.prefab"
+    }
+  ],
+  "OnCreate": [
+    {
+      "$type": "PropAttractEnemy",
+      "Distance": 9.0,
+      "BehaviourType": "AlertAddTo",
+      "DeltaValue": 10.0
+    }
+  ],
+  "TriggerConfig": {
+    "CustomTriggers": [
+      {
+        "TriggerName": "AddDebuffOnEnemyTrigger",
+        "Radius": {
+          "IsDynamic": false,
+          "FixedValue": {
+            "Value": 9.0
+          }
+        },
+        "UseVerticalBound": true,
+        "NeedRaycast": true,
+        "TargetTypes": [
+          "NPCMonster"
+        ],
+        "ColliderRelativePath": "Trigger",
+        "OnTriggerEnter": [
+          {
+            "$type": "AddMazeBuff",
+            "TargetType": {
+              "$type": "TargetAlias",
+              "Alias": "TaskActionTarget"
+            },
+            "ID": 100401,
+            "DynamicValues": {
+              "#ADF_5": {
+                "IsDynamic": true
+              }
+            }
+          }
+        ],
+        "OnTriggerExit": []
+      }
+    ]
+  }
+}

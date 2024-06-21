@@ -1,0 +1,357 @@
+{
+  "AbilityList": [
+    {
+      "Modifiers": {
+        "Modifier_ChangeAvatar_DamageUp": {
+          "_CallbackList": [
+            {
+              "Event": "OnStack",
+              "CallbackConfig": [
+                {
+                  "$type": "RPG.GameCore.StackProperty",
+                  "TargetType": {
+                    "$type": "RPG.GameCore.TargetAlias",
+                    "Alias": "ModifierOwnerEntity"
+                  },
+                  "Property": "AllDamageTypeAddedRatio",
+                  "PropertyValue": {
+                    "IsDynamic": false,
+                    "FixedValue": {
+                      "Value": 1
+                    }
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        "Modifier_ChangeAvatar_DamageUp_Teammate": {
+          "_CallbackList": [
+            {
+              "Event": "OnStack",
+              "CallbackConfig": [
+                {
+                  "$type": "RPG.GameCore.StackProperty",
+                  "TargetType": {
+                    "$type": "RPG.GameCore.TargetAlias",
+                    "Alias": "ModifierOwnerEntity"
+                  },
+                  "Property": "AllDamageTypeAddedRatio",
+                  "PropertyValue": {
+                    "IsDynamic": false,
+                    "FixedValue": {
+                      "Value": 0.5000000004656613
+                    }
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      },
+      "Name": "BattleEventAbility_ChangeAvatar_Test",
+      "TargetInfo": {
+        "TargetType": "SkillTargetEntityList"
+      },
+      "OnStart": [
+        {
+          "$type": "RPG.GameCore.SetDynamicValueCurrentSkillUseParam",
+          "DynamicKey": "EnterStageIndex"
+        },
+        {
+          "$type": "RPG.GameCore.SetDynamicValueByProperty",
+          "DynamicKey": "_ActionDelay",
+          "ReadTargetType": {
+            "$type": "RPG.GameCore.TargetAlias",
+            "Alias": "CurrentTurnOwnerEntity"
+          },
+          "Value": "ActionDelay"
+        },
+        {
+          "$type": "RPG.GameCore.BattleChangeAvatar_Begin",
+          "LeaveStageTarget": {
+            "$type": "RPG.GameCore.TargetAlias",
+            "Alias": "CurrentTurnOwnerEntity"
+          },
+          "EnterStageIndex": {
+            "IsDynamic": true,
+            "PostfixExpr": {
+              "OpCodes": "AQAAAAEBCQIK",
+              "FixedValues": [
+                {
+                  "Value": 0
+                }
+              ],
+              "DynamicHashes": [
+                696029444,
+                1546184570
+              ]
+            }
+          }
+        },
+        {
+          "$type": "RPG.GameCore.WaitSecond",
+          "WaitTime": {
+            "IsDynamic": false,
+            "FixedValue": {
+              "Value": 0.20000000018626451
+            }
+          }
+        },
+        {
+          "$type": "RPG.GameCore.BattleChangeAvatar_LeaveStage"
+        },
+        {
+          "$type": "RPG.GameCore.WaitSecond",
+          "WaitTime": {
+            "IsDynamic": false,
+            "FixedValue": {
+              "Value": 0.20000000018626451
+            }
+          }
+        },
+        {
+          "$type": "RPG.GameCore.BattleChangeAvatar_PreEnterStage"
+        },
+        {
+          "$type": "RPG.GameCore.WaitSecond",
+          "WaitTime": {
+            "IsDynamic": false,
+            "FixedValue": {
+              "Value": 0.5000000004656613
+            }
+          }
+        },
+        {
+          "$type": "RPG.GameCore.BattleChangeAvatar_EnterStage"
+        },
+        {
+          "$type": "RPG.GameCore.WaitSecond",
+          "WaitTime": {
+            "IsDynamic": false,
+            "FixedValue": {
+              "Value": 0.20000000018626451
+            }
+          }
+        },
+        {
+          "$type": "RPG.GameCore.ModifySPNew",
+          "TargetType": {
+            "$type": "RPG.GameCore.TargetAlias",
+            "Alias": "LatestEnterStageAvatar"
+          },
+          "FixedAddMaxSPRatio": {
+            "IsDynamic": false,
+            "FixedValue": {
+              "Value": 1
+            }
+          }
+        },
+        {
+          "$type": "RPG.GameCore.SetActionDelay",
+          "TargetType": {
+            "$type": "RPG.GameCore.TargetAlias",
+            "Alias": "LatestEnterStageAvatar"
+          },
+          "Value": {
+            "IsDynamic": true,
+            "PostfixExpr": {
+              "OpCodes": "AQAK",
+              "FixedValues": [],
+              "DynamicHashes": [
+                -1250116384
+              ]
+            }
+          }
+        },
+        {
+          "$type": "RPG.GameCore.BattleChangeAvatar_End"
+        },
+        {
+          "$type": "RPG.GameCore.WaitSecond",
+          "WaitTime": {
+            "IsDynamic": false,
+            "FixedValue": {
+              "Value": 0.20000000018626451
+            }
+          }
+        },
+        {
+          "$type": "RPG.GameCore.SkillPerformFinish"
+        }
+      ],
+      "DynamicValues": {
+        "Values": {
+          "-648181786": {},
+          "-1250116384": {}
+        }
+      }
+    },
+    {
+      "Modifiers": {
+        "Modifier_ChangeAvatarTest": {
+          "BehaviorFlagList": [
+            "KeepActiveWhenUnstage"
+          ],
+          "_CallbackList": [
+            {
+              "Event": "OnListenTurnEnd",
+              "CallbackConfig": [
+                {
+                  "$type": "RPG.GameCore.DebugLog",
+                  "Level": "Warn",
+                  "Message": "==============Modifier_ChangeAvatarTest OnListenTurnEnd"
+                },
+                {
+                  "$type": "RPG.GameCore.PredicateTaskList",
+                  "Predicate": {
+                    "$type": "RPG.GameCore.ByTargetAliveState",
+                    "TargetType": {
+                      "$type": "RPG.GameCore.TargetAlias",
+                      "Alias": "ModifierOwnerEntity"
+                    },
+                    "AliveStateMask": 513
+                  },
+                  "SuccessTaskList": [
+                    {
+                      "$type": "RPG.GameCore.HealHP",
+                      "TargetType": {
+                        "$type": "RPG.GameCore.TargetAlias",
+                        "Alias": "ModifierOwnerEntity"
+                      },
+                      "FormulaType": "HealByTargetMaxHP",
+                      "HealPercentage": {
+                        "IsDynamic": false,
+                        "FixedValue": {
+                          "Value": 0.10000000009313226
+                        }
+                      }
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        "Modifier_AutoUseUltraSkill": {
+          "_CallbackList": [
+            {
+              "Event": "OnCreate",
+              "CallbackConfig": [
+                {
+                  "$type": "RPG.GameCore.AutoUseUltraSkill",
+                  "Target": {
+                    "$type": "RPG.GameCore.TargetAlias",
+                    "Alias": "AllLightTeam"
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        "MBattleEventAbility_Challenge_22_PassiveSkill_Charge": {
+          "_CallbackList": [
+            {
+              "Event": "OnPhase1",
+              "CallbackConfig": [
+                {
+                  "$type": "RPG.GameCore.ModifySPNew",
+                  "TargetType": {
+                    "$type": "RPG.GameCore.TargetAlias",
+                    "Alias": "Caster"
+                  },
+                  "FixedAddValue": {
+                    "IsDynamic": false,
+                    "FixedValue": {
+                      "Value": 50
+                    }
+                  }
+                }
+              ]
+            }
+          ],
+          "_PriorityList": [
+            {
+              "PriorityName": "EnterBattlePriority",
+              "Key": "LevelBuff"
+            }
+          ]
+        }
+      },
+      "Name": "BattleEventAbility_ChangeAvatar_PassiveSkill_Test",
+      "TargetInfo": {
+        "TargetType": "Caster"
+      },
+      "OnAdd": [
+        {
+          "$type": "RPG.GameCore.AddModifier",
+          "TargetType": {
+            "$type": "RPG.GameCore.TargetCompute",
+            "ComputeType": "Union",
+            "Targets": [
+              {
+                "$type": "RPG.GameCore.TargetAlias",
+                "Alias": "AllLightTeam"
+              },
+              {
+                "$type": "RPG.GameCore.TargetFetchUnstageTarget",
+                "ReasonKey": "AvatarChange"
+              }
+            ]
+          },
+          "ModifierName": "Modifier_ChangeAvatarTest"
+        }
+      ],
+      "OnStart": [
+        {
+          "$type": "RPG.GameCore.CreateBattleEvent",
+          "EventID": {
+            "IsDynamic": false,
+            "FixedValue": {
+              "Value": 96076
+            }
+          },
+          "Team": "TeamLight"
+        },
+        {
+          "$type": "RPG.GameCore.Retarget",
+          "TargetType": {
+            "$type": "RPG.GameCore.TargetAlias",
+            "Alias": "BattleEventEntityList"
+          },
+          "Predicate": {
+            "$type": "RPG.GameCore.ByCompareBattleEventID",
+            "TargetType": {
+              "$type": "RPG.GameCore.TargetAlias",
+              "Alias": "ParamEntity"
+            },
+            "TargetBattleEventID": {
+              "IsDynamic": false,
+              "FixedValue": {
+                "Value": 96076
+              }
+            }
+          },
+          "TaskList": [
+            {
+              "$type": "RPG.GameCore.AddModifier",
+              "TargetType": {
+                "$type": "RPG.GameCore.TargetAlias",
+                "Alias": "ParamEntity"
+              },
+              "ModifierName": "MBattleEventAbility_Challenge_22_PassiveSkill_Charge"
+            }
+          ]
+        },
+        {
+          "$type": "RPG.GameCore.AddModifier",
+          "TargetType": {
+            "$type": "RPG.GameCore.TargetAlias",
+            "Alias": "Caster"
+          },
+          "ModifierName": "Modifier_AutoUseUltraSkill"
+        }
+      ]
+    }
+  ]
+}

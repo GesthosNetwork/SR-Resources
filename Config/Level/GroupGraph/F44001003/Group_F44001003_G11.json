@@ -1,0 +1,52 @@
+{
+  "OnInitSequece": [
+    {
+      "TaskList": []
+    }
+  ],
+  "OnStartSequece": [
+    {
+      "TaskList": [
+        {
+          "$type": "RPG.GameCore.WaitEntityEvent",
+          "EventName": "Clt_OnUseFinish",
+          "OnEvent": [
+            {
+              "$type": "RPG.GameCore.TriggerEntityEvent",
+              "EventName": "CltSrv_TriggerOpen",
+              "InstanceID": 300004
+            },
+            {
+              "$type": "RPG.GameCore.TriggerEntityEvent",
+              "EventName": "Clt_TriggerDisableInteract",
+              "InstanceID": 300004
+            },
+            {
+              "$type": "RPG.GameCore.TriggerEntityEvent",
+              "EventName": "CltSrv_TriggerOpen",
+              "InstanceID": 300005
+            }
+          ],
+          "InstanceID": 300004
+        }
+      ]
+    },
+    {
+      "TaskList": [
+        {
+          "$type": "RPG.GameCore.WaitServerFloorSavedValueChange",
+          "TaskEnabled": true
+        }
+      ]
+    },
+    {
+      "TaskList": [
+        {
+          "$type": "RPG.GameCore.WaitServerFloorSavedValueChange",
+          "TaskEnabled": true
+        }
+      ]
+    }
+  ],
+  "Type": "Group"
+}

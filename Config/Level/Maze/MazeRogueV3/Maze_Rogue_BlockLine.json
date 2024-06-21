@@ -1,0 +1,75 @@
+{
+  "OnInitSequece": [],
+  "OnStartSequece": [
+    {
+      "TaskList": [
+        {
+          "$type": "RPG.GameCore.PropStateChangeListenerConfig",
+          "ToState": "Open",
+          "OnChange": [
+            {
+              "$type": "RPG.GameCore.PropTriggerAnimState",
+              "AnimStateName": "Fade Out",
+              "TransitionDuration": 0,
+              "TargetType": {
+                "$type": "RPG.GameCore.TargetFetchAdvPropEx"
+              }
+            }
+          ],
+          "TargetType": {
+            "$type": "RPG.GameCore.TargetFetchAdvPropEx"
+          }
+        }
+      ]
+    },
+    {
+      "TaskList": [
+        {
+          "$type": "RPG.GameCore.PropStateChangeListenerConfig",
+          "FromState": "Open",
+          "OnChange": [
+            {
+              "$type": "RPG.GameCore.PropTriggerAnimState",
+              "AnimStateName": "Fade In",
+              "TransitionDuration": 0,
+              "TargetType": {
+                "$type": "RPG.GameCore.TargetFetchAdvPropEx"
+              }
+            }
+          ],
+          "TargetType": {
+            "$type": "RPG.GameCore.TargetFetchAdvPropEx"
+          }
+        }
+      ]
+    },
+    {
+      "TaskList": [
+        {
+          "$type": "RPG.GameCore.SyncSubPropState",
+          "TaskEnabled": true
+        },
+        {
+          "$type": "RPG.GameCore.SyncSubPropState",
+          "TaskEnabled": true
+        }
+      ]
+    },
+    {
+      "TaskList": [
+        {
+          "$type": "RPG.GameCore.SyncAllSubPropState",
+          "TaskEnabled": true
+        }
+      ]
+    }
+  ],
+  "ValueSource": {
+    "Values": [
+      {
+        "$type": "RPG.GameCore.SharedString",
+        "Key": "怪物死亡标记"
+      }
+    ]
+  }
+}

@@ -1,0 +1,41 @@
+{
+  "OnInitSequece": [],
+  "OnStartSequece": [
+    {
+      "TaskList": [
+        {
+          "$type": "RPG.GameCore.TriggerPerformance",
+          "ValueSource": {},
+          "PerformanceType": "E",
+          "PerformanceID": 202090103
+        },
+        {
+          "$type": "RPG.GameCore.PredicateTaskList",
+          "Predicate": {
+            "$type": "RPG.GameCore.ByCompareMissionCustomValue",
+            "MainMissionID": 2020901,
+            "MissionCustomValue": {
+              "ValidValueParamList": [
+                1,
+                2
+              ]
+            },
+            "EquationType": "Equal",
+            "TargetValue": 1
+          },
+          "SuccessTaskList": [
+            {
+              "$type": "RPG.GameCore.TriggerCustomString",
+              "CustomString": {
+                "Value": "Talk_202090103"
+              }
+            }
+          ]
+        },
+        {
+          "$type": "RPG.GameCore.FinishLevelGraph"
+        }
+      ]
+    }
+  ]
+}

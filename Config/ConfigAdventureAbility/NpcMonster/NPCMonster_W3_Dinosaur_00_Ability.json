@@ -1,0 +1,116 @@
+{
+  "AbilityList": [
+    {
+      "Name": "MazeMonster_W3_Dinosaur_00_MazeAttack",
+      "TargetInfo": {
+        "TargetType": "SkillPointEntity"
+      },
+      "OnStart": [
+        {
+          "$type": "RPG.GameCore.AdventureTriggerAnimStateWithMove",
+          "TargetType": {
+            "$type": "RPG.GameCore.TargetAlias",
+            "Alias": "Caster"
+          },
+          "AnimLogicState": "NormalAtk",
+          "AnimStateName": "Attack",
+          "MovingRangeList": [
+            {
+              "TargetType": {
+                "$type": "RPG.GameCore.TargetAlias",
+                "Alias": "AbilityTargetEntity"
+              },
+              "OffsetTargetDistance": {
+                "IsDynamic": false,
+                "FixedValue": {
+                  "Value": 1
+                }
+              },
+              "NormalizedTimeStart": {
+                "IsDynamic": false,
+                "FixedValue": {
+                  "Value": 0.16200000001117587
+                }
+              },
+              "NormalizedTimeEnd": {
+                "IsDynamic": false,
+                "FixedValue": {
+                  "Value": 0.22000000020489097
+                }
+              },
+              "MaxMoveDistance": {
+                "IsDynamic": false,
+                "FixedValue": {
+                  "Value": 3
+                }
+              },
+              "MaxSpeed": {
+                "IsDynamic": false,
+                "FixedValue": {
+                  "Value": 60
+                }
+              },
+              "SteerNormalizedTimeStart": {
+                "IsDynamic": false,
+                "FixedValue": {
+                  "Value": 0.16200000001117587
+                }
+              },
+              "SteerNormalizedTimeEnd": {
+                "IsDynamic": false,
+                "FixedValue": {
+                  "Value": 0.22000000020489097
+                }
+              },
+              "MaxSteerSpeed": {
+                "IsDynamic": false,
+                "FixedValue": {
+                  "Value": 90
+                }
+              }
+            }
+          ]
+        },
+        {
+          "$type": "RPG.GameCore.WaitAnimState",
+          "TargetType": {
+            "$type": "RPG.GameCore.TargetAlias",
+            "Alias": "Caster"
+          },
+          "AnimStateName": "Attack",
+          "NormalizedTimeEnd": {
+            "IsDynamic": false,
+            "FixedValue": {
+              "Value": 1
+            }
+          }
+        }
+      ]
+    },
+    {
+      "Name": "MazeMonster_W3_Dinosaur_00_LighterInvisible",
+      "TargetInfo": {
+        "TargetType": "Caster"
+      },
+      "OnAdd": [
+        {
+          "$type": "RPG.GameCore.SetAttachmentScale",
+          "TargetType": {
+            "$type": "RPG.GameCore.TargetAlias",
+            "Alias": "Caster"
+          },
+          "AttachPoints": [
+            {
+              "Name": "Lighter"
+            }
+          ],
+          "Scale": {
+            "X": 0,
+            "Y": 0,
+            "Z": 0
+          }
+        }
+      ]
+    }
+  ]
+}

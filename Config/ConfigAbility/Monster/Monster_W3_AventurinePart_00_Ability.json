@@ -1,0 +1,2744 @@
+{
+  "AbilityList": [
+    {
+      "Name": "Monster_W3_AventurinePart_00_Passive01",
+      "TargetInfo": {
+        "TargetType": "Caster"
+      },
+      "OnAdd": [
+        {
+          "$type": "RPG.GameCore.AddModifier",
+          "TargetType": {
+            "$type": "RPG.GameCore.TargetAlias",
+            "Alias": "Caster"
+          },
+          "ModifierName": "Monster_W3_AventurinePart_00_BlockDamage"
+        },
+        {
+          "$type": "RPG.GameCore.AddModifier",
+          "TargetType": {
+            "$type": "RPG.GameCore.TargetAlias",
+            "Alias": "Caster"
+          },
+          "ModifierName": "Monster_W3_AventurinePart_00_SpeedZero"
+        }
+      ]
+    },
+    {
+      "Name": "Monster_W3_AventurinePart_00_Skill01_Phase01",
+      "TargetInfo": {
+        "TargetType": "Caster"
+      },
+      "OnStart": [
+        {
+          "$type": "RPG.GameCore.TriggerAbility",
+          "TargetType": {
+            "$type": "RPG.GameCore.TargetAlias",
+            "Alias": "Caster"
+          },
+          "AbilityName": "Monster_W3_AventurinePart_00_Skill01_Phase02",
+          "IsSkillPerform": true
+        },
+        {
+          "$type": "RPG.GameCore.TriggerAbility",
+          "TargetType": {
+            "$type": "RPG.GameCore.TargetAlias",
+            "Alias": "Caster"
+          },
+          "AbilityName": "Monster_W3_AventurinePart_00_Skill01_Camera",
+          "IsSkillPerform": true
+        },
+        {
+          "$type": "RPG.GameCore.TriggerAnimState",
+          "AnimLogicState": "Idle"
+        }
+      ]
+    },
+    {
+      "Name": "Monster_W3_AventurinePart_00_Skill01_Phase02",
+      "TargetInfo": {
+        "TargetType": "Caster"
+      },
+      "OnStart": [
+        {
+          "$type": "RPG.GameCore.WaitSecond",
+          "WaitTime": {
+            "IsDynamic": false,
+            "FixedValue": {
+              "Value": 0.5000000004656613
+            }
+          }
+        },
+        {
+          "$type": "RPG.GameCore.ShowUIPage",
+          "AssetPath": "UI/Common/Widget/ShowBattleHint.prefab",
+          "UITextNodes": [
+            {
+              "TextPath": "AreaInfoPanel/Title/Text",
+              "TextContent": {
+                "Hash": 426733772
+              }
+            }
+          ],
+          "LifeTime": 2
+        },
+        {
+          "$type": "RPG.GameCore.WaitSecond",
+          "WaitTime": {
+            "IsDynamic": false,
+            "FixedValue": {
+              "Value": 1
+            }
+          }
+        },
+        {
+          "$type": "RPG.GameCore.SkillPerformFinish"
+        }
+      ]
+    },
+    {
+      "Name": "Monster_W3_AventurinePart_00_Skill02_Phase01",
+      "TargetInfo": {
+        "TargetType": "InherentTargetEntity"
+      },
+      "OnStart": [
+        {
+          "$type": "RPG.GameCore.TriggerAbility",
+          "TargetType": {
+            "$type": "RPG.GameCore.TargetAlias",
+            "Alias": "Caster"
+          },
+          "AbilityInherentTargetType": {
+            "$type": "RPG.GameCore.TargetAlias",
+            "Alias": "AbilityTargetEntity"
+          },
+          "AbilityName": "Monster_W3_AventurinePart_00_Skill02_Phase02",
+          "IsSkillPerform": true
+        },
+        {
+          "$type": "RPG.GameCore.TriggerAbility",
+          "TargetType": {
+            "$type": "RPG.GameCore.TargetAlias",
+            "Alias": "Caster"
+          },
+          "AbilityInherentTargetType": {
+            "$type": "RPG.GameCore.TargetAlias",
+            "Alias": "AbilityTargetEntity"
+          },
+          "AbilityName": "Monster_W3_AventurinePart_00_Skill02_Camera",
+          "IsSkillPerform": true
+        },
+        {
+          "$type": "RPG.GameCore.TriggerAnimState",
+          "AnimStateName": "Skill01",
+          "NormalizedTimeEnd": {
+            "IsDynamic": false,
+            "FixedValue": {
+              "Value": 1
+            }
+          }
+        },
+        {
+          "$type": "RPG.GameCore.TriggerAnimState",
+          "AnimLogicState": "Idle"
+        }
+      ]
+    },
+    {
+      "Name": "Monster_W3_AventurinePart_00_Skill02_Phase02",
+      "TargetInfo": {
+        "TargetType": "InherentTargetEntity"
+      },
+      "OnStart": [
+        {
+          "$type": "RPG.GameCore.DispelStatus",
+          "TargetType": {
+            "$type": "RPG.GameCore.TargetAlias",
+            "Alias": "Caster"
+          },
+          "OnlyAlive": false,
+          "IsSlientDispel": true
+        },
+        {
+          "$type": "RPG.GameCore.ExitBreakState",
+          "TargetType": {
+            "$type": "RPG.GameCore.TargetAlias",
+            "Alias": "Caster"
+          },
+          "CancelRecoverAnim": true
+        },
+        {
+          "$type": "RPG.GameCore.ResetStance",
+          "TargetType": {
+            "$type": "RPG.GameCore.TargetAlias",
+            "Alias": "Caster"
+          },
+          "ForbidWhenEmpty": false
+        },
+        {
+          "$type": "RPG.GameCore.RefreshChangePhaseUI"
+        },
+        {
+          "$type": "RPG.GameCore.WaitAnimState",
+          "AnimStateName": "Skill01",
+          "NormalizedTimeEnd": {
+            "IsDynamic": false,
+            "FixedValue": {
+              "Value": 0.10000000009313226
+            }
+          }
+        },
+        {
+          "$type": "RPG.GameCore.AddModifier",
+          "TargetType": {
+            "$type": "RPG.GameCore.TargetAlias",
+            "Alias": "Caster"
+          },
+          "ModifierName": "Monster_W3_AventurinePart_00_Result"
+        },
+        {
+          "$type": "RPG.GameCore.AddModifier",
+          "TargetType": {
+            "$type": "RPG.GameCore.TargetAlias",
+            "Alias": "AbilityTargetEntity"
+          },
+          "ModifierName": "Monster_W3_AventurinePart_00_ResultTarget"
+        },
+        {
+          "$type": "RPG.GameCore.WaitAnimState",
+          "AnimStateName": "Skill01",
+          "NormalizedTimeEnd": {
+            "IsDynamic": false,
+            "FixedValue": {
+              "Value": 0.5000000004656613
+            }
+          }
+        },
+        {
+          "$type": "RPG.GameCore.SetDynamicValue",
+          "DynamicKey": "DiceGamblingInsertCheck",
+          "ContextScope": "TargetEntity",
+          "Value": {
+            "IsDynamic": false,
+            "FixedValue": {
+              "Value": 0
+            }
+          }
+        },
+        {
+          "$type": "RPG.GameCore.RemoveModifier",
+          "TargetType": {
+            "$type": "RPG.GameCore.TargetAlias",
+            "Alias": "Caster"
+          },
+          "ModifierName": "Monster_W3_AventurinePart_00_Result"
+        },
+        {
+          "$type": "RPG.GameCore.CharacterChangePhase",
+          "TargetType": {
+            "$type": "RPG.GameCore.TargetAlias",
+            "Alias": "Caster"
+          },
+          "PhaseName": "Phase1",
+          "PhaseAnimConfig": {
+            "StandBy": "StandBy"
+          }
+        },
+        {
+          "$type": "RPG.GameCore.WaitSecond",
+          "WaitTime": {
+            "IsDynamic": false,
+            "FixedValue": {
+              "Value": 2
+            }
+          }
+        }
+      ]
+    },
+    {
+      "Name": "Monster_W3_AventurinePart_00_Skill03_Phase01",
+      "TargetInfo": {
+        "TargetType": "InherentTargetEntity"
+      },
+      "OnStart": [
+        {
+          "$type": "RPG.GameCore.TriggerAbility",
+          "TargetType": {
+            "$type": "RPG.GameCore.TargetAlias",
+            "Alias": "Caster"
+          },
+          "AbilityInherentTargetType": {
+            "$type": "RPG.GameCore.TargetAlias",
+            "Alias": "AbilityTargetEntity"
+          },
+          "AbilityName": "Monster_W3_AventurinePart_00_Skill03_Phase02",
+          "IsSkillPerform": true
+        },
+        {
+          "$type": "RPG.GameCore.TriggerAnimState",
+          "AnimLogicState": "Idle"
+        }
+      ]
+    },
+    {
+      "Name": "Monster_W3_AventurinePart_00_Skill03_Phase02",
+      "TargetInfo": {
+        "TargetType": "InherentTargetEntity"
+      },
+      "OnStart": [
+        {
+          "$type": "RPG.GameCore.DispelStatus",
+          "TargetType": {
+            "$type": "RPG.GameCore.TargetAlias",
+            "Alias": "Caster"
+          },
+          "OnlyAlive": false,
+          "IsSlientDispel": true
+        },
+        {
+          "$type": "RPG.GameCore.ExitBreakState",
+          "TargetType": {
+            "$type": "RPG.GameCore.TargetAlias",
+            "Alias": "Caster"
+          },
+          "CancelRecoverAnim": true
+        },
+        {
+          "$type": "RPG.GameCore.ResetStance",
+          "TargetType": {
+            "$type": "RPG.GameCore.TargetAlias",
+            "Alias": "Caster"
+          },
+          "ForbidWhenEmpty": false
+        },
+        {
+          "$type": "RPG.GameCore.RefreshChangePhaseUI"
+        }
+      ]
+    }
+  ],
+  "GlobalModifiers": {
+    "Monster_W3_AventurinePart_00_BlockDamage": {
+      "BehaviorFlagList": [
+        "BlockDamage"
+      ],
+      "_CallbackList": [
+        {
+          "Event": "OnAfterBeingHit",
+          "CallbackConfig": [
+            {
+              "$type": "RPG.GameCore.PredicateTaskList",
+              "Predicate": {
+                "$type": "RPG.GameCore.ByAnd",
+                "PredicateList": [
+                  {
+                    "$type": "RPG.GameCore.ByIsContainModifier",
+                    "TargetType": {
+                      "$type": "RPG.GameCore.TargetAlias",
+                      "Alias": "ParamEntity"
+                    },
+                    "ModifierName": "Monster_W3_Aventurine_00_Gambling"
+                  },
+                  {
+                    "$type": "RPG.GameCore.ByCompareDynamicValue",
+                    "TargetType": {
+                      "$type": "RPG.GameCore.TargetAlias",
+                      "Alias": "ModifierOwnerEntity"
+                    },
+                    "DynamicKey": "DiceGamblingInsertCheck",
+                    "ContextScope": "TargetEntity",
+                    "CompareType": "Equal",
+                    "CompareValue": {
+                      "IsDynamic": false,
+                      "FixedValue": {
+                        "Value": 0
+                      }
+                    }
+                  }
+                ]
+              },
+              "SuccessTaskList": [
+                {
+                  "$type": "RPG.GameCore.TurnInsertAbility",
+                  "AbilityName": "Monster_W3_AventurinePart_00_Skill02_Phase01",
+                  "TargetType": {
+                    "$type": "RPG.GameCore.TargetAlias",
+                    "Alias": "Caster"
+                  },
+                  "AbilityTarget": {
+                    "$type": "RPG.GameCore.TargetAlias",
+                    "Alias": "ParamEntity"
+                  },
+                  "InsertAbilityPriority": "MonsterChangePhase",
+                  "ShowInActionBar": true
+                },
+                {
+                  "$type": "RPG.GameCore.CharacterChangePhase",
+                  "TargetType": {
+                    "$type": "RPG.GameCore.TargetAlias",
+                    "Alias": "Caster"
+                  },
+                  "PhaseName": "Phase2",
+                  "PhaseAnimConfig": {
+                    "StandBy": "StandBy_Speed"
+                  }
+                },
+                {
+                  "$type": "RPG.GameCore.SetDynamicValue",
+                  "TargetType": {
+                    "$type": "RPG.GameCore.TargetAlias",
+                    "Alias": "ModifierOwnerSummoner"
+                  },
+                  "DynamicKey": "GamblingInsertCheck",
+                  "ContextScope": "TargetEntity",
+                  "Value": {
+                    "IsDynamic": false,
+                    "FixedValue": {
+                      "Value": 1
+                    }
+                  }
+                },
+                {
+                  "$type": "RPG.GameCore.SetDynamicValue",
+                  "TargetType": {
+                    "$type": "RPG.GameCore.TargetAlias",
+                    "Alias": "ModifierOwnerEntity"
+                  },
+                  "DynamicKey": "DiceGamblingInsertCheck",
+                  "ContextScope": "TargetEntity",
+                  "Value": {
+                    "IsDynamic": false,
+                    "FixedValue": {
+                      "Value": 1
+                    }
+                  }
+                }
+              ],
+              "FailedTaskList": [
+                {
+                  "$type": "RPG.GameCore.SetDynamicValue",
+                  "TargetType": {
+                    "$type": "RPG.GameCore.TargetAlias",
+                    "Alias": "ModifierOwnerSummoner"
+                  },
+                  "DynamicKey": "GamblingInsertCheck",
+                  "ContextScope": "TargetEntity",
+                  "Value": {
+                    "IsDynamic": false,
+                    "FixedValue": {
+                      "Value": 1
+                    }
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Event": "OnStack",
+          "CallbackConfig": [
+            {
+              "$type": "RPG.GameCore.StackStatusResistance",
+              "TargetType": {
+                "$type": "RPG.GameCore.TargetAlias",
+                "Alias": "ModifierOwnerEntity"
+              },
+              "BehaviorFlag": "STAT_CTRL",
+              "Resistance": {
+                "IsDynamic": false,
+                "FixedValue": {
+                  "Value": 1
+                }
+              }
+            }
+          ]
+        }
+      ]
+    },
+    "Monster_W3_AventurinePart_00_SpeedZero": {
+      "BehaviorFlagList": [
+        "MuteSpeed"
+      ]
+    },
+    "Monster_W3_AventurinePart_00_ResultTarget": {},
+    "Monster_W3_AventurinePart_00_LuckyResult": {
+      "_CallbackList": [
+        {
+          "Event": "OnDestroy",
+          "CallbackConfig": [
+            {
+              "$type": "RPG.GameCore.SetDynamicValue",
+              "TargetType": {
+                "$type": "RPG.GameCore.TargetAlias",
+                "Alias": "ModifierOwnerEntity"
+              },
+              "DynamicKey": "DiceResult",
+              "ContextScope": "TargetEntity",
+              "Value": {
+                "IsDynamic": true,
+                "PostfixExpr": {
+                  "OpCodes": "AQAK",
+                  "FixedValues": [],
+                  "DynamicHashes": [
+                    2095531410
+                  ]
+                }
+              }
+            }
+          ]
+        },
+        {
+          "Event": "OnStack",
+          "CallbackConfig": [
+            {
+              "$type": "RPG.GameCore.SetDynamicValue",
+              "DynamicKey": "MDF_DiceResult",
+              "Value": {
+                "IsDynamic": false,
+                "FixedValue": {
+                  "Value": 6
+                }
+              }
+            },
+            {
+              "$type": "RPG.GameCore.TriggerEffect",
+              "TargetType": {
+                "$type": "RPG.GameCore.TargetAlias",
+                "Alias": "ModifierOwnerEntity"
+              },
+              "EffectPath": "Effects/Eff_Prefab/Eff_Monster/Eff_W3_Aventurine_00/Eff_Monster_W3_AventurinePart_00_Skill01.prefab"
+            },
+            {
+              "$type": "RPG.GameCore.TriggerEffect",
+              "TargetType": {
+                "$type": "RPG.GameCore.TargetAlias",
+                "Alias": "ModifierOwnerEntity"
+              },
+              "EffectPath": "Effects/Eff_Prefab/Eff_Monster/Eff_W3_Aventurine_00/Eff_Monster_W3_AventurinePart_00_Skill01_06.prefab"
+            },
+            {
+              "$type": "RPG.GameCore.ShowUIPage",
+              "AssetPath": "UI/Common/Widget/BattleSelfStatusHint.prefab",
+              "UITextNodes": [
+                {
+                  "TextPath": "AreaInfoPanel/Title/Text",
+                  "TextContent": {
+                    "Hash": 248481131
+                  }
+                }
+              ],
+              "LifeTime": 1
+            }
+          ]
+        }
+      ],
+      "DynamicValues": {
+        "Values": {
+          "2095531410": {}
+        }
+      }
+    },
+    "Monster_W3_AventurinePart_00_Result": {
+      "_CallbackList": [
+        {
+          "Event": "OnDestroy",
+          "CallbackConfig": [
+            {
+              "$type": "RPG.GameCore.PredicateTaskList",
+              "Predicate": {
+                "$type": "RPG.GameCore.ByAnd",
+                "PredicateList": [
+                  {
+                    "$type": "RPG.GameCore.ByTargetTeam",
+                    "TargetType": {
+                      "$type": "RPG.GameCore.TargetAlias",
+                      "Alias": "ModifierOwnerEntity"
+                    },
+                    "Team": "TeamDark"
+                  },
+                  {
+                    "$type": "RPG.GameCore.ByCompareMonsterRank",
+                    "TargetType": {
+                      "$type": "RPG.GameCore.TargetAlias",
+                      "Alias": "ModifierOwnerEntity"
+                    },
+                    "CompareType": "Equal",
+                    "CompareValue": 4
+                  }
+                ]
+              },
+              "SuccessTaskList": [
+                {
+                  "$type": "RPG.GameCore.SetDynamicValue",
+                  "TargetType": {
+                    "$type": "RPG.GameCore.TargetAlias",
+                    "Alias": "ModifierOwnerEntity"
+                  },
+                  "DynamicKey": "DiceResult",
+                  "ContextScope": "TargetEntity",
+                  "Value": {
+                    "IsDynamic": true,
+                    "PostfixExpr": {
+                      "OpCodes": "AQAK",
+                      "FixedValues": [],
+                      "DynamicHashes": [
+                        2095531410
+                      ]
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              "$type": "RPG.GameCore.Retarget",
+              "TargetType": {
+                "$type": "RPG.GameCore.TargetAlias",
+                "Alias": "AllLightTeam"
+              },
+              "Predicate": {
+                "$type": "RPG.GameCore.ByAnd",
+                "PredicateList": [
+                  {
+                    "$type": "RPG.GameCore.ByIsContainModifier",
+                    "TargetType": {
+                      "$type": "RPG.GameCore.TargetAlias",
+                      "Alias": "ParamEntity"
+                    },
+                    "ModifierName": "Monster_W3_AventurinePart_00_ResultTarget"
+                  },
+                  {
+                    "$type": "RPG.GameCore.ByIsContainModifier",
+                    "TargetType": {
+                      "$type": "RPG.GameCore.TargetAlias",
+                      "Alias": "ParamEntity"
+                    },
+                    "ModifierName": "Monster_W3_Aventurine_00_Gambling"
+                  }
+                ]
+              },
+              "MaxNumber": {
+                "IsDynamic": false,
+                "FixedValue": {
+                  "Value": 1
+                }
+              },
+              "TaskList": [
+                {
+                  "$type": "RPG.GameCore.AddModifier",
+                  "TargetType": {
+                    "$type": "RPG.GameCore.TargetAlias",
+                    "Alias": "ParamEntity"
+                  },
+                  "ModifierName": "Monster_W3_AventurinePart_00_ResultCount",
+                  "LayerAddWhenStack": {
+                    "IsDynamic": true,
+                    "PostfixExpr": {
+                      "OpCodes": "AQAK",
+                      "FixedValues": [],
+                      "DynamicHashes": [
+                        2095531410
+                      ]
+                    }
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Event": "OnStack",
+          "CallbackConfig": [
+            {
+              "$type": "RPG.GameCore.PredicateTaskList",
+              "Predicate": {
+                "$type": "RPG.GameCore.ByCompareMonsterRank",
+                "TargetType": {
+                  "$type": "RPG.GameCore.TargetAlias",
+                  "Alias": "ModifierOwnerEntity"
+                },
+                "CompareType": "Equal",
+                "CompareValue": 4
+              },
+              "SuccessTaskList": [
+                {
+                  "$type": "RPG.GameCore.PredicateTaskList",
+                  "Predicate": {
+                    "$type": "RPG.GameCore.ByRandomChance",
+                    "Chance": {
+                      "IsDynamic": false,
+                      "FixedValue": {
+                        "Value": 0
+                      }
+                    }
+                  },
+                  "SuccessTaskList": [
+                    {
+                      "$type": "RPG.GameCore.SetDynamicValue",
+                      "DynamicKey": "MDF_DiceResult",
+                      "Value": {
+                        "IsDynamic": false,
+                        "FixedValue": {
+                          "Value": 1
+                        }
+                      }
+                    },
+                    {
+                      "$type": "RPG.GameCore.TriggerEffect",
+                      "TargetType": {
+                        "$type": "RPG.GameCore.TargetAlias",
+                        "Alias": "ModifierOwnerEntity"
+                      },
+                      "EffectPath": "Effects/Eff_Prefab/Eff_Monster/Eff_W3_Aventurine_00/Eff_Monster_W3_AventurinePart_00_Skill01.prefab"
+                    },
+                    {
+                      "$type": "RPG.GameCore.TriggerEffect",
+                      "TargetType": {
+                        "$type": "RPG.GameCore.TargetAlias",
+                        "Alias": "ModifierOwnerEntity"
+                      },
+                      "EffectPath": "Effects/Eff_Prefab/Eff_Monster/Eff_W3_Aventurine_00/Eff_Monster_W3_AventurinePart_00_Skill01_01.prefab"
+                    },
+                    {
+                      "$type": "RPG.GameCore.PredicateTaskList",
+                      "Predicate": {
+                        "$type": "RPG.GameCore.ByCompareMonsterRank",
+                        "TargetType": {
+                          "$type": "RPG.GameCore.TargetAlias",
+                          "Alias": "ModifierOwnerEntity"
+                        },
+                        "CompareType": "Less",
+                        "CompareValue": 5
+                      },
+                      "SuccessTaskList": [
+                        {
+                          "$type": "RPG.GameCore.ShowUIPage",
+                          "AssetPath": "UI/Common/Widget/BattleAlertHint.prefab",
+                          "UITextNodes": [
+                            {
+                              "TextPath": "AreaInfoPanel/Title/Text",
+                              "TextContent": {
+                                "Hash": 1814565072
+                              }
+                            }
+                          ],
+                          "LifeTime": 1
+                        }
+                      ]
+                    }
+                  ],
+                  "FailedTaskList": [
+                    {
+                      "$type": "RPG.GameCore.PredicateTaskList",
+                      "Predicate": {
+                        "$type": "RPG.GameCore.ByRandomChance",
+                        "Chance": {
+                          "IsDynamic": false,
+                          "FixedValue": {
+                            "Value": 0
+                          }
+                        }
+                      },
+                      "SuccessTaskList": [
+                        {
+                          "$type": "RPG.GameCore.SetDynamicValue",
+                          "DynamicKey": "MDF_DiceResult",
+                          "Value": {
+                            "IsDynamic": false,
+                            "FixedValue": {
+                              "Value": 2
+                            }
+                          }
+                        },
+                        {
+                          "$type": "RPG.GameCore.TriggerEffect",
+                          "TargetType": {
+                            "$type": "RPG.GameCore.TargetAlias",
+                            "Alias": "ModifierOwnerEntity"
+                          },
+                          "EffectPath": "Effects/Eff_Prefab/Eff_Monster/Eff_W3_Aventurine_00/Eff_Monster_W3_AventurinePart_00_Skill01.prefab"
+                        },
+                        {
+                          "$type": "RPG.GameCore.TriggerEffect",
+                          "TargetType": {
+                            "$type": "RPG.GameCore.TargetAlias",
+                            "Alias": "ModifierOwnerEntity"
+                          },
+                          "EffectPath": "Effects/Eff_Prefab/Eff_Monster/Eff_W3_Aventurine_00/Eff_Monster_W3_AventurinePart_00_Skill01_02.prefab"
+                        },
+                        {
+                          "$type": "RPG.GameCore.PredicateTaskList",
+                          "Predicate": {
+                            "$type": "RPG.GameCore.ByCompareMonsterRank",
+                            "TargetType": {
+                              "$type": "RPG.GameCore.TargetAlias",
+                              "Alias": "ModifierOwnerEntity"
+                            },
+                            "CompareType": "Less",
+                            "CompareValue": 5
+                          },
+                          "SuccessTaskList": [
+                            {
+                              "$type": "RPG.GameCore.ShowUIPage",
+                              "AssetPath": "UI/Common/Widget/BattleAlertHint.prefab",
+                              "UITextNodes": [
+                                {
+                                  "TextPath": "AreaInfoPanel/Title/Text",
+                                  "TextContent": {
+                                    "Hash": -2077117697
+                                  }
+                                }
+                              ],
+                              "LifeTime": 1
+                            }
+                          ]
+                        }
+                      ],
+                      "FailedTaskList": [
+                        {
+                          "$type": "RPG.GameCore.PredicateTaskList",
+                          "Predicate": {
+                            "$type": "RPG.GameCore.ByRandomChance",
+                            "Chance": {
+                              "IsDynamic": false,
+                              "FixedValue": {
+                                "Value": 0.25000000023283064
+                              }
+                            }
+                          },
+                          "SuccessTaskList": [
+                            {
+                              "$type": "RPG.GameCore.SetDynamicValue",
+                              "DynamicKey": "MDF_DiceResult",
+                              "Value": {
+                                "IsDynamic": false,
+                                "FixedValue": {
+                                  "Value": 3
+                                }
+                              }
+                            },
+                            {
+                              "$type": "RPG.GameCore.TriggerEffect",
+                              "TargetType": {
+                                "$type": "RPG.GameCore.TargetAlias",
+                                "Alias": "ModifierOwnerEntity"
+                              },
+                              "EffectPath": "Effects/Eff_Prefab/Eff_Monster/Eff_W3_Aventurine_00/Eff_Monster_W3_AventurinePart_00_Skill01.prefab"
+                            },
+                            {
+                              "$type": "RPG.GameCore.TriggerEffect",
+                              "TargetType": {
+                                "$type": "RPG.GameCore.TargetAlias",
+                                "Alias": "ModifierOwnerEntity"
+                              },
+                              "EffectPath": "Effects/Eff_Prefab/Eff_Monster/Eff_W3_Aventurine_00/Eff_Monster_W3_AventurinePart_00_Skill01_03.prefab"
+                            },
+                            {
+                              "$type": "RPG.GameCore.PredicateTaskList",
+                              "Predicate": {
+                                "$type": "RPG.GameCore.ByCompareMonsterRank",
+                                "TargetType": {
+                                  "$type": "RPG.GameCore.TargetAlias",
+                                  "Alias": "ModifierOwnerEntity"
+                                },
+                                "CompareType": "Less",
+                                "CompareValue": 5
+                              },
+                              "SuccessTaskList": [
+                                {
+                                  "$type": "RPG.GameCore.ShowUIPage",
+                                  "AssetPath": "UI/Common/Widget/BattleAlertHint.prefab",
+                                  "UITextNodes": [
+                                    {
+                                      "TextPath": "AreaInfoPanel/Title/Text",
+                                      "TextContent": {
+                                        "Hash": 651765658
+                                      }
+                                    }
+                                  ],
+                                  "LifeTime": 1
+                                }
+                              ]
+                            }
+                          ],
+                          "FailedTaskList": [
+                            {
+                              "$type": "RPG.GameCore.PredicateTaskList",
+                              "Predicate": {
+                                "$type": "RPG.GameCore.ByRandomChance",
+                                "Chance": {
+                                  "IsDynamic": false,
+                                  "FixedValue": {
+                                    "Value": 0.33300000010058284
+                                  }
+                                }
+                              },
+                              "SuccessTaskList": [
+                                {
+                                  "$type": "RPG.GameCore.SetDynamicValue",
+                                  "DynamicKey": "MDF_DiceResult",
+                                  "Value": {
+                                    "IsDynamic": false,
+                                    "FixedValue": {
+                                      "Value": 4
+                                    }
+                                  }
+                                },
+                                {
+                                  "$type": "RPG.GameCore.TriggerEffect",
+                                  "TargetType": {
+                                    "$type": "RPG.GameCore.TargetAlias",
+                                    "Alias": "ModifierOwnerEntity"
+                                  },
+                                  "EffectPath": "Effects/Eff_Prefab/Eff_Monster/Eff_W3_Aventurine_00/Eff_Monster_W3_AventurinePart_00_Skill01.prefab"
+                                },
+                                {
+                                  "$type": "RPG.GameCore.TriggerEffect",
+                                  "TargetType": {
+                                    "$type": "RPG.GameCore.TargetAlias",
+                                    "Alias": "ModifierOwnerEntity"
+                                  },
+                                  "EffectPath": "Effects/Eff_Prefab/Eff_Monster/Eff_W3_Aventurine_00/Eff_Monster_W3_AventurinePart_00_Skill01_04.prefab"
+                                },
+                                {
+                                  "$type": "RPG.GameCore.PredicateTaskList",
+                                  "Predicate": {
+                                    "$type": "RPG.GameCore.ByCompareMonsterRank",
+                                    "TargetType": {
+                                      "$type": "RPG.GameCore.TargetAlias",
+                                      "Alias": "ModifierOwnerEntity"
+                                    },
+                                    "CompareType": "Less",
+                                    "CompareValue": 5
+                                  },
+                                  "SuccessTaskList": [
+                                    {
+                                      "$type": "RPG.GameCore.ShowUIPage",
+                                      "AssetPath": "UI/Common/Widget/BattleAlertHint.prefab",
+                                      "UITextNodes": [
+                                        {
+                                          "TextPath": "AreaInfoPanel/Title/Text",
+                                          "TextContent": {
+                                            "Hash": 1411280545
+                                          }
+                                        }
+                                      ],
+                                      "LifeTime": 1
+                                    }
+                                  ]
+                                }
+                              ],
+                              "FailedTaskList": [
+                                {
+                                  "$type": "RPG.GameCore.PredicateTaskList",
+                                  "Predicate": {
+                                    "$type": "RPG.GameCore.ByRandomChance",
+                                    "Chance": {
+                                      "IsDynamic": false,
+                                      "FixedValue": {
+                                        "Value": 0.5000000004656613
+                                      }
+                                    }
+                                  },
+                                  "SuccessTaskList": [
+                                    {
+                                      "$type": "RPG.GameCore.SetDynamicValue",
+                                      "DynamicKey": "MDF_DiceResult",
+                                      "Value": {
+                                        "IsDynamic": false,
+                                        "FixedValue": {
+                                          "Value": 5
+                                        }
+                                      }
+                                    },
+                                    {
+                                      "$type": "RPG.GameCore.TriggerEffect",
+                                      "TargetType": {
+                                        "$type": "RPG.GameCore.TargetAlias",
+                                        "Alias": "ModifierOwnerEntity"
+                                      },
+                                      "EffectPath": "Effects/Eff_Prefab/Eff_Monster/Eff_W3_Aventurine_00/Eff_Monster_W3_AventurinePart_00_Skill01.prefab"
+                                    },
+                                    {
+                                      "$type": "RPG.GameCore.TriggerEffect",
+                                      "TargetType": {
+                                        "$type": "RPG.GameCore.TargetAlias",
+                                        "Alias": "ModifierOwnerEntity"
+                                      },
+                                      "EffectPath": "Effects/Eff_Prefab/Eff_Monster/Eff_W3_Aventurine_00/Eff_Monster_W3_AventurinePart_00_Skill01_05.prefab"
+                                    },
+                                    {
+                                      "$type": "RPG.GameCore.PredicateTaskList",
+                                      "Predicate": {
+                                        "$type": "RPG.GameCore.ByCompareMonsterRank",
+                                        "TargetType": {
+                                          "$type": "RPG.GameCore.TargetAlias",
+                                          "Alias": "ModifierOwnerEntity"
+                                        },
+                                        "CompareType": "Less",
+                                        "CompareValue": 5
+                                      },
+                                      "SuccessTaskList": [
+                                        {
+                                          "$type": "RPG.GameCore.ShowUIPage",
+                                          "AssetPath": "UI/Common/Widget/BattleAlertHint.prefab",
+                                          "UITextNodes": [
+                                            {
+                                              "TextPath": "AreaInfoPanel/Title/Text",
+                                              "TextContent": {
+                                                "Hash": -154803396
+                                              }
+                                            }
+                                          ],
+                                          "LifeTime": 1
+                                        }
+                                      ]
+                                    }
+                                  ],
+                                  "FailedTaskList": [
+                                    {
+                                      "$type": "RPG.GameCore.SetDynamicValue",
+                                      "DynamicKey": "MDF_DiceResult",
+                                      "Value": {
+                                        "IsDynamic": false,
+                                        "FixedValue": {
+                                          "Value": 6
+                                        }
+                                      }
+                                    },
+                                    {
+                                      "$type": "RPG.GameCore.TriggerEffect",
+                                      "TargetType": {
+                                        "$type": "RPG.GameCore.TargetAlias",
+                                        "Alias": "ModifierOwnerEntity"
+                                      },
+                                      "EffectPath": "Effects/Eff_Prefab/Eff_Monster/Eff_W3_Aventurine_00/Eff_Monster_W3_AventurinePart_00_Skill01.prefab"
+                                    },
+                                    {
+                                      "$type": "RPG.GameCore.TriggerEffect",
+                                      "TargetType": {
+                                        "$type": "RPG.GameCore.TargetAlias",
+                                        "Alias": "ModifierOwnerEntity"
+                                      },
+                                      "EffectPath": "Effects/Eff_Prefab/Eff_Monster/Eff_W3_Aventurine_00/Eff_Monster_W3_AventurinePart_00_Skill01_06.prefab"
+                                    },
+                                    {
+                                      "$type": "RPG.GameCore.PredicateTaskList",
+                                      "Predicate": {
+                                        "$type": "RPG.GameCore.ByCompareMonsterRank",
+                                        "TargetType": {
+                                          "$type": "RPG.GameCore.TargetAlias",
+                                          "Alias": "ModifierOwnerEntity"
+                                        },
+                                        "CompareType": "Less",
+                                        "CompareValue": 5
+                                      },
+                                      "SuccessTaskList": [
+                                        {
+                                          "$type": "RPG.GameCore.ShowUIPage",
+                                          "AssetPath": "UI/Common/Widget/BattleAlertHint.prefab",
+                                          "UITextNodes": [
+                                            {
+                                              "TextPath": "AreaInfoPanel/Title/Text",
+                                              "TextContent": {
+                                                "Hash": 248481131
+                                              }
+                                            }
+                                          ],
+                                          "LifeTime": 1
+                                        }
+                                      ]
+                                    }
+                                  ]
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "FailedTaskList": [
+                {
+                  "$type": "RPG.GameCore.PredicateTaskList",
+                  "Predicate": {
+                    "$type": "RPG.GameCore.ByCompareMonsterPhase",
+                    "TargetType": {
+                      "$type": "RPG.GameCore.TargetAlias",
+                      "Alias": "CasterSummoner"
+                    },
+                    "CompareType": "Equal",
+                    "CompareValue": {
+                      "IsDynamic": false,
+                      "FixedValue": {
+                        "Value": 1
+                      }
+                    }
+                  },
+                  "SuccessTaskList": [
+                    {
+                      "$type": "RPG.GameCore.PredicateTaskList",
+                      "Predicate": {
+                        "$type": "RPG.GameCore.ByRandomChance",
+                        "Chance": {
+                          "IsDynamic": false,
+                          "FixedValue": {
+                            "Value": 0.1659999997355044
+                          }
+                        }
+                      },
+                      "SuccessTaskList": [
+                        {
+                          "$type": "RPG.GameCore.SetDynamicValue",
+                          "DynamicKey": "MDF_DiceResult",
+                          "Value": {
+                            "IsDynamic": false,
+                            "FixedValue": {
+                              "Value": 1
+                            }
+                          }
+                        },
+                        {
+                          "$type": "RPG.GameCore.TriggerEffect",
+                          "TargetType": {
+                            "$type": "RPG.GameCore.TargetAlias",
+                            "Alias": "ModifierOwnerEntity"
+                          },
+                          "EffectPath": "Effects/Eff_Prefab/Eff_Monster/Eff_W3_Aventurine_00/Eff_Monster_W3_AventurinePart_00_Skill01.prefab"
+                        },
+                        {
+                          "$type": "RPG.GameCore.TriggerEffect",
+                          "TargetType": {
+                            "$type": "RPG.GameCore.TargetAlias",
+                            "Alias": "ModifierOwnerEntity"
+                          },
+                          "EffectPath": "Effects/Eff_Prefab/Eff_Monster/Eff_W3_Aventurine_00/Eff_Monster_W3_AventurinePart_00_Skill01_01.prefab"
+                        },
+                        {
+                          "$type": "RPG.GameCore.PredicateTaskList",
+                          "Predicate": {
+                            "$type": "RPG.GameCore.ByCompareMonsterRank",
+                            "TargetType": {
+                              "$type": "RPG.GameCore.TargetAlias",
+                              "Alias": "ModifierOwnerEntity"
+                            },
+                            "CompareType": "Less",
+                            "CompareValue": 4
+                          },
+                          "SuccessTaskList": [
+                            {
+                              "$type": "RPG.GameCore.ShowUIPage",
+                              "AssetPath": "UI/Common/Widget/BattleSelfStatusHint.prefab",
+                              "UITextNodes": [
+                                {
+                                  "TextPath": "AreaInfoPanel/Title/Text",
+                                  "TextContent": {
+                                    "Hash": 1814565072
+                                  }
+                                }
+                              ],
+                              "LifeTime": 2
+                            }
+                          ]
+                        }
+                      ],
+                      "FailedTaskList": [
+                        {
+                          "$type": "RPG.GameCore.PredicateTaskList",
+                          "Predicate": {
+                            "$type": "RPG.GameCore.ByRandomChance",
+                            "Chance": {
+                              "IsDynamic": false,
+                              "FixedValue": {
+                                "Value": 0.20000000018626451
+                              }
+                            }
+                          },
+                          "SuccessTaskList": [
+                            {
+                              "$type": "RPG.GameCore.SetDynamicValue",
+                              "DynamicKey": "MDF_DiceResult",
+                              "Value": {
+                                "IsDynamic": false,
+                                "FixedValue": {
+                                  "Value": 2
+                                }
+                              }
+                            },
+                            {
+                              "$type": "RPG.GameCore.TriggerEffect",
+                              "TargetType": {
+                                "$type": "RPG.GameCore.TargetAlias",
+                                "Alias": "ModifierOwnerEntity"
+                              },
+                              "EffectPath": "Effects/Eff_Prefab/Eff_Monster/Eff_W3_Aventurine_00/Eff_Monster_W3_AventurinePart_00_Skill01.prefab"
+                            },
+                            {
+                              "$type": "RPG.GameCore.TriggerEffect",
+                              "TargetType": {
+                                "$type": "RPG.GameCore.TargetAlias",
+                                "Alias": "ModifierOwnerEntity"
+                              },
+                              "EffectPath": "Effects/Eff_Prefab/Eff_Monster/Eff_W3_Aventurine_00/Eff_Monster_W3_AventurinePart_00_Skill01_02.prefab"
+                            },
+                            {
+                              "$type": "RPG.GameCore.PredicateTaskList",
+                              "Predicate": {
+                                "$type": "RPG.GameCore.ByCompareMonsterRank",
+                                "TargetType": {
+                                  "$type": "RPG.GameCore.TargetAlias",
+                                  "Alias": "ModifierOwnerEntity"
+                                },
+                                "CompareType": "Less",
+                                "CompareValue": 4
+                              },
+                              "SuccessTaskList": [
+                                {
+                                  "$type": "RPG.GameCore.ShowUIPage",
+                                  "AssetPath": "UI/Common/Widget/BattleSelfStatusHint.prefab",
+                                  "UITextNodes": [
+                                    {
+                                      "TextPath": "AreaInfoPanel/Title/Text",
+                                      "TextContent": {
+                                        "Hash": -2077117697
+                                      }
+                                    }
+                                  ],
+                                  "LifeTime": 2
+                                }
+                              ]
+                            }
+                          ],
+                          "FailedTaskList": [
+                            {
+                              "$type": "RPG.GameCore.PredicateTaskList",
+                              "Predicate": {
+                                "$type": "RPG.GameCore.ByRandomChance",
+                                "Chance": {
+                                  "IsDynamic": false,
+                                  "FixedValue": {
+                                    "Value": 0.25000000023283064
+                                  }
+                                }
+                              },
+                              "SuccessTaskList": [
+                                {
+                                  "$type": "RPG.GameCore.SetDynamicValue",
+                                  "DynamicKey": "MDF_DiceResult",
+                                  "Value": {
+                                    "IsDynamic": false,
+                                    "FixedValue": {
+                                      "Value": 3
+                                    }
+                                  }
+                                },
+                                {
+                                  "$type": "RPG.GameCore.TriggerEffect",
+                                  "TargetType": {
+                                    "$type": "RPG.GameCore.TargetAlias",
+                                    "Alias": "ModifierOwnerEntity"
+                                  },
+                                  "EffectPath": "Effects/Eff_Prefab/Eff_Monster/Eff_W3_Aventurine_00/Eff_Monster_W3_AventurinePart_00_Skill01.prefab"
+                                },
+                                {
+                                  "$type": "RPG.GameCore.TriggerEffect",
+                                  "TargetType": {
+                                    "$type": "RPG.GameCore.TargetAlias",
+                                    "Alias": "ModifierOwnerEntity"
+                                  },
+                                  "EffectPath": "Effects/Eff_Prefab/Eff_Monster/Eff_W3_Aventurine_00/Eff_Monster_W3_AventurinePart_00_Skill01_03.prefab"
+                                },
+                                {
+                                  "$type": "RPG.GameCore.PredicateTaskList",
+                                  "Predicate": {
+                                    "$type": "RPG.GameCore.ByCompareMonsterRank",
+                                    "TargetType": {
+                                      "$type": "RPG.GameCore.TargetAlias",
+                                      "Alias": "ModifierOwnerEntity"
+                                    },
+                                    "CompareType": "Less",
+                                    "CompareValue": 4
+                                  },
+                                  "SuccessTaskList": [
+                                    {
+                                      "$type": "RPG.GameCore.ShowUIPage",
+                                      "AssetPath": "UI/Common/Widget/BattleSelfStatusHint.prefab",
+                                      "UITextNodes": [
+                                        {
+                                          "TextPath": "AreaInfoPanel/Title/Text",
+                                          "TextContent": {
+                                            "Hash": 651765658
+                                          }
+                                        }
+                                      ],
+                                      "LifeTime": 2
+                                    }
+                                  ]
+                                }
+                              ],
+                              "FailedTaskList": [
+                                {
+                                  "$type": "RPG.GameCore.PredicateTaskList",
+                                  "Predicate": {
+                                    "$type": "RPG.GameCore.ByRandomChance",
+                                    "Chance": {
+                                      "IsDynamic": false,
+                                      "FixedValue": {
+                                        "Value": 0.33300000010058284
+                                      }
+                                    }
+                                  },
+                                  "SuccessTaskList": [
+                                    {
+                                      "$type": "RPG.GameCore.SetDynamicValue",
+                                      "DynamicKey": "MDF_DiceResult",
+                                      "Value": {
+                                        "IsDynamic": false,
+                                        "FixedValue": {
+                                          "Value": 4
+                                        }
+                                      }
+                                    },
+                                    {
+                                      "$type": "RPG.GameCore.TriggerEffect",
+                                      "TargetType": {
+                                        "$type": "RPG.GameCore.TargetAlias",
+                                        "Alias": "ModifierOwnerEntity"
+                                      },
+                                      "EffectPath": "Effects/Eff_Prefab/Eff_Monster/Eff_W3_Aventurine_00/Eff_Monster_W3_AventurinePart_00_Skill01.prefab"
+                                    },
+                                    {
+                                      "$type": "RPG.GameCore.TriggerEffect",
+                                      "TargetType": {
+                                        "$type": "RPG.GameCore.TargetAlias",
+                                        "Alias": "ModifierOwnerEntity"
+                                      },
+                                      "EffectPath": "Effects/Eff_Prefab/Eff_Monster/Eff_W3_Aventurine_00/Eff_Monster_W3_AventurinePart_00_Skill01_04.prefab"
+                                    },
+                                    {
+                                      "$type": "RPG.GameCore.PredicateTaskList",
+                                      "Predicate": {
+                                        "$type": "RPG.GameCore.ByCompareMonsterRank",
+                                        "TargetType": {
+                                          "$type": "RPG.GameCore.TargetAlias",
+                                          "Alias": "ModifierOwnerEntity"
+                                        },
+                                        "CompareType": "Less",
+                                        "CompareValue": 4
+                                      },
+                                      "SuccessTaskList": [
+                                        {
+                                          "$type": "RPG.GameCore.ShowUIPage",
+                                          "AssetPath": "UI/Common/Widget/BattleSelfStatusHint.prefab",
+                                          "UITextNodes": [
+                                            {
+                                              "TextPath": "AreaInfoPanel/Title/Text",
+                                              "TextContent": {
+                                                "Hash": 1411280545
+                                              }
+                                            }
+                                          ],
+                                          "LifeTime": 2
+                                        }
+                                      ]
+                                    }
+                                  ],
+                                  "FailedTaskList": [
+                                    {
+                                      "$type": "RPG.GameCore.PredicateTaskList",
+                                      "Predicate": {
+                                        "$type": "RPG.GameCore.ByRandomChance",
+                                        "Chance": {
+                                          "IsDynamic": false,
+                                          "FixedValue": {
+                                            "Value": 0.5000000004656613
+                                          }
+                                        }
+                                      },
+                                      "SuccessTaskList": [
+                                        {
+                                          "$type": "RPG.GameCore.SetDynamicValue",
+                                          "DynamicKey": "MDF_DiceResult",
+                                          "Value": {
+                                            "IsDynamic": false,
+                                            "FixedValue": {
+                                              "Value": 5
+                                            }
+                                          }
+                                        },
+                                        {
+                                          "$type": "RPG.GameCore.TriggerEffect",
+                                          "TargetType": {
+                                            "$type": "RPG.GameCore.TargetAlias",
+                                            "Alias": "ModifierOwnerEntity"
+                                          },
+                                          "EffectPath": "Effects/Eff_Prefab/Eff_Monster/Eff_W3_Aventurine_00/Eff_Monster_W3_AventurinePart_00_Skill01.prefab"
+                                        },
+                                        {
+                                          "$type": "RPG.GameCore.TriggerEffect",
+                                          "TargetType": {
+                                            "$type": "RPG.GameCore.TargetAlias",
+                                            "Alias": "ModifierOwnerEntity"
+                                          },
+                                          "EffectPath": "Effects/Eff_Prefab/Eff_Monster/Eff_W3_Aventurine_00/Eff_Monster_W3_AventurinePart_00_Skill01_05.prefab"
+                                        },
+                                        {
+                                          "$type": "RPG.GameCore.PredicateTaskList",
+                                          "Predicate": {
+                                            "$type": "RPG.GameCore.ByCompareMonsterRank",
+                                            "TargetType": {
+                                              "$type": "RPG.GameCore.TargetAlias",
+                                              "Alias": "ModifierOwnerEntity"
+                                            },
+                                            "CompareType": "Less",
+                                            "CompareValue": 4
+                                          },
+                                          "SuccessTaskList": [
+                                            {
+                                              "$type": "RPG.GameCore.ShowUIPage",
+                                              "AssetPath": "UI/Common/Widget/BattleSelfStatusHint.prefab",
+                                              "UITextNodes": [
+                                                {
+                                                  "TextPath": "AreaInfoPanel/Title/Text",
+                                                  "TextContent": {
+                                                    "Hash": -154803396
+                                                  }
+                                                }
+                                              ],
+                                              "LifeTime": 2
+                                            }
+                                          ]
+                                        }
+                                      ],
+                                      "FailedTaskList": [
+                                        {
+                                          "$type": "RPG.GameCore.SetDynamicValue",
+                                          "DynamicKey": "MDF_DiceResult",
+                                          "Value": {
+                                            "IsDynamic": false,
+                                            "FixedValue": {
+                                              "Value": 6
+                                            }
+                                          }
+                                        },
+                                        {
+                                          "$type": "RPG.GameCore.TriggerEffect",
+                                          "TargetType": {
+                                            "$type": "RPG.GameCore.TargetAlias",
+                                            "Alias": "ModifierOwnerEntity"
+                                          },
+                                          "EffectPath": "Effects/Eff_Prefab/Eff_Monster/Eff_W3_Aventurine_00/Eff_Monster_W3_AventurinePart_00_Skill01.prefab"
+                                        },
+                                        {
+                                          "$type": "RPG.GameCore.TriggerEffect",
+                                          "TargetType": {
+                                            "$type": "RPG.GameCore.TargetAlias",
+                                            "Alias": "ModifierOwnerEntity"
+                                          },
+                                          "EffectPath": "Effects/Eff_Prefab/Eff_Monster/Eff_W3_Aventurine_00/Eff_Monster_W3_AventurinePart_00_Skill01_06.prefab"
+                                        },
+                                        {
+                                          "$type": "RPG.GameCore.PredicateTaskList",
+                                          "Predicate": {
+                                            "$type": "RPG.GameCore.ByCompareMonsterRank",
+                                            "TargetType": {
+                                              "$type": "RPG.GameCore.TargetAlias",
+                                              "Alias": "ModifierOwnerEntity"
+                                            },
+                                            "CompareType": "Less",
+                                            "CompareValue": 4
+                                          },
+                                          "SuccessTaskList": [
+                                            {
+                                              "$type": "RPG.GameCore.ShowUIPage",
+                                              "AssetPath": "UI/Common/Widget/BattleSelfStatusHint.prefab",
+                                              "UITextNodes": [
+                                                {
+                                                  "TextPath": "AreaInfoPanel/Title/Text",
+                                                  "TextContent": {
+                                                    "Hash": 248481131
+                                                  }
+                                                }
+                                              ],
+                                              "LifeTime": 2
+                                            }
+                                          ]
+                                        }
+                                      ]
+                                    }
+                                  ]
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ],
+                  "FailedTaskList": [
+                    {
+                      "$type": "RPG.GameCore.PredicateTaskList",
+                      "Predicate": {
+                        "$type": "RPG.GameCore.ByRandomChance",
+                        "Chance": {
+                          "IsDynamic": false,
+                          "FixedValue": {
+                            "Value": 0.8000000007450581
+                          }
+                        }
+                      },
+                      "SuccessTaskList": [
+                        {
+                          "$type": "RPG.GameCore.SetDynamicValue",
+                          "DynamicKey": "MDF_DiceResult",
+                          "Value": {
+                            "IsDynamic": false,
+                            "FixedValue": {
+                              "Value": 1
+                            }
+                          }
+                        },
+                        {
+                          "$type": "RPG.GameCore.TriggerEffect",
+                          "TargetType": {
+                            "$type": "RPG.GameCore.TargetAlias",
+                            "Alias": "ModifierOwnerEntity"
+                          },
+                          "EffectPath": "Effects/Eff_Prefab/Eff_Monster/Eff_W3_Aventurine_00/Eff_Monster_W3_AventurinePart_00_Skill01.prefab"
+                        },
+                        {
+                          "$type": "RPG.GameCore.TriggerEffect",
+                          "TargetType": {
+                            "$type": "RPG.GameCore.TargetAlias",
+                            "Alias": "ModifierOwnerEntity"
+                          },
+                          "EffectPath": "Effects/Eff_Prefab/Eff_Monster/Eff_W3_Aventurine_00/Eff_Monster_W3_AventurinePart_00_Skill01_01.prefab"
+                        },
+                        {
+                          "$type": "RPG.GameCore.Retarget",
+                          "TargetType": {
+                            "$type": "RPG.GameCore.TargetAlias",
+                            "Alias": "AllDarkTeam"
+                          },
+                          "Predicate": {
+                            "$type": "RPG.GameCore.ByIsContainModifier",
+                            "TargetType": {
+                              "$type": "RPG.GameCore.TargetAlias",
+                              "Alias": "ParamEntity"
+                            },
+                            "ModifierName": "Monster_W3_Aventurine_00_GamblingSkill"
+                          },
+                          "FailedTaskList": [
+                            {
+                              "$type": "RPG.GameCore.ShowUIPage",
+                              "AssetPath": "UI/Common/Widget/BattleSelfStatusHint.prefab",
+                              "UITextNodes": [
+                                {
+                                  "TextPath": "AreaInfoPanel/Title/Text",
+                                  "TextContent": {
+                                    "Hash": 1814565072
+                                  }
+                                }
+                              ],
+                              "LifeTime": 2
+                            }
+                          ]
+                        }
+                      ],
+                      "FailedTaskList": [
+                        {
+                          "$type": "RPG.GameCore.PredicateTaskList",
+                          "Predicate": {
+                            "$type": "RPG.GameCore.ByRandomChance",
+                            "Chance": {
+                              "IsDynamic": false,
+                              "FixedValue": {
+                                "Value": 0.7000000006519258
+                              }
+                            }
+                          },
+                          "SuccessTaskList": [
+                            {
+                              "$type": "RPG.GameCore.SetDynamicValue",
+                              "DynamicKey": "MDF_DiceResult",
+                              "Value": {
+                                "IsDynamic": false,
+                                "FixedValue": {
+                                  "Value": 2
+                                }
+                              }
+                            },
+                            {
+                              "$type": "RPG.GameCore.TriggerEffect",
+                              "TargetType": {
+                                "$type": "RPG.GameCore.TargetAlias",
+                                "Alias": "ModifierOwnerEntity"
+                              },
+                              "EffectPath": "Effects/Eff_Prefab/Eff_Monster/Eff_W3_Aventurine_00/Eff_Monster_W3_AventurinePart_00_Skill01.prefab"
+                            },
+                            {
+                              "$type": "RPG.GameCore.TriggerEffect",
+                              "TargetType": {
+                                "$type": "RPG.GameCore.TargetAlias",
+                                "Alias": "ModifierOwnerEntity"
+                              },
+                              "EffectPath": "Effects/Eff_Prefab/Eff_Monster/Eff_W3_Aventurine_00/Eff_Monster_W3_AventurinePart_00_Skill01_02.prefab"
+                            },
+                            {
+                              "$type": "RPG.GameCore.Retarget",
+                              "TargetType": {
+                                "$type": "RPG.GameCore.TargetAlias",
+                                "Alias": "AllDarkTeam"
+                              },
+                              "Predicate": {
+                                "$type": "RPG.GameCore.ByIsContainModifier",
+                                "TargetType": {
+                                  "$type": "RPG.GameCore.TargetAlias",
+                                  "Alias": "ParamEntity"
+                                },
+                                "ModifierName": "Monster_W3_Aventurine_00_GamblingSkill"
+                              },
+                              "FailedTaskList": [
+                                {
+                                  "$type": "RPG.GameCore.ShowUIPage",
+                                  "AssetPath": "UI/Common/Widget/BattleSelfStatusHint.prefab",
+                                  "UITextNodes": [
+                                    {
+                                      "TextPath": "AreaInfoPanel/Title/Text",
+                                      "TextContent": {
+                                        "Hash": -2077117697
+                                      }
+                                    }
+                                  ],
+                                  "LifeTime": 2
+                                }
+                              ]
+                            }
+                          ],
+                          "FailedTaskList": [
+                            {
+                              "$type": "RPG.GameCore.PredicateTaskList",
+                              "Predicate": {
+                                "$type": "RPG.GameCore.ByRandomChance",
+                                "Chance": {
+                                  "IsDynamic": false,
+                                  "FixedValue": {
+                                    "Value": 0.18200000002980232
+                                  }
+                                }
+                              },
+                              "SuccessTaskList": [
+                                {
+                                  "$type": "RPG.GameCore.SetDynamicValue",
+                                  "DynamicKey": "MDF_DiceResult",
+                                  "Value": {
+                                    "IsDynamic": false,
+                                    "FixedValue": {
+                                      "Value": 3
+                                    }
+                                  }
+                                },
+                                {
+                                  "$type": "RPG.GameCore.TriggerEffect",
+                                  "TargetType": {
+                                    "$type": "RPG.GameCore.TargetAlias",
+                                    "Alias": "ModifierOwnerEntity"
+                                  },
+                                  "EffectPath": "Effects/Eff_Prefab/Eff_Monster/Eff_W3_Aventurine_00/Eff_Monster_W3_AventurinePart_00_Skill01.prefab"
+                                },
+                                {
+                                  "$type": "RPG.GameCore.TriggerEffect",
+                                  "TargetType": {
+                                    "$type": "RPG.GameCore.TargetAlias",
+                                    "Alias": "ModifierOwnerEntity"
+                                  },
+                                  "EffectPath": "Effects/Eff_Prefab/Eff_Monster/Eff_W3_Aventurine_00/Eff_Monster_W3_AventurinePart_00_Skill01_03.prefab"
+                                },
+                                {
+                                  "$type": "RPG.GameCore.Retarget",
+                                  "TargetType": {
+                                    "$type": "RPG.GameCore.TargetAlias",
+                                    "Alias": "AllDarkTeam"
+                                  },
+                                  "Predicate": {
+                                    "$type": "RPG.GameCore.ByIsContainModifier",
+                                    "TargetType": {
+                                      "$type": "RPG.GameCore.TargetAlias",
+                                      "Alias": "ParamEntity"
+                                    },
+                                    "ModifierName": "Monster_W3_Aventurine_00_GamblingSkill"
+                                  },
+                                  "FailedTaskList": [
+                                    {
+                                      "$type": "RPG.GameCore.ShowUIPage",
+                                      "AssetPath": "UI/Common/Widget/BattleSelfStatusHint.prefab",
+                                      "UITextNodes": [
+                                        {
+                                          "TextPath": "AreaInfoPanel/Title/Text",
+                                          "TextContent": {
+                                            "Hash": 651765658
+                                          }
+                                        }
+                                      ],
+                                      "LifeTime": 2
+                                    }
+                                  ]
+                                }
+                              ],
+                              "FailedTaskList": [
+                                {
+                                  "$type": "RPG.GameCore.PredicateTaskList",
+                                  "Predicate": {
+                                    "$type": "RPG.GameCore.ByRandomChance",
+                                    "Chance": {
+                                      "IsDynamic": false,
+                                      "FixedValue": {
+                                        "Value": 0.22200000006705523
+                                      }
+                                    }
+                                  },
+                                  "SuccessTaskList": [
+                                    {
+                                      "$type": "RPG.GameCore.SetDynamicValue",
+                                      "DynamicKey": "MDF_DiceResult",
+                                      "Value": {
+                                        "IsDynamic": false,
+                                        "FixedValue": {
+                                          "Value": 4
+                                        }
+                                      }
+                                    },
+                                    {
+                                      "$type": "RPG.GameCore.TriggerEffect",
+                                      "TargetType": {
+                                        "$type": "RPG.GameCore.TargetAlias",
+                                        "Alias": "ModifierOwnerEntity"
+                                      },
+                                      "EffectPath": "Effects/Eff_Prefab/Eff_Monster/Eff_W3_Aventurine_00/Eff_Monster_W3_AventurinePart_00_Skill01.prefab"
+                                    },
+                                    {
+                                      "$type": "RPG.GameCore.TriggerEffect",
+                                      "TargetType": {
+                                        "$type": "RPG.GameCore.TargetAlias",
+                                        "Alias": "ModifierOwnerEntity"
+                                      },
+                                      "EffectPath": "Effects/Eff_Prefab/Eff_Monster/Eff_W3_Aventurine_00/Eff_Monster_W3_AventurinePart_00_Skill01_04.prefab"
+                                    },
+                                    {
+                                      "$type": "RPG.GameCore.Retarget",
+                                      "TargetType": {
+                                        "$type": "RPG.GameCore.TargetAlias",
+                                        "Alias": "AllDarkTeam"
+                                      },
+                                      "Predicate": {
+                                        "$type": "RPG.GameCore.ByIsContainModifier",
+                                        "TargetType": {
+                                          "$type": "RPG.GameCore.TargetAlias",
+                                          "Alias": "ParamEntity"
+                                        },
+                                        "ModifierName": "Monster_W3_Aventurine_00_GamblingSkill"
+                                      },
+                                      "FailedTaskList": [
+                                        {
+                                          "$type": "RPG.GameCore.ShowUIPage",
+                                          "AssetPath": "UI/Common/Widget/BattleSelfStatusHint.prefab",
+                                          "UITextNodes": [
+                                            {
+                                              "TextPath": "AreaInfoPanel/Title/Text",
+                                              "TextContent": {
+                                                "Hash": 1411280545
+                                              }
+                                            }
+                                          ],
+                                          "LifeTime": 2
+                                        }
+                                      ]
+                                    }
+                                  ],
+                                  "FailedTaskList": [
+                                    {
+                                      "$type": "RPG.GameCore.PredicateTaskList",
+                                      "Predicate": {
+                                        "$type": "RPG.GameCore.ByRandomChance",
+                                        "Chance": {
+                                          "IsDynamic": false,
+                                          "FixedValue": {
+                                            "Value": 0.2859999998472631
+                                          }
+                                        }
+                                      },
+                                      "SuccessTaskList": [
+                                        {
+                                          "$type": "RPG.GameCore.SetDynamicValue",
+                                          "DynamicKey": "MDF_DiceResult",
+                                          "Value": {
+                                            "IsDynamic": false,
+                                            "FixedValue": {
+                                              "Value": 5
+                                            }
+                                          }
+                                        },
+                                        {
+                                          "$type": "RPG.GameCore.TriggerEffect",
+                                          "TargetType": {
+                                            "$type": "RPG.GameCore.TargetAlias",
+                                            "Alias": "ModifierOwnerEntity"
+                                          },
+                                          "EffectPath": "Effects/Eff_Prefab/Eff_Monster/Eff_W3_Aventurine_00/Eff_Monster_W3_AventurinePart_00_Skill01.prefab"
+                                        },
+                                        {
+                                          "$type": "RPG.GameCore.TriggerEffect",
+                                          "TargetType": {
+                                            "$type": "RPG.GameCore.TargetAlias",
+                                            "Alias": "ModifierOwnerEntity"
+                                          },
+                                          "EffectPath": "Effects/Eff_Prefab/Eff_Monster/Eff_W3_Aventurine_00/Eff_Monster_W3_AventurinePart_00_Skill01_05.prefab"
+                                        },
+                                        {
+                                          "$type": "RPG.GameCore.Retarget",
+                                          "TargetType": {
+                                            "$type": "RPG.GameCore.TargetAlias",
+                                            "Alias": "AllDarkTeam"
+                                          },
+                                          "Predicate": {
+                                            "$type": "RPG.GameCore.ByIsContainModifier",
+                                            "TargetType": {
+                                              "$type": "RPG.GameCore.TargetAlias",
+                                              "Alias": "ParamEntity"
+                                            },
+                                            "ModifierName": "Monster_W3_Aventurine_00_GamblingSkill"
+                                          },
+                                          "FailedTaskList": [
+                                            {
+                                              "$type": "RPG.GameCore.ShowUIPage",
+                                              "AssetPath": "UI/Common/Widget/BattleSelfStatusHint.prefab",
+                                              "UITextNodes": [
+                                                {
+                                                  "TextPath": "AreaInfoPanel/Title/Text",
+                                                  "TextContent": {
+                                                    "Hash": -154803396
+                                                  }
+                                                }
+                                              ],
+                                              "LifeTime": 2
+                                            }
+                                          ]
+                                        }
+                                      ],
+                                      "FailedTaskList": [
+                                        {
+                                          "$type": "RPG.GameCore.SetDynamicValue",
+                                          "DynamicKey": "MDF_DiceResult",
+                                          "Value": {
+                                            "IsDynamic": false,
+                                            "FixedValue": {
+                                              "Value": 6
+                                            }
+                                          }
+                                        },
+                                        {
+                                          "$type": "RPG.GameCore.TriggerEffect",
+                                          "TargetType": {
+                                            "$type": "RPG.GameCore.TargetAlias",
+                                            "Alias": "ModifierOwnerEntity"
+                                          },
+                                          "EffectPath": "Effects/Eff_Prefab/Eff_Monster/Eff_W3_Aventurine_00/Eff_Monster_W3_AventurinePart_00_Skill01.prefab"
+                                        },
+                                        {
+                                          "$type": "RPG.GameCore.TriggerEffect",
+                                          "TargetType": {
+                                            "$type": "RPG.GameCore.TargetAlias",
+                                            "Alias": "ModifierOwnerEntity"
+                                          },
+                                          "EffectPath": "Effects/Eff_Prefab/Eff_Monster/Eff_W3_Aventurine_00/Eff_Monster_W3_AventurinePart_00_Skill01_06.prefab"
+                                        },
+                                        {
+                                          "$type": "RPG.GameCore.Retarget",
+                                          "TargetType": {
+                                            "$type": "RPG.GameCore.TargetAlias",
+                                            "Alias": "AllDarkTeam"
+                                          },
+                                          "Predicate": {
+                                            "$type": "RPG.GameCore.ByIsContainModifier",
+                                            "TargetType": {
+                                              "$type": "RPG.GameCore.TargetAlias",
+                                              "Alias": "ParamEntity"
+                                            },
+                                            "ModifierName": "Monster_W3_Aventurine_00_GamblingSkill"
+                                          },
+                                          "FailedTaskList": [
+                                            {
+                                              "$type": "RPG.GameCore.ShowUIPage",
+                                              "AssetPath": "UI/Common/Widget/BattleSelfStatusHint.prefab",
+                                              "UITextNodes": [
+                                                {
+                                                  "TextPath": "AreaInfoPanel/Title/Text",
+                                                  "TextContent": {
+                                                    "Hash": 248481131
+                                                  }
+                                                }
+                                              ],
+                                              "LifeTime": 2
+                                            }
+                                          ]
+                                        }
+                                      ]
+                                    }
+                                  ]
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "$type": "RPG.GameCore.Retarget",
+                      "TargetType": {
+                        "$type": "RPG.GameCore.TargetAlias",
+                        "Alias": "AllDarkTeam"
+                      },
+                      "Predicate": {
+                        "$type": "RPG.GameCore.ByAnd",
+                        "PredicateList": [
+                          {
+                            "$type": "RPG.GameCore.ByCompareMonsterRank",
+                            "TargetType": {
+                              "$type": "RPG.GameCore.TargetAlias",
+                              "Alias": "ParamEntity"
+                            },
+                            "CompareType": "Equal",
+                            "CompareValue": 4
+                          },
+                          {
+                            "$type": "RPG.GameCore.ByIsContainModifier",
+                            "TargetType": {
+                              "$type": "RPG.GameCore.TargetAlias",
+                              "Alias": "ParamEntity"
+                            },
+                            "ModifierName": "Monster_W3_Aventurine_00_GamblingSkill"
+                          }
+                        ]
+                      },
+                      "MaxNumber": {
+                        "IsDynamic": false,
+                        "FixedValue": {
+                          "Value": 1
+                        }
+                      },
+                      "TaskList": [
+                        {
+                          "$type": "RPG.GameCore.AddModifier",
+                          "TargetType": {
+                            "$type": "RPG.GameCore.TargetAlias",
+                            "Alias": "ParamEntity"
+                          },
+                          "ModifierName": "Monster_W3_Aventurine_00_ResultCount",
+                          "LayerAddWhenStack": {
+                            "IsDynamic": true,
+                            "PostfixExpr": {
+                              "OpCodes": "AQAK",
+                              "FixedValues": [],
+                              "DynamicHashes": [
+                                2095531410
+                              ]
+                            }
+                          }
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "DynamicValues": {
+        "Values": {
+          "2095531410": {}
+        }
+      }
+    },
+    "Monster_W3_AventurinePart_00_ResultCount": {
+      "LayerAddWhenStack": {
+        "IsDynamic": false,
+        "FixedValue": {
+          "Value": 1
+        }
+      },
+      "UIConfig": {
+        "ModifierUIPriority": "SoftControl"
+      },
+      "_CallbackList": [
+        {
+          "Event": "OnAllowAction",
+          "CallbackConfig": [
+            {
+              "$type": "RPG.GameCore.Retarget",
+              "TargetType": {
+                "$type": "RPG.GameCore.TargetAlias",
+                "Alias": "AllDarkTeam"
+              },
+              "Predicate": {
+                "$type": "RPG.GameCore.ByCompareMonsterRank",
+                "TargetType": {
+                  "$type": "RPG.GameCore.TargetAlias",
+                  "Alias": "ParamEntity"
+                },
+                "CompareType": "Equal",
+                "CompareValue": 4
+              },
+              "MaxNumber": {
+                "IsDynamic": false,
+                "FixedValue": {
+                  "Value": 1
+                }
+              },
+              "TaskList": [
+                {
+                  "$type": "RPG.GameCore.RemoveEffect",
+                  "TargetType": {
+                    "$type": "RPG.GameCore.TargetAlias",
+                    "Alias": "ParamEntity"
+                  },
+                  "EffectPath": "Effects/Eff_Prefab/Eff_Monster/Eff_W3_Aventurine_00/Eff_Monster_W3_Aventurine_00_Skill04_01_Yellow.prefab"
+                },
+                {
+                  "$type": "RPG.GameCore.RemoveEffect",
+                  "TargetType": {
+                    "$type": "RPG.GameCore.TargetAlias",
+                    "Alias": "ParamEntity"
+                  },
+                  "EffectPath": "Effects/Eff_Prefab/Eff_Monster/Eff_W3_Aventurine_00/Eff_Monster_W3_Aventurine_00_Skill04_02_Yellow.prefab"
+                },
+                {
+                  "$type": "RPG.GameCore.RemoveEffect",
+                  "TargetType": {
+                    "$type": "RPG.GameCore.TargetAlias",
+                    "Alias": "ParamEntity"
+                  },
+                  "EffectPath": "Effects/Eff_Prefab/Eff_Monster/Eff_W3_Aventurine_00/Eff_Monster_W3_Aventurine_00_Skill04_03_Yellow.prefab"
+                },
+                {
+                  "$type": "RPG.GameCore.RemoveEffect",
+                  "TargetType": {
+                    "$type": "RPG.GameCore.TargetAlias",
+                    "Alias": "ParamEntity"
+                  },
+                  "EffectPath": "Effects/Eff_Prefab/Eff_Monster/Eff_W3_Aventurine_00/Eff_Monster_W3_Aventurine_00_Skill04_04_Yellow.prefab"
+                },
+                {
+                  "$type": "RPG.GameCore.RemoveEffect",
+                  "TargetType": {
+                    "$type": "RPG.GameCore.TargetAlias",
+                    "Alias": "ParamEntity"
+                  },
+                  "EffectPath": "Effects/Eff_Prefab/Eff_Monster/Eff_W3_Aventurine_00/Eff_Monster_W3_Aventurine_00_Skill04_05_Yellow.prefab"
+                },
+                {
+                  "$type": "RPG.GameCore.RemoveEffect",
+                  "TargetType": {
+                    "$type": "RPG.GameCore.TargetAlias",
+                    "Alias": "ParamEntity"
+                  },
+                  "EffectPath": "Effects/Eff_Prefab/Eff_Monster/Eff_W3_Aventurine_00/Eff_Monster_W3_Aventurine_00_Skill04_06_Yellow.prefab"
+                },
+                {
+                  "$type": "RPG.GameCore.RemoveEffect",
+                  "TargetType": {
+                    "$type": "RPG.GameCore.TargetAlias",
+                    "Alias": "ParamEntity"
+                  },
+                  "EffectPath": "Effects/Eff_Prefab/Eff_Monster/Eff_W3_Aventurine_00/Eff_Monster_W3_Aventurine_00_Skill04_07_Yellow.prefab"
+                },
+                {
+                  "$type": "RPG.GameCore.RemoveEffect",
+                  "TargetType": {
+                    "$type": "RPG.GameCore.TargetAlias",
+                    "Alias": "ParamEntity"
+                  },
+                  "EffectPath": "Effects/Eff_Prefab/Eff_Monster/Eff_W3_Aventurine_00/Eff_Monster_W3_Aventurine_00_Skill04_08_Yellow.prefab"
+                },
+                {
+                  "$type": "RPG.GameCore.RemoveEffect",
+                  "TargetType": {
+                    "$type": "RPG.GameCore.TargetAlias",
+                    "Alias": "ParamEntity"
+                  },
+                  "EffectPath": "Effects/Eff_Prefab/Eff_Monster/Eff_W3_Aventurine_00/Eff_Monster_W3_Aventurine_00_Skill04_09_Yellow.prefab"
+                },
+                {
+                  "$type": "RPG.GameCore.PredicateTaskList",
+                  "Predicate": {
+                    "$type": "RPG.GameCore.ByCompareModifierValue",
+                    "TargetType": {
+                      "$type": "RPG.GameCore.TargetAlias",
+                      "Alias": "ModifierOwnerEntity"
+                    },
+                    "ModifierName": "Monster_W3_AventurinePart_00_ResultCount",
+                    "ValueType": "Layer",
+                    "CompareType": "Equal",
+                    "CompareValue": {
+                      "IsDynamic": false,
+                      "FixedValue": {
+                        "Value": 1
+                      }
+                    }
+                  },
+                  "SuccessTaskList": [
+                    {
+                      "$type": "RPG.GameCore.TriggerEffect",
+                      "TargetType": {
+                        "$type": "RPG.GameCore.TargetAlias",
+                        "Alias": "ParamEntity"
+                      },
+                      "EffectPath": "Effects/Eff_Prefab/Eff_Monster/Eff_W3_Aventurine_00/Eff_Monster_W3_Aventurine_00_Skill04_01_Yellow.prefab"
+                    }
+                  ],
+                  "FailedTaskList": [
+                    {
+                      "$type": "RPG.GameCore.PredicateTaskList",
+                      "Predicate": {
+                        "$type": "RPG.GameCore.ByCompareModifierValue",
+                        "TargetType": {
+                          "$type": "RPG.GameCore.TargetAlias",
+                          "Alias": "ModifierOwnerEntity"
+                        },
+                        "ModifierName": "Monster_W3_AventurinePart_00_ResultCount",
+                        "ValueType": "Layer",
+                        "CompareType": "Equal",
+                        "CompareValue": {
+                          "IsDynamic": false,
+                          "FixedValue": {
+                            "Value": 2
+                          }
+                        }
+                      },
+                      "SuccessTaskList": [
+                        {
+                          "$type": "RPG.GameCore.TriggerEffect",
+                          "TargetType": {
+                            "$type": "RPG.GameCore.TargetAlias",
+                            "Alias": "ParamEntity"
+                          },
+                          "EffectPath": "Effects/Eff_Prefab/Eff_Monster/Eff_W3_Aventurine_00/Eff_Monster_W3_Aventurine_00_Skill04_02_Yellow.prefab"
+                        }
+                      ],
+                      "FailedTaskList": [
+                        {
+                          "$type": "RPG.GameCore.PredicateTaskList",
+                          "Predicate": {
+                            "$type": "RPG.GameCore.ByCompareModifierValue",
+                            "TargetType": {
+                              "$type": "RPG.GameCore.TargetAlias",
+                              "Alias": "ModifierOwnerEntity"
+                            },
+                            "ModifierName": "Monster_W3_AventurinePart_00_ResultCount",
+                            "ValueType": "Layer",
+                            "CompareType": "Equal",
+                            "CompareValue": {
+                              "IsDynamic": false,
+                              "FixedValue": {
+                                "Value": 3
+                              }
+                            }
+                          },
+                          "SuccessTaskList": [
+                            {
+                              "$type": "RPG.GameCore.TriggerEffect",
+                              "TargetType": {
+                                "$type": "RPG.GameCore.TargetAlias",
+                                "Alias": "ParamEntity"
+                              },
+                              "EffectPath": "Effects/Eff_Prefab/Eff_Monster/Eff_W3_Aventurine_00/Eff_Monster_W3_Aventurine_00_Skill04_03_Yellow.prefab"
+                            }
+                          ],
+                          "FailedTaskList": [
+                            {
+                              "$type": "RPG.GameCore.PredicateTaskList",
+                              "Predicate": {
+                                "$type": "RPG.GameCore.ByCompareModifierValue",
+                                "TargetType": {
+                                  "$type": "RPG.GameCore.TargetAlias",
+                                  "Alias": "ModifierOwnerEntity"
+                                },
+                                "ModifierName": "Monster_W3_AventurinePart_00_ResultCount",
+                                "ValueType": "Layer",
+                                "CompareType": "Equal",
+                                "CompareValue": {
+                                  "IsDynamic": false,
+                                  "FixedValue": {
+                                    "Value": 4
+                                  }
+                                }
+                              },
+                              "SuccessTaskList": [
+                                {
+                                  "$type": "RPG.GameCore.TriggerEffect",
+                                  "TargetType": {
+                                    "$type": "RPG.GameCore.TargetAlias",
+                                    "Alias": "ParamEntity"
+                                  },
+                                  "EffectPath": "Effects/Eff_Prefab/Eff_Monster/Eff_W3_Aventurine_00/Eff_Monster_W3_Aventurine_00_Skill04_04_Yellow.prefab"
+                                }
+                              ],
+                              "FailedTaskList": [
+                                {
+                                  "$type": "RPG.GameCore.PredicateTaskList",
+                                  "Predicate": {
+                                    "$type": "RPG.GameCore.ByCompareModifierValue",
+                                    "TargetType": {
+                                      "$type": "RPG.GameCore.TargetAlias",
+                                      "Alias": "ModifierOwnerEntity"
+                                    },
+                                    "ModifierName": "Monster_W3_AventurinePart_00_ResultCount",
+                                    "ValueType": "Layer",
+                                    "CompareType": "Equal",
+                                    "CompareValue": {
+                                      "IsDynamic": false,
+                                      "FixedValue": {
+                                        "Value": 5
+                                      }
+                                    }
+                                  },
+                                  "SuccessTaskList": [
+                                    {
+                                      "$type": "RPG.GameCore.TriggerEffect",
+                                      "TargetType": {
+                                        "$type": "RPG.GameCore.TargetAlias",
+                                        "Alias": "ParamEntity"
+                                      },
+                                      "EffectPath": "Effects/Eff_Prefab/Eff_Monster/Eff_W3_Aventurine_00/Eff_Monster_W3_Aventurine_00_Skill04_05_Yellow.prefab"
+                                    }
+                                  ],
+                                  "FailedTaskList": [
+                                    {
+                                      "$type": "RPG.GameCore.PredicateTaskList",
+                                      "Predicate": {
+                                        "$type": "RPG.GameCore.ByCompareModifierValue",
+                                        "TargetType": {
+                                          "$type": "RPG.GameCore.TargetAlias",
+                                          "Alias": "ModifierOwnerEntity"
+                                        },
+                                        "ModifierName": "Monster_W3_AventurinePart_00_ResultCount",
+                                        "ValueType": "Layer",
+                                        "CompareType": "Equal",
+                                        "CompareValue": {
+                                          "IsDynamic": false,
+                                          "FixedValue": {
+                                            "Value": 6
+                                          }
+                                        }
+                                      },
+                                      "SuccessTaskList": [
+                                        {
+                                          "$type": "RPG.GameCore.TriggerEffect",
+                                          "TargetType": {
+                                            "$type": "RPG.GameCore.TargetAlias",
+                                            "Alias": "ParamEntity"
+                                          },
+                                          "EffectPath": "Effects/Eff_Prefab/Eff_Monster/Eff_W3_Aventurine_00/Eff_Monster_W3_Aventurine_00_Skill04_06_Yellow.prefab"
+                                        }
+                                      ],
+                                      "FailedTaskList": [
+                                        {
+                                          "$type": "RPG.GameCore.PredicateTaskList",
+                                          "Predicate": {
+                                            "$type": "RPG.GameCore.ByCompareModifierValue",
+                                            "TargetType": {
+                                              "$type": "RPG.GameCore.TargetAlias",
+                                              "Alias": "ModifierOwnerEntity"
+                                            },
+                                            "ModifierName": "Monster_W3_AventurinePart_00_ResultCount",
+                                            "ValueType": "Layer",
+                                            "CompareType": "Equal",
+                                            "CompareValue": {
+                                              "IsDynamic": false,
+                                              "FixedValue": {
+                                                "Value": 7
+                                              }
+                                            }
+                                          },
+                                          "SuccessTaskList": [
+                                            {
+                                              "$type": "RPG.GameCore.TriggerEffect",
+                                              "TargetType": {
+                                                "$type": "RPG.GameCore.TargetAlias",
+                                                "Alias": "ParamEntity"
+                                              },
+                                              "EffectPath": "Effects/Eff_Prefab/Eff_Monster/Eff_W3_Aventurine_00/Eff_Monster_W3_Aventurine_00_Skill04_07_Yellow.prefab"
+                                            }
+                                          ],
+                                          "FailedTaskList": [
+                                            {
+                                              "$type": "RPG.GameCore.PredicateTaskList",
+                                              "Predicate": {
+                                                "$type": "RPG.GameCore.ByCompareModifierValue",
+                                                "TargetType": {
+                                                  "$type": "RPG.GameCore.TargetAlias",
+                                                  "Alias": "ModifierOwnerEntity"
+                                                },
+                                                "ModifierName": "Monster_W3_AventurinePart_00_ResultCount",
+                                                "ValueType": "Layer",
+                                                "CompareType": "Equal",
+                                                "CompareValue": {
+                                                  "IsDynamic": false,
+                                                  "FixedValue": {
+                                                    "Value": 8
+                                                  }
+                                                }
+                                              },
+                                              "SuccessTaskList": [
+                                                {
+                                                  "$type": "RPG.GameCore.TriggerEffect",
+                                                  "TargetType": {
+                                                    "$type": "RPG.GameCore.TargetAlias",
+                                                    "Alias": "ParamEntity"
+                                                  },
+                                                  "EffectPath": "Effects/Eff_Prefab/Eff_Monster/Eff_W3_Aventurine_00/Eff_Monster_W3_Aventurine_00_Skill04_08_Yellow.prefab"
+                                                }
+                                              ],
+                                              "FailedTaskList": [
+                                                {
+                                                  "$type": "RPG.GameCore.PredicateTaskList",
+                                                  "Predicate": {
+                                                    "$type": "RPG.GameCore.ByCompareModifierValue",
+                                                    "TargetType": {
+                                                      "$type": "RPG.GameCore.TargetAlias",
+                                                      "Alias": "ModifierOwnerEntity"
+                                                    },
+                                                    "ModifierName": "Monster_W3_AventurinePart_00_ResultCount",
+                                                    "ValueType": "Layer",
+                                                    "CompareType": "Equal",
+                                                    "CompareValue": {
+                                                      "IsDynamic": false,
+                                                      "FixedValue": {
+                                                        "Value": 9
+                                                      }
+                                                    }
+                                                  },
+                                                  "SuccessTaskList": [
+                                                    {
+                                                      "$type": "RPG.GameCore.TriggerEffect",
+                                                      "TargetType": {
+                                                        "$type": "RPG.GameCore.TargetAlias",
+                                                        "Alias": "ParamEntity"
+                                                      },
+                                                      "EffectPath": "Effects/Eff_Prefab/Eff_Monster/Eff_W3_Aventurine_00/Eff_Monster_W3_Aventurine_00_Skill04_09_Yellow.prefab"
+                                                    }
+                                                  ]
+                                                }
+                                              ]
+                                            }
+                                          ]
+                                        }
+                                      ]
+                                    }
+                                  ]
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Event": "OnStack",
+          "CallbackConfig": [
+            {
+              "$type": "RPG.GameCore.Retarget",
+              "TargetType": {
+                "$type": "RPG.GameCore.TargetAlias",
+                "Alias": "AllDarkTeam"
+              },
+              "Predicate": {
+                "$type": "RPG.GameCore.ByCompareMonsterRank",
+                "TargetType": {
+                  "$type": "RPG.GameCore.TargetAlias",
+                  "Alias": "ParamEntity"
+                },
+                "CompareType": "Equal",
+                "CompareValue": 4
+              },
+              "MaxNumber": {
+                "IsDynamic": false,
+                "FixedValue": {
+                  "Value": 1
+                }
+              },
+              "TaskList": [
+                {
+                  "$type": "RPG.GameCore.RemoveEffect",
+                  "TargetType": {
+                    "$type": "RPG.GameCore.TargetAlias",
+                    "Alias": "ParamEntity"
+                  },
+                  "EffectPath": "Effects/Eff_Prefab/Eff_Monster/Eff_W3_Aventurine_00/Eff_Monster_W3_Aventurine_00_Skill04_0_Yellow.prefab"
+                },
+                {
+                  "$type": "RPG.GameCore.RemoveEffect",
+                  "TargetType": {
+                    "$type": "RPG.GameCore.TargetAlias",
+                    "Alias": "ParamEntity"
+                  },
+                  "EffectPath": "Effects/Eff_Prefab/Eff_Monster/Eff_W3_Aventurine_00/Eff_Monster_W3_Aventurine_00_Skill04_01_Yellow.prefab"
+                },
+                {
+                  "$type": "RPG.GameCore.RemoveEffect",
+                  "TargetType": {
+                    "$type": "RPG.GameCore.TargetAlias",
+                    "Alias": "ParamEntity"
+                  },
+                  "EffectPath": "Effects/Eff_Prefab/Eff_Monster/Eff_W3_Aventurine_00/Eff_Monster_W3_Aventurine_00_Skill04_02_Yellow.prefab"
+                },
+                {
+                  "$type": "RPG.GameCore.RemoveEffect",
+                  "TargetType": {
+                    "$type": "RPG.GameCore.TargetAlias",
+                    "Alias": "ParamEntity"
+                  },
+                  "EffectPath": "Effects/Eff_Prefab/Eff_Monster/Eff_W3_Aventurine_00/Eff_Monster_W3_Aventurine_00_Skill04_03_Yellow.prefab"
+                },
+                {
+                  "$type": "RPG.GameCore.RemoveEffect",
+                  "TargetType": {
+                    "$type": "RPG.GameCore.TargetAlias",
+                    "Alias": "ParamEntity"
+                  },
+                  "EffectPath": "Effects/Eff_Prefab/Eff_Monster/Eff_W3_Aventurine_00/Eff_Monster_W3_Aventurine_00_Skill04_04_Yellow.prefab"
+                },
+                {
+                  "$type": "RPG.GameCore.RemoveEffect",
+                  "TargetType": {
+                    "$type": "RPG.GameCore.TargetAlias",
+                    "Alias": "ParamEntity"
+                  },
+                  "EffectPath": "Effects/Eff_Prefab/Eff_Monster/Eff_W3_Aventurine_00/Eff_Monster_W3_Aventurine_00_Skill04_05_Yellow.prefab"
+                },
+                {
+                  "$type": "RPG.GameCore.RemoveEffect",
+                  "TargetType": {
+                    "$type": "RPG.GameCore.TargetAlias",
+                    "Alias": "ParamEntity"
+                  },
+                  "EffectPath": "Effects/Eff_Prefab/Eff_Monster/Eff_W3_Aventurine_00/Eff_Monster_W3_Aventurine_00_Skill04_06_Yellow.prefab"
+                },
+                {
+                  "$type": "RPG.GameCore.RemoveEffect",
+                  "TargetType": {
+                    "$type": "RPG.GameCore.TargetAlias",
+                    "Alias": "ParamEntity"
+                  },
+                  "EffectPath": "Effects/Eff_Prefab/Eff_Monster/Eff_W3_Aventurine_00/Eff_Monster_W3_Aventurine_00_Skill04_07_Yellow.prefab"
+                },
+                {
+                  "$type": "RPG.GameCore.RemoveEffect",
+                  "TargetType": {
+                    "$type": "RPG.GameCore.TargetAlias",
+                    "Alias": "ParamEntity"
+                  },
+                  "EffectPath": "Effects/Eff_Prefab/Eff_Monster/Eff_W3_Aventurine_00/Eff_Monster_W3_Aventurine_00_Skill04_08_Yellow.prefab"
+                },
+                {
+                  "$type": "RPG.GameCore.RemoveEffect",
+                  "TargetType": {
+                    "$type": "RPG.GameCore.TargetAlias",
+                    "Alias": "ParamEntity"
+                  },
+                  "EffectPath": "Effects/Eff_Prefab/Eff_Monster/Eff_W3_Aventurine_00/Eff_Monster_W3_Aventurine_00_Skill04_09_Yellow.prefab"
+                },
+                {
+                  "$type": "RPG.GameCore.PredicateTaskList",
+                  "Predicate": {
+                    "$type": "RPG.GameCore.ByCompareModifierValue",
+                    "TargetType": {
+                      "$type": "RPG.GameCore.TargetAlias",
+                      "Alias": "ModifierOwnerEntity"
+                    },
+                    "ModifierName": "Monster_W3_AventurinePart_00_ResultCount",
+                    "ValueType": "Layer",
+                    "CompareType": "Equal",
+                    "CompareValue": {
+                      "IsDynamic": false,
+                      "FixedValue": {
+                        "Value": 1
+                      }
+                    }
+                  },
+                  "SuccessTaskList": [
+                    {
+                      "$type": "RPG.GameCore.TriggerEffect",
+                      "TargetType": {
+                        "$type": "RPG.GameCore.TargetAlias",
+                        "Alias": "ParamEntity"
+                      },
+                      "EffectPath": "Effects/Eff_Prefab/Eff_Monster/Eff_W3_Aventurine_00/Eff_Monster_W3_Aventurine_00_Skill04_01_Yellow.prefab"
+                    }
+                  ],
+                  "FailedTaskList": [
+                    {
+                      "$type": "RPG.GameCore.PredicateTaskList",
+                      "Predicate": {
+                        "$type": "RPG.GameCore.ByCompareModifierValue",
+                        "TargetType": {
+                          "$type": "RPG.GameCore.TargetAlias",
+                          "Alias": "ModifierOwnerEntity"
+                        },
+                        "ModifierName": "Monster_W3_AventurinePart_00_ResultCount",
+                        "ValueType": "Layer",
+                        "CompareType": "Equal",
+                        "CompareValue": {
+                          "IsDynamic": false,
+                          "FixedValue": {
+                            "Value": 2
+                          }
+                        }
+                      },
+                      "SuccessTaskList": [
+                        {
+                          "$type": "RPG.GameCore.TriggerEffect",
+                          "TargetType": {
+                            "$type": "RPG.GameCore.TargetAlias",
+                            "Alias": "ParamEntity"
+                          },
+                          "EffectPath": "Effects/Eff_Prefab/Eff_Monster/Eff_W3_Aventurine_00/Eff_Monster_W3_Aventurine_00_Skill04_02_Yellow.prefab"
+                        }
+                      ],
+                      "FailedTaskList": [
+                        {
+                          "$type": "RPG.GameCore.PredicateTaskList",
+                          "Predicate": {
+                            "$type": "RPG.GameCore.ByCompareModifierValue",
+                            "TargetType": {
+                              "$type": "RPG.GameCore.TargetAlias",
+                              "Alias": "ModifierOwnerEntity"
+                            },
+                            "ModifierName": "Monster_W3_AventurinePart_00_ResultCount",
+                            "ValueType": "Layer",
+                            "CompareType": "Equal",
+                            "CompareValue": {
+                              "IsDynamic": false,
+                              "FixedValue": {
+                                "Value": 3
+                              }
+                            }
+                          },
+                          "SuccessTaskList": [
+                            {
+                              "$type": "RPG.GameCore.TriggerEffect",
+                              "TargetType": {
+                                "$type": "RPG.GameCore.TargetAlias",
+                                "Alias": "ParamEntity"
+                              },
+                              "EffectPath": "Effects/Eff_Prefab/Eff_Monster/Eff_W3_Aventurine_00/Eff_Monster_W3_Aventurine_00_Skill04_03_Yellow.prefab"
+                            }
+                          ],
+                          "FailedTaskList": [
+                            {
+                              "$type": "RPG.GameCore.PredicateTaskList",
+                              "Predicate": {
+                                "$type": "RPG.GameCore.ByCompareModifierValue",
+                                "TargetType": {
+                                  "$type": "RPG.GameCore.TargetAlias",
+                                  "Alias": "ModifierOwnerEntity"
+                                },
+                                "ModifierName": "Monster_W3_AventurinePart_00_ResultCount",
+                                "ValueType": "Layer",
+                                "CompareType": "Equal",
+                                "CompareValue": {
+                                  "IsDynamic": false,
+                                  "FixedValue": {
+                                    "Value": 4
+                                  }
+                                }
+                              },
+                              "SuccessTaskList": [
+                                {
+                                  "$type": "RPG.GameCore.TriggerEffect",
+                                  "TargetType": {
+                                    "$type": "RPG.GameCore.TargetAlias",
+                                    "Alias": "ParamEntity"
+                                  },
+                                  "EffectPath": "Effects/Eff_Prefab/Eff_Monster/Eff_W3_Aventurine_00/Eff_Monster_W3_Aventurine_00_Skill04_04_Yellow.prefab"
+                                }
+                              ],
+                              "FailedTaskList": [
+                                {
+                                  "$type": "RPG.GameCore.PredicateTaskList",
+                                  "Predicate": {
+                                    "$type": "RPG.GameCore.ByCompareModifierValue",
+                                    "TargetType": {
+                                      "$type": "RPG.GameCore.TargetAlias",
+                                      "Alias": "ModifierOwnerEntity"
+                                    },
+                                    "ModifierName": "Monster_W3_AventurinePart_00_ResultCount",
+                                    "ValueType": "Layer",
+                                    "CompareType": "Equal",
+                                    "CompareValue": {
+                                      "IsDynamic": false,
+                                      "FixedValue": {
+                                        "Value": 5
+                                      }
+                                    }
+                                  },
+                                  "SuccessTaskList": [
+                                    {
+                                      "$type": "RPG.GameCore.TriggerEffect",
+                                      "TargetType": {
+                                        "$type": "RPG.GameCore.TargetAlias",
+                                        "Alias": "ParamEntity"
+                                      },
+                                      "EffectPath": "Effects/Eff_Prefab/Eff_Monster/Eff_W3_Aventurine_00/Eff_Monster_W3_Aventurine_00_Skill04_05_Yellow.prefab"
+                                    }
+                                  ],
+                                  "FailedTaskList": [
+                                    {
+                                      "$type": "RPG.GameCore.PredicateTaskList",
+                                      "Predicate": {
+                                        "$type": "RPG.GameCore.ByCompareModifierValue",
+                                        "TargetType": {
+                                          "$type": "RPG.GameCore.TargetAlias",
+                                          "Alias": "ModifierOwnerEntity"
+                                        },
+                                        "ModifierName": "Monster_W3_AventurinePart_00_ResultCount",
+                                        "ValueType": "Layer",
+                                        "CompareType": "Equal",
+                                        "CompareValue": {
+                                          "IsDynamic": false,
+                                          "FixedValue": {
+                                            "Value": 6
+                                          }
+                                        }
+                                      },
+                                      "SuccessTaskList": [
+                                        {
+                                          "$type": "RPG.GameCore.TriggerEffect",
+                                          "TargetType": {
+                                            "$type": "RPG.GameCore.TargetAlias",
+                                            "Alias": "ParamEntity"
+                                          },
+                                          "EffectPath": "Effects/Eff_Prefab/Eff_Monster/Eff_W3_Aventurine_00/Eff_Monster_W3_Aventurine_00_Skill04_06_Yellow.prefab"
+                                        }
+                                      ],
+                                      "FailedTaskList": [
+                                        {
+                                          "$type": "RPG.GameCore.PredicateTaskList",
+                                          "Predicate": {
+                                            "$type": "RPG.GameCore.ByCompareModifierValue",
+                                            "TargetType": {
+                                              "$type": "RPG.GameCore.TargetAlias",
+                                              "Alias": "ModifierOwnerEntity"
+                                            },
+                                            "ModifierName": "Monster_W3_AventurinePart_00_ResultCount",
+                                            "ValueType": "Layer",
+                                            "CompareType": "Equal",
+                                            "CompareValue": {
+                                              "IsDynamic": false,
+                                              "FixedValue": {
+                                                "Value": 7
+                                              }
+                                            }
+                                          },
+                                          "SuccessTaskList": [
+                                            {
+                                              "$type": "RPG.GameCore.TriggerEffect",
+                                              "TargetType": {
+                                                "$type": "RPG.GameCore.TargetAlias",
+                                                "Alias": "ParamEntity"
+                                              },
+                                              "EffectPath": "Effects/Eff_Prefab/Eff_Monster/Eff_W3_Aventurine_00/Eff_Monster_W3_Aventurine_00_Skill04_07_Yellow.prefab"
+                                            }
+                                          ],
+                                          "FailedTaskList": [
+                                            {
+                                              "$type": "RPG.GameCore.PredicateTaskList",
+                                              "Predicate": {
+                                                "$type": "RPG.GameCore.ByCompareModifierValue",
+                                                "TargetType": {
+                                                  "$type": "RPG.GameCore.TargetAlias",
+                                                  "Alias": "ModifierOwnerEntity"
+                                                },
+                                                "ModifierName": "Monster_W3_AventurinePart_00_ResultCount",
+                                                "ValueType": "Layer",
+                                                "CompareType": "Equal",
+                                                "CompareValue": {
+                                                  "IsDynamic": false,
+                                                  "FixedValue": {
+                                                    "Value": 8
+                                                  }
+                                                }
+                                              },
+                                              "SuccessTaskList": [
+                                                {
+                                                  "$type": "RPG.GameCore.TriggerEffect",
+                                                  "TargetType": {
+                                                    "$type": "RPG.GameCore.TargetAlias",
+                                                    "Alias": "ParamEntity"
+                                                  },
+                                                  "EffectPath": "Effects/Eff_Prefab/Eff_Monster/Eff_W3_Aventurine_00/Eff_Monster_W3_Aventurine_00_Skill04_08_Yellow.prefab"
+                                                }
+                                              ],
+                                              "FailedTaskList": [
+                                                {
+                                                  "$type": "RPG.GameCore.PredicateTaskList",
+                                                  "Predicate": {
+                                                    "$type": "RPG.GameCore.ByCompareModifierValue",
+                                                    "TargetType": {
+                                                      "$type": "RPG.GameCore.TargetAlias",
+                                                      "Alias": "ModifierOwnerEntity"
+                                                    },
+                                                    "ModifierName": "Monster_W3_AventurinePart_00_ResultCount",
+                                                    "ValueType": "Layer",
+                                                    "CompareType": "Equal",
+                                                    "CompareValue": {
+                                                      "IsDynamic": false,
+                                                      "FixedValue": {
+                                                        "Value": 9
+                                                      }
+                                                    }
+                                                  },
+                                                  "SuccessTaskList": [
+                                                    {
+                                                      "$type": "RPG.GameCore.TriggerEffect",
+                                                      "TargetType": {
+                                                        "$type": "RPG.GameCore.TargetAlias",
+                                                        "Alias": "ParamEntity"
+                                                      },
+                                                      "EffectPath": "Effects/Eff_Prefab/Eff_Monster/Eff_W3_Aventurine_00/Eff_Monster_W3_Aventurine_00_Skill04_09_Yellow.prefab"
+                                                    }
+                                                  ]
+                                                }
+                                              ]
+                                            }
+                                          ]
+                                        }
+                                      ]
+                                    }
+                                  ]
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "Stacking": "Replace"
+    },
+    "Monster_W3_AventurinePart_00_ResultCountZero": {}
+  }
+}

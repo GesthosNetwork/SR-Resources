@@ -1,0 +1,88 @@
+{
+  "OnInitSequece": [],
+  "OnStartSequece": [
+    {
+      "TaskList": [
+        {
+          "$type": "RPG.GameCore.PropSetupUITrigger",
+          "IconType": "TriggerProp",
+          "ButtonText": {
+            "Hash": 1190420607
+          },
+          "ButtonCallback": [
+            {
+              "$type": "RPG.GameCore.StartPropInteractMode",
+              "TargetType": {
+                "$type": "RPG.GameCore.TargetFetchAdvPropEx"
+              }
+            },
+            {
+              "$type": "RPG.GameCore.PropReqInteract",
+              "TargetType": {
+                "$type": "RPG.GameCore.TargetFetchAdvPropEx"
+              },
+              "InteractID": {
+                "IsDynamic": false,
+                "FixedValue": {
+                  "Value": 1010
+                }
+              }
+            }
+          ],
+          "OverrideTargetTypes": [],
+          "TargetType": {
+            "$type": "RPG.GameCore.TargetFetchAdvPropEx"
+          }
+        }
+      ]
+    },
+    {
+      "TaskList": [
+        {
+          "$type": "RPG.GameCore.PropStateChangeListenerConfig",
+          "ToState": "Open",
+          "OnChange": [
+            {
+              "$type": "RPG.GameCore.WaitSecond",
+              "WaitTime": {
+                "IsDynamic": false,
+                "FixedValue": {
+                  "Value": 0.5000000004656613
+                }
+              }
+            },
+            {
+              "$type": "RPG.GameCore.PropSetVisibility",
+              "SpecifiedRelativePaths": [],
+              "TargetType": {
+                "$type": "RPG.GameCore.TargetFetchAdvPropEx"
+              }
+            },
+            {
+              "$type": "RPG.GameCore.CreateNPC",
+              "GroupID": {
+                "IsDynamic": false,
+                "FixedValue": {
+                  "Value": 19
+                }
+              },
+              "GroupNpcID": {
+                "IsDynamic": false,
+                "FixedValue": {
+                  "Value": 400001
+                }
+              },
+              "CreateList": []
+            },
+            {
+              "$type": "RPG.GameCore.EndPropInteract"
+            }
+          ],
+          "TargetType": {
+            "$type": "RPG.GameCore.TargetFetchAdvPropEx"
+          }
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,177 @@
+{
+  "GroupConfigName": "Field",
+  "ConfigEntityPath": "Config/ConfigEntity/SummonUnit/SummonUnit_Common_TeamField_Entity.json",
+  "TickLodTemplateName": "DefaultStaticEntity",
+  "ResidentEffects": [
+    {
+      "IsAttachToTargetEntity": true,
+      "EffectPath": "Effects/Eff_Prefab/Eff_Avatar/Eff_Misha/Eff_Avatar_Misha_00_MazeSkill_01_Hit.prefab",
+      "Scale": {
+        "X": -1.0,
+        "Y": -1.0,
+        "Z": -1.0
+      },
+      "ParamEntityUsage": "LookAt",
+      "TowardMaxPitchAngle": 90.0,
+      "MaxMutexCount": 1,
+      "TaskEnabled": true
+    },
+    {
+      "IsAttachToTargetEntity": true,
+      "EffectPath": "Effects/Eff_Prefab/Eff_Avatar/Eff_Misha/Eff_Avatar_Misha_00_MazeSkill01_Start01.prefab",
+      "PositionOffset": {
+        "Y": 1.3
+      },
+      "Scale": {
+        "X": -1.0,
+        "Y": -1.0,
+        "Z": -1.0
+      },
+      "ParamEntityUsage": "LookAt",
+      "TowardMaxPitchAngle": 90.0,
+      "MaxMutexCount": 1,
+      "TaskEnabled": true
+    },
+    {
+      "IsAttachToTargetEntity": true,
+      "EffectPath": "Effects/Eff_Prefab/Eff_Avatar/Eff_Misha/Eff_Avatar_Misha_00_MazeSkill01_Bomb.prefab",
+      "PositionOffset": {
+        "Y": 1.3
+      },
+      "Scale": {
+        "X": -1.0,
+        "Y": -1.0,
+        "Z": -1.0
+      },
+      "ParamEntityUsage": "LookAt",
+      "TowardMaxPitchAngle": 90.0,
+      "MaxMutexCount": 1,
+      "TaskEnabled": true
+    }
+  ],
+  "ShoesType": "boot",
+  "Duration": {
+    "fixedValue": {
+      "RawValue": -4294967296
+    }
+  },
+  "OnCreate": [
+    {
+      "$type": "RPG.GameCore.SetAttachmentScale, RPG.GameCore.Config",
+      "TargetType": {
+        "$type": "RPG.GameCore.TargetAlias, RPG.GameCore.Config",
+        "Alias": "CasterSummoner"
+      },
+      "AttachPoints": [
+        {
+          "Name": "Pocket_Watch_02"
+        }
+      ],
+      "TaskEnabled": true
+    },
+    {
+      "$type": "RPG.GameCore.AdvPlayerEnableIdleShow, RPG.GameCore.Config",
+      "TargetType": {
+        "$type": "RPG.GameCore.TargetAlias, RPG.GameCore.Config",
+        "Alias": "CasterSummoner"
+      },
+      "IdleShowIndex": 2,
+      "TaskEnabled": true
+    }
+  ],
+  "OnDestroy": [
+    {
+      "$type": "RPG.GameCore.SetAttachmentScale, RPG.GameCore.Config",
+      "TargetType": {
+        "$type": "RPG.GameCore.TargetAlias, RPG.GameCore.Config",
+        "Alias": "CasterSummoner"
+      },
+      "AttachPoints": [
+        {
+          "Name": "Pocket_Watch_02",
+          "TriggerEffectPath": "Effects/Eff_Prefab/Eff_Avatar/Eff_Misha/Eff_Avatar_Misha_00_Watch_common_appear.prefab"
+        }
+      ],
+      "Scale": {
+        "X": 1.0,
+        "Y": 1.0,
+        "Z": 1.0
+      },
+      "TaskEnabled": true
+    },
+    {
+      "$type": "RPG.GameCore.TriggerEffect, RPG.GameCore.Config",
+      "TargetType": {
+        "$type": "RPG.GameCore.TargetAlias, RPG.GameCore.Config",
+        "Alias": "Caster"
+      },
+      "IsAttachToTargetEntity": true,
+      "EffectPath": "Effects/Eff_Prefab/Eff_Avatar/Eff_Misha/Eff_Avatar_Misha_00_MazeSkill01_Start02.prefab",
+      "PositionOffset": {
+        "Y": 1.3
+      },
+      "Scale": {
+        "X": -1.0,
+        "Y": -1.0,
+        "Z": -1.0
+      },
+      "ParamEntityUsage": "LookAt",
+      "TowardMaxPitchAngle": 90.0,
+      "MaxMutexCount": 1,
+      "TaskEnabled": true
+    },
+    {
+      "$type": "RPG.GameCore.AdvPlayerEnableIdleShow, RPG.GameCore.Config",
+      "TargetType": {
+        "$type": "RPG.GameCore.TargetAlias, RPG.GameCore.Config",
+        "Alias": "CasterSummoner"
+      },
+      "Enable": true,
+      "IdleShowIndex": 2,
+      "TaskEnabled": true
+    }
+  ],
+  "TriggerConfig": {
+    "CustomTriggers": [
+      {
+        "TriggerName": "MishaFieldTrigger",
+        "DefaultEnable": true,
+        "Radius": {
+          "fixedValue": {
+            "RawValue": 21474836480
+          }
+        },
+        "UseVerticalBound": true,
+        "NeedRaycast": true,
+        "RayStartOffsetY": 1.0,
+        "TargetTypes": [
+          "NPCMonster"
+        ],
+        "ColliderRelativePath": "Trigger",
+        "OnTriggerEnter": [
+          {
+            "$type": "RPG.GameCore.AddMazeBuff, RPG.GameCore.Config",
+            "TargetType": {
+              "$type": "RPG.GameCore.TargetAlias, RPG.GameCore.Config",
+              "Alias": "TaskActionTarget"
+            },
+            "ID": 131201,
+            "TaskEnabled": true
+          }
+        ],
+        "OnTriggerExit": [
+          {
+            "$type": "RPG.GameCore.RemoveMazeBuff, RPG.GameCore.Config",
+            "TargetType": {
+              "$type": "RPG.GameCore.TargetAlias, RPG.GameCore.Config",
+              "Alias": "TaskActionTarget"
+            },
+            "ID": 131201,
+            "TaskEnabled": true
+          }
+        ],
+        "SkipFakeAvatar": true
+      }
+    ]
+  }
+}

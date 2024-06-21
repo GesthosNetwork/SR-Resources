@@ -1,0 +1,2951 @@
+{
+  "AbilityList": [
+    {
+      "Name": "LocalPlayer_Acheron_NormalAtk01",
+      "TargetInfo": {
+        "TargetType": "SkillPointEntityOrNone"
+      },
+      "OnStart": [
+        {
+          "$type": "RPG.GameCore.PredicateTaskList",
+          "Predicate": {
+            "$type": "RPG.GameCore.ByHaveAbilityTarget"
+          },
+          "SuccessTaskList": [
+            {
+              "$type": "RPG.GameCore.LookAt",
+              "TargetType": "AbilityTargetEntity",
+              "Duration": 0.25
+            },
+            {
+              "$type": "RPG.GameCore.AdventureTriggerAnimStateWithMove",
+              "TargetType": {
+                "$type": "RPG.GameCore.TargetAlias",
+                "Alias": "AdvLocalPlayer"
+              },
+              "AnimLogicState": "NormalAtk",
+              "AnimStateName": "Attack_1",
+              "TransitionDuration": 0,
+              "MovingRangeList": [
+                {
+                  "TargetType": {
+                    "$type": "RPG.GameCore.TargetAlias",
+                    "Alias": "AbilityTargetEntity"
+                  },
+                  "OffsetTargetDistance": {
+                    "IsDynamic": false,
+                    "FixedValue": {
+                      "Value": 1.5000000004656613
+                    }
+                  },
+                  "NormalizedTimeStart": {
+                    "IsDynamic": false,
+                    "FixedValue": {
+                      "Value": 0.016999999526888132
+                    }
+                  },
+                  "NormalizedTimeEnd": {
+                    "IsDynamic": false,
+                    "FixedValue": {
+                      "Value": 0.0400000000372529
+                    }
+                  },
+                  "DefaultMoveDistance": {
+                    "IsDynamic": false,
+                    "FixedValue": {
+                      "Value": 3
+                    }
+                  },
+                  "MaxMoveDistance": {
+                    "IsDynamic": false,
+                    "FixedValue": {
+                      "Value": 4
+                    }
+                  },
+                  "MaxSpeed": {
+                    "IsDynamic": false,
+                    "FixedValue": {
+                      "Value": 300
+                    }
+                  },
+                  "SteerNormalizedTimeStart": {
+                    "IsDynamic": false,
+                    "FixedValue": {
+                      "Value": 0.016999999526888132
+                    }
+                  },
+                  "SteerNormalizedTimeEnd": {
+                    "IsDynamic": false,
+                    "FixedValue": {
+                      "Value": 0.0400000000372529
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              "$type": "RPG.GameCore.WaitAnimState",
+              "TargetType": {
+                "$type": "RPG.GameCore.TargetAlias",
+                "Alias": "Caster"
+              },
+              "AnimStateName": "Attack_1",
+              "NormalizedTimeEnd": {
+                "IsDynamic": false,
+                "FixedValue": {
+                  "Value": 0.06199999991804361
+                }
+              }
+            },
+            {
+              "$type": "RPG.GameCore.RadialBlurEffect",
+              "TargetType": {
+                "$type": "RPG.GameCore.TargetAlias",
+                "Alias": "Caster"
+              },
+              "Duration": 0.08,
+              "BlurX": 0.55,
+              "BlurRadius": 1,
+              "Iteration": 4,
+              "BlurStart": 0.005,
+              "BlurFeather": 0.01
+            },
+            {
+              "$type": "RPG.GameCore.AdventureTriggerAttack",
+              "TriggerBattleDelay": 0.1,
+              "AttackDetectConfig": {
+                "$type": "RPG.GameCore.AdventureAttackDetectBoxConfig",
+                "Size": {
+                  "X": 1.2,
+                  "Y": 1.2,
+                  "Z": 1
+                },
+                "Offset": {
+                  "X": 0,
+                  "Y": 0.8,
+                  "Z": 1
+                }
+              },
+              "HitConfig": {
+                "HitAnimation": "Hit",
+                "HitEffect": "Effects/Eff_Prefab/Eff_Avatar/Eff_Acheron/Eff_Avatar_Acheron_00_MazeAttack01_Hit.prefab"
+              }
+            }
+          ],
+          "FailedTaskList": [
+            {
+              "$type": "RPG.GameCore.PredicateTaskList",
+              "Predicate": {
+                "$type": "RPG.GameCore.AdventureByInMotionState",
+                "MotionFlag": "FastRun"
+              },
+              "SuccessTaskList": [
+                {
+                  "$type": "RPG.GameCore.AdventureTriggerAnimStateWithMove",
+                  "TargetType": {
+                    "$type": "RPG.GameCore.TargetAlias",
+                    "Alias": "AdvLocalPlayer"
+                  },
+                  "AnimLogicState": "NormalAtk",
+                  "AnimStateName": "Attack_1",
+                  "TransitionDuration": 0,
+                  "MovingRangeList": [
+                    {
+                      "NormalizedTimeStart": {
+                        "IsDynamic": false,
+                        "FixedValue": {
+                          "Value": 0.016999999526888132
+                        }
+                      },
+                      "NormalizedTimeEnd": {
+                        "IsDynamic": false,
+                        "FixedValue": {
+                          "Value": 0.0400000000372529
+                        }
+                      },
+                      "DefaultMoveDistance": {
+                        "IsDynamic": false,
+                        "FixedValue": {
+                          "Value": 2.3000000002793968
+                        }
+                      }
+                    }
+                  ]
+                }
+              ],
+              "FailedTaskList": [
+                {
+                  "$type": "RPG.GameCore.PredicateTaskList",
+                  "Predicate": {
+                    "$type": "RPG.GameCore.AdventureByInMotionState",
+                    "MotionFlag": "Run"
+                  },
+                  "SuccessTaskList": [
+                    {
+                      "$type": "RPG.GameCore.AdventureTriggerAnimStateWithMove",
+                      "TargetType": {
+                        "$type": "RPG.GameCore.TargetAlias",
+                        "Alias": "AdvLocalPlayer"
+                      },
+                      "AnimLogicState": "NormalAtk",
+                      "AnimStateName": "Attack_1",
+                      "TransitionDuration": 0,
+                      "MovingRangeList": [
+                        {
+                          "NormalizedTimeStart": {
+                            "IsDynamic": false,
+                            "FixedValue": {
+                              "Value": 0.016999999526888132
+                            }
+                          },
+                          "NormalizedTimeEnd": {
+                            "IsDynamic": false,
+                            "FixedValue": {
+                              "Value": 0.0400000000372529
+                            }
+                          },
+                          "DefaultMoveDistance": {
+                            "IsDynamic": false,
+                            "FixedValue": {
+                              "Value": 2
+                            }
+                          }
+                        }
+                      ]
+                    }
+                  ],
+                  "FailedTaskList": [
+                    {
+                      "$type": "RPG.GameCore.AdventureTriggerAnimStateWithMove",
+                      "TargetType": {
+                        "$type": "RPG.GameCore.TargetAlias",
+                        "Alias": "AdvLocalPlayer"
+                      },
+                      "AnimLogicState": "NormalAtk",
+                      "AnimStateName": "Attack_1",
+                      "TransitionDuration": 0
+                    }
+                  ]
+                },
+                {
+                  "$type": "RPG.GameCore.WaitAnimState",
+                  "TargetType": {
+                    "$type": "RPG.GameCore.TargetAlias",
+                    "Alias": "Caster"
+                  },
+                  "AnimStateName": "Attack_1",
+                  "NormalizedTimeEnd": {
+                    "IsDynamic": false,
+                    "FixedValue": {
+                      "Value": 0.06199999991804361
+                    }
+                  }
+                },
+                {
+                  "$type": "RPG.GameCore.RadialBlurEffect",
+                  "TargetType": {
+                    "$type": "RPG.GameCore.TargetAlias",
+                    "Alias": "Caster"
+                  },
+                  "Duration": 0.08,
+                  "BlurX": 0.55,
+                  "BlurRadius": 1,
+                  "Iteration": 4,
+                  "BlurStart": 0.005,
+                  "BlurFeather": 0.01
+                },
+                {
+                  "$type": "RPG.GameCore.AdventureTriggerAttack",
+                  "TriggerBattleDelay": 0.1,
+                  "AttackDetectConfig": {
+                    "$type": "RPG.GameCore.AdventureAttackDetectBoxConfig",
+                    "Size": {
+                      "X": 1.2,
+                      "Y": 1.2,
+                      "Z": 1
+                    },
+                    "Offset": {
+                      "X": 0,
+                      "Y": 0.8,
+                      "Z": 1
+                    }
+                  },
+                  "HitConfig": {
+                    "HitAnimation": "Hit",
+                    "HitEffect": "Effects/Eff_Prefab/Eff_Avatar/Eff_Acheron/Eff_Avatar_Acheron_00_MazeAttack01_Hit.prefab"
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "OnAbort": [
+        {
+          "$type": "RPG.GameCore.StopEffectFollow",
+          "EffectList": [
+            "Effects/Eff_Prefab/Eff_Avatar/Eff_Acheron/Eff_Avatar_Acheron_00_MazeSkill01_Attack_01.prefab"
+          ]
+        },
+        {
+          "$type": "RPG.GameCore.SetEntityVisible",
+          "TargetType": {
+            "$type": "RPG.GameCore.TargetAlias",
+            "Alias": "Caster"
+          },
+          "Visible": true
+        },
+        {
+          "$type": "RPG.GameCore.SetAdvLockDistance"
+        },
+        {
+          "$type": "RPG.GameCore.SetAdvLockDistance",
+          "SkillType": "MazeSkill"
+        }
+      ],
+      "Name": "LocalPlayer_Acheron_MazeSkill",
+      "TargetInfo": {
+        "TargetType": "SkillPointEntityOrNone"
+      },
+      "OnStart": [
+        {
+          "$type": "RPG.GameCore.AddMazeBuff",
+          "TargetType": {
+            "$type": "RPG.GameCore.TargetAlias",
+            "Alias": "Caster"
+          },
+          "ID": 130801,
+          "LifeTime": {
+            "IsDynamic": false,
+            "FixedValue": {
+              "Value": 1.1000000000931323
+            }
+          }
+        },
+        {
+          "$type": "RPG.GameCore.PredicateTaskList",
+          "Predicate": {
+            "$type": "RPG.GameCore.ByHaveAbilityTarget"
+          },
+          "SuccessTaskList": [
+            {
+              "$type": "RPG.GameCore.LookAt",
+              "TargetType": "AbilityTargetEntity",
+              "Duration": 0.25
+            },
+            {
+              "$type": "RPG.GameCore.AdventureTriggerAnimStateWithMove",
+              "TargetType": {
+                "$type": "RPG.GameCore.TargetAlias",
+                "Alias": "AdvLocalPlayer"
+              },
+              "AnimLogicState": "MazeSkill",
+              "AnimStateName": "MazeSkill",
+              "MovingRangeList": [
+                {
+                  "TargetType": {
+                    "$type": "RPG.GameCore.TargetAlias",
+                    "Alias": "AbilityTargetEntity"
+                  },
+                  "OffsetTargetDistance": {
+                    "IsDynamic": false,
+                    "FixedValue": {
+                      "Value": 2
+                    }
+                  },
+                  "NormalizedTimeStart": {
+                    "IsDynamic": false,
+                    "FixedValue": {
+                      "Value": 0.016999999526888132
+                    }
+                  },
+                  "NormalizedTimeEnd": {
+                    "IsDynamic": false,
+                    "FixedValue": {
+                      "Value": 0.04699999955482781
+                    }
+                  },
+                  "DefaultMoveDistance": {
+                    "IsDynamic": false,
+                    "FixedValue": {
+                      "Value": 6
+                    }
+                  },
+                  "MaxMoveDistance": {
+                    "IsDynamic": false,
+                    "FixedValue": {
+                      "Value": 15
+                    }
+                  },
+                  "MaxSpeed": {
+                    "IsDynamic": false,
+                    "FixedValue": {
+                      "Value": 300
+                    }
+                  },
+                  "SteerNormalizedTimeStart": {
+                    "IsDynamic": false,
+                    "FixedValue": {
+                      "Value": 0
+                    }
+                  },
+                  "SteerNormalizedTimeEnd": {
+                    "IsDynamic": false,
+                    "FixedValue": {
+                      "Value": 0.030000000027939677
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              "$type": "RPG.GameCore.WaitAnimState",
+              "TargetType": {
+                "$type": "RPG.GameCore.TargetAlias",
+                "Alias": "Caster"
+              },
+              "AnimStateName": "MazeSkill",
+              "NormalizedTimeEnd": {
+                "IsDynamic": false,
+                "FixedValue": {
+                  "Value": 0.012999999802559614
+                }
+              }
+            },
+            {
+              "$type": "RPG.GameCore.SetEntityVisible",
+              "TargetType": {
+                "$type": "RPG.GameCore.TargetAlias",
+                "Alias": "Caster"
+              },
+              "MuteColliderWhenInvisible": false
+            },
+            {
+              "$type": "RPG.GameCore.WaitAnimState",
+              "TargetType": {
+                "$type": "RPG.GameCore.TargetAlias",
+                "Alias": "Caster"
+              },
+              "AnimStateName": "MazeSkill",
+              "NormalizedTimeEnd": {
+                "IsDynamic": false,
+                "FixedValue": {
+                  "Value": 0.030999999959021807
+                }
+              }
+            },
+            {
+              "$type": "RPG.GameCore.SetEntityVisible",
+              "TargetType": {
+                "$type": "RPG.GameCore.TargetAlias",
+                "Alias": "Caster"
+              },
+              "Visible": true
+            },
+            {
+              "$type": "RPG.GameCore.WaitAnimState",
+              "TargetType": {
+                "$type": "RPG.GameCore.TargetAlias",
+                "Alias": "Caster"
+              },
+              "AnimStateName": "MazeSkill",
+              "NormalizedTimeEnd": {
+                "IsDynamic": false,
+                "FixedValue": {
+                  "Value": 0.04399999976158142
+                }
+              }
+            },
+            {
+              "$type": "RPG.GameCore.AdventureTriggerAttack",
+              "TriggerBattleDelay": 0.1,
+              "AttackDetectConfig": {
+                "$type": "RPG.GameCore.AdventureAttackDetectBoxConfig",
+                "Size": {
+                  "X": 0.5,
+                  "Y": 1.2,
+                  "Z": 1.2
+                },
+                "Offset": {
+                  "X": 0,
+                  "Y": 1,
+                  "Z": 1.2
+                }
+              },
+              "HitConfig": {
+                "HitAnimation": "Hit",
+                "HitEffect": "Effects/Eff_Prefab/Eff_Avatar/Eff_Acheron/Eff_Avatar_Acheron_00_MazeSkill01_Hit01.prefab"
+              },
+              "OnAttack": [
+                {
+                  "$type": "RPG.GameCore.PredicateTaskList",
+                  "Predicate": {
+                    "$type": "RPG.GameCore.ByAllowInstantKill",
+                    "TargetType": {
+                      "$type": "RPG.GameCore.TargetAlias",
+                      "Alias": "ParamEntity"
+                    }
+                  },
+                  "SuccessTaskList": [
+                    {
+                      "$type": "RPG.GameCore.TriggerEffect",
+                      "TargetType": {
+                        "$type": "RPG.GameCore.TargetAlias",
+                        "Alias": "ParamEntity"
+                      },
+                      "EffectPath": "Effects/Eff_Prefab/Eff_Avatar/Eff_Acheron/Eff_Avatar_Acheron_00_MazeSkill_Icon_02.prefab",
+                      "AttachPoint": "HeadPoint",
+                      "PositionOffset": {
+                        "X": 0,
+                        "Y": 0.1,
+                        "Z": 0
+                      }
+                    },
+                    {
+                      "$type": "RPG.GameCore.AdventureSetAttackTargetMonsterDie",
+                      "TargetType": {
+                        "$type": "RPG.GameCore.TargetAlias",
+                        "Alias": "ParamEntity"
+                      }
+                    },
+                    {
+                      "$type": "RPG.GameCore.RemoveEffect",
+                      "TargetType": {
+                        "$type": "RPG.GameCore.TargetAlias",
+                        "Alias": "ParamEntity"
+                      },
+                      "EffectPath": "Effects/Eff_Prefab/Eff_Avatar/Eff_Acheron/Eff_Avatar_Acheron_00_MazeSkill_Icon.prefab",
+                      "IsNeedFadeOut": false
+                    }
+                  ]
+                }
+              ],
+              "OnBattle": [
+                {
+                  "$type": "RPG.GameCore.AddMazeBuff",
+                  "TargetType": {
+                    "$type": "RPG.GameCore.TargetAlias",
+                    "Alias": "ParamEntity"
+                  },
+                  "ID": 130803,
+                  "LifeTime": {
+                    "IsDynamic": false,
+                    "FixedValue": {
+                      "Value": 1
+                    }
+                  }
+                }
+              ],
+              "OnKill": [
+                {
+                  "$type": "RPG.GameCore.SetDynamicValue",
+                  "DynamicKey": "Acheron_Count",
+                  "Value": {
+                    "IsDynamic": false,
+                    "FixedValue": {
+                      "Value": 1
+                    }
+                  }
+                },
+                {
+                  "$type": "RPG.GameCore.TriggerEffect",
+                  "TargetType": {
+                    "$type": "RPG.GameCore.TargetAlias",
+                    "Alias": "Caster"
+                  },
+                  "EffectPath": "Effects/Eff_Prefab/Eff_Avatar/Eff_Acheron/Eff_Avatar_Acheron_00_MazeSkill01_Carmera02.prefab"
+                }
+              ],
+              "EnterBattleSelectTargetType": "FirstHitTarget"
+            },
+            {
+              "$type": "RPG.GameCore.WaitAnimState",
+              "TargetType": {
+                "$type": "RPG.GameCore.TargetAlias",
+                "Alias": "Caster"
+              },
+              "AnimStateName": "MazeSkill",
+              "NormalizedTimeEnd": {
+                "IsDynamic": false,
+                "FixedValue": {
+                  "Value": 0.056999999564141035
+                }
+              }
+            },
+            {
+              "$type": "RPG.GameCore.PredicateTaskList",
+              "Predicate": {
+                "$type": "RPG.GameCore.ByCompareDynamicValue",
+                "DynamicKey": "Acheron_Count",
+                "CompareType": "Greater",
+                "CompareValue": {
+                  "IsDynamic": false,
+                  "FixedValue": {
+                    "Value": 0
+                  }
+                }
+              },
+              "SuccessTaskList": [
+                {
+                  "$type": "RPG.GameCore.GlobalTimeSlow",
+                  "TimeScale": {
+                    "IsDynamic": false,
+                    "FixedValue": {
+                      "Value": 0
+                    }
+                  },
+                  "UnscaledDuration": {
+                    "IsDynamic": false,
+                    "FixedValue": {
+                      "Value": 0.45000000041909516
+                    }
+                  },
+                  "FadeOutTime": {
+                    "IsDynamic": false,
+                    "FixedValue": {
+                      "Value": 0.3000000002793968
+                    }
+                  },
+                  "FadeOutCurveName": "C_TimeSlow_FadeOut",
+                  "SlowKey": "LocalPlayer_Acheron_MazeSkill",
+                  "IgnoreEntityTypeMask": 1075314688,
+                  "RemoveOnLockPlayerControl": true
+                },
+                {
+                  "$type": "RPG.GameCore.AddAdventureModifier",
+                  "TargetType": {
+                    "$type": "RPG.GameCore.TargetAlias",
+                    "Alias": "Caster"
+                  },
+                  "ModifierName": "ADV_StageAbility_Maze_Acheron_OnKill",
+                  "LifeTime": {
+                    "IsDynamic": false,
+                    "FixedValue": {
+                      "Value": 0.20000000018626451
+                    }
+                  }
+                },
+                {
+                  "$type": "RPG.GameCore.VCameraConfigChange",
+                  "CameraConfig": {
+                    "ShakeTemplateName": "LocalPlayer_Acheron_MazeSkillKill_Hit"
+                  }
+                },
+                {
+                  "$type": "RPG.GameCore.RadialBlurEffect",
+                  "TargetType": {
+                    "$type": "RPG.GameCore.TargetAlias",
+                    "Alias": "Caster"
+                  },
+                  "Duration": 0.25,
+                  "BlurRadius": 1,
+                  "Iteration": 4,
+                  "BlurStart": 0.3,
+                  "BlurFeather": 0.03
+                },
+                {
+                  "$type": "RPG.GameCore.SetAdvLockDistance",
+                  "IsPushValue": true,
+                  "LockDistance": 15
+                },
+                {
+                  "$type": "RPG.GameCore.SetAdvLockDistance",
+                  "SkillType": "MazeSkill",
+                  "IsPushValue": true,
+                  "LockDistance": 15
+                },
+                {
+                  "$type": "RPG.GameCore.SetDynamicValue",
+                  "DynamicKey": "Acheron_Count",
+                  "Value": {
+                    "IsDynamic": false,
+                    "FixedValue": {
+                      "Value": 0
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              "$type": "RPG.GameCore.WaitAnimState",
+              "TargetType": {
+                "$type": "RPG.GameCore.TargetAlias",
+                "Alias": "Caster"
+              },
+              "AnimStateName": "MazeSkill",
+              "NormalizedTimeEnd": {
+                "IsDynamic": false,
+                "FixedValue": {
+                  "Value": 0.07099999999627471
+                }
+              }
+            },
+            {
+              "$type": "RPG.GameCore.RemoveAdventureModifier",
+              "TargetType": {
+                "$type": "RPG.GameCore.TargetAlias",
+                "Alias": "Caster"
+              },
+              "ModifierName": "ADV_StageAbility_Maze_Acheron_OnKill"
+            },
+            {
+              "$type": "RPG.GameCore.StartAdvSkillCombo",
+              "SkillInputType": "MazeSkill",
+              "TriggerSkillIndex": 2
+            },
+            {
+              "$type": "RPG.GameCore.StartAdvSkillCombo"
+            },
+            {
+              "$type": "RPG.GameCore.WaitAnimState",
+              "TargetType": {
+                "$type": "RPG.GameCore.TargetAlias",
+                "Alias": "Caster"
+              },
+              "AnimStateName": "MazeSkill",
+              "NormalizedTimeEnd": {
+                "IsDynamic": false,
+                "FixedValue": {
+                  "Value": 1
+                }
+              }
+            },
+            {
+              "$type": "RPG.GameCore.SetAdvLockDistance",
+              "IsPushValue": true
+            },
+            {
+              "$type": "RPG.GameCore.SetAdvLockDistance",
+              "SkillType": "MazeSkill",
+              "IsPushValue": true
+            }
+          ],
+          "FailedTaskList": [
+            {
+              "$type": "RPG.GameCore.PredicateTaskList",
+              "Predicate": {
+                "$type": "RPG.GameCore.AdventureByInMotionState",
+                "MotionFlag": "FastRun"
+              },
+              "SuccessTaskList": [
+                {
+                  "$type": "RPG.GameCore.AdventureTriggerAnimStateWithMove",
+                  "TargetType": {
+                    "$type": "RPG.GameCore.TargetAlias",
+                    "Alias": "AdvLocalPlayer"
+                  },
+                  "AnimLogicState": "MazeSkill",
+                  "AnimStateName": "MazeSkill",
+                  "MovingRangeList": [
+                    {
+                      "NormalizedTimeStart": {
+                        "IsDynamic": false,
+                        "FixedValue": {
+                          "Value": 0.016999999526888132
+                        }
+                      },
+                      "NormalizedTimeEnd": {
+                        "IsDynamic": false,
+                        "FixedValue": {
+                          "Value": 0.04699999955482781
+                        }
+                      },
+                      "DefaultMoveDistance": {
+                        "IsDynamic": false,
+                        "FixedValue": {
+                          "Value": 3
+                        }
+                      }
+                    }
+                  ]
+                }
+              ],
+              "FailedTaskList": [
+                {
+                  "$type": "RPG.GameCore.PredicateTaskList",
+                  "Predicate": {
+                    "$type": "RPG.GameCore.AdventureByInMotionState",
+                    "MotionFlag": "Run"
+                  },
+                  "SuccessTaskList": [
+                    {
+                      "$type": "RPG.GameCore.AdventureTriggerAnimStateWithMove",
+                      "TargetType": {
+                        "$type": "RPG.GameCore.TargetAlias",
+                        "Alias": "AdvLocalPlayer"
+                      },
+                      "AnimLogicState": "MazeSkill",
+                      "AnimStateName": "MazeSkill",
+                      "MovingRangeList": [
+                        {
+                          "NormalizedTimeStart": {
+                            "IsDynamic": false,
+                            "FixedValue": {
+                              "Value": 0.016999999526888132
+                            }
+                          },
+                          "NormalizedTimeEnd": {
+                            "IsDynamic": false,
+                            "FixedValue": {
+                              "Value": 0.04699999955482781
+                            }
+                          },
+                          "DefaultMoveDistance": {
+                            "IsDynamic": false,
+                            "FixedValue": {
+                              "Value": 3
+                            }
+                          }
+                        }
+                      ]
+                    }
+                  ],
+                  "FailedTaskList": [
+                    {
+                      "$type": "RPG.GameCore.AdventureTriggerAnimStateWithMove",
+                      "TargetType": {
+                        "$type": "RPG.GameCore.TargetAlias",
+                        "Alias": "AdvLocalPlayer"
+                      },
+                      "AnimLogicState": "MazeSkill",
+                      "AnimStateName": "MazeSkill",
+                      "MovingRangeList": []
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "$type": "RPG.GameCore.AdvCharacterSteerToInputDir",
+              "AnimStateName": "MazeSkill",
+              "NormalizedTimeEnd": 0.01,
+              "MinRotationSpeed": 3000
+            },
+            {
+              "$type": "RPG.GameCore.WaitAnimState",
+              "TargetType": {
+                "$type": "RPG.GameCore.TargetAlias",
+                "Alias": "Caster"
+              },
+              "AnimStateName": "MazeSkill",
+              "NormalizedTimeEnd": {
+                "IsDynamic": false,
+                "FixedValue": {
+                  "Value": 0.012999999802559614
+                }
+              }
+            },
+            {
+              "$type": "RPG.GameCore.SetEntityVisible",
+              "TargetType": {
+                "$type": "RPG.GameCore.TargetAlias",
+                "Alias": "Caster"
+              },
+              "MuteColliderWhenInvisible": false
+            },
+            {
+              "$type": "RPG.GameCore.WaitAnimState",
+              "TargetType": {
+                "$type": "RPG.GameCore.TargetAlias",
+                "Alias": "Caster"
+              },
+              "AnimStateName": "MazeSkill",
+              "NormalizedTimeEnd": {
+                "IsDynamic": false,
+                "FixedValue": {
+                  "Value": 0.030999999959021807
+                }
+              }
+            },
+            {
+              "$type": "RPG.GameCore.SetEntityVisible",
+              "TargetType": {
+                "$type": "RPG.GameCore.TargetAlias",
+                "Alias": "Caster"
+              },
+              "Visible": true
+            },
+            {
+              "$type": "RPG.GameCore.WaitAnimState",
+              "TargetType": {
+                "$type": "RPG.GameCore.TargetAlias",
+                "Alias": "Caster"
+              },
+              "AnimStateName": "MazeSkill",
+              "NormalizedTimeEnd": {
+                "IsDynamic": false,
+                "FixedValue": {
+                  "Value": 0.04399999976158142
+                }
+              }
+            },
+            {
+              "$type": "RPG.GameCore.RadialBlurEffect",
+              "TargetType": {
+                "$type": "RPG.GameCore.TargetAlias",
+                "Alias": "Caster"
+              },
+              "Duration": 0.1,
+              "BlurX": 0.55,
+              "BlurRadius": 1,
+              "Iteration": 4,
+              "BlurStart": 0.005,
+              "BlurFeather": 0.01
+            },
+            {
+              "$type": "RPG.GameCore.AdventureTriggerAttack",
+              "TriggerBattleDelay": 0.1,
+              "AttackDetectConfig": {
+                "$type": "RPG.GameCore.AdventureAttackDetectBoxConfig",
+                "Size": {
+                  "X": 0.5,
+                  "Y": 1.2,
+                  "Z": 1.2
+                },
+                "Offset": {
+                  "X": 0,
+                  "Y": 1,
+                  "Z": 1.2
+                }
+              },
+              "HitConfig": {
+                "HitAnimation": "Hit",
+                "HitEffect": "Effects/Eff_Prefab/Eff_Avatar/Eff_Acheron/Eff_Avatar_Acheron_00_MazeSkill01_Hit01.prefab"
+              },
+              "OnAttack": [
+                {
+                  "$type": "RPG.GameCore.PredicateTaskList",
+                  "Predicate": {
+                    "$type": "RPG.GameCore.ByAllowInstantKill",
+                    "TargetType": {
+                      "$type": "RPG.GameCore.TargetAlias",
+                      "Alias": "ParamEntity"
+                    }
+                  },
+                  "SuccessTaskList": [
+                    {
+                      "$type": "RPG.GameCore.TriggerEffect",
+                      "TargetType": {
+                        "$type": "RPG.GameCore.TargetAlias",
+                        "Alias": "ParamEntity"
+                      },
+                      "EffectPath": "Effects/Eff_Prefab/Eff_Avatar/Eff_Acheron/Eff_Avatar_Acheron_00_MazeSkill_Icon_02.prefab",
+                      "AttachPoint": "HeadPoint",
+                      "PositionOffset": {
+                        "X": 0,
+                        "Y": 0.1,
+                        "Z": 0
+                      }
+                    },
+                    {
+                      "$type": "RPG.GameCore.AdventureSetAttackTargetMonsterDie",
+                      "TargetType": {
+                        "$type": "RPG.GameCore.TargetAlias",
+                        "Alias": "ParamEntity"
+                      }
+                    },
+                    {
+                      "$type": "RPG.GameCore.RemoveEffect",
+                      "TargetType": {
+                        "$type": "RPG.GameCore.TargetAlias",
+                        "Alias": "ParamEntity"
+                      },
+                      "EffectPath": "Effects/Eff_Prefab/Eff_Avatar/Eff_Acheron/Eff_Avatar_Acheron_00_MazeSkill_Icon.prefab",
+                      "IsNeedFadeOut": false
+                    }
+                  ]
+                }
+              ],
+              "OnBattle": [
+                {
+                  "$type": "RPG.GameCore.AddMazeBuff",
+                  "TargetType": {
+                    "$type": "RPG.GameCore.TargetAlias",
+                    "Alias": "ParamEntity"
+                  },
+                  "ID": 130803,
+                  "LifeTime": {
+                    "IsDynamic": false,
+                    "FixedValue": {
+                      "Value": 1
+                    }
+                  }
+                }
+              ],
+              "OnKill": [
+                {
+                  "$type": "RPG.GameCore.SetDynamicValue",
+                  "DynamicKey": "Acheron_Count",
+                  "Value": {
+                    "IsDynamic": false,
+                    "FixedValue": {
+                      "Value": 1
+                    }
+                  }
+                },
+                {
+                  "$type": "RPG.GameCore.TriggerEffect",
+                  "TargetType": {
+                    "$type": "RPG.GameCore.TargetAlias",
+                    "Alias": "Caster"
+                  },
+                  "EffectPath": "Effects/Eff_Prefab/Eff_Avatar/Eff_Acheron/Eff_Avatar_Acheron_00_MazeSkill01_Carmera02.prefab"
+                }
+              ],
+              "EnterBattleSelectTargetType": "FirstHitTarget"
+            },
+            {
+              "$type": "RPG.GameCore.WaitAnimState",
+              "TargetType": {
+                "$type": "RPG.GameCore.TargetAlias",
+                "Alias": "Caster"
+              },
+              "AnimStateName": "MazeSkill",
+              "NormalizedTimeEnd": {
+                "IsDynamic": false,
+                "FixedValue": {
+                  "Value": 0.056999999564141035
+                }
+              }
+            },
+            {
+              "$type": "RPG.GameCore.StopEffectFollow",
+              "EffectList": [
+                "Effects/Eff_Prefab/Eff_Avatar/Eff_Acheron/Eff_Avatar_Acheron_00_MazeSkill01_Attack_01.prefab"
+              ]
+            },
+            {
+              "$type": "RPG.GameCore.PredicateTaskList",
+              "Predicate": {
+                "$type": "RPG.GameCore.ByCompareDynamicValue",
+                "DynamicKey": "Acheron_Count",
+                "CompareType": "Greater",
+                "CompareValue": {
+                  "IsDynamic": false,
+                  "FixedValue": {
+                    "Value": 0
+                  }
+                }
+              },
+              "SuccessTaskList": [
+                {
+                  "$type": "RPG.GameCore.GlobalTimeSlow",
+                  "TimeScale": {
+                    "IsDynamic": false,
+                    "FixedValue": {
+                      "Value": 0
+                    }
+                  },
+                  "UnscaledDuration": {
+                    "IsDynamic": false,
+                    "FixedValue": {
+                      "Value": 0.45000000041909516
+                    }
+                  },
+                  "FadeOutTime": {
+                    "IsDynamic": false,
+                    "FixedValue": {
+                      "Value": 0.3000000002793968
+                    }
+                  },
+                  "FadeOutCurveName": "C_TimeSlow_FadeOut",
+                  "SlowKey": "LocalPlayer_Acheron_MazeSkill",
+                  "IgnoreEntityTypeMask": 1075314688,
+                  "RemoveOnLockPlayerControl": true
+                },
+                {
+                  "$type": "RPG.GameCore.AddAdventureModifier",
+                  "TargetType": {
+                    "$type": "RPG.GameCore.TargetAlias",
+                    "Alias": "Caster"
+                  },
+                  "ModifierName": "ADV_StageAbility_Maze_Acheron_OnKill",
+                  "LifeTime": {
+                    "IsDynamic": false,
+                    "FixedValue": {
+                      "Value": 0.20000000018626451
+                    }
+                  }
+                },
+                {
+                  "$type": "RPG.GameCore.VCameraConfigChange",
+                  "CameraConfig": {
+                    "ShakeTemplateName": "LocalPlayer_Acheron_MazeSkillKill_Hit"
+                  }
+                },
+                {
+                  "$type": "RPG.GameCore.RadialBlurEffect",
+                  "TargetType": {
+                    "$type": "RPG.GameCore.TargetAlias",
+                    "Alias": "Caster"
+                  },
+                  "Duration": 0.25,
+                  "BlurRadius": 1,
+                  "Iteration": 4,
+                  "BlurStart": 0.3,
+                  "BlurFeather": 0.01
+                },
+                {
+                  "$type": "RPG.GameCore.SetAdvLockDistance",
+                  "IsPushValue": true,
+                  "LockDistance": 15
+                },
+                {
+                  "$type": "RPG.GameCore.SetAdvLockDistance",
+                  "SkillType": "MazeSkill",
+                  "IsPushValue": true,
+                  "LockDistance": 15
+                },
+                {
+                  "$type": "RPG.GameCore.SetDynamicValue",
+                  "DynamicKey": "Acheron_Count",
+                  "Value": {
+                    "IsDynamic": false,
+                    "FixedValue": {
+                      "Value": 0
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              "$type": "RPG.GameCore.WaitAnimState",
+              "TargetType": {
+                "$type": "RPG.GameCore.TargetAlias",
+                "Alias": "Caster"
+              },
+              "AnimStateName": "MazeSkill",
+              "NormalizedTimeEnd": {
+                "IsDynamic": false,
+                "FixedValue": {
+                  "Value": 0.07099999999627471
+                }
+              }
+            },
+            {
+              "$type": "RPG.GameCore.RemoveAdventureModifier",
+              "TargetType": {
+                "$type": "RPG.GameCore.TargetAlias",
+                "Alias": "Caster"
+              },
+              "ModifierName": "ADV_StageAbility_Maze_Acheron_OnKill"
+            },
+            {
+              "$type": "RPG.GameCore.StartAdvSkillCombo",
+              "SkillInputType": "MazeSkill",
+              "TriggerSkillIndex": 2
+            },
+            {
+              "$type": "RPG.GameCore.StartAdvSkillCombo"
+            },
+            {
+              "$type": "RPG.GameCore.WaitAnimState",
+              "TargetType": {
+                "$type": "RPG.GameCore.TargetAlias",
+                "Alias": "Caster"
+              },
+              "AnimStateName": "MazeSkill",
+              "NormalizedTimeEnd": {
+                "IsDynamic": false,
+                "FixedValue": {
+                  "Value": 1
+                }
+              }
+            },
+            {
+              "$type": "RPG.GameCore.SetAdvLockDistance"
+            },
+            {
+              "$type": "RPG.GameCore.SetAdvLockDistance",
+              "SkillType": "MazeSkill"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "OnAbort": [
+        {
+          "$type": "RPG.GameCore.SetEntityVisible",
+          "TargetType": {
+            "$type": "RPG.GameCore.TargetAlias",
+            "Alias": "Caster"
+          },
+          "Visible": true
+        },
+        {
+          "$type": "RPG.GameCore.SetAdvLockDistance"
+        },
+        {
+          "$type": "RPG.GameCore.SetAdvLockDistance",
+          "SkillType": "MazeSkill"
+        }
+      ],
+      "Name": "LocalPlayer_Acheron_MazeSkill_01",
+      "TargetInfo": {
+        "TargetType": "SkillPointEntityOrNone"
+      },
+      "OnStart": [
+        {
+          "$type": "RPG.GameCore.AddMazeBuff",
+          "TargetType": {
+            "$type": "RPG.GameCore.TargetAlias",
+            "Alias": "Caster"
+          },
+          "ID": 130801,
+          "LifeTime": {
+            "IsDynamic": false,
+            "FixedValue": {
+              "Value": 1.1000000000931323
+            }
+          }
+        },
+        {
+          "$type": "RPG.GameCore.PredicateTaskList",
+          "Predicate": {
+            "$type": "RPG.GameCore.ByHaveAbilityTarget"
+          },
+          "SuccessTaskList": [
+            {
+              "$type": "RPG.GameCore.LookAt",
+              "TargetType": "AbilityTargetEntity",
+              "Duration": 0.25
+            },
+            {
+              "$type": "RPG.GameCore.AdventureTriggerAnimStateWithMove",
+              "TargetType": {
+                "$type": "RPG.GameCore.TargetAlias",
+                "Alias": "AdvLocalPlayer"
+              },
+              "AnimLogicState": "CustomSkill",
+              "AnimStateName": "MazeSkill_01",
+              "TransitionDuration": 0,
+              "MovingRangeList": [
+                {
+                  "TargetType": {
+                    "$type": "RPG.GameCore.TargetAlias",
+                    "Alias": "AbilityTargetEntity"
+                  },
+                  "OffsetTargetDistance": {
+                    "IsDynamic": false,
+                    "FixedValue": {
+                      "Value": 2
+                    }
+                  },
+                  "NormalizedTimeStart": {
+                    "IsDynamic": false,
+                    "FixedValue": {
+                      "Value": 0.011999999871477485
+                    }
+                  },
+                  "NormalizedTimeEnd": {
+                    "IsDynamic": false,
+                    "FixedValue": {
+                      "Value": 0.04699999955482781
+                    }
+                  },
+                  "DefaultMoveDistance": {
+                    "IsDynamic": false,
+                    "FixedValue": {
+                      "Value": 6
+                    }
+                  },
+                  "MaxMoveDistance": {
+                    "IsDynamic": false,
+                    "FixedValue": {
+                      "Value": 15
+                    }
+                  },
+                  "MaxSpeed": {
+                    "IsDynamic": false,
+                    "FixedValue": {
+                      "Value": 300
+                    }
+                  },
+                  "SteerNormalizedTimeStart": {
+                    "IsDynamic": false,
+                    "FixedValue": {
+                      "Value": 0
+                    }
+                  },
+                  "SteerNormalizedTimeEnd": {
+                    "IsDynamic": false,
+                    "FixedValue": {
+                      "Value": 0.030000000027939677
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              "$type": "RPG.GameCore.WaitAnimState",
+              "TargetType": {
+                "$type": "RPG.GameCore.TargetAlias",
+                "Alias": "Caster"
+              },
+              "AnimStateName": "MazeSkill_01",
+              "NormalizedTimeEnd": {
+                "IsDynamic": false,
+                "FixedValue": {
+                  "Value": 0.014999999664723873
+                }
+              }
+            },
+            {
+              "$type": "RPG.GameCore.SetEntityVisible",
+              "TargetType": {
+                "$type": "RPG.GameCore.TargetAlias",
+                "Alias": "Caster"
+              },
+              "MuteColliderWhenInvisible": false
+            },
+            {
+              "$type": "RPG.GameCore.WaitAnimState",
+              "TargetType": {
+                "$type": "RPG.GameCore.TargetAlias",
+                "Alias": "Caster"
+              },
+              "AnimStateName": "MazeSkill_01",
+              "NormalizedTimeEnd": {
+                "IsDynamic": false,
+                "FixedValue": {
+                  "Value": 0.030999999959021807
+                }
+              }
+            },
+            {
+              "$type": "RPG.GameCore.SetEntityVisible",
+              "TargetType": {
+                "$type": "RPG.GameCore.TargetAlias",
+                "Alias": "Caster"
+              },
+              "Visible": true
+            },
+            {
+              "$type": "RPG.GameCore.WaitAnimState",
+              "TargetType": {
+                "$type": "RPG.GameCore.TargetAlias",
+                "Alias": "Caster"
+              },
+              "AnimStateName": "MazeSkill_01",
+              "NormalizedTimeEnd": {
+                "IsDynamic": false,
+                "FixedValue": {
+                  "Value": 0.04399999976158142
+                }
+              }
+            },
+            {
+              "$type": "RPG.GameCore.RadialBlurEffect",
+              "TargetType": {
+                "$type": "RPG.GameCore.TargetAlias",
+                "Alias": "Caster"
+              },
+              "Duration": 0.08,
+              "BlurX": 0.55,
+              "BlurRadius": 1,
+              "Iteration": 4,
+              "BlurStart": 0.005,
+              "BlurFeather": 0.01
+            },
+            {
+              "$type": "RPG.GameCore.AdventureTriggerAttack",
+              "TriggerBattleDelay": 0.1,
+              "AttackDetectConfig": {
+                "$type": "RPG.GameCore.AdventureAttackDetectBoxConfig",
+                "Size": {
+                  "X": 1,
+                  "Y": 1.2,
+                  "Z": 1
+                },
+                "Offset": {
+                  "X": 0,
+                  "Y": 1,
+                  "Z": 1.2
+                }
+              },
+              "HitConfig": {
+                "HitAnimation": "Hit",
+                "HitEffect": "Effects/Eff_Prefab/Eff_Avatar/Eff_Acheron/Eff_Avatar_Acheron_00_MazeSkill02_Hit01.prefab"
+              },
+              "OnAttack": [
+                {
+                  "$type": "RPG.GameCore.PredicateTaskList",
+                  "Predicate": {
+                    "$type": "RPG.GameCore.ByAllowInstantKill",
+                    "TargetType": {
+                      "$type": "RPG.GameCore.TargetAlias",
+                      "Alias": "ParamEntity"
+                    }
+                  },
+                  "SuccessTaskList": [
+                    {
+                      "$type": "RPG.GameCore.TriggerEffect",
+                      "TargetType": {
+                        "$type": "RPG.GameCore.TargetAlias",
+                        "Alias": "ParamEntity"
+                      },
+                      "EffectPath": "Effects/Eff_Prefab/Eff_Avatar/Eff_Acheron/Eff_Avatar_Acheron_00_MazeSkill_Icon_02.prefab",
+                      "AttachPoint": "HeadPoint",
+                      "PositionOffset": {
+                        "X": 0,
+                        "Y": 0.1,
+                        "Z": 0
+                      }
+                    },
+                    {
+                      "$type": "RPG.GameCore.AdventureSetAttackTargetMonsterDie",
+                      "TargetType": {
+                        "$type": "RPG.GameCore.TargetAlias",
+                        "Alias": "ParamEntity"
+                      }
+                    },
+                    {
+                      "$type": "RPG.GameCore.RemoveEffect",
+                      "TargetType": {
+                        "$type": "RPG.GameCore.TargetAlias",
+                        "Alias": "ParamEntity"
+                      },
+                      "EffectPath": "Effects/Eff_Prefab/Eff_Avatar/Eff_Acheron/Eff_Avatar_Acheron_00_MazeSkill_Icon.prefab",
+                      "IsNeedFadeOut": false
+                    }
+                  ]
+                }
+              ],
+              "OnBattle": [
+                {
+                  "$type": "RPG.GameCore.AddMazeBuff",
+                  "TargetType": {
+                    "$type": "RPG.GameCore.TargetAlias",
+                    "Alias": "ParamEntity"
+                  },
+                  "ID": 130803,
+                  "LifeTime": {
+                    "IsDynamic": false,
+                    "FixedValue": {
+                      "Value": 1
+                    }
+                  }
+                }
+              ],
+              "OnKill": [
+                {
+                  "$type": "RPG.GameCore.SetDynamicValue",
+                  "DynamicKey": "Acheron_Count",
+                  "Value": {
+                    "IsDynamic": false,
+                    "FixedValue": {
+                      "Value": 1
+                    }
+                  }
+                },
+                {
+                  "$type": "RPG.GameCore.TriggerEffect",
+                  "TargetType": {
+                    "$type": "RPG.GameCore.TargetAlias",
+                    "Alias": "Caster"
+                  },
+                  "EffectPath": "Effects/Eff_Prefab/Eff_Avatar/Eff_Acheron/Eff_Avatar_Acheron_00_MazeSkill01_Carmera02.prefab"
+                }
+              ],
+              "EnterBattleSelectTargetType": "FirstHitTarget"
+            },
+            {
+              "$type": "RPG.GameCore.WaitAnimState",
+              "TargetType": {
+                "$type": "RPG.GameCore.TargetAlias",
+                "Alias": "Caster"
+              },
+              "AnimStateName": "MazeSkill_01",
+              "NormalizedTimeEnd": {
+                "IsDynamic": false,
+                "FixedValue": {
+                  "Value": 0.056999999564141035
+                }
+              }
+            },
+            {
+              "$type": "RPG.GameCore.StopEffectFollow",
+              "EffectList": [
+                "Effects/Eff_Prefab/Eff_Avatar/Eff_Acheron/Eff_Avatar_Acheron_00_MazeSkill02_Attack_01.prefab"
+              ]
+            },
+            {
+              "$type": "RPG.GameCore.PredicateTaskList",
+              "Predicate": {
+                "$type": "RPG.GameCore.ByCompareDynamicValue",
+                "DynamicKey": "Acheron_Count",
+                "CompareType": "Greater",
+                "CompareValue": {
+                  "IsDynamic": false,
+                  "FixedValue": {
+                    "Value": 0
+                  }
+                }
+              },
+              "SuccessTaskList": [
+                {
+                  "$type": "RPG.GameCore.GlobalTimeSlow",
+                  "TimeScale": {
+                    "IsDynamic": false,
+                    "FixedValue": {
+                      "Value": 0
+                    }
+                  },
+                  "UnscaledDuration": {
+                    "IsDynamic": false,
+                    "FixedValue": {
+                      "Value": 0.45000000041909516
+                    }
+                  },
+                  "FadeOutTime": {
+                    "IsDynamic": false,
+                    "FixedValue": {
+                      "Value": 0.3000000002793968
+                    }
+                  },
+                  "FadeOutCurveName": "C_TimeSlow_FadeOut",
+                  "SlowKey": "LocalPlayer_Acheron_MazeSkill",
+                  "IgnoreEntityTypeMask": 1075314688,
+                  "RemoveOnLockPlayerControl": true
+                },
+                {
+                  "$type": "RPG.GameCore.AddAdventureModifier",
+                  "TargetType": {
+                    "$type": "RPG.GameCore.TargetAlias",
+                    "Alias": "Caster"
+                  },
+                  "ModifierName": "ADV_StageAbility_Maze_Acheron_OnKill",
+                  "LifeTime": {
+                    "IsDynamic": false,
+                    "FixedValue": {
+                      "Value": 0.20000000018626451
+                    }
+                  }
+                },
+                {
+                  "$type": "RPG.GameCore.VCameraConfigChange",
+                  "CameraConfig": {
+                    "ShakeTemplateName": "LocalPlayer_Acheron_MazeSkillKill_Hit"
+                  }
+                },
+                {
+                  "$type": "RPG.GameCore.RadialBlurEffect",
+                  "TargetType": {
+                    "$type": "RPG.GameCore.TargetAlias",
+                    "Alias": "Caster"
+                  },
+                  "Duration": 0.25,
+                  "BlurRadius": 1,
+                  "Iteration": 4,
+                  "BlurStart": 0.3,
+                  "BlurFeather": 0.01
+                },
+                {
+                  "$type": "RPG.GameCore.SetAdvLockDistance",
+                  "IsPushValue": true,
+                  "LockDistance": 15
+                },
+                {
+                  "$type": "RPG.GameCore.SetAdvLockDistance",
+                  "SkillType": "MazeSkill",
+                  "IsPushValue": true,
+                  "LockDistance": 15
+                },
+                {
+                  "$type": "RPG.GameCore.SetDynamicValue",
+                  "DynamicKey": "Acheron_Count",
+                  "Value": {
+                    "IsDynamic": false,
+                    "FixedValue": {
+                      "Value": 0
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              "$type": "RPG.GameCore.WaitAnimState",
+              "TargetType": {
+                "$type": "RPG.GameCore.TargetAlias",
+                "Alias": "Caster"
+              },
+              "AnimStateName": "MazeSkill_01",
+              "NormalizedTimeEnd": {
+                "IsDynamic": false,
+                "FixedValue": {
+                  "Value": 0.07099999999627471
+                }
+              }
+            },
+            {
+              "$type": "RPG.GameCore.StartAdvSkillCombo",
+              "SkillInputType": "MazeSkill",
+              "TriggerSkillIndex": 3
+            },
+            {
+              "$type": "RPG.GameCore.StartAdvSkillCombo"
+            },
+            {
+              "$type": "RPG.GameCore.WaitAnimState",
+              "TargetType": {
+                "$type": "RPG.GameCore.TargetAlias",
+                "Alias": "Caster"
+              },
+              "AnimStateName": "MazeSkill_01",
+              "NormalizedTimeEnd": {
+                "IsDynamic": false,
+                "FixedValue": {
+                  "Value": 1
+                }
+              }
+            },
+            {
+              "$type": "RPG.GameCore.SetAdvLockDistance"
+            },
+            {
+              "$type": "RPG.GameCore.SetAdvLockDistance",
+              "SkillType": "MazeSkill"
+            }
+          ],
+          "FailedTaskList": [
+            {
+              "$type": "RPG.GameCore.PredicateTaskList",
+              "Predicate": {
+                "$type": "RPG.GameCore.AdventureByInMotionState",
+                "MotionFlag": "FastRun"
+              },
+              "SuccessTaskList": [
+                {
+                  "$type": "RPG.GameCore.AdventureTriggerAnimStateWithMove",
+                  "TargetType": {
+                    "$type": "RPG.GameCore.TargetAlias",
+                    "Alias": "AdvLocalPlayer"
+                  },
+                  "AnimLogicState": "CustomSkill",
+                  "AnimStateName": "MazeSkill_01",
+                  "TransitionDuration": 0,
+                  "MovingRangeList": [
+                    {
+                      "NormalizedTimeStart": {
+                        "IsDynamic": false,
+                        "FixedValue": {
+                          "Value": 0.011999999871477485
+                        }
+                      },
+                      "NormalizedTimeEnd": {
+                        "IsDynamic": false,
+                        "FixedValue": {
+                          "Value": 0.04699999955482781
+                        }
+                      },
+                      "DefaultMoveDistance": {
+                        "IsDynamic": false,
+                        "FixedValue": {
+                          "Value": 3
+                        }
+                      }
+                    }
+                  ]
+                }
+              ],
+              "FailedTaskList": [
+                {
+                  "$type": "RPG.GameCore.PredicateTaskList",
+                  "Predicate": {
+                    "$type": "RPG.GameCore.AdventureByInMotionState",
+                    "MotionFlag": "Run"
+                  },
+                  "SuccessTaskList": [
+                    {
+                      "$type": "RPG.GameCore.AdventureTriggerAnimStateWithMove",
+                      "TargetType": {
+                        "$type": "RPG.GameCore.TargetAlias",
+                        "Alias": "AdvLocalPlayer"
+                      },
+                      "AnimLogicState": "CustomSkill",
+                      "AnimStateName": "MazeSkill_01",
+                      "TransitionDuration": 0,
+                      "MovingRangeList": [
+                        {
+                          "NormalizedTimeStart": {
+                            "IsDynamic": false,
+                            "FixedValue": {
+                              "Value": 0.011999999871477485
+                            }
+                          },
+                          "NormalizedTimeEnd": {
+                            "IsDynamic": false,
+                            "FixedValue": {
+                              "Value": 0.04699999955482781
+                            }
+                          },
+                          "DefaultMoveDistance": {
+                            "IsDynamic": false,
+                            "FixedValue": {
+                              "Value": 3
+                            }
+                          }
+                        }
+                      ]
+                    }
+                  ],
+                  "FailedTaskList": [
+                    {
+                      "$type": "RPG.GameCore.AdventureTriggerAnimStateWithMove",
+                      "TargetType": {
+                        "$type": "RPG.GameCore.TargetAlias",
+                        "Alias": "AdvLocalPlayer"
+                      },
+                      "AnimLogicState": "CustomSkill",
+                      "AnimStateName": "MazeSkill_01",
+                      "TransitionDuration": 0,
+                      "MovingRangeList": []
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "$type": "RPG.GameCore.AdvCharacterSteerToInputDir",
+              "AnimStateName": "MazeSkill_01",
+              "NormalizedTimeEnd": 0.01,
+              "MinRotationSpeed": 3000
+            },
+            {
+              "$type": "RPG.GameCore.WaitAnimState",
+              "TargetType": {
+                "$type": "RPG.GameCore.TargetAlias",
+                "Alias": "Caster"
+              },
+              "AnimStateName": "MazeSkill_01",
+              "NormalizedTimeEnd": {
+                "IsDynamic": false,
+                "FixedValue": {
+                  "Value": 0.014999999664723873
+                }
+              }
+            },
+            {
+              "$type": "RPG.GameCore.SetEntityVisible",
+              "TargetType": {
+                "$type": "RPG.GameCore.TargetAlias",
+                "Alias": "Caster"
+              },
+              "MuteColliderWhenInvisible": false
+            },
+            {
+              "$type": "RPG.GameCore.WaitAnimState",
+              "TargetType": {
+                "$type": "RPG.GameCore.TargetAlias",
+                "Alias": "Caster"
+              },
+              "AnimStateName": "MazeSkill_01",
+              "NormalizedTimeEnd": {
+                "IsDynamic": false,
+                "FixedValue": {
+                  "Value": 0.030999999959021807
+                }
+              }
+            },
+            {
+              "$type": "RPG.GameCore.SetEntityVisible",
+              "TargetType": {
+                "$type": "RPG.GameCore.TargetAlias",
+                "Alias": "Caster"
+              },
+              "Visible": true
+            },
+            {
+              "$type": "RPG.GameCore.WaitAnimState",
+              "TargetType": {
+                "$type": "RPG.GameCore.TargetAlias",
+                "Alias": "Caster"
+              },
+              "AnimStateName": "MazeSkill_01",
+              "NormalizedTimeEnd": {
+                "IsDynamic": false,
+                "FixedValue": {
+                  "Value": 0.04399999976158142
+                }
+              }
+            },
+            {
+              "$type": "RPG.GameCore.RadialBlurEffect",
+              "TargetType": {
+                "$type": "RPG.GameCore.TargetAlias",
+                "Alias": "Caster"
+              },
+              "Duration": 0.08,
+              "BlurX": 0.55,
+              "BlurRadius": 1,
+              "Iteration": 4,
+              "BlurStart": 0.005,
+              "BlurFeather": 0.01
+            },
+            {
+              "$type": "RPG.GameCore.AdventureTriggerAttack",
+              "TriggerBattleDelay": 0.1,
+              "AttackDetectConfig": {
+                "$type": "RPG.GameCore.AdventureAttackDetectBoxConfig",
+                "Size": {
+                  "X": 1,
+                  "Y": 1.2,
+                  "Z": 1
+                },
+                "Offset": {
+                  "X": 0,
+                  "Y": 1,
+                  "Z": 1.2
+                }
+              },
+              "HitConfig": {
+                "HitAnimation": "Hit",
+                "HitEffect": "Effects/Eff_Prefab/Eff_Avatar/Eff_Acheron/Eff_Avatar_Acheron_00_MazeSkill02_Hit01.prefab"
+              },
+              "OnAttack": [
+                {
+                  "$type": "RPG.GameCore.PredicateTaskList",
+                  "Predicate": {
+                    "$type": "RPG.GameCore.ByAllowInstantKill",
+                    "TargetType": {
+                      "$type": "RPG.GameCore.TargetAlias",
+                      "Alias": "ParamEntity"
+                    }
+                  },
+                  "SuccessTaskList": [
+                    {
+                      "$type": "RPG.GameCore.TriggerEffect",
+                      "TargetType": {
+                        "$type": "RPG.GameCore.TargetAlias",
+                        "Alias": "ParamEntity"
+                      },
+                      "EffectPath": "Effects/Eff_Prefab/Eff_Avatar/Eff_Acheron/Eff_Avatar_Acheron_00_MazeSkill_Icon_02.prefab",
+                      "AttachPoint": "HeadPoint",
+                      "PositionOffset": {
+                        "X": 0,
+                        "Y": 0.1,
+                        "Z": 0
+                      }
+                    },
+                    {
+                      "$type": "RPG.GameCore.AdventureSetAttackTargetMonsterDie",
+                      "TargetType": {
+                        "$type": "RPG.GameCore.TargetAlias",
+                        "Alias": "ParamEntity"
+                      }
+                    },
+                    {
+                      "$type": "RPG.GameCore.RemoveEffect",
+                      "TargetType": {
+                        "$type": "RPG.GameCore.TargetAlias",
+                        "Alias": "ParamEntity"
+                      },
+                      "EffectPath": "Effects/Eff_Prefab/Eff_Avatar/Eff_Acheron/Eff_Avatar_Acheron_00_MazeSkill_Icon.prefab",
+                      "IsNeedFadeOut": false
+                    }
+                  ]
+                }
+              ],
+              "OnBattle": [
+                {
+                  "$type": "RPG.GameCore.AddMazeBuff",
+                  "TargetType": {
+                    "$type": "RPG.GameCore.TargetAlias",
+                    "Alias": "ParamEntity"
+                  },
+                  "ID": 130803,
+                  "LifeTime": {
+                    "IsDynamic": false,
+                    "FixedValue": {
+                      "Value": 1
+                    }
+                  }
+                }
+              ],
+              "OnKill": [
+                {
+                  "$type": "RPG.GameCore.SetDynamicValue",
+                  "DynamicKey": "Acheron_Count",
+                  "Value": {
+                    "IsDynamic": false,
+                    "FixedValue": {
+                      "Value": 1
+                    }
+                  }
+                },
+                {
+                  "$type": "RPG.GameCore.TriggerEffect",
+                  "TargetType": {
+                    "$type": "RPG.GameCore.TargetAlias",
+                    "Alias": "Caster"
+                  },
+                  "EffectPath": "Effects/Eff_Prefab/Eff_Avatar/Eff_Acheron/Eff_Avatar_Acheron_00_MazeSkill01_Carmera02.prefab"
+                }
+              ],
+              "EnterBattleSelectTargetType": "FirstHitTarget"
+            },
+            {
+              "$type": "RPG.GameCore.WaitAnimState",
+              "TargetType": {
+                "$type": "RPG.GameCore.TargetAlias",
+                "Alias": "Caster"
+              },
+              "AnimStateName": "MazeSkill_01",
+              "NormalizedTimeEnd": {
+                "IsDynamic": false,
+                "FixedValue": {
+                  "Value": 0.056999999564141035
+                }
+              }
+            },
+            {
+              "$type": "RPG.GameCore.StopEffectFollow",
+              "EffectList": [
+                "Effects/Eff_Prefab/Eff_Avatar/Eff_Acheron/Eff_Avatar_Acheron_00_MazeSkill02_Attack_01.prefab"
+              ]
+            },
+            {
+              "$type": "RPG.GameCore.PredicateTaskList",
+              "Predicate": {
+                "$type": "RPG.GameCore.ByCompareDynamicValue",
+                "DynamicKey": "Acheron_Count",
+                "CompareType": "Greater",
+                "CompareValue": {
+                  "IsDynamic": false,
+                  "FixedValue": {
+                    "Value": 0
+                  }
+                }
+              },
+              "SuccessTaskList": [
+                {
+                  "$type": "RPG.GameCore.GlobalTimeSlow",
+                  "TimeScale": {
+                    "IsDynamic": false,
+                    "FixedValue": {
+                      "Value": 0
+                    }
+                  },
+                  "UnscaledDuration": {
+                    "IsDynamic": false,
+                    "FixedValue": {
+                      "Value": 0.45000000041909516
+                    }
+                  },
+                  "FadeOutTime": {
+                    "IsDynamic": false,
+                    "FixedValue": {
+                      "Value": 0.3000000002793968
+                    }
+                  },
+                  "FadeOutCurveName": "C_TimeSlow_FadeOut",
+                  "SlowKey": "LocalPlayer_Acheron_MazeSkill",
+                  "IgnoreEntityTypeMask": 1075314688,
+                  "RemoveOnLockPlayerControl": true
+                },
+                {
+                  "$type": "RPG.GameCore.AddAdventureModifier",
+                  "TargetType": {
+                    "$type": "RPG.GameCore.TargetAlias",
+                    "Alias": "Caster"
+                  },
+                  "ModifierName": "ADV_StageAbility_Maze_Acheron_OnKill",
+                  "LifeTime": {
+                    "IsDynamic": false,
+                    "FixedValue": {
+                      "Value": 0.20000000018626451
+                    }
+                  }
+                },
+                {
+                  "$type": "RPG.GameCore.VCameraConfigChange",
+                  "CameraConfig": {
+                    "ShakeTemplateName": "LocalPlayer_Acheron_MazeSkillKill_Hit"
+                  }
+                },
+                {
+                  "$type": "RPG.GameCore.RadialBlurEffect",
+                  "TargetType": {
+                    "$type": "RPG.GameCore.TargetAlias",
+                    "Alias": "Caster"
+                  },
+                  "Duration": 0.25,
+                  "BlurRadius": 1,
+                  "Iteration": 4,
+                  "BlurStart": 0.3,
+                  "BlurFeather": 0.01
+                },
+                {
+                  "$type": "RPG.GameCore.SetAdvLockDistance",
+                  "IsPushValue": true,
+                  "LockDistance": 15
+                },
+                {
+                  "$type": "RPG.GameCore.SetAdvLockDistance",
+                  "SkillType": "MazeSkill",
+                  "IsPushValue": true,
+                  "LockDistance": 15
+                },
+                {
+                  "$type": "RPG.GameCore.SetDynamicValue",
+                  "DynamicKey": "Acheron_Count",
+                  "Value": {
+                    "IsDynamic": false,
+                    "FixedValue": {
+                      "Value": 0
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              "$type": "RPG.GameCore.WaitAnimState",
+              "TargetType": {
+                "$type": "RPG.GameCore.TargetAlias",
+                "Alias": "Caster"
+              },
+              "AnimStateName": "MazeSkill_01",
+              "NormalizedTimeEnd": {
+                "IsDynamic": false,
+                "FixedValue": {
+                  "Value": 0.07099999999627471
+                }
+              }
+            },
+            {
+              "$type": "RPG.GameCore.StartAdvSkillCombo",
+              "SkillInputType": "MazeSkill",
+              "TriggerSkillIndex": 3
+            },
+            {
+              "$type": "RPG.GameCore.StartAdvSkillCombo"
+            },
+            {
+              "$type": "RPG.GameCore.WaitAnimState",
+              "TargetType": {
+                "$type": "RPG.GameCore.TargetAlias",
+                "Alias": "Caster"
+              },
+              "AnimStateName": "MazeSkill_01",
+              "NormalizedTimeEnd": {
+                "IsDynamic": false,
+                "FixedValue": {
+                  "Value": 1
+                }
+              }
+            },
+            {
+              "$type": "RPG.GameCore.SetAdvLockDistance"
+            },
+            {
+              "$type": "RPG.GameCore.SetAdvLockDistance",
+              "SkillType": "MazeSkill"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "OnAbort": [
+        {
+          "$type": "RPG.GameCore.SetEntityVisible",
+          "TargetType": {
+            "$type": "RPG.GameCore.TargetAlias",
+            "Alias": "Caster"
+          },
+          "Visible": true
+        },
+        {
+          "$type": "RPG.GameCore.SetAdvLockDistance"
+        },
+        {
+          "$type": "RPG.GameCore.SetAdvLockDistance",
+          "SkillType": "MazeSkill"
+        }
+      ],
+      "Name": "LocalPlayer_Acheron_MazeSkill_02",
+      "TargetInfo": {
+        "TargetType": "SkillPointEntityOrNone"
+      },
+      "OnStart": [
+        {
+          "$type": "RPG.GameCore.AddMazeBuff",
+          "TargetType": {
+            "$type": "RPG.GameCore.TargetAlias",
+            "Alias": "Caster"
+          },
+          "ID": 130801,
+          "LifeTime": {
+            "IsDynamic": false,
+            "FixedValue": {
+              "Value": 1.1000000000931323
+            }
+          }
+        },
+        {
+          "$type": "RPG.GameCore.PredicateTaskList",
+          "Predicate": {
+            "$type": "RPG.GameCore.ByHaveAbilityTarget"
+          },
+          "SuccessTaskList": [
+            {
+              "$type": "RPG.GameCore.LookAt",
+              "TargetType": "AbilityTargetEntity",
+              "Duration": 0.25
+            },
+            {
+              "$type": "RPG.GameCore.AdventureTriggerAnimStateWithMove",
+              "TargetType": {
+                "$type": "RPG.GameCore.TargetAlias",
+                "Alias": "AdvLocalPlayer"
+              },
+              "AnimLogicState": "CustomSkill",
+              "AnimStateName": "MazeSkill_02",
+              "TransitionDuration": 0,
+              "MovingRangeList": [
+                {
+                  "TargetType": {
+                    "$type": "RPG.GameCore.TargetAlias",
+                    "Alias": "AbilityTargetEntity"
+                  },
+                  "OffsetTargetDistance": {
+                    "IsDynamic": false,
+                    "FixedValue": {
+                      "Value": 2
+                    }
+                  },
+                  "NormalizedTimeStart": {
+                    "IsDynamic": false,
+                    "FixedValue": {
+                      "Value": 0.011999999871477485
+                    }
+                  },
+                  "NormalizedTimeEnd": {
+                    "IsDynamic": false,
+                    "FixedValue": {
+                      "Value": 0.04699999955482781
+                    }
+                  },
+                  "DefaultMoveDistance": {
+                    "IsDynamic": false,
+                    "FixedValue": {
+                      "Value": 6
+                    }
+                  },
+                  "MaxMoveDistance": {
+                    "IsDynamic": false,
+                    "FixedValue": {
+                      "Value": 15
+                    }
+                  },
+                  "MaxSpeed": {
+                    "IsDynamic": false,
+                    "FixedValue": {
+                      "Value": 300
+                    }
+                  },
+                  "SteerNormalizedTimeStart": {
+                    "IsDynamic": false,
+                    "FixedValue": {
+                      "Value": 0
+                    }
+                  },
+                  "SteerNormalizedTimeEnd": {
+                    "IsDynamic": false,
+                    "FixedValue": {
+                      "Value": 0.030000000027939677
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              "$type": "RPG.GameCore.WaitAnimState",
+              "TargetType": {
+                "$type": "RPG.GameCore.TargetAlias",
+                "Alias": "Caster"
+              },
+              "AnimStateName": "MazeSkill_02",
+              "NormalizedTimeEnd": {
+                "IsDynamic": false,
+                "FixedValue": {
+                  "Value": 0.012999999802559614
+                }
+              }
+            },
+            {
+              "$type": "RPG.GameCore.SetEntityVisible",
+              "TargetType": {
+                "$type": "RPG.GameCore.TargetAlias",
+                "Alias": "Caster"
+              },
+              "MuteColliderWhenInvisible": false
+            },
+            {
+              "$type": "RPG.GameCore.WaitAnimState",
+              "TargetType": {
+                "$type": "RPG.GameCore.TargetAlias",
+                "Alias": "Caster"
+              },
+              "AnimStateName": "MazeSkill_02",
+              "NormalizedTimeEnd": {
+                "IsDynamic": false,
+                "FixedValue": {
+                  "Value": 0.030999999959021807
+                }
+              }
+            },
+            {
+              "$type": "RPG.GameCore.SetEntityVisible",
+              "TargetType": {
+                "$type": "RPG.GameCore.TargetAlias",
+                "Alias": "Caster"
+              },
+              "Visible": true
+            },
+            {
+              "$type": "RPG.GameCore.WaitAnimState",
+              "TargetType": {
+                "$type": "RPG.GameCore.TargetAlias",
+                "Alias": "Caster"
+              },
+              "AnimStateName": "MazeSkill_02",
+              "NormalizedTimeEnd": {
+                "IsDynamic": false,
+                "FixedValue": {
+                  "Value": 0.04399999976158142
+                }
+              }
+            },
+            {
+              "$type": "RPG.GameCore.RadialBlurEffect",
+              "TargetType": {
+                "$type": "RPG.GameCore.TargetAlias",
+                "Alias": "Caster"
+              },
+              "Duration": 0.08,
+              "BlurX": 0.55,
+              "BlurRadius": 1,
+              "Iteration": 4,
+              "BlurStart": 0.005,
+              "BlurFeather": 0.01
+            },
+            {
+              "$type": "RPG.GameCore.AdventureTriggerAttack",
+              "TriggerBattleDelay": 0.1,
+              "AttackDetectConfig": {
+                "$type": "RPG.GameCore.AdventureAttackDetectBoxConfig",
+                "Size": {
+                  "X": 1,
+                  "Y": 1.2,
+                  "Z": 1
+                },
+                "Offset": {
+                  "X": 0,
+                  "Y": 1,
+                  "Z": 1
+                }
+              },
+              "HitConfig": {
+                "HitAnimation": "Hit",
+                "HitEffect": "Effects/Eff_Prefab/Eff_Avatar/Eff_Acheron/Eff_Avatar_Acheron_00_MazeSkill03_Hit01.prefab"
+              },
+              "OnAttack": [
+                {
+                  "$type": "RPG.GameCore.PredicateTaskList",
+                  "Predicate": {
+                    "$type": "RPG.GameCore.ByAllowInstantKill",
+                    "TargetType": {
+                      "$type": "RPG.GameCore.TargetAlias",
+                      "Alias": "ParamEntity"
+                    }
+                  },
+                  "SuccessTaskList": [
+                    {
+                      "$type": "RPG.GameCore.TriggerEffect",
+                      "TargetType": {
+                        "$type": "RPG.GameCore.TargetAlias",
+                        "Alias": "ParamEntity"
+                      },
+                      "EffectPath": "Effects/Eff_Prefab/Eff_Avatar/Eff_Acheron/Eff_Avatar_Acheron_00_MazeSkill_Icon_02.prefab",
+                      "AttachPoint": "HeadPoint",
+                      "PositionOffset": {
+                        "X": 0,
+                        "Y": 0.1,
+                        "Z": 0
+                      }
+                    },
+                    {
+                      "$type": "RPG.GameCore.AdventureSetAttackTargetMonsterDie",
+                      "TargetType": {
+                        "$type": "RPG.GameCore.TargetAlias",
+                        "Alias": "ParamEntity"
+                      }
+                    },
+                    {
+                      "$type": "RPG.GameCore.RemoveEffect",
+                      "TargetType": {
+                        "$type": "RPG.GameCore.TargetAlias",
+                        "Alias": "ParamEntity"
+                      },
+                      "EffectPath": "Effects/Eff_Prefab/Eff_Avatar/Eff_Acheron/Eff_Avatar_Acheron_00_MazeSkill_Icon.prefab",
+                      "IsNeedFadeOut": false
+                    }
+                  ]
+                }
+              ],
+              "OnBattle": [
+                {
+                  "$type": "RPG.GameCore.AddMazeBuff",
+                  "TargetType": {
+                    "$type": "RPG.GameCore.TargetAlias",
+                    "Alias": "ParamEntity"
+                  },
+                  "ID": 130803,
+                  "LifeTime": {
+                    "IsDynamic": false,
+                    "FixedValue": {
+                      "Value": 1
+                    }
+                  }
+                }
+              ],
+              "OnKill": [
+                {
+                  "$type": "RPG.GameCore.SetDynamicValue",
+                  "DynamicKey": "Acheron_Count",
+                  "Value": {
+                    "IsDynamic": false,
+                    "FixedValue": {
+                      "Value": 1
+                    }
+                  }
+                },
+                {
+                  "$type": "RPG.GameCore.TriggerEffect",
+                  "TargetType": {
+                    "$type": "RPG.GameCore.TargetAlias",
+                    "Alias": "Caster"
+                  },
+                  "EffectPath": "Effects/Eff_Prefab/Eff_Avatar/Eff_Acheron/Eff_Avatar_Acheron_00_MazeSkill01_Carmera02.prefab"
+                }
+              ],
+              "EnterBattleSelectTargetType": "FirstHitTarget"
+            },
+            {
+              "$type": "RPG.GameCore.WaitAnimState",
+              "TargetType": {
+                "$type": "RPG.GameCore.TargetAlias",
+                "Alias": "Caster"
+              },
+              "AnimStateName": "MazeSkill_02",
+              "NormalizedTimeEnd": {
+                "IsDynamic": false,
+                "FixedValue": {
+                  "Value": 0.056999999564141035
+                }
+              }
+            },
+            {
+              "$type": "RPG.GameCore.StopEffectFollow",
+              "EffectList": [
+                "Effects/Eff_Prefab/Eff_Avatar/Eff_Acheron/Eff_Avatar_Acheron_00_MazeSkill03_Attack_01.prefab"
+              ]
+            },
+            {
+              "$type": "RPG.GameCore.PredicateTaskList",
+              "Predicate": {
+                "$type": "RPG.GameCore.ByCompareDynamicValue",
+                "DynamicKey": "Acheron_Count",
+                "CompareType": "Greater",
+                "CompareValue": {
+                  "IsDynamic": false,
+                  "FixedValue": {
+                    "Value": 0
+                  }
+                }
+              },
+              "SuccessTaskList": [
+                {
+                  "$type": "RPG.GameCore.GlobalTimeSlow",
+                  "TimeScale": {
+                    "IsDynamic": false,
+                    "FixedValue": {
+                      "Value": 0
+                    }
+                  },
+                  "UnscaledDuration": {
+                    "IsDynamic": false,
+                    "FixedValue": {
+                      "Value": 0.45000000041909516
+                    }
+                  },
+                  "FadeOutTime": {
+                    "IsDynamic": false,
+                    "FixedValue": {
+                      "Value": 0.3000000002793968
+                    }
+                  },
+                  "FadeOutCurveName": "C_TimeSlow_FadeOut",
+                  "SlowKey": "LocalPlayer_Acheron_MazeSkill",
+                  "IgnoreEntityTypeMask": 1075314688,
+                  "RemoveOnLockPlayerControl": true
+                },
+                {
+                  "$type": "RPG.GameCore.AddAdventureModifier",
+                  "TargetType": {
+                    "$type": "RPG.GameCore.TargetAlias",
+                    "Alias": "Caster"
+                  },
+                  "ModifierName": "ADV_StageAbility_Maze_Acheron_OnKill",
+                  "LifeTime": {
+                    "IsDynamic": false,
+                    "FixedValue": {
+                      "Value": 0.20000000018626451
+                    }
+                  }
+                },
+                {
+                  "$type": "RPG.GameCore.VCameraConfigChange",
+                  "CameraConfig": {
+                    "ShakeTemplateName": "LocalPlayer_Acheron_MazeSkillKill_Hit"
+                  }
+                },
+                {
+                  "$type": "RPG.GameCore.RadialBlurEffect",
+                  "TargetType": {
+                    "$type": "RPG.GameCore.TargetAlias",
+                    "Alias": "Caster"
+                  },
+                  "Duration": 0.25,
+                  "BlurRadius": 1,
+                  "Iteration": 4,
+                  "BlurStart": 0.3,
+                  "BlurFeather": 0.01
+                },
+                {
+                  "$type": "RPG.GameCore.SetAdvLockDistance",
+                  "IsPushValue": true,
+                  "LockDistance": 15
+                },
+                {
+                  "$type": "RPG.GameCore.SetAdvLockDistance",
+                  "SkillType": "MazeSkill",
+                  "IsPushValue": true,
+                  "LockDistance": 15
+                },
+                {
+                  "$type": "RPG.GameCore.SetDynamicValue",
+                  "DynamicKey": "Acheron_Count",
+                  "Value": {
+                    "IsDynamic": false,
+                    "FixedValue": {
+                      "Value": 0
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              "$type": "RPG.GameCore.WaitAnimState",
+              "TargetType": {
+                "$type": "RPG.GameCore.TargetAlias",
+                "Alias": "Caster"
+              },
+              "AnimStateName": "MazeSkill_02",
+              "NormalizedTimeEnd": {
+                "IsDynamic": false,
+                "FixedValue": {
+                  "Value": 0.07099999999627471
+                }
+              }
+            },
+            {
+              "$type": "RPG.GameCore.StartAdvSkillCombo",
+              "SkillInputType": "MazeSkill",
+              "TriggerSkillIndex": 1
+            },
+            {
+              "$type": "RPG.GameCore.StartAdvSkillCombo"
+            },
+            {
+              "$type": "RPG.GameCore.WaitAnimState",
+              "TargetType": {
+                "$type": "RPG.GameCore.TargetAlias",
+                "Alias": "Caster"
+              },
+              "AnimStateName": "MazeSkill_02",
+              "NormalizedTimeEnd": {
+                "IsDynamic": false,
+                "FixedValue": {
+                  "Value": 1
+                }
+              }
+            },
+            {
+              "$type": "RPG.GameCore.SetAdvLockDistance"
+            },
+            {
+              "$type": "RPG.GameCore.SetAdvLockDistance",
+              "SkillType": "MazeSkill"
+            }
+          ],
+          "FailedTaskList": [
+            {
+              "$type": "RPG.GameCore.PredicateTaskList",
+              "Predicate": {
+                "$type": "RPG.GameCore.AdventureByInMotionState",
+                "MotionFlag": "FastRun"
+              },
+              "SuccessTaskList": [
+                {
+                  "$type": "RPG.GameCore.AdventureTriggerAnimStateWithMove",
+                  "TargetType": {
+                    "$type": "RPG.GameCore.TargetAlias",
+                    "Alias": "AdvLocalPlayer"
+                  },
+                  "AnimLogicState": "CustomSkill",
+                  "AnimStateName": "MazeSkill_02",
+                  "TransitionDuration": 0,
+                  "MovingRangeList": [
+                    {
+                      "NormalizedTimeStart": {
+                        "IsDynamic": false,
+                        "FixedValue": {
+                          "Value": 0.011999999871477485
+                        }
+                      },
+                      "NormalizedTimeEnd": {
+                        "IsDynamic": false,
+                        "FixedValue": {
+                          "Value": 0.04699999955482781
+                        }
+                      },
+                      "DefaultMoveDistance": {
+                        "IsDynamic": false,
+                        "FixedValue": {
+                          "Value": 3
+                        }
+                      }
+                    }
+                  ]
+                }
+              ],
+              "FailedTaskList": [
+                {
+                  "$type": "RPG.GameCore.PredicateTaskList",
+                  "Predicate": {
+                    "$type": "RPG.GameCore.AdventureByInMotionState",
+                    "MotionFlag": "Run"
+                  },
+                  "SuccessTaskList": [
+                    {
+                      "$type": "RPG.GameCore.AdventureTriggerAnimStateWithMove",
+                      "TargetType": {
+                        "$type": "RPG.GameCore.TargetAlias",
+                        "Alias": "AdvLocalPlayer"
+                      },
+                      "AnimLogicState": "CustomSkill",
+                      "AnimStateName": "MazeSkill_02",
+                      "TransitionDuration": 0,
+                      "MovingRangeList": [
+                        {
+                          "NormalizedTimeStart": {
+                            "IsDynamic": false,
+                            "FixedValue": {
+                              "Value": 0.011999999871477485
+                            }
+                          },
+                          "NormalizedTimeEnd": {
+                            "IsDynamic": false,
+                            "FixedValue": {
+                              "Value": 0.04699999955482781
+                            }
+                          },
+                          "DefaultMoveDistance": {
+                            "IsDynamic": false,
+                            "FixedValue": {
+                              "Value": 3
+                            }
+                          }
+                        }
+                      ]
+                    }
+                  ],
+                  "FailedTaskList": [
+                    {
+                      "$type": "RPG.GameCore.AdventureTriggerAnimStateWithMove",
+                      "TargetType": {
+                        "$type": "RPG.GameCore.TargetAlias",
+                        "Alias": "AdvLocalPlayer"
+                      },
+                      "AnimLogicState": "CustomSkill",
+                      "AnimStateName": "MazeSkill_02",
+                      "TransitionDuration": 0,
+                      "MovingRangeList": []
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "$type": "RPG.GameCore.AdvCharacterSteerToInputDir",
+              "AnimStateName": "MazeSkill_02",
+              "NormalizedTimeEnd": 0.01,
+              "MinRotationSpeed": 3000
+            },
+            {
+              "$type": "RPG.GameCore.WaitAnimState",
+              "TargetType": {
+                "$type": "RPG.GameCore.TargetAlias",
+                "Alias": "Caster"
+              },
+              "AnimStateName": "MazeSkill_02",
+              "NormalizedTimeEnd": {
+                "IsDynamic": false,
+                "FixedValue": {
+                  "Value": 0.012999999802559614
+                }
+              }
+            },
+            {
+              "$type": "RPG.GameCore.SetEntityVisible",
+              "TargetType": {
+                "$type": "RPG.GameCore.TargetAlias",
+                "Alias": "Caster"
+              },
+              "MuteColliderWhenInvisible": false
+            },
+            {
+              "$type": "RPG.GameCore.WaitAnimState",
+              "TargetType": {
+                "$type": "RPG.GameCore.TargetAlias",
+                "Alias": "Caster"
+              },
+              "AnimStateName": "MazeSkill_02",
+              "NormalizedTimeEnd": {
+                "IsDynamic": false,
+                "FixedValue": {
+                  "Value": 0.030999999959021807
+                }
+              }
+            },
+            {
+              "$type": "RPG.GameCore.SetEntityVisible",
+              "TargetType": {
+                "$type": "RPG.GameCore.TargetAlias",
+                "Alias": "Caster"
+              },
+              "Visible": true
+            },
+            {
+              "$type": "RPG.GameCore.WaitAnimState",
+              "TargetType": {
+                "$type": "RPG.GameCore.TargetAlias",
+                "Alias": "Caster"
+              },
+              "AnimStateName": "MazeSkill_02",
+              "NormalizedTimeEnd": {
+                "IsDynamic": false,
+                "FixedValue": {
+                  "Value": 0.04399999976158142
+                }
+              }
+            },
+            {
+              "$type": "RPG.GameCore.RadialBlurEffect",
+              "TargetType": {
+                "$type": "RPG.GameCore.TargetAlias",
+                "Alias": "Caster"
+              },
+              "Duration": 0.08,
+              "BlurX": 0.55,
+              "BlurRadius": 1,
+              "Iteration": 4,
+              "BlurStart": 0.005,
+              "BlurFeather": 0.01
+            },
+            {
+              "$type": "RPG.GameCore.AdventureTriggerAttack",
+              "TriggerBattleDelay": 0.1,
+              "AttackDetectConfig": {
+                "$type": "RPG.GameCore.AdventureAttackDetectBoxConfig",
+                "Size": {
+                  "X": 1,
+                  "Y": 1.2,
+                  "Z": 1
+                },
+                "Offset": {
+                  "X": 0,
+                  "Y": 1,
+                  "Z": 1
+                }
+              },
+              "HitConfig": {
+                "HitAnimation": "Hit",
+                "HitEffect": "Effects/Eff_Prefab/Eff_Avatar/Eff_Acheron/Eff_Avatar_Acheron_00_MazeSkill03_Hit01.prefab"
+              },
+              "OnAttack": [
+                {
+                  "$type": "RPG.GameCore.PredicateTaskList",
+                  "Predicate": {
+                    "$type": "RPG.GameCore.ByAllowInstantKill",
+                    "TargetType": {
+                      "$type": "RPG.GameCore.TargetAlias",
+                      "Alias": "ParamEntity"
+                    }
+                  },
+                  "SuccessTaskList": [
+                    {
+                      "$type": "RPG.GameCore.TriggerEffect",
+                      "TargetType": {
+                        "$type": "RPG.GameCore.TargetAlias",
+                        "Alias": "ParamEntity"
+                      },
+                      "EffectPath": "Effects/Eff_Prefab/Eff_Avatar/Eff_Acheron/Eff_Avatar_Acheron_00_MazeSkill_Icon_02.prefab",
+                      "AttachPoint": "HeadPoint",
+                      "PositionOffset": {
+                        "X": 0,
+                        "Y": 0.1,
+                        "Z": 0
+                      }
+                    },
+                    {
+                      "$type": "RPG.GameCore.AdventureSetAttackTargetMonsterDie",
+                      "TargetType": {
+                        "$type": "RPG.GameCore.TargetAlias",
+                        "Alias": "ParamEntity"
+                      }
+                    },
+                    {
+                      "$type": "RPG.GameCore.RemoveEffect",
+                      "TargetType": {
+                        "$type": "RPG.GameCore.TargetAlias",
+                        "Alias": "ParamEntity"
+                      },
+                      "EffectPath": "Effects/Eff_Prefab/Eff_Avatar/Eff_Acheron/Eff_Avatar_Acheron_00_MazeSkill_Icon.prefab",
+                      "IsNeedFadeOut": false
+                    }
+                  ]
+                }
+              ],
+              "OnBattle": [
+                {
+                  "$type": "RPG.GameCore.AddMazeBuff",
+                  "TargetType": {
+                    "$type": "RPG.GameCore.TargetAlias",
+                    "Alias": "ParamEntity"
+                  },
+                  "ID": 130803,
+                  "LifeTime": {
+                    "IsDynamic": false,
+                    "FixedValue": {
+                      "Value": 1
+                    }
+                  }
+                }
+              ],
+              "OnKill": [
+                {
+                  "$type": "RPG.GameCore.SetDynamicValue",
+                  "DynamicKey": "Acheron_Count",
+                  "Value": {
+                    "IsDynamic": false,
+                    "FixedValue": {
+                      "Value": 1
+                    }
+                  }
+                },
+                {
+                  "$type": "RPG.GameCore.TriggerEffect",
+                  "TargetType": {
+                    "$type": "RPG.GameCore.TargetAlias",
+                    "Alias": "Caster"
+                  },
+                  "EffectPath": "Effects/Eff_Prefab/Eff_Avatar/Eff_Acheron/Eff_Avatar_Acheron_00_MazeSkill01_Carmera02.prefab"
+                }
+              ],
+              "EnterBattleSelectTargetType": "FirstHitTarget"
+            },
+            {
+              "$type": "RPG.GameCore.WaitAnimState",
+              "TargetType": {
+                "$type": "RPG.GameCore.TargetAlias",
+                "Alias": "Caster"
+              },
+              "AnimStateName": "MazeSkill_02",
+              "NormalizedTimeEnd": {
+                "IsDynamic": false,
+                "FixedValue": {
+                  "Value": 0.056999999564141035
+                }
+              }
+            },
+            {
+              "$type": "RPG.GameCore.StopEffectFollow",
+              "EffectList": [
+                "Effects/Eff_Prefab/Eff_Avatar/Eff_Acheron/Eff_Avatar_Acheron_00_MazeSkill03_Attack_01.prefab"
+              ]
+            },
+            {
+              "$type": "RPG.GameCore.PredicateTaskList",
+              "Predicate": {
+                "$type": "RPG.GameCore.ByCompareDynamicValue",
+                "DynamicKey": "Acheron_Count",
+                "CompareType": "Greater",
+                "CompareValue": {
+                  "IsDynamic": false,
+                  "FixedValue": {
+                    "Value": 0
+                  }
+                }
+              },
+              "SuccessTaskList": [
+                {
+                  "$type": "RPG.GameCore.GlobalTimeSlow",
+                  "TimeScale": {
+                    "IsDynamic": false,
+                    "FixedValue": {
+                      "Value": 0
+                    }
+                  },
+                  "UnscaledDuration": {
+                    "IsDynamic": false,
+                    "FixedValue": {
+                      "Value": 0.45000000041909516
+                    }
+                  },
+                  "FadeOutTime": {
+                    "IsDynamic": false,
+                    "FixedValue": {
+                      "Value": 0.3000000002793968
+                    }
+                  },
+                  "FadeOutCurveName": "C_TimeSlow_FadeOut",
+                  "SlowKey": "LocalPlayer_Acheron_MazeSkill",
+                  "IgnoreEntityTypeMask": 1075314688,
+                  "RemoveOnLockPlayerControl": true
+                },
+                {
+                  "$type": "RPG.GameCore.AddAdventureModifier",
+                  "TargetType": {
+                    "$type": "RPG.GameCore.TargetAlias",
+                    "Alias": "Caster"
+                  },
+                  "ModifierName": "ADV_StageAbility_Maze_Acheron_OnKill",
+                  "LifeTime": {
+                    "IsDynamic": false,
+                    "FixedValue": {
+                      "Value": 0.20000000018626451
+                    }
+                  }
+                },
+                {
+                  "$type": "RPG.GameCore.VCameraConfigChange",
+                  "CameraConfig": {
+                    "ShakeTemplateName": "LocalPlayer_Acheron_MazeSkillKill_Hit"
+                  }
+                },
+                {
+                  "$type": "RPG.GameCore.RadialBlurEffect",
+                  "TargetType": {
+                    "$type": "RPG.GameCore.TargetAlias",
+                    "Alias": "Caster"
+                  },
+                  "Duration": 0.25,
+                  "BlurRadius": 1,
+                  "Iteration": 4,
+                  "BlurStart": 0.3,
+                  "BlurFeather": 0.01
+                },
+                {
+                  "$type": "RPG.GameCore.SetAdvLockDistance",
+                  "IsPushValue": true,
+                  "LockDistance": 15
+                },
+                {
+                  "$type": "RPG.GameCore.SetAdvLockDistance",
+                  "SkillType": "MazeSkill",
+                  "IsPushValue": true,
+                  "LockDistance": 15
+                },
+                {
+                  "$type": "RPG.GameCore.SetDynamicValue",
+                  "DynamicKey": "Acheron_Count",
+                  "Value": {
+                    "IsDynamic": false,
+                    "FixedValue": {
+                      "Value": 0
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              "$type": "RPG.GameCore.WaitAnimState",
+              "TargetType": {
+                "$type": "RPG.GameCore.TargetAlias",
+                "Alias": "Caster"
+              },
+              "AnimStateName": "MazeSkill_02",
+              "NormalizedTimeEnd": {
+                "IsDynamic": false,
+                "FixedValue": {
+                  "Value": 0.07099999999627471
+                }
+              }
+            },
+            {
+              "$type": "RPG.GameCore.StartAdvSkillCombo",
+              "SkillInputType": "MazeSkill",
+              "TriggerSkillIndex": 1
+            },
+            {
+              "$type": "RPG.GameCore.StartAdvSkillCombo"
+            },
+            {
+              "$type": "RPG.GameCore.WaitAnimState",
+              "TargetType": {
+                "$type": "RPG.GameCore.TargetAlias",
+                "Alias": "Caster"
+              },
+              "AnimStateName": "MazeSkill_02",
+              "NormalizedTimeEnd": {
+                "IsDynamic": false,
+                "FixedValue": {
+                  "Value": 1
+                }
+              }
+            },
+            {
+              "$type": "RPG.GameCore.SetAdvLockDistance"
+            },
+            {
+              "$type": "RPG.GameCore.SetAdvLockDistance",
+              "SkillType": "MazeSkill"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "Name": "LocalPlayer_Acheron_SummonUnit",
+      "TargetInfo": {
+        "TargetType": "Caster"
+      },
+      "OnStart": [
+        {
+          "$type": "RPG.GameCore.AddAdventureModifier",
+          "TargetType": {
+            "$type": "RPG.GameCore.TargetAlias",
+            "Alias": "Caster"
+          },
+          "ModifierName": "ADV_StageAbility_Maze_Acheron_TiggerkillFlag"
+        }
+      ]
+    }
+  ]
+}

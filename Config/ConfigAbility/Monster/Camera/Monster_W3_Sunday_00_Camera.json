@@ -1,0 +1,1466 @@
+{
+  "AbilityList": [
+    {
+      "Name": "Monster_W3_Sunday_00_Skill01_Camera",
+      "TargetInfo": {
+        "TargetType": "SkillTargetEntityList"
+      },
+      "OnStart": [
+        {
+          "$type": "RPG.GameCore.VCameraConfigChange",
+          "CameraConfig": {
+            "NormalConfig": {
+              "CameraState": "DarkEntityAttack",
+              "AttackType": "MeleeAttack",
+              "FollowDamp": 0.01,
+              "AimDamp": 0.01
+            },
+            "AdditiveNormalConfig": {
+              "AnchorOffset": {
+                "X": 1.7,
+                "Y": 0,
+                "Z": -0.96
+              },
+              "AimOffset": {
+                "X": -3.52,
+                "Y": 1,
+                "Z": 0
+              }
+            },
+            "BlendConfig": {
+              "BlendType": "Custom",
+              "CustomCurveName": "BlendCut_00to1",
+              "BlendTime": 1
+            },
+            "ShowEntityConfig": {
+              "ShowTargetType": {
+                "$type": "RPG.GameCore.TargetAlias",
+                "Alias": "AllTeamMemberWithAbilityTargetEntity"
+              }
+            }
+          }
+        },
+        {
+          "$type": "RPG.GameCore.WaitAnimState",
+          "TargetType": {
+            "$type": "RPG.GameCore.TargetAlias",
+            "Alias": "Caster"
+          },
+          "AnimStateName": "Skill01",
+          "NormalizedTimeEnd": {
+            "IsDynamic": false,
+            "FixedValue": {
+              "Value": 0.2889999996405095
+            }
+          }
+        },
+        {
+          "$type": "RPG.GameCore.VCameraConfigChange",
+          "CameraConfig": {
+            "ShakeConfigV2": {
+              "ShakeRange": 0.31,
+              "ShakeTime": 0.2,
+              "ShakeDir": {
+                "X": 0.15,
+                "Y": 0.15,
+                "Z": 0
+              },
+              "BaseCycle": 0.28,
+              "CycleDamping": 0,
+              "RangeAttenuation": 0.95,
+              "PerlinNoiseAmplitude": {
+                "X": 0.1,
+                "Y": 0.1,
+                "Z": 0.1
+              },
+              "PerlinNoiseFreq": {
+                "X": 16,
+                "Y": 14,
+                "Z": 12
+              },
+              "RotationalAmplitude": {
+                "X": 0,
+                "Y": 0,
+                "Z": 3.5
+              },
+              "RotationFreqV3": {
+                "X": 4,
+                "Y": 0,
+                "Z": 8
+              }
+            }
+          }
+        },
+        {
+          "$type": "RPG.GameCore.WaitAnimState",
+          "TargetType": {
+            "$type": "RPG.GameCore.TargetAlias",
+            "Alias": "Caster"
+          },
+          "AnimStateName": "Skill01",
+          "NormalizedTimeEnd": {
+            "IsDynamic": false,
+            "FixedValue": {
+              "Value": 0.45699999993667006
+            }
+          }
+        },
+        {
+          "$type": "RPG.GameCore.VCameraConfigChange",
+          "CameraConfig": {
+            "NormalConfig": {
+              "CameraState": "DarkEntityAttack",
+              "AttackType": "MeleeAttack",
+              "FollowDamp": 0.01,
+              "AimDamp": 0.01
+            },
+            "AdditiveNormalConfig": {
+              "AnchorOffset": {
+                "X": 1.45,
+                "Y": -0.3,
+                "Z": -0.9
+              },
+              "AimOffset": {
+                "X": -2.77,
+                "Y": 2.88,
+                "Z": 0
+              }
+            },
+            "BlendConfig": {
+              "BlendType": "Cut"
+            },
+            "ShowEntityConfig": {
+              "ShowTargetType": {
+                "$type": "RPG.GameCore.TargetAlias",
+                "Alias": "AllTeamMemberWithAbilityTargetEntity"
+              }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "Name": "Monster_W3_Sunday_00_Skill02_Camera",
+      "TargetInfo": {
+        "TargetType": "AllEnemy"
+      },
+      "OnStart": [
+        {
+          "$type": "RPG.GameCore.VCameraConfigChange",
+          "CameraConfig": {
+            "NormalConfig": {
+              "CameraState": "CastAnimation",
+              "AnchorOffset": {
+                "X": -1,
+                "Y": 0.2,
+                "Z": -8
+              },
+              "AimTargetType": {
+                "$type": "RPG.GameCore.TargetAlias",
+                "Alias": "AllDarkTeam"
+              },
+              "AimOffset": {
+                "X": 1,
+                "Y": 2.8,
+                "Z": 0
+              }
+            },
+            "BlendConfig": {
+              "BlendType": "Cut"
+            },
+            "ShowEntityConfig": {
+              "ShowTargetType": {
+                "$type": "RPG.GameCore.TargetAlias",
+                "Alias": "CasterWithAllTeamMember"
+              }
+            }
+          }
+        },
+        {
+          "$type": "RPG.GameCore.WaitAnimState",
+          "AnimStateName": "Skill02",
+          "NormalizedTimeEnd": {
+            "IsDynamic": false,
+            "FixedValue": {
+              "Value": 0.24100000015459955
+            }
+          }
+        },
+        {
+          "$type": "RPG.GameCore.VCameraConfigChange",
+          "CameraConfig": {
+            "NormalConfig": {
+              "CameraState": "CasterToTargetPerform",
+              "TemplateName": "Monster_Common_Range_AOE",
+              "AnchorTargetType": {
+                "$type": "RPG.GameCore.TargetAlias",
+                "Alias": "AllEnemy"
+              },
+              "AnchorOffset": {
+                "X": 0,
+                "Y": 2,
+                "Z": -5
+              },
+              "AnchorRatio": 0.01,
+              "AimTargetType": {
+                "$type": "RPG.GameCore.TargetAlias",
+                "Alias": "Caster"
+              },
+              "AimRatio": 1,
+              "ResetToDefault": false
+            },
+            "AdditiveNormalConfig": {
+              "IsLocalOffset": true,
+              "AnchorOffset": {
+                "X": 1.5,
+                "Y": -2,
+                "Z": -1.8
+              },
+              "AimOffset": {
+                "X": -0.95,
+                "Y": 1.8,
+                "Z": 0
+              },
+              "Dutch": 0.01,
+              "ResetToDefault": false
+            },
+            "BlendConfig": {
+              "BlendType": "Custom",
+              "CustomCurveName": "BlendCut_00to1_FastToSlow",
+              "BlendTime": 2
+            }
+          }
+        }
+      ]
+    },
+    {
+      "Name": "Monster_W3_Sunday_00_Skill03_Camera",
+      "TargetInfo": {
+        "TargetType": "Caster"
+      },
+      "OnStart": [
+        {
+          "$type": "RPG.GameCore.VCameraConfigChange",
+          "CameraConfig": {
+            "NormalConfig": {
+              "CameraState": "CastAnimation",
+              "AnchorOffset": {
+                "X": 0,
+                "Y": 0,
+                "Z": -15.2
+              },
+              "AimTargetType": {
+                "$type": "RPG.GameCore.TargetAlias",
+                "Alias": "AllDarkTeam"
+              },
+              "AimOffset": {
+                "X": 0,
+                "Y": 2.3,
+                "Z": 0
+              }
+            },
+            "BlendConfig": {
+              "BlendType": "Cut"
+            },
+            "ShowEntityConfig": {
+              "ShowTargetType": {
+                "$type": "RPG.GameCore.TargetAlias",
+                "Alias": "AllTeamMemberWithAllEnemy"
+              }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "Name": "Monster_W3_Sunday_00_Skill04_Camera",
+      "TargetInfo": {
+        "TargetType": "AllEnemy"
+      },
+      "OnStart": [
+        {
+          "$type": "RPG.GameCore.VCameraConfigChange",
+          "CameraConfig": {
+            "NormalConfig": {
+              "CameraState": "CastAnimation",
+              "AnchorOffset": {
+                "X": 1,
+                "Y": 0,
+                "Z": -13
+              },
+              "AimTargetType": {
+                "$type": "RPG.GameCore.TargetAlias",
+                "Alias": "AllDarkTeam"
+              },
+              "AimOffset": {
+                "X": 0,
+                "Y": 2.3,
+                "Z": 0
+              }
+            },
+            "BlendConfig": {
+              "BlendType": "Cut"
+            },
+            "ShowEntityConfig": {
+              "ShowTargetType": {
+                "$type": "RPG.GameCore.TargetAlias",
+                "Alias": "CasterWithAllTeamMember"
+              }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "Name": "Monster_W3_Sunday_00_Skill042_Camera",
+      "TargetInfo": {
+        "TargetType": "AllEnemy"
+      },
+      "OnStart": [
+        {
+          "$type": "RPG.GameCore.VCameraConfigChange",
+          "CameraConfig": {
+            "NormalConfig": {
+              "CameraState": "UseSkillPerform",
+              "IsLocalOffset": true,
+              "AnchorOffset": {
+                "X": -0.01,
+                "Y": 0,
+                "Z": 12
+              },
+              "AimTargetType": {
+                "$type": "RPG.GameCore.TargetAlias",
+                "Alias": "Caster"
+              },
+              "AimOffset": {
+                "X": -0.01,
+                "Y": 2.6,
+                "Z": 0
+              },
+              "FollowPoleAngle": 90,
+              "FollowRadius": 0.88,
+              "ForbidChangeOffset": true
+            },
+            "BlendConfig": {
+              "BlendType": "Cut",
+              "CustomCurveName": "null",
+              "BlendTime": 0.044044
+            },
+            "ShowEntityConfig": {
+              "ShowTargetType": {
+                "$type": "RPG.GameCore.TargetAlias",
+                "Alias": "CasterWithAllTeamMember"
+              }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "Name": "Monster_W3_Sunday_00_Skill05_Camera",
+      "TargetInfo": {
+        "TargetType": "SkillTargetEntityList"
+      },
+      "OnStart": [
+        {
+          "$type": "RPG.GameCore.VCameraConfigChange",
+          "CameraConfig": {
+            "NormalConfig": {
+              "CameraState": "CasterToTargetPerform",
+              "TemplateName": "Monster_Common_Range_AOE",
+              "AnchorTargetType": {
+                "$type": "RPG.GameCore.TargetAlias",
+                "Alias": "AllEnemy"
+              },
+              "AnchorOffset": {
+                "X": 0,
+                "Y": 2,
+                "Z": -5
+              },
+              "AnchorRatio": 0.01,
+              "AimTargetType": {
+                "$type": "RPG.GameCore.TargetAlias",
+                "Alias": "AllTeamMember"
+              },
+              "AimRatio": 1,
+              "ForbidDynamicOffset": false,
+              "ResetToDefault": false,
+              "ForbidChangeOffset": true
+            },
+            "AdditiveNormalConfig": {
+              "AnchorTargetType": {
+                "$type": "RPG.GameCore.TargetAlias",
+                "Alias": "AllEnemy"
+              },
+              "AnchorOffset": {
+                "X": 0,
+                "Y": -0.5,
+                "Z": -3
+              },
+              "AimTargetType": {
+                "$type": "RPG.GameCore.TargetAlias",
+                "Alias": "AllEnemy"
+              },
+              "AimOffset": {
+                "X": 0,
+                "Y": 0.5,
+                "Z": 0
+              },
+              "ResetToDefault": false
+            },
+            "BlendConfig": {
+              "BlendType": "Cut",
+              "CustomCurveName": "BlendCut_00to1",
+              "BlendTime": 1.483334
+            },
+            "ShowEntityConfig": {
+              "ShowTargetType": {
+                "$type": "RPG.GameCore.TargetAlias",
+                "Alias": "AllTeamMemberWithAllEnemy"
+              }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "Name": "Monster_W3_Sunday_00_Skill052_Camera",
+      "TargetInfo": {
+        "TargetType": "AllEnemy"
+      },
+      "OnStart": [
+        {
+          "$type": "RPG.GameCore.VCameraConfigChange",
+          "CameraConfig": {
+            "NormalConfig": {
+              "CameraState": "CasterToTargetPerform",
+              "TemplateName": "Monster_Common_Range_AOE",
+              "AnchorTargetType": {
+                "$type": "RPG.GameCore.TargetAlias",
+                "Alias": "AllEnemy"
+              },
+              "AnchorOffset": {
+                "X": 0,
+                "Y": 2,
+                "Z": -5
+              },
+              "AnchorRatio": 0.01,
+              "AimTargetType": {
+                "$type": "RPG.GameCore.TargetAlias",
+                "Alias": "AllTeamMember"
+              },
+              "AimRatio": 1,
+              "ForbidDynamicOffset": false,
+              "ResetToDefault": false,
+              "ForbidChangeOffset": true
+            },
+            "AdditiveNormalConfig": {
+              "AnchorTargetType": {
+                "$type": "RPG.GameCore.TargetAlias",
+                "Alias": "AllEnemy"
+              },
+              "AnchorOffset": {
+                "X": 0,
+                "Y": -0.5,
+                "Z": -3
+              },
+              "AimTargetType": {
+                "$type": "RPG.GameCore.TargetAlias",
+                "Alias": "AllEnemy"
+              },
+              "AimOffset": {
+                "X": 0,
+                "Y": 0.5,
+                "Z": 0
+              },
+              "ResetToDefault": false
+            },
+            "BlendConfig": {
+              "BlendType": "Cut",
+              "CustomCurveName": "BlendCut_00to1",
+              "BlendTime": 1.483334
+            },
+            "ShowEntityConfig": {
+              "ShowTargetType": {
+                "$type": "RPG.GameCore.TargetAlias",
+                "Alias": "AllTeamMemberWithAllEnemy"
+              }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "Name": "Monster_W3_Sunday_00_Skill06_Camera",
+      "TargetInfo": {
+        "TargetType": "AllEnemy"
+      },
+      "OnStart": [
+        {
+          "$type": "RPG.GameCore.WaitAnimState",
+          "AnimStateName": "Skill06",
+          "NormalizedTimeEnd": {
+            "IsDynamic": false,
+            "FixedValue": {
+              "Value": 0.8000000007450581
+            }
+          }
+        },
+        {
+          "$type": "RPG.GameCore.VCameraConfigChange",
+          "CameraConfig": {
+            "NormalConfig": {
+              "CameraState": "CasterToTargetPerform",
+              "TemplateName": "Monster_Common_Range_AOE",
+              "AnchorTargetType": {
+                "$type": "RPG.GameCore.TargetAlias",
+                "Alias": "AllEnemy"
+              },
+              "AnchorOffset": {
+                "X": 0,
+                "Y": 2,
+                "Z": -5
+              },
+              "AnchorRatio": 0.01,
+              "AimTargetType": {
+                "$type": "RPG.GameCore.TargetAlias",
+                "Alias": "AllTeamMember"
+              },
+              "AimRatio": 1,
+              "ForbidDynamicOffset": false,
+              "ResetToDefault": false
+            },
+            "AdditiveNormalConfig": {
+              "IsLocalOffset": true,
+              "AnchorOffset": {
+                "X": -0.53,
+                "Y": -1.13,
+                "Z": -1.03
+              },
+              "AimOffset": {
+                "X": 0.05,
+                "Y": -1.08,
+                "Z": 1.5
+              },
+              "ResetToDefault": false
+            },
+            "BlendConfig": {
+              "BlendType": "Cut"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "Name": "Monster_W3_Sunday_00_Skill07_Camera",
+      "TargetInfo": {
+        "TargetType": "SkillTargetEntityList"
+      },
+      "OnStart": [
+        {
+          "$type": "RPG.GameCore.VCameraConfigChange",
+          "CameraConfig": {
+            "NormalConfig": {
+              "CameraState": "CastAnimation",
+              "AnchorOffset": {
+                "X": 1,
+                "Y": 0,
+                "Z": -13
+              },
+              "AimTargetType": {
+                "$type": "RPG.GameCore.TargetAlias",
+                "Alias": "AllDarkTeam"
+              },
+              "AimOffset": {
+                "X": 0,
+                "Y": 2.3,
+                "Z": 0
+              }
+            },
+            "BlendConfig": {
+              "BlendType": "Cut"
+            },
+            "ShowEntityConfig": {
+              "ShowTargetType": {
+                "$type": "RPG.GameCore.TargetAlias",
+                "Alias": "AllTeamMember"
+              }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "Name": "Monster_W3_Sunday_00_Skill08_Camera",
+      "TargetInfo": {
+        "TargetType": "Caster"
+      },
+      "OnStart": [
+        {
+          "$type": "RPG.GameCore.VCameraConfigChange",
+          "CameraConfig": {
+            "NormalConfig": {
+              "CameraState": "UseSkillPerform",
+              "IsLocalOffset": true,
+              "AnchorOffset": {
+                "X": -0.01,
+                "Y": 0,
+                "Z": 17
+              },
+              "AimTargetType": {
+                "$type": "RPG.GameCore.TargetAlias",
+                "Alias": "Caster"
+              },
+              "AimOffset": {
+                "X": -0.01,
+                "Y": 5.2,
+                "Z": 0
+              },
+              "FollowPoleAngle": 90,
+              "FollowRadius": 0.88,
+              "ForbidChangeOffset": true
+            },
+            "BlendConfig": {
+              "BlendType": "Cut",
+              "CustomCurveName": "null",
+              "BlendTime": 0.044044
+            },
+            "ShowEntityConfig": {
+              "ShowTargetType": {
+                "$type": "RPG.GameCore.TargetAlias",
+                "Alias": "AllTeamMember"
+              }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "Name": "Monster_W3_Sunday_00_Skill09_Camera01",
+      "TargetInfo": {
+        "TargetType": "AllEnemy"
+      },
+      "OnStart": [
+        {
+          "$type": "RPG.GameCore.VCameraConfigChange",
+          "CameraConfig": {
+            "NormalConfig": {
+              "CameraState": "UseSkillPerform",
+              "IsLocalOffset": true,
+              "AnchorOffset": {
+                "X": -0.01,
+                "Y": -0.15,
+                "Z": 12
+              },
+              "AimTargetType": {
+                "$type": "RPG.GameCore.TargetAlias",
+                "Alias": "Caster"
+              },
+              "AimOffset": {
+                "X": -0.01,
+                "Y": 0.25,
+                "Z": 0
+              },
+              "FollowPoleAngle": 90,
+              "FollowRadius": 0.88,
+              "ForbidChangeOffset": true
+            },
+            "BlendConfig": {
+              "BlendType": "Cut",
+              "CustomCurveName": "null",
+              "BlendTime": 0.016667
+            },
+            "ShowEntityConfig": {
+              "ShowTargetType": {
+                "$type": "RPG.GameCore.TargetAlias",
+                "Alias": "CasterWithAllEnemy"
+              }
+            }
+          }
+        },
+        {
+          "$type": "RPG.GameCore.WaitAnimState",
+          "TargetType": {
+            "$type": "RPG.GameCore.TargetFetchCaster"
+          },
+          "AnimStateName": "Skill09",
+          "NormalizedTimeEnd": {
+            "IsDynamic": false,
+            "FixedValue": {
+              "Value": 0.0038461536169052124
+            }
+          }
+        },
+        {
+          "$type": "RPG.GameCore.VCameraConfigChange",
+          "CameraConfig": {
+            "NormalConfig": {
+              "CameraState": "UseSkillPerform",
+              "IsLocalOffset": true,
+              "AnchorOffset": {
+                "X": -0.82,
+                "Y": -6.2,
+                "Z": 10.05
+              },
+              "AimTargetType": {
+                "$type": "RPG.GameCore.TargetAlias",
+                "Alias": "Caster"
+              },
+              "AimOffset": {
+                "X": -0.01,
+                "Y": 2.26,
+                "Z": 0
+              },
+              "FollowPoleAngle": 90,
+              "FollowRadius": 0.88,
+              "ForbidChangeOffset": true
+            },
+            "BlendConfig": {
+              "BlendType": "Custom",
+              "CustomCurveName": "Blend_FastToSlow",
+              "BlendTime": 2.483333
+            },
+            "ShowEntityConfig": {
+              "ShowTargetType": {
+                "$type": "RPG.GameCore.TargetAlias",
+                "Alias": "CasterWithAllEnemy"
+              }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "Name": "Monster_W3_Sunday_00_Skill09_Camera02",
+      "TargetInfo": {
+        "TargetType": "AllEnemy"
+      },
+      "OnStart": [
+        {
+          "$type": "RPG.GameCore.VCameraConfigChange",
+          "CameraConfig": {
+            "NormalConfig": {
+              "CameraState": "UseSkillPerform",
+              "IsLocalOffset": true,
+              "AnchorOffset": {
+                "X": -2,
+                "Y": -0.15,
+                "Z": 12
+              },
+              "AimTargetType": {
+                "$type": "RPG.GameCore.TargetAlias",
+                "Alias": "Caster"
+              },
+              "AimOffset": {
+                "X": -0.01,
+                "Y": 0.25,
+                "Z": 0
+              },
+              "FollowPoleAngle": 90,
+              "FollowRadius": 0.88,
+              "ForbidChangeOffset": true
+            },
+            "BlendConfig": {
+              "BlendType": "Cut",
+              "CustomCurveName": "null",
+              "BlendTime": 0.016667
+            },
+            "ShowEntityConfig": {
+              "ShowTargetType": {
+                "$type": "RPG.GameCore.TargetAlias",
+                "Alias": "CasterWithAllEnemy"
+              }
+            }
+          }
+        },
+        {
+          "$type": "RPG.GameCore.WaitAnimState",
+          "TargetType": {
+            "$type": "RPG.GameCore.TargetFetchCaster"
+          },
+          "AnimStateName": "Skill09",
+          "NormalizedTimeEnd": {
+            "IsDynamic": false,
+            "FixedValue": {
+              "Value": 0.0038461536169052124
+            }
+          }
+        },
+        {
+          "$type": "RPG.GameCore.VCameraConfigChange",
+          "CameraConfig": {
+            "NormalConfig": {
+              "CameraState": "UseSkillPerform",
+              "IsLocalOffset": true,
+              "AnchorOffset": {
+                "X": -4.01,
+                "Y": -0.15,
+                "Z": 12
+              },
+              "AimTargetType": {
+                "$type": "RPG.GameCore.TargetAlias",
+                "Alias": "Caster"
+              },
+              "AimOffset": {
+                "X": -0.01,
+                "Y": 0.25,
+                "Z": 0
+              },
+              "FollowPoleAngle": 90,
+              "FollowRadius": 0.88,
+              "ForbidChangeOffset": true
+            },
+            "BlendConfig": {
+              "BlendType": "Custom",
+              "CustomCurveName": "Blend_FastToSlow",
+              "BlendTime": 2.483333
+            },
+            "ShowEntityConfig": {
+              "ShowTargetType": {
+                "$type": "RPG.GameCore.TargetAlias",
+                "Alias": "CasterWithAllEnemy"
+              }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "Name": "Monster_W3_Sunday_00_Skill09_Camera03",
+      "TargetInfo": {
+        "TargetType": "AllEnemy"
+      },
+      "OnStart": [
+        {
+          "$type": "RPG.GameCore.VCameraConfigChange",
+          "CameraConfig": {
+            "NormalConfig": {
+              "CameraState": "UseSkillPerform",
+              "IsLocalOffset": true,
+              "AnchorOffset": {
+                "X": -0.01,
+                "Y": -0.15,
+                "Z": 12
+              },
+              "AimTargetType": {
+                "$type": "RPG.GameCore.TargetAlias",
+                "Alias": "Caster"
+              },
+              "AimOffset": {
+                "X": -0.01,
+                "Y": 0.25,
+                "Z": 0
+              },
+              "FollowPoleAngle": 90,
+              "FollowRadius": 0.88,
+              "ForbidChangeOffset": true
+            },
+            "BlendConfig": {
+              "BlendType": "Cut",
+              "CustomCurveName": "null",
+              "BlendTime": 0.016667
+            },
+            "ShowEntityConfig": {
+              "ShowTargetType": {
+                "$type": "RPG.GameCore.TargetAlias",
+                "Alias": "CasterWithAllEnemy"
+              }
+            }
+          }
+        },
+        {
+          "$type": "RPG.GameCore.WaitAnimState",
+          "TargetType": {
+            "$type": "RPG.GameCore.TargetFetchCaster"
+          },
+          "AnimStateName": "Skill09",
+          "NormalizedTimeEnd": {
+            "IsDynamic": false,
+            "FixedValue": {
+              "Value": 0.0038461536169052124
+            }
+          }
+        },
+        {
+          "$type": "RPG.GameCore.VCameraConfigChange",
+          "CameraConfig": {
+            "NormalConfig": {
+              "CameraState": "UseSkillPerform",
+              "IsLocalOffset": true,
+              "AnchorOffset": {
+                "X": 2,
+                "Y": -0.15,
+                "Z": 12
+              },
+              "AimTargetType": {
+                "$type": "RPG.GameCore.TargetAlias",
+                "Alias": "Caster"
+              },
+              "AimOffset": {
+                "X": 6.01,
+                "Y": 0.25,
+                "Z": 0
+              },
+              "FollowPoleAngle": 90,
+              "FollowRadius": 0.88,
+              "ForbidChangeOffset": true
+            },
+            "BlendConfig": {
+              "BlendType": "Custom",
+              "CustomCurveName": "Blend_FastToSlow",
+              "BlendTime": 2.483333
+            },
+            "ShowEntityConfig": {
+              "ShowTargetType": {
+                "$type": "RPG.GameCore.TargetAlias",
+                "Alias": "CasterWithAllEnemy"
+              }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "Name": "Monster_W3_Sunday_00_Skill09_Camera04",
+      "TargetInfo": {
+        "TargetType": "AllEnemy"
+      },
+      "OnStart": [
+        {
+          "$type": "RPG.GameCore.VCameraConfigChange",
+          "CameraConfig": {
+            "NormalConfig": {
+              "CameraState": "UseSkillPerform",
+              "IsLocalOffset": true,
+              "AnchorOffset": {
+                "X": 2,
+                "Y": -0.15,
+                "Z": 12
+              },
+              "AimTargetType": {
+                "$type": "RPG.GameCore.TargetAlias",
+                "Alias": "Caster"
+              },
+              "AimOffset": {
+                "X": -0.01,
+                "Y": 0.25,
+                "Z": 0
+              },
+              "FollowPoleAngle": 90,
+              "FollowRadius": 0.88,
+              "ForbidChangeOffset": true
+            },
+            "BlendConfig": {
+              "BlendType": "Cut",
+              "CustomCurveName": "null",
+              "BlendTime": 0.016667
+            },
+            "ShowEntityConfig": {
+              "ShowTargetType": {
+                "$type": "RPG.GameCore.TargetAlias",
+                "Alias": "CasterWithAllEnemy"
+              }
+            }
+          }
+        },
+        {
+          "$type": "RPG.GameCore.WaitAnimState",
+          "TargetType": {
+            "$type": "RPG.GameCore.TargetFetchCaster"
+          },
+          "AnimStateName": "Skill09",
+          "NormalizedTimeEnd": {
+            "IsDynamic": false,
+            "FixedValue": {
+              "Value": 0.0038461536169052124
+            }
+          }
+        },
+        {
+          "$type": "RPG.GameCore.VCameraConfigChange",
+          "CameraConfig": {
+            "NormalConfig": {
+              "CameraState": "UseSkillPerform",
+              "IsLocalOffset": true,
+              "AnchorOffset": {
+                "X": 2.01,
+                "Y": -0.15,
+                "Z": 12
+              },
+              "AimTargetType": {
+                "$type": "RPG.GameCore.TargetAlias",
+                "Alias": "Caster"
+              },
+              "AimOffset": {
+                "X": -0.01,
+                "Y": 0.25,
+                "Z": 0
+              },
+              "FollowPoleAngle": 90,
+              "FollowRadius": 0.88,
+              "ForbidChangeOffset": true
+            },
+            "BlendConfig": {
+              "BlendType": "Custom",
+              "CustomCurveName": "Blend_FastToSlow",
+              "BlendTime": 2.483333
+            },
+            "ShowEntityConfig": {
+              "ShowTargetType": {
+                "$type": "RPG.GameCore.TargetAlias",
+                "Alias": "CasterWithAllEnemy"
+              }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "Name": "Monster_W3_Sunday_00_Skill09_Camera05",
+      "TargetInfo": {
+        "TargetType": "AllEnemy"
+      },
+      "OnStart": [
+        {
+          "$type": "RPG.GameCore.VCameraConfigChange",
+          "CameraConfig": {
+            "NormalConfig": {
+              "CameraState": "UseSkillPerform",
+              "IsLocalOffset": true,
+              "AnchorOffset": {
+                "X": -1,
+                "Y": -0.65,
+                "Z": 12
+              },
+              "AimTargetType": {
+                "$type": "RPG.GameCore.TargetAlias",
+                "Alias": "Caster"
+              },
+              "AimOffset": {
+                "X": -0.01,
+                "Y": 0.25,
+                "Z": 0
+              },
+              "FollowPoleAngle": 90,
+              "FollowRadius": 0.88,
+              "ForbidChangeOffset": true
+            },
+            "BlendConfig": {
+              "BlendType": "Cut",
+              "CustomCurveName": "null",
+              "BlendTime": 0.016667
+            },
+            "ShowEntityConfig": {
+              "ShowTargetType": {
+                "$type": "RPG.GameCore.TargetAlias",
+                "Alias": "CasterWithAllEnemy"
+              }
+            }
+          }
+        },
+        {
+          "$type": "RPG.GameCore.WaitAnimState",
+          "TargetType": {
+            "$type": "RPG.GameCore.TargetFetchCaster"
+          },
+          "AnimStateName": "Skill09",
+          "NormalizedTimeEnd": {
+            "IsDynamic": false,
+            "FixedValue": {
+              "Value": 0.0038461536169052124
+            }
+          }
+        },
+        {
+          "$type": "RPG.GameCore.VCameraConfigChange",
+          "CameraConfig": {
+            "NormalConfig": {
+              "CameraState": "UseSkillPerform",
+              "IsLocalOffset": true,
+              "AnchorOffset": {
+                "X": 1,
+                "Y": 1.65,
+                "Z": 12
+              },
+              "AimTargetType": {
+                "$type": "RPG.GameCore.TargetAlias",
+                "Alias": "Caster"
+              },
+              "AimOffset": {
+                "X": -0.01,
+                "Y": 0.25,
+                "Z": 0
+              },
+              "FollowPoleAngle": 90,
+              "FollowRadius": 0.88,
+              "ForbidChangeOffset": true
+            },
+            "BlendConfig": {
+              "BlendType": "Custom",
+              "CustomCurveName": "Blend_FastToSlow",
+              "BlendTime": 2.483333
+            },
+            "ShowEntityConfig": {
+              "ShowTargetType": {
+                "$type": "RPG.GameCore.TargetAlias",
+                "Alias": "CasterWithAllEnemy"
+              }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "Name": "Monster_W3_Sunday_00_Skill09_Camera06",
+      "TargetInfo": {
+        "TargetType": "AllEnemy"
+      },
+      "OnStart": [
+        {
+          "$type": "RPG.GameCore.VCameraConfigChange",
+          "CameraConfig": {
+            "NormalConfig": {
+              "CameraState": "UseSkillPerform",
+              "IsLocalOffset": true,
+              "AnchorOffset": {
+                "X": 1,
+                "Y": -0.65,
+                "Z": 12
+              },
+              "AimTargetType": {
+                "$type": "RPG.GameCore.TargetAlias",
+                "Alias": "Caster"
+              },
+              "AimOffset": {
+                "X": -0.01,
+                "Y": 0.25,
+                "Z": 0
+              },
+              "FollowPoleAngle": 90,
+              "FollowRadius": 0.88,
+              "ForbidChangeOffset": true
+            },
+            "BlendConfig": {
+              "BlendType": "Cut",
+              "CustomCurveName": "null",
+              "BlendTime": 0.016667
+            },
+            "ShowEntityConfig": {
+              "ShowTargetType": {
+                "$type": "RPG.GameCore.TargetAlias",
+                "Alias": "CasterWithAllEnemy"
+              }
+            }
+          }
+        },
+        {
+          "$type": "RPG.GameCore.WaitAnimState",
+          "TargetType": {
+            "$type": "RPG.GameCore.TargetFetchCaster"
+          },
+          "AnimStateName": "Skill09",
+          "NormalizedTimeEnd": {
+            "IsDynamic": false,
+            "FixedValue": {
+              "Value": 0.0038461536169052124
+            }
+          }
+        },
+        {
+          "$type": "RPG.GameCore.VCameraConfigChange",
+          "CameraConfig": {
+            "NormalConfig": {
+              "CameraState": "UseSkillPerform",
+              "IsLocalOffset": true,
+              "AnchorOffset": {
+                "X": -1,
+                "Y": -0.65,
+                "Z": 8
+              },
+              "AimTargetType": {
+                "$type": "RPG.GameCore.TargetAlias",
+                "Alias": "Caster"
+              },
+              "AimOffset": {
+                "X": -0.01,
+                "Y": 0.25,
+                "Z": 0
+              },
+              "FollowPoleAngle": 90,
+              "FollowRadius": 0.88,
+              "ForbidChangeOffset": true
+            },
+            "BlendConfig": {
+              "BlendType": "Custom",
+              "CustomCurveName": "Blend_FastToSlow",
+              "BlendTime": 2.483333
+            },
+            "ShowEntityConfig": {
+              "ShowTargetType": {
+                "$type": "RPG.GameCore.TargetAlias",
+                "Alias": "CasterWithAllEnemy"
+              }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "Name": "Monster_W3_Sunday_00_Skill09_Camera07",
+      "TargetInfo": {
+        "TargetType": "AllEnemy"
+      },
+      "OnStart": [
+        {
+          "$type": "RPG.GameCore.VCameraConfigChange",
+          "CameraConfig": {
+            "NormalConfig": {
+              "CameraState": "UseSkillPerform",
+              "IsLocalOffset": true,
+              "AnchorOffset": {
+                "X": -1,
+                "Y": 0.35,
+                "Z": 12
+              },
+              "AimTargetType": {
+                "$type": "RPG.GameCore.TargetAlias",
+                "Alias": "Caster"
+              },
+              "AimOffset": {
+                "X": -0.01,
+                "Y": 0.25,
+                "Z": 0
+              },
+              "FollowPoleAngle": 90,
+              "FollowRadius": 0.88,
+              "ForbidChangeOffset": true
+            },
+            "BlendConfig": {
+              "BlendType": "Cut",
+              "CustomCurveName": "null",
+              "BlendTime": 0.016667
+            },
+            "ShowEntityConfig": {
+              "ShowTargetType": {
+                "$type": "RPG.GameCore.TargetAlias",
+                "Alias": "CasterWithAllEnemy"
+              }
+            }
+          }
+        },
+        {
+          "$type": "RPG.GameCore.WaitAnimState",
+          "TargetType": {
+            "$type": "RPG.GameCore.TargetFetchCaster"
+          },
+          "AnimStateName": "Skill09",
+          "NormalizedTimeEnd": {
+            "IsDynamic": false,
+            "FixedValue": {
+              "Value": 0.0038461536169052124
+            }
+          }
+        },
+        {
+          "$type": "RPG.GameCore.VCameraConfigChange",
+          "CameraConfig": {
+            "NormalConfig": {
+              "CameraState": "UseSkillPerform",
+              "IsLocalOffset": true,
+              "AnchorOffset": {
+                "X": 4,
+                "Y": 1.35,
+                "Z": 12
+              },
+              "AimTargetType": {
+                "$type": "RPG.GameCore.TargetAlias",
+                "Alias": "Caster"
+              },
+              "AimOffset": {
+                "X": -0.01,
+                "Y": 0.25,
+                "Z": 0
+              },
+              "FollowPoleAngle": 90,
+              "FollowRadius": 0.88,
+              "ForbidChangeOffset": true
+            },
+            "BlendConfig": {
+              "BlendType": "Custom",
+              "CustomCurveName": "Blend_FastToSlow",
+              "BlendTime": 2.483333
+            },
+            "ShowEntityConfig": {
+              "ShowTargetType": {
+                "$type": "RPG.GameCore.TargetAlias",
+                "Alias": "CasterWithAllEnemy"
+              }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "Name": "Monster_W3_Sunday_00_Skill09_Camera08",
+      "TargetInfo": {
+        "TargetType": "AllEnemy"
+      },
+      "OnStart": [
+        {
+          "$type": "RPG.GameCore.VCameraConfigChange",
+          "CameraConfig": {
+            "NormalConfig": {
+              "CameraState": "UseSkillPerform",
+              "IsLocalOffset": true,
+              "AnchorOffset": {
+                "X": 1,
+                "Y": 0.35,
+                "Z": 12
+              },
+              "AimTargetType": {
+                "$type": "RPG.GameCore.TargetAlias",
+                "Alias": "Caster"
+              },
+              "AimOffset": {
+                "X": -0.01,
+                "Y": 0.25,
+                "Z": 0
+              },
+              "FollowPoleAngle": 90,
+              "FollowRadius": 0.88,
+              "ForbidChangeOffset": true
+            },
+            "BlendConfig": {
+              "BlendType": "Cut",
+              "CustomCurveName": "null",
+              "BlendTime": 0.016667
+            },
+            "ShowEntityConfig": {
+              "ShowTargetType": {
+                "$type": "RPG.GameCore.TargetAlias",
+                "Alias": "CasterWithAllEnemy"
+              }
+            }
+          }
+        },
+        {
+          "$type": "RPG.GameCore.WaitAnimState",
+          "TargetType": {
+            "$type": "RPG.GameCore.TargetFetchCaster"
+          },
+          "AnimStateName": "Skill09",
+          "NormalizedTimeEnd": {
+            "IsDynamic": false,
+            "FixedValue": {
+              "Value": 0.0038461536169052124
+            }
+          }
+        },
+        {
+          "$type": "RPG.GameCore.VCameraConfigChange",
+          "CameraConfig": {
+            "NormalConfig": {
+              "CameraState": "UseSkillPerform",
+              "IsLocalOffset": true,
+              "AnchorOffset": {
+                "X": -1,
+                "Y": 0.35,
+                "Z": 12
+              },
+              "AimTargetType": {
+                "$type": "RPG.GameCore.TargetAlias",
+                "Alias": "Caster"
+              },
+              "AimOffset": {
+                "X": -0.01,
+                "Y": 0.25,
+                "Z": 0
+              },
+              "FollowPoleAngle": 90,
+              "FollowRadius": 0.88,
+              "ForbidChangeOffset": true
+            },
+            "BlendConfig": {
+              "BlendType": "Custom",
+              "CustomCurveName": "Blend_FastToSlow",
+              "BlendTime": 2.483333
+            },
+            "ShowEntityConfig": {
+              "ShowTargetType": {
+                "$type": "RPG.GameCore.TargetAlias",
+                "Alias": "CasterWithAllEnemy"
+              }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "Name": "Monster_W3_Sunday_00_Skill10_Camera",
+      "TargetInfo": {
+        "TargetType": "AllEnemy"
+      },
+      "OnStart": [
+        {
+          "$type": "RPG.GameCore.VCameraConfigChange",
+          "CameraConfig": {
+            "NormalConfig": {
+              "CameraState": "CasterToTargetPerform",
+              "TemplateName": "Monster_Common_Range_AOE",
+              "AnchorTargetType": {
+                "$type": "RPG.GameCore.TargetAlias",
+                "Alias": "AllEnemy"
+              },
+              "AnchorOffset": {
+                "X": 0,
+                "Y": 2,
+                "Z": -5
+              },
+              "AnchorRatio": 0.01,
+              "AimTargetType": {
+                "$type": "RPG.GameCore.TargetAlias",
+                "Alias": "AllTeamMember"
+              },
+              "AimRatio": 1,
+              "ForbidDynamicOffset": false,
+              "ResetToDefault": false,
+              "ForbidChangeOffset": true
+            },
+            "AdditiveNormalConfig": {
+              "AnchorTargetType": {
+                "$type": "RPG.GameCore.TargetAlias",
+                "Alias": "AllEnemy"
+              },
+              "AnchorOffset": {
+                "X": 0,
+                "Y": -0.5,
+                "Z": -3
+              },
+              "AimTargetType": {
+                "$type": "RPG.GameCore.TargetAlias",
+                "Alias": "AllEnemy"
+              },
+              "AimOffset": {
+                "X": 0,
+                "Y": 0.5,
+                "Z": 0
+              },
+              "ResetToDefault": false
+            },
+            "BlendConfig": {
+              "BlendType": "Cut",
+              "CustomCurveName": "BlendCut_00to1",
+              "BlendTime": 1.483334
+            },
+            "ShowEntityConfig": {
+              "ShowTargetType": {
+                "$type": "RPG.GameCore.TargetAlias",
+                "Alias": "AllTeamMemberWithAllEnemy"
+              }
+            }
+          }
+        }
+      ]
+    }
+  ]
+}

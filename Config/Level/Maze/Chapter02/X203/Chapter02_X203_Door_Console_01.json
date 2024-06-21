@@ -1,0 +1,115 @@
+{
+  "OnInitSequece": [],
+  "OnStartSequece": [
+    {
+      "TaskList": [
+        {
+          "$type": "RPG.GameCore.PropSetupUITrigger",
+          "ButtonCallback": [
+            {
+              "$type": "RPG.GameCore.SelectorConfig",
+              "TaskList": [
+                {
+                  "$type": "RPG.GameCore.PropStateExecute",
+                  "TargetType": {
+                    "$type": "RPG.GameCore.TargetFetchAdvPropEx"
+                  },
+                  "State": "Locked",
+                  "Execute": [
+                    {
+                      "$type": "RPG.GameCore.ToastPile",
+                      "DescTextID": {
+                        "Hash": -1402109945
+                      }
+                    }
+                  ]
+                },
+                {
+                  "$type": "RPG.GameCore.TriggerEntityEvent",
+                  "EventName": "Clt_SelfUse"
+                }
+              ]
+            }
+          ],
+          "InteractAngleRange": 220,
+          "OverrideTargetTypes": [],
+          "TargetType": {
+            "$type": "RPG.GameCore.TargetFetchAdvPropEx"
+          }
+        }
+      ]
+    },
+    {
+      "TaskList": [
+        {
+          "$type": "RPG.GameCore.AnimSetParameter",
+          "ParameterName": "OnEnterTrigger",
+          "ParameterType": "Bool",
+          "Value": 1
+        },
+        {
+          "$type": "RPG.GameCore.EnableBillboard",
+          "TargetType": {
+            "$type": "RPG.GameCore.TargetFetchAdvPropEx"
+          },
+          "Enable": true
+        }
+      ]
+    },
+    {
+      "IsLoop": true,
+      "TaskList": [
+        {
+          "$type": "RPG.GameCore.WaitEntityEvent",
+          "EventName": "Clt_SelfUse",
+          "OnEvent": [
+            {
+              "$type": "RPG.GameCore.TriggerEntityEvent",
+              "EventName": "Clt_OnUseStart"
+            },
+            {
+              "$type": "RPG.GameCore.StartPropInteractMode",
+              "TargetType": {
+                "$type": "RPG.GameCore.TargetFetchAdvPropEx"
+              },
+              "Mode": "UsePose02"
+            },
+            {
+              "$type": "RPG.GameCore.WaitSecond",
+              "WaitTime": {
+                "IsDynamic": false,
+                "FixedValue": {
+                  "Value": 0.20000000018626451
+                }
+              }
+            },
+            {
+              "$type": "RPG.GameCore.AnimSetParameter",
+              "ParameterName": "TriggerRubikCube",
+              "ParameterType": "Trigger"
+            },
+            {
+              "$type": "RPG.GameCore.TriggerEntityEvent",
+              "EventName": "Clt_OnUseFinish"
+            },
+            {
+              "$type": "RPG.GameCore.WaitSecond",
+              "WaitTime": {
+                "IsDynamic": false,
+                "FixedValue": {
+                  "Value": 0.8000000007450581
+                }
+              }
+            },
+            {
+              "$type": "RPG.GameCore.EndPropInteract"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "ValueSource": {
+    "Values": []
+  }
+}

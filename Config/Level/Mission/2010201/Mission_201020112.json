@@ -1,0 +1,69 @@
+{
+  "OnInitSequece": [],
+  "OnStartSequece": [
+    {
+      "TaskList": [
+        {
+          "$type": "RPG.GameCore.WaitCustomString",
+          "CustomString": {
+            "Value": "Talk_201020112"
+          }
+        },
+        {
+          "$type": "RPG.GameCore.FinishPerformanceMission",
+          "Key": "Mission_201020112"
+        }
+      ]
+    },
+    {
+      "TaskList": [
+        {
+          "$type": "RPG.GameCore.WaitCustomString",
+          "CustomString": {
+            "Value": "Bubble_201020112"
+          }
+        },
+        {
+          "$type": "RPG.GameCore.PlayMunicipalChat",
+          "NewMunicipalChatEntityInfos": {},
+          "MunicipalChatConfigPath": "Config/Level/MunicipalChat/AtmoChatConfig00001.json",
+          "MunicipalChatName": "MunicipalChat05"
+        }
+      ]
+    },
+    {
+      "TaskList": [
+        {
+          "$type": "RPG.GameCore.PropSetupTrigger",
+          "TargetType": {
+            "$type": "RPG.GameCore.TargetFetchAdvPropEx",
+            "FetchType": "SinglePropByPropID",
+            "SinglePropID": {
+              "GroupID": {
+                "IsDynamic": false,
+                "FixedValue": {
+                  "Value": 198
+                }
+              },
+              "ID": {
+                "IsDynamic": false,
+                "FixedValue": {
+                  "Value": 300002
+                }
+              }
+            }
+          },
+          "OnTriggerEnter": [
+            {
+              "$type": "RPG.GameCore.TriggerCustomString",
+              "CustomString": {
+                "Value": "Bubble_201020112"
+              }
+            }
+          ],
+          "OnTriggerExit": []
+        }
+      ]
+    }
+  ]
+}

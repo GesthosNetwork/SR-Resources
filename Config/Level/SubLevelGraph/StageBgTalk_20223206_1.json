@@ -1,0 +1,75 @@
+{
+  "OnInitSequece": [],
+  "OnStartSequece": [
+    {
+      "TaskList": [
+        {
+          "$type": "RPG.GameCore.WaitPerformanceCondition",
+          "ConditionType": "EndUseSkill",
+          "TargetType": {
+            "$type": "RPG.GameCore.TargetAlias",
+            "Alias": "UniqueNameEntity_Fuyan"
+          },
+          "TargetAliveState": "Anyone",
+          "SkillName": "Skill02",
+          "SuccessTaskList": [
+            {
+              "$type": "RPG.GameCore.CreateBattleEvent",
+              "EventID": {
+                "IsDynamic": false,
+                "FixedValue": {
+                  "Value": 60008
+                }
+              },
+              "Team": "TeamLight",
+              "TotalDamageTeam": "TeamLight"
+            },
+            {
+              "$type": "RPG.GameCore.InsertBattlePerform",
+              "BattlePerformPath": "Config/Level/SubLevelGraph/BattlePerform_20223206.json"
+            },
+            {
+              "$type": "RPG.GameCore.Retarget",
+              "TargetType": {
+                "$type": "RPG.GameCore.TargetAlias",
+                "Alias": "BattleEventEntityList"
+              },
+              "Predicate": {
+                "$type": "RPG.GameCore.ByCompareBattleEventID",
+                "TargetType": {
+                  "$type": "RPG.GameCore.TargetAlias",
+                  "Alias": "ParamEntity"
+                },
+                "TargetBattleEventID": {
+                  "IsDynamic": false,
+                  "FixedValue": {
+                    "Value": 60008
+                  }
+                }
+              },
+              "TaskList": [
+                {
+                  "$type": "RPG.GameCore.TurnInsertAbility",
+                  "AbilityName": "Avatar_MissionBattleEvent60008_Skill02_Phase01",
+                  "TargetType": {
+                    "$type": "RPG.GameCore.TargetAlias",
+                    "Alias": "ParamEntity"
+                  },
+                  "AbilityTarget": {
+                    "$type": "RPG.GameCore.TargetAlias",
+                    "Alias": "AllLightTeam"
+                  },
+                  "InsertAbilityPriority": "AvatarInsertAttackSelf"
+                }
+              ]
+            },
+            {
+              "$type": "RPG.GameCore.FinishLevelGraph"
+            }
+          ],
+          "TurnBeginIgnoreTargetType": true
+        }
+      ]
+    }
+  ]
+}

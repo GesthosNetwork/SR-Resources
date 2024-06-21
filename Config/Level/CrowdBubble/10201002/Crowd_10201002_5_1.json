@@ -1,0 +1,108 @@
+{
+  "OnInitSequece": [
+    {
+      "TaskList": [
+        {
+          "$type": "RPG.GameCore.PropSetupTrigger",
+          "TargetType": {
+            "$type": "RPG.GameCore.TargetFetchAdvPropEx"
+          },
+          "TargetGroupID": {
+            "IsDynamic": false,
+            "FixedValue": {
+              "Value": 0
+            }
+          },
+          "TargetID": {
+            "IsDynamic": false,
+            "FixedValue": {
+              "Value": 0
+            }
+          },
+          "TargetTypes": [],
+          "ColliderRelativePath": "Trigger",
+          "OnTriggerEnter": [
+            {
+              "$type": "RPG.GameCore.PlayMunicipalChat",
+              "MunicipalChatConfigPath": "Config/Level/MunicipalChat/MunicipalChatConfig00006.json",
+              "MunicipalChatName": "MunicipalChat08"
+            }
+          ],
+          "OnTriggerExit": [
+            {
+              "$type": "RPG.GameCore.StopMunicipalChat",
+              "MunicipalChatName": "MunicipalChat08"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "OnStartSequece": [
+    {
+      "TaskList": [
+        {
+          "$type": "RPG.GameCore.CreateNPC",
+          "GroupID": {
+            "IsDynamic": false,
+            "FixedValue": {
+              "Value": 21
+            }
+          },
+          "GroupNpcID": {
+            "IsDynamic": false,
+            "FixedValue": {
+              "Value": 400019
+            }
+          }
+        },
+        {
+          "$type": "RPG.GameCore.CreateNPC",
+          "GroupID": {
+            "IsDynamic": false,
+            "FixedValue": {
+              "Value": 21
+            }
+          },
+          "GroupNpcID": {
+            "IsDynamic": false,
+            "FixedValue": {
+              "Value": 400020
+            }
+          }
+        }
+      ]
+    },
+    {
+      "TaskList": [
+        {
+          "$type": "RPG.GameCore.CreateProp",
+          "GroupID": {
+            "IsDynamic": false,
+            "FixedValue": {
+              "Value": 21
+            }
+          },
+          "GroupPropID": {
+            "IsDynamic": false,
+            "FixedValue": {
+              "Value": 300014
+            }
+          }
+        }
+      ]
+    }
+  ],
+  "ValueSource": {
+    "Values": [
+      {
+        "$type": "RPG.GameCore.SharedString",
+        "Key": "Maze_Prop_Chap01_Door"
+      },
+      {
+        "$type": "RPG.GameCore.SharedString",
+        "Key": "Maze_Prop_Chap01_DoorFrame_01"
+      }
+    ]
+  }
+}
