@@ -1,0 +1,46 @@
+{
+  "OnInitSequece": [],
+  "OnStartSequece": [
+    {
+      "IsLoop": true,
+      "TaskList": [
+        {
+          "$type": "RPG.GameCore.WaitCustomString",
+          "CustomString": {
+            "Value": "Raid_202030706"
+          }
+        },
+        {
+          "$type": "RPG.GameCore.WaitCustomString",
+          "CustomString": {
+            "Value": "Talk_202030706"
+          }
+        },
+        {
+          "$type": "RPG.GameCore.SetLocalPlayerDitherAlpha"
+        },
+        {
+          "$type": "RPG.GameCore.ActiveVirtualCamera",
+          "AreaName": "LevelArea_P10202_F10202002_G9",
+          "AnchorName": "Anchor2"
+        },
+        {
+          "$type": "RPG.GameCore.OpenTreasureChallenge",
+          "RaidID": 42221001,
+          "OnCancel": [
+            {
+              "$type": "RPG.GameCore.SetLocalPlayerDitherAlpha",
+              "DitherAlpha": 1
+            },
+            {
+              "$type": "RPG.GameCore.ActiveVirtualCamera",
+              "AreaName": "LevelArea_P10202_F10202002_G9",
+              "AnchorName": "Anchor2",
+              "IsActive": false
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

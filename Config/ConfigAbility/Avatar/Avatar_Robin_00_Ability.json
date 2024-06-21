@@ -1,0 +1,3004 @@
+{
+  "AbilityList": [
+    {
+      "Name": "Avatar_Robin_00_Skill01_Phase01",
+      "TargetInfo": {
+        "TargetType": "SkillTargetEntityList"
+      },
+      "OnStart": [
+        {
+          "$type": "RPG.GameCore.TriggerAbility",
+          "TargetType": {
+            "$type": "RPG.GameCore.TargetAlias",
+            "Alias": "Caster"
+          },
+          "AbilityName": "Avatar_Robin_00_Skill01_Camera",
+          "IsSkillPerform": true
+        },
+        {
+          "$type": "RPG.GameCore.TriggerAbility",
+          "TargetType": {
+            "$type": "RPG.GameCore.TargetAlias",
+            "Alias": "Caster"
+          },
+          "AbilityName": "Avatar_Robin_00_Skill01_Phase02",
+          "IsSkillPerform": true
+        },
+        {
+          "$type": "RPG.GameCore.LookAt",
+          "TargetType": "AbilityTargetEntity"
+        },
+        {
+          "$type": "RPG.GameCore.TriggerAnimState",
+          "AnimStateName": "Skill01",
+          "NormalizedTimeEnd": {
+            "IsDynamic": false,
+            "FixedValue": {
+              "Value": 1
+            }
+          },
+          "NormalizedTimeWait": {
+            "IsDynamic": false,
+            "FixedValue": {
+              "Value": 0.66
+            }
+          }
+        }
+      ]
+    },
+    {
+      "Name": "Avatar_Robin_00_Skill01_Phase02",
+      "TargetInfo": {
+        "TargetType": "SkillTargetEntityList"
+      },
+      "OnStart": [
+        {
+          "$type": "RPG.GameCore.WaitAnimState",
+          "TargetType": {
+            "$type": "RPG.GameCore.TargetAlias",
+            "Alias": "Caster"
+          },
+          "AnimStateName": "Skill01",
+          "NormalizedTimeEnd": {
+            "IsDynamic": false,
+            "FixedValue": {
+              "Value": 0.094
+            }
+          }
+        },
+        {
+          "$type": "RPG.GameCore.FireMultiProjectiles",
+          "CasterTargetType": {
+            "$type": "RPG.GameCore.TargetAlias",
+            "Alias": "Caster"
+          },
+          "TargetType": {
+            "$type": "RPG.GameCore.TargetAlias",
+            "Alias": "AbilityTargetEntity"
+          },
+          "ProjectileConfigList": [
+            {
+              "Projectile": {
+                "ColliderTemplate": "CapsuleZ_BattleCommonBullet",
+                "FlyTime": 0.667,
+                "MaxLifeTime": 5,
+                "AttachPoint": "Origin",
+                "AttachOffset": {
+                  "X": 0,
+                  "Y": 1,
+                  "Z": 0
+                },
+                "TargetAttachPoint": "SelectRoot",
+                "IgnoreTargetHitbox": true,
+                "FlyEffect": "Effects/Eff_Prefab/Eff_Avatar/Eff_Robin/Eff_Avatar_Robin_00_Skill01_Bird.prefab",
+                "HitEffect": "Effects/Eff_Prefab/Eff_Avatar/Eff_Robin/Eff_Avatar_Robin_00_Skill01_Hit_01.prefab",
+                "FlyEffectFadeOut": true
+              }
+            },
+            {
+              "Projectile": {
+                "ColliderTemplate": "CapsuleZ_BattleCommonBullet",
+                "FlyTime": 0.68,
+                "MaxLifeTime": 5,
+                "AttachPoint": "Origin",
+                "AttachOffset": {
+                  "X": 0,
+                  "Y": 1.1,
+                  "Z": 0
+                },
+                "TargetAttachPoint": "SelectRoot",
+                "IgnoreTargetHitbox": true,
+                "FlyEffect": "Effects/Eff_Prefab/Eff_Avatar/Eff_Robin/Eff_Avatar_Robin_00_Skill01_Bird_02.prefab",
+                "HitEffect": "Effects/Eff_Prefab/Eff_Avatar/Eff_Robin/Eff_Avatar_Robin_00_Skill01_Hit_02.prefab",
+                "FlyEffectFadeOut": true
+              },
+              "Interval": 0.13
+            },
+            {
+              "Projectile": {
+                "ColliderTemplate": "CapsuleZ_BattleCommonBullet",
+                "FlyTime": 0.864,
+                "MaxLifeTime": 5,
+                "AttachPoint": "Origin",
+                "AttachOffset": {
+                  "X": 0,
+                  "Y": 1,
+                  "Z": 0
+                },
+                "TargetAttachPoint": "SelectRoot",
+                "IgnoreTargetHitbox": true,
+                "FlyEffect": "Effects/Eff_Prefab/Eff_Avatar/Eff_Robin/Eff_Avatar_Robin_00_Skill01_Bird_03.prefab",
+                "HitEffect": "Effects/Eff_Prefab/Eff_Avatar/Eff_Robin/Eff_Avatar_Robin_00_Skill01_Hit_03.prefab",
+                "FlyEffectFadeOut": true
+              },
+              "Interval": 0.15
+            }
+          ],
+          "ProjectileOnHitList": [
+            {
+              "RepeatCount": 3,
+              "OnProjectileHit": []
+            }
+          ]
+        },
+        {
+          "$type": "RPG.GameCore.WaitSecond",
+          "WaitTime": {
+            "IsDynamic": false,
+            "FixedValue": {
+              "Value": 0.53
+            }
+          }
+        },
+        {
+          "$type": "RPG.GameCore.DamageByAttackProperty",
+          "TargetType": {
+            "$type": "RPG.GameCore.TargetAlias",
+            "Alias": "AbilityTargetEntity"
+          },
+          "AttackProperty": {
+            "DamagePercentage": {
+              "IsDynamic": true,
+              "PostfixExpr": {
+                "OpCodes": "AQAK",
+                "FixedValues": [],
+                "DynamicHashes": [
+                  -1126825319
+                ]
+              }
+            },
+            "StanceValue": {
+              "IsDynamic": true,
+              "PostfixExpr": {
+                "OpCodes": "AQAK",
+                "FixedValues": [],
+                "DynamicHashes": [
+                  1659254037
+                ]
+              }
+            },
+            "HitSplitRatio": {
+              "IsDynamic": false,
+              "FixedValue": {
+                "Value": 0.33
+              }
+            },
+            "SPHitRatio": {
+              "IsDynamic": false,
+              "FixedValue": {
+                "Value": 1
+              }
+            },
+            "AttackType": "BPSkill",
+            "HitAnimation": "Hit"
+          }
+        },
+        {
+          "$type": "RPG.GameCore.WaitSecond",
+          "WaitTime": {
+            "IsDynamic": false,
+            "FixedValue": {
+              "Value": 0.133
+            }
+          }
+        },
+        {
+          "$type": "RPG.GameCore.DamageByAttackProperty",
+          "TargetType": {
+            "$type": "RPG.GameCore.TargetAlias",
+            "Alias": "AbilityTargetEntity"
+          },
+          "AttackProperty": {
+            "DamagePercentage": {
+              "IsDynamic": true,
+              "PostfixExpr": {
+                "OpCodes": "AQAK",
+                "FixedValues": [],
+                "DynamicHashes": [
+                  -1126825319
+                ]
+              }
+            },
+            "StanceValue": {
+              "IsDynamic": true,
+              "PostfixExpr": {
+                "OpCodes": "AQAK",
+                "FixedValues": [],
+                "DynamicHashes": [
+                  1659254037
+                ]
+              }
+            },
+            "HitSplitRatio": {
+              "IsDynamic": false,
+              "FixedValue": {
+                "Value": 0.33
+              }
+            },
+            "SPHitRatio": {
+              "IsDynamic": false,
+              "FixedValue": {
+                "Value": 1
+              }
+            },
+            "AttackType": "BPSkill",
+            "HitAnimation": "Hit"
+          }
+        },
+        {
+          "$type": "RPG.GameCore.WaitSecond",
+          "WaitTime": {
+            "IsDynamic": false,
+            "FixedValue": {
+              "Value": 0.274
+            }
+          }
+        },
+        {
+          "$type": "RPG.GameCore.DamageByAttackProperty",
+          "TargetType": {
+            "$type": "RPG.GameCore.TargetAlias",
+            "Alias": "AbilityTargetEntity"
+          },
+          "AttackProperty": {
+            "DamagePercentage": {
+              "IsDynamic": true,
+              "PostfixExpr": {
+                "OpCodes": "AQAK",
+                "FixedValues": [],
+                "DynamicHashes": [
+                  -1126825319
+                ]
+              }
+            },
+            "StanceValue": {
+              "IsDynamic": true,
+              "PostfixExpr": {
+                "OpCodes": "AQAK",
+                "FixedValues": [],
+                "DynamicHashes": [
+                  1659254037
+                ]
+              }
+            },
+            "HitSplitRatio": {
+              "IsDynamic": false,
+              "FixedValue": {
+                "Value": 0.34
+              }
+            },
+            "SPHitRatio": {
+              "IsDynamic": false,
+              "FixedValue": {
+                "Value": 1
+              }
+            },
+            "AttackType": "BPSkill",
+            "HitAnimation": "Hit_H"
+          }
+        },
+        {
+          "$type": "RPG.GameCore.DamagePerformFinish"
+        },
+        {
+          "$type": "RPG.GameCore.SkillPerformFinish"
+        }
+      ]
+    },
+    {
+      "Name": "Avatar_Robin_00_Skill02_Phase01",
+      "TargetInfo": {
+        "TargetType": "SkillTargetEntityList"
+      },
+      "OnStart": [
+        {
+          "$type": "RPG.GameCore.TriggerAbility",
+          "TargetType": {
+            "$type": "RPG.GameCore.TargetAlias",
+            "Alias": "Caster"
+          },
+          "AbilityName": "Avatar_Robin_00_Skill02_Camera",
+          "IsSkillPerform": true
+        },
+        {
+          "$type": "RPG.GameCore.SyncCharLightAndCameraDir"
+        },
+        {
+          "$type": "RPG.GameCore.TriggerAbility",
+          "TargetType": {
+            "$type": "RPG.GameCore.TargetAlias",
+            "Alias": "Caster"
+          },
+          "AbilityName": "Avatar_Robin_00_Skill02_Phase02",
+          "IsSkillPerform": true
+        },
+        {
+          "$type": "RPG.GameCore.TriggerAnimState",
+          "AnimStateName": "Skill02",
+          "NormalizedTimeEnd": {
+            "IsDynamic": false,
+            "FixedValue": {
+              "Value": 0.95
+            }
+          }
+        }
+      ]
+    },
+    {
+      "Name": "Avatar_Robin_00_Skill02_Phase02",
+      "TargetInfo": {
+        "TargetType": "SkillTargetEntityList"
+      },
+      "OnStart": [
+        {
+          "$type": "RPG.GameCore.WaitAnimState",
+          "AnimStateName": "Skill02",
+          "NormalizedTimeEnd": {
+            "IsDynamic": false,
+            "FixedValue": {
+              "Value": 0.6
+            }
+          }
+        },
+        {
+          "$type": "RPG.GameCore.TriggerEffect",
+          "TargetType": {
+            "$type": "RPG.GameCore.TargetAlias",
+            "Alias": "AllLightTeam"
+          },
+          "EffectPath": "Effects/Eff_Prefab/Eff_Avatar/Eff_Robin/Eff_Avatar_Robin_00_Skill02_Buff.prefab"
+        },
+        {
+          "$type": "RPG.GameCore.TriggerAbility",
+          "TargetType": {
+            "$type": "RPG.GameCore.TargetAlias",
+            "Alias": "Caster"
+          },
+          "AbilityInherentTargetType": {
+            "$type": "RPG.GameCore.TargetAlias",
+            "Alias": "AbilityTargetEntity"
+          },
+          "AbilityName": "Avatar_Robin_00_Skill02_FriendAttack"
+        },
+        {
+          "$type": "RPG.GameCore.ModifySPNew",
+          "TargetType": {
+            "$type": "RPG.GameCore.TargetAlias",
+            "Alias": "Caster"
+          },
+          "AddRatio": {
+            "IsDynamic": false,
+            "FixedValue": {
+              "Value": 1
+            }
+          }
+        },
+        {
+          "$type": "RPG.GameCore.WaitSecond",
+          "WaitTime": {
+            "IsDynamic": false,
+            "FixedValue": {
+              "Value": 0.1
+            }
+          }
+        },
+        {
+          "$type": "RPG.GameCore.SkillPerformFinish"
+        }
+      ]
+    },
+    {
+      "Name": "Avatar_Robin_00_Skill02_FriendAttack",
+      "TargetInfo": {
+        "TargetType": "InherentTargetEntity"
+      },
+      "OnStart": [
+        {
+          "$type": "RPG.GameCore.RemoveModifier",
+          "TargetType": {
+            "$type": "RPG.GameCore.TargetAlias",
+            "Alias": "Caster"
+          },
+          "ModifierName": "MAvatar_Robin_00_Skill02_AttackUpCasterListener"
+        },
+        {
+          "$type": "RPG.GameCore.AddModifier",
+          "TargetType": {
+            "$type": "RPG.GameCore.TargetAlias",
+            "Alias": "AllTeamMember"
+          },
+          "ModifierName": "MAvatar_Robin_00_Skill02_AttackUp"
+        },
+        {
+          "$type": "RPG.GameCore.PredicateTaskList",
+          "Predicate": {
+            "$type": "RPG.GameCore.ByRankActivated",
+            "TriggerKey": {
+              "Hash": 523552506
+            }
+          },
+          "SuccessTaskList": [
+            {
+              "$type": "RPG.GameCore.AddModifier",
+              "TargetType": {
+                "$type": "RPG.GameCore.TargetAlias",
+                "Alias": "Caster"
+              },
+              "ModifierName": "MAvatar_Robin_00_Skill02_AttackUpCasterListener",
+              "LifeTime": {
+                "IsDynamic": true,
+                "PostfixExpr": {
+                  "OpCodes": "AQABAQIK",
+                  "FixedValues": [],
+                  "DynamicHashes": [
+                    -1016136907,
+                    1768231779
+                  ]
+                }
+              }
+            },
+            {
+              "$type": "RPG.GameCore.SetEnergyBarState",
+              "Active": "True",
+              "BarType": 3,
+              "CurrentState": "Active",
+              "CD": {
+                "IsDynamic": false,
+                "FixedValue": {
+                  "Value": 0
+                }
+              },
+              "IconPath": "SpriteOutput/BuffIcon/Inlevel/Icon1207BP.png",
+              "MaxCount": {
+                "IsDynamic": true,
+                "PostfixExpr": {
+                  "OpCodes": "AQABAQIK",
+                  "FixedValues": [],
+                  "DynamicHashes": [
+                    -1016136907,
+                    1768231779
+                  ]
+                }
+              },
+              "CurrentCount": {
+                "IsDynamic": true,
+                "PostfixExpr": {
+                  "OpCodes": "AQABAQIK",
+                  "FixedValues": [],
+                  "DynamicHashes": [
+                    -1016136907,
+                    1768231779
+                  ]
+                }
+              }
+            }
+          ],
+          "FailedTaskList": [
+            {
+              "$type": "RPG.GameCore.AddModifier",
+              "TargetType": {
+                "$type": "RPG.GameCore.TargetAlias",
+                "Alias": "Caster"
+              },
+              "ModifierName": "MAvatar_Robin_00_Skill02_AttackUpCasterListener",
+              "LifeTime": {
+                "IsDynamic": true,
+                "PostfixExpr": {
+                  "OpCodes": "AQAK",
+                  "FixedValues": [],
+                  "DynamicHashes": [
+                    -1016136907
+                  ]
+                }
+              }
+            },
+            {
+              "$type": "RPG.GameCore.SetEnergyBarState",
+              "Active": "True",
+              "BarType": 3,
+              "CurrentState": "Active",
+              "CD": {
+                "IsDynamic": false,
+                "FixedValue": {
+                  "Value": 0
+                }
+              },
+              "IconPath": "SpriteOutput/BuffIcon/Inlevel/Icon1207BP.png",
+              "MaxCount": {
+                "IsDynamic": true,
+                "PostfixExpr": {
+                  "OpCodes": "AQAK",
+                  "FixedValues": [],
+                  "DynamicHashes": [
+                    -1016136907
+                  ]
+                }
+              },
+              "CurrentCount": {
+                "IsDynamic": true,
+                "PostfixExpr": {
+                  "OpCodes": "AQAK",
+                  "FixedValues": [],
+                  "DynamicHashes": [
+                    -1016136907
+                  ]
+                }
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "Name": "Avatar_Robin_00_Skill03_EnterReady",
+      "TargetInfo": {
+        "TargetType": "InherentTargetEntity"
+      },
+      "OnStart": [
+        {
+          "$type": "RPG.GameCore.SyncCharLightAndCameraDir"
+        },
+        {
+          "$type": "RPG.GameCore.WaitSecond",
+          "WaitTime": {
+            "IsDynamic": false,
+            "FixedValue": {
+              "Value": 0.5
+            }
+          }
+        },
+        {
+          "$type": "RPG.GameCore.GlobalMainIntensityEffect",
+          "TargetIntensity": 0.4,
+          "FadeDuration": 0.4
+        },
+        {
+          "$type": "RPG.GameCore.SetBattleBGMState",
+          "StateName": {
+            "Value": "State_Combat_ZhiGengNiao_UltraSkill_Ready"
+          },
+          "InsertSpecial": true
+        },
+        {
+          "$type": "RPG.GameCore.TriggerAnimState",
+          "TargetType": {
+            "$type": "RPG.GameCore.TargetAlias",
+            "Alias": "AllTeammate"
+          },
+          "AnimLogicState": "Idle",
+          "AnimStateName": "StandBy"
+        },
+        {
+          "$type": "RPG.GameCore.SetTeamFormation",
+          "Team": "TeamLight",
+          "CustomFormationName": "Ruanmei_00_Skill03_Ready"
+        },
+        {
+          "$type": "RPG.GameCore.VCameraConfigChange",
+          "CameraConfig": {
+            "NormalConfig": {
+              "CameraState": "UseSkillPerform",
+              "IsLocalOffset": true,
+              "AnchorOffset": {
+                "X": 1,
+                "Y": 0,
+                "Z": 0
+              },
+              "AimTargetType": {
+                "$type": "RPG.GameCore.TargetAlias",
+                "Alias": "Caster"
+              },
+              "AimOffset": {
+                "X": -0.2,
+                "Y": 0.1,
+                "Z": 0
+              },
+              "FollowPoleAngle": 90,
+              "FollowRadius": 2.1,
+              "FollowDamp": 0.8,
+              "AimDamp": 0.1,
+              "FOV": 45
+            },
+            "BlendConfig": {
+              "BlendType": "Cut"
+            }
+          }
+        },
+        {
+          "$type": "RPG.GameCore.WaitSecond",
+          "WaitTime": {
+            "IsDynamic": false,
+            "FixedValue": {
+              "Value": 0.6
+            }
+          }
+        },
+        {
+          "$type": "RPG.GameCore.VCameraConfigChange",
+          "CameraConfig": {
+            "NormalConfig": {
+              "CameraState": "UseSkillPerform",
+              "IsLocalOffset": true,
+              "AimTargetType": {
+                "$type": "RPG.GameCore.TargetAlias",
+                "Alias": "Caster"
+              },
+              "AimOffset": {
+                "X": -0.292,
+                "Y": -0.51,
+                "Z": 0.212
+              },
+              "FollowPoleAngle": 426.44,
+              "FollowElevationAngle": -52.79,
+              "FollowRadius": 4.644,
+              "FollowDamp": 0.8,
+              "AimDamp": 0.1,
+              "FOV": 45
+            },
+            "BlendConfig": {
+              "BlendType": "Custom",
+              "CustomCurveName": "Blend_UltraReady",
+              "BlendTime": 1.3
+            },
+            "ShowEntityConfig": {
+              "ShowTargetType": {
+                "$type": "RPG.GameCore.TargetAlias",
+                "Alias": "AllLightTeam"
+              }
+            }
+          }
+        },
+        {
+          "$type": "RPG.GameCore.WaitSecond",
+          "WaitTime": {
+            "IsDynamic": false,
+            "FixedValue": {
+              "Value": 0.0009999999
+            }
+          }
+        },
+        {
+          "$type": "RPG.GameCore.VCameraNoiseChange",
+          "AmplitudeGain": 0.1,
+          "FrequencyGain": 1
+        }
+      ]
+    },
+    {
+      "Name": "Avatar_Robin_00_Skill03_Phase01",
+      "TargetInfo": {
+        "TargetType": "SkillTargetEntityList"
+      },
+      "OnStart": [
+        {
+          "$type": "RPG.GameCore.SetBattleBGMState",
+          "StateName": {
+            "Value": "State_Combat_ZhiGengNiao_UltraSkill"
+          },
+          "InsertSpecial": true
+        },
+        {
+          "$type": "RPG.GameCore.ShowBattleUI"
+        },
+        {
+          "$type": "RPG.GameCore.HideLevelStage",
+          "IsHide": true
+        },
+        {
+          "$type": "RPG.GameCore.TriggerAbility",
+          "TargetType": {
+            "$type": "RPG.GameCore.TargetAlias",
+            "Alias": "Caster"
+          },
+          "AbilityName": "Avatar_Robin_00_Skill03_Camera",
+          "IsSkillPerform": true
+        },
+        {
+          "$type": "RPG.GameCore.TriggerAnimState",
+          "AnimStateName": "Skill03"
+        },
+        {
+          "$type": "RPG.GameCore.TriggerAbility",
+          "TargetType": {
+            "$type": "RPG.GameCore.TargetAlias",
+            "Alias": "Caster"
+          },
+          "AbilityName": "Avatar_Robin_00_Skill03_Phase02",
+          "IsSkillPerform": true
+        },
+        {
+          "$type": "RPG.GameCore.WaitAnimState",
+          "AnimStateName": "Skill03",
+          "NormalizedTimeEnd": {
+            "IsDynamic": false,
+            "FixedValue": {
+              "Value": 0.75
+            }
+          }
+        },
+        {
+          "$type": "RPG.GameCore.SetTeamFormation",
+          "Team": "TeamLight",
+          "CustomFormationName": "Robin_00_Skill03_TargetPos",
+          "CustomCenterTargetType": {
+            "$type": "RPG.GameCore.TargetAlias",
+            "Alias": "Caster"
+          }
+        },
+        {
+          "$type": "RPG.GameCore.WaitTimelineFinish",
+          "TimelineName": "Character_Robin_00_Skill03_TimeLine"
+        },
+        {
+          "$type": "RPG.GameCore.WaitAnimState",
+          "AnimStateName": "Skill03",
+          "NormalizedTimeEnd": {
+            "IsDynamic": false,
+            "FixedValue": {
+              "Value": 1
+            }
+          }
+        },
+        {
+          "$type": "RPG.GameCore.LockAnimatorSpeed",
+          "LockSpeed": {
+            "IsDynamic": false,
+            "FixedValue": {
+              "Value": 1
+            }
+          }
+        },
+        {
+          "$type": "RPG.GameCore.HideLevelStage"
+        },
+        {
+          "$type": "RPG.GameCore.GlobalMainIntensityEffect",
+          "IsRevert": true,
+          "FadeDuration": 1
+        },
+        {
+          "$type": "RPG.GameCore.ShowBattleUI",
+          "IsShow": true
+        },
+        {
+          "$type": "RPG.GameCore.TriggerEffect",
+          "TargetType": {
+            "$type": "RPG.GameCore.TargetAlias",
+            "Alias": "AllTeamCenter"
+          },
+          "Flags": [
+            "Field"
+          ],
+          "EffectPath": "Effects/Eff_Prefab/Eff_Avatar/Eff_Robin/Eff_Avatar_Robin_00_Passive_Domain.prefab",
+          "MinMutexTime": -1,
+          "MinMutexType": "Entity"
+        }
+      ]
+    },
+    {
+      "Name": "Avatar_Robin_00_Skill03_Phase02",
+      "TargetInfo": {
+        "TargetType": "SkillTargetEntityList"
+      },
+      "OnStart": [
+        {
+          "$type": "RPG.GameCore.WaitAnimState",
+          "AnimStateName": "Skill03",
+          "NormalizedTimeEnd": {
+            "IsDynamic": false,
+            "FixedValue": {
+              "Value": 0.829
+            }
+          }
+        },
+        {
+          "$type": "RPG.GameCore.AddModifier",
+          "TargetType": {
+            "$type": "RPG.GameCore.TargetAlias",
+            "Alias": "Caster"
+          },
+          "ModifierName": "MAvatar_Robin_00_Skill03Area"
+        },
+        {
+          "$type": "RPG.GameCore.TriggerEffect",
+          "TargetType": {
+            "$type": "RPG.GameCore.TargetAlias",
+            "Alias": "Caster"
+          },
+          "EffectPath": "Effects/Eff_Prefab/Eff_Avatar/Eff_Robin/Eff_Avatar_Robin_00_Skill03_Buff.prefab"
+        },
+        {
+          "$type": "RPG.GameCore.ModifySPNew",
+          "TargetType": {
+            "$type": "RPG.GameCore.TargetAlias",
+            "Alias": "Caster"
+          },
+          "AddRatio": {
+            "IsDynamic": false,
+            "FixedValue": {
+              "Value": 1
+            }
+          }
+        },
+        {
+          "$type": "RPG.GameCore.WaitAnimState",
+          "AnimStateName": "Skill03",
+          "NormalizedTimeEnd": {
+            "IsDynamic": false,
+            "FixedValue": {
+              "Value": 0.9
+            }
+          }
+        },
+        {
+          "$type": "RPG.GameCore.TryStartConnectUltraSkillFrameCapture"
+        },
+        {
+          "$type": "RPG.GameCore.WaitAnimState",
+          "AnimStateName": "Skill03",
+          "NormalizedTimeEnd": {
+            "IsDynamic": false,
+            "FixedValue": {
+              "Value": 1
+            }
+          }
+        },
+        {
+          "$type": "RPG.GameCore.RemoveEffect",
+          "TargetType": {
+            "$type": "RPG.GameCore.TargetAlias",
+            "Alias": "Caster"
+          },
+          "EffectPath": "Effects/Eff_Prefab/Eff_Avatar/Eff_Robin/Eff_Avatar_Robin_00_Skill03_Buff.prefab"
+        },
+        {
+          "$type": "RPG.GameCore.TriggerEffect",
+          "TargetType": {
+            "$type": "RPG.GameCore.TargetAlias",
+            "Alias": "Caster"
+          },
+          "EffectPath": "Effects/Eff_Prefab/Eff_Avatar/Eff_Robin/Eff_Avatar_Robin_00_Passive_Buff_Loop.prefab"
+        },
+        {
+          "$type": "RPG.GameCore.SkillPerformFinish"
+        }
+      ]
+    },
+    {
+      "Modifiers": {
+        "MAvatar_Robin_00_PassiveSkill01_BattleEvent_BaseSpeed": {
+          "_CallbackList": [
+            {
+              "Event": "OnStack",
+              "CallbackConfig": [
+                {
+                  "$type": "RPG.GameCore.StackProperty",
+                  "TargetType": {
+                    "$type": "RPG.GameCore.TargetAlias",
+                    "Alias": "Caster"
+                  },
+                  "Property": "BaseSpeed",
+                  "PropertyValue": {
+                    "IsDynamic": true,
+                    "PostfixExpr": {
+                      "OpCodes": "AQAK",
+                      "FixedValues": [],
+                      "DynamicHashes": [
+                        351043498
+                      ]
+                    }
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      },
+      "Name": "BattleEventAbility_Robin_00_Skill03",
+      "TargetInfo": {
+        "TargetType": "Caster"
+      },
+      "OnAdd": [
+        {
+          "$type": "RPG.GameCore.AddModifier",
+          "TargetType": {
+            "$type": "RPG.GameCore.TargetAlias",
+            "Alias": "Caster"
+          },
+          "ModifierName": "MAvatar_Robin_00_PassiveSkill01_BattleEvent"
+        },
+        {
+          "$type": "RPG.GameCore.AddModifier",
+          "TargetType": {
+            "$type": "RPG.GameCore.TargetAlias",
+            "Alias": "Caster"
+          },
+          "ModifierName": "MAvatar_Robin_00_PassiveSkill01_BattleEvent_BaseSpeed"
+        }
+      ]
+    },
+    {
+      "Name": "Avatar_Robin_00_PassiveSkill01",
+      "TargetInfo": {
+        "TargetType": "Caster"
+      },
+      "OnStart": [
+        {
+          "$type": "RPG.GameCore.AddModifier",
+          "TargetType": {
+            "$type": "RPG.GameCore.TargetAlias",
+            "Alias": "Caster"
+          },
+          "ModifierName": "MAvatar_Robin_00_Passive"
+        },
+        {
+          "$type": "RPG.GameCore.PredicateTaskList",
+          "Predicate": {
+            "$type": "RPG.GameCore.ByRankActivated",
+            "TriggerKey": {
+              "Hash": 523552506
+            }
+          },
+          "SuccessTaskList": [
+            {
+              "$type": "RPG.GameCore.SetEnergyBarState",
+              "Active": "True",
+              "BarType": 3,
+              "CurrentState": "Normal",
+              "CD": {
+                "IsDynamic": false,
+                "FixedValue": {
+                  "Value": 0
+                }
+              },
+              "IconPath": "SpriteOutput/BuffIcon/Inlevel/Icon1207BP.png",
+              "MaxCount": {
+                "IsDynamic": true,
+                "PostfixExpr": {
+                  "OpCodes": "AQABAQIK",
+                  "FixedValues": [],
+                  "DynamicHashes": [
+                    -1016136907,
+                    1768231779
+                  ]
+                }
+              },
+              "CurrentCount": {
+                "IsDynamic": false,
+                "FixedValue": {
+                  "Value": 0
+                }
+              }
+            }
+          ],
+          "FailedTaskList": [
+            {
+              "$type": "RPG.GameCore.SetEnergyBarState",
+              "Active": "True",
+              "BarType": 3,
+              "CurrentState": "Normal",
+              "CD": {
+                "IsDynamic": false,
+                "FixedValue": {
+                  "Value": 0
+                }
+              },
+              "IconPath": "SpriteOutput/BuffIcon/Inlevel/Icon1207BP.png",
+              "MaxCount": {
+                "IsDynamic": true,
+                "PostfixExpr": {
+                  "OpCodes": "AQAK",
+                  "FixedValues": [],
+                  "DynamicHashes": [
+                    -1016136907
+                  ]
+                }
+              },
+              "CurrentCount": {
+                "IsDynamic": false,
+                "FixedValue": {
+                  "Value": 0
+                }
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "Modifiers": {
+        "StageAbility_Maze_Geji_Modifier": {
+          "_CallbackList": [
+            {
+              "Event": "OnEnterBattle",
+              "CallbackConfig": [
+                {
+                  "$type": "RPG.GameCore.PredicateTaskList",
+                  "Predicate": {
+                    "$type": "RPG.GameCore.ByAnd",
+                    "PredicateList": [
+                      {
+                        "$type": "RPG.GameCore.ByIsMazeSkillAffectCurrentWave"
+                      },
+                      {
+                        "$type": "RPG.GameCore.ByCompareWaveCount",
+                        "CompareType": "Equal",
+                        "CompareValue": {
+                          "IsDynamic": false,
+                          "FixedValue": {
+                            "Value": 1
+                          }
+                        }
+                      }
+                    ]
+                  },
+                  "SuccessTaskList": [
+                    {
+                      "$type": "RPG.GameCore.VCameraConfigChange",
+                      "CameraConfig": {
+                        "ShakeConfigV2": {
+                          "ShakeRange": 0.1,
+                          "ShakeTime": 0.06,
+                          "ShakeDir": {
+                            "X": 0.07,
+                            "Y": 0,
+                            "Z": 0.07
+                          },
+                          "BaseCycle": 0.07,
+                          "CycleDamping": 0,
+                          "RangeAttenuation": 0.95
+                        }
+                      }
+                    },
+                    {
+                      "$type": "RPG.GameCore.DamageByAttackProperty",
+                      "TargetType": {
+                        "$type": "RPG.GameCore.TargetAlias",
+                        "Alias": "AllEnemy"
+                      },
+                      "AttackProperty": {
+                        "DamagePercentage": {
+                          "IsDynamic": true,
+                          "PostfixExpr": {
+                            "OpCodes": "AQAK",
+                            "FixedValues": [],
+                            "DynamicHashes": [
+                              -958931369
+                            ]
+                          }
+                        },
+                        "SPHitRatio": {
+                          "IsDynamic": false,
+                          "FixedValue": {
+                            "Value": 1
+                          }
+                        },
+                        "AttackType": "Maze",
+                        "HitAnimation": "Hit",
+                        "HitEffect": "Effects/Eff_Prefab/Eff_Avatar/Eff_Asta/Eff_Avatar_Asta_00_MazeSkill01_Hit02.prefab"
+                      },
+                      "CanTriggerLastKill": true,
+                      "DisplayData": {
+                        "DitherRangeX": 0.01,
+                        "DitherRangeY": 0.04,
+                        "AttachPoint": "SelectRoot"
+                      }
+                    },
+                    {
+                      "$type": "RPG.GameCore.DamagePerformFinish"
+                    }
+                  ],
+                  "FailedTaskList": []
+                }
+              ]
+            }
+          ],
+          "_PriorityList": [
+            {
+              "PriorityName": "EnterBattlePriority",
+              "Key": "AvatarInsertAbility"
+            }
+          ]
+        }
+      },
+      "Name": "Avatar_Robin_00_SkillMazeInLevel",
+      "TargetInfo": {
+        "TargetType": "Caster"
+      },
+      "OnStart": [
+        {
+          "$type": "RPG.GameCore.AddModifier",
+          "TargetType": {
+            "$type": "RPG.GameCore.TargetAlias",
+            "Alias": "Caster"
+          },
+          "ModifierName": "StageAbility_Maze_Geji_Modifier"
+        }
+      ]
+    }
+  ],
+  "GlobalModifiers": {
+    "MAvatar_Robin_00_Passive": {
+      "_CallbackList": [
+        {
+          "Event": "OnDestroy",
+          "CallbackConfig": [
+            {
+              "$type": "RPG.GameCore.RemoveModifier",
+              "TargetType": {
+                "$type": "RPG.GameCore.TargetAlias",
+                "Alias": "AllTeamMemberWithUnselectable"
+              },
+              "ModifierName": "MAvatar_Robin_00_Passive_CriticalDamageUp"
+            },
+            {
+              "$type": "RPG.GameCore.RemoveModifier",
+              "TargetType": {
+                "$type": "RPG.GameCore.TargetAlias",
+                "Alias": "AllTeamMemberWithUnselectable"
+              },
+              "ModifierName": "MAvatar_Robin_00_SkillTree01_SpeedUp"
+            },
+            {
+              "$type": "RPG.GameCore.RemoveModifier",
+              "TargetType": {
+                "$type": "RPG.GameCore.TargetAlias",
+                "Alias": "AllTeamMemberWithUnselectable"
+              },
+              "ModifierName": "MAvatar_Robin_00_SkillTree03_HealHp"
+            }
+          ]
+        },
+        {
+          "Event": "OnActionPhaseBegin",
+          "CallbackConfig": [
+            {
+              "$type": "RPG.GameCore.PredicateTaskList",
+              "Predicate": {
+                "$type": "RPG.GameCore.ByIsContainModifier",
+                "TargetType": {
+                  "$type": "RPG.GameCore.TargetAlias",
+                  "Alias": "Caster"
+                },
+                "ModifierName": "MAvatar_Robin_00_Skill02_AttackUpCasterListener"
+              },
+              "SuccessTaskList": [
+                {
+                  "$type": "RPG.GameCore.SetDynamicValueByModifierValue",
+                  "ModifierName": "MAvatar_Robin_00_Skill02_AttackUpCasterListener",
+                  "ValueType": "LifeTime",
+                  "Multiplier": {
+                    "IsDynamic": false,
+                    "FixedValue": {
+                      "Value": 1
+                    }
+                  },
+                  "DynamicKey": "Skill02_EnergyBarCount"
+                }
+              ],
+              "FailedTaskList": [
+                {
+                  "$type": "RPG.GameCore.SetDynamicValue",
+                  "DynamicKey": "Skill02_EnergyBarCount",
+                  "Value": {
+                    "IsDynamic": false,
+                    "FixedValue": {
+                      "Value": 0
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              "$type": "RPG.GameCore.PredicateTaskList",
+              "Predicate": {
+                "$type": "RPG.GameCore.ByCompareDynamicValue",
+                "DynamicKey": "Skill02_EnergyBarCount",
+                "CompareType": "Greater",
+                "CompareValue": {
+                  "IsDynamic": false,
+                  "FixedValue": {
+                    "Value": 0
+                  }
+                }
+              },
+              "SuccessTaskList": [
+                {
+                  "$type": "RPG.GameCore.SetEnergyBarState",
+                  "Active": "True",
+                  "BarType": 3,
+                  "CurrentState": "Active",
+                  "CD": {
+                    "IsDynamic": false,
+                    "FixedValue": {
+                      "Value": 0
+                    }
+                  },
+                  "IconPath": "SpriteOutput/BuffIcon/Inlevel/Icon1207BP.png",
+                  "CurrentCount": {
+                    "IsDynamic": true,
+                    "PostfixExpr": {
+                      "OpCodes": "AQAK",
+                      "FixedValues": [],
+                      "DynamicHashes": [
+                        -1554370866
+                      ]
+                    }
+                  }
+                }
+              ],
+              "FailedTaskList": [
+                {
+                  "$type": "RPG.GameCore.SetEnergyBarState",
+                  "Active": "True",
+                  "BarType": 3,
+                  "CurrentState": "Normal",
+                  "CD": {
+                    "IsDynamic": false,
+                    "FixedValue": {
+                      "Value": 0
+                    }
+                  },
+                  "IconPath": "SpriteOutput/BuffIcon/Inlevel/Icon1207BP.png",
+                  "CurrentCount": {
+                    "IsDynamic": false,
+                    "FixedValue": {
+                      "Value": 0
+                    }
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Event": "OnStack",
+          "CallbackConfig": [
+            {
+              "$type": "RPG.GameCore.SetDynamicValue",
+              "DynamicKey": "MDF_ActionCount",
+              "Value": {
+                "IsDynamic": true,
+                "PostfixExpr": {
+                  "OpCodes": "AQAK",
+                  "FixedValues": [],
+                  "DynamicHashes": [
+                    359473011
+                  ]
+                }
+              }
+            },
+            {
+              "$type": "RPG.GameCore.SetDynamicValueByProperty",
+              "DynamicKey": "MDF_CriticalDamageBase",
+              "ReadTargetType": {
+                "$type": "RPG.GameCore.TargetAlias",
+                "Alias": "Caster"
+              },
+              "Value": "CriticalDamageBase"
+            },
+            {
+              "$type": "RPG.GameCore.SetDynamicValue",
+              "DynamicKey": "MDF_CriticalDamageBase",
+              "Value": {
+                "IsDynamic": true,
+                "PostfixExpr": {
+                  "OpCodes": "AQABAQQK",
+                  "FixedValues": [],
+                  "DynamicHashes": [
+                    -789880287,
+                    131307229
+                  ]
+                }
+              }
+            },
+            {
+              "$type": "RPG.GameCore.SetDynamicValue",
+              "DynamicKey": "MDF_CriticalDamageTotal",
+              "Value": {
+                "IsDynamic": true,
+                "PostfixExpr": {
+                  "OpCodes": "AQABAQIK",
+                  "FixedValues": [],
+                  "DynamicHashes": [
+                    -789880287,
+                    -669314174
+                  ]
+                }
+              }
+            },
+            {
+              "$type": "RPG.GameCore.AddModifier",
+              "TargetType": {
+                "$type": "RPG.GameCore.TargetAlias",
+                "Alias": "AllLightTeam"
+              },
+              "ModifierName": "MAvatar_Robin_00_Passive_CriticalDamageUp",
+              "DynamicValues": {
+                "MDF_CriticalDamageTotal_Get": {
+                  "IsDynamic": true,
+                  "PostfixExpr": {
+                    "OpCodes": "AQAK",
+                    "FixedValues": [],
+                    "DynamicHashes": [
+                      -542295654
+                    ]
+                  }
+                }
+              }
+            },
+            {
+              "$type": "RPG.GameCore.PredicateTaskList",
+              "Predicate": {
+                "$type": "RPG.GameCore.BySkillPointActivated",
+                "PointTriggerKey": {
+                  "Hash": 1455742903
+                }
+              },
+              "SuccessTaskList": [
+                {
+                  "$type": "RPG.GameCore.AddModifier",
+                  "TargetType": {
+                    "$type": "RPG.GameCore.TargetAlias",
+                    "Alias": "AllLightTeam"
+                  },
+                  "ModifierName": "MAvatar_Robin_00_SkillTree01_SpeedUp",
+                  "LifeTime": {
+                    "IsDynamic": true,
+                    "PostfixExpr": {
+                      "OpCodes": "AQAK",
+                      "FixedValues": [],
+                      "DynamicHashes": [
+                        -826297499
+                      ]
+                    }
+                  },
+                  "DynamicValues": {
+                    "SkillTree_PointB1_P1_SpeedUpRatio": {
+                      "IsDynamic": true,
+                      "PostfixExpr": {
+                        "OpCodes": "AQAK",
+                        "FixedValues": [],
+                        "DynamicHashes": [
+                          1233258078
+                        ]
+                      }
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              "$type": "RPG.GameCore.PredicateTaskList",
+              "Predicate": {
+                "$type": "RPG.GameCore.BySkillPointActivated",
+                "PointTriggerKey": {
+                  "Hash": 1455742905
+                }
+              },
+              "SuccessTaskList": [
+                {
+                  "$type": "RPG.GameCore.AddModifier",
+                  "TargetType": {
+                    "$type": "RPG.GameCore.TargetAlias",
+                    "Alias": "Caster"
+                  },
+                  "ModifierName": "MAvatar_Robin_00_SkillTree03_HealHp"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Event": "OnListenCharacterCreate",
+          "CallbackConfig": [
+            {
+              "$type": "RPG.GameCore.PredicateTaskList",
+              "Predicate": {
+                "$type": "RPG.GameCore.ByTargetTeam",
+                "TargetType": {
+                  "$type": "RPG.GameCore.TargetAlias",
+                  "Alias": "ParamEntity"
+                },
+                "Team": "TeamLight"
+              },
+              "SuccessTaskList": [
+                {
+                  "$type": "RPG.GameCore.AddModifier",
+                  "TargetType": {
+                    "$type": "RPG.GameCore.TargetAlias",
+                    "Alias": "ParamEntity"
+                  },
+                  "ModifierName": "MAvatar_Robin_00_Passive_CriticalDamageUp",
+                  "DynamicValues": {
+                    "MDF_CriticalDamageTotal_Get": {
+                      "IsDynamic": true,
+                      "PostfixExpr": {
+                        "OpCodes": "AQAK",
+                        "FixedValues": [],
+                        "DynamicHashes": [
+                          -542295654
+                        ]
+                      }
+                    }
+                  }
+                },
+                {
+                  "$type": "RPG.GameCore.PredicateTaskList",
+                  "Predicate": {
+                    "$type": "RPG.GameCore.BySkillPointActivated",
+                    "PointTriggerKey": {
+                      "Hash": 1455742903
+                    }
+                  },
+                  "SuccessTaskList": [
+                    {
+                      "$type": "RPG.GameCore.AddModifier",
+                      "TargetType": {
+                        "$type": "RPG.GameCore.TargetAlias",
+                        "Alias": "ParamEntity"
+                      },
+                      "ModifierName": "MAvatar_Robin_00_SkillTree01_SpeedUp",
+                      "DynamicValues": {
+                        "SkillTree_PointB1_P1_SpeedUpRatio": {
+                          "IsDynamic": true,
+                          "PostfixExpr": {
+                            "OpCodes": "AQAK",
+                            "FixedValues": [],
+                            "DynamicHashes": [
+                              1233258078
+                            ]
+                          }
+                        }
+                      }
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Event": "OnBeforeDying",
+          "CallbackConfig": [
+            {
+              "$type": "RPG.GameCore.RemoveModifier",
+              "TargetType": {
+                "$type": "RPG.GameCore.TargetAlias",
+                "Alias": "AllTeamMemberWithUnselectable"
+              },
+              "ModifierName": "MAvatar_Robin_00_Passive_CriticalDamageUp"
+            },
+            {
+              "$type": "RPG.GameCore.RemoveModifier",
+              "TargetType": {
+                "$type": "RPG.GameCore.TargetAlias",
+                "Alias": "AllTeamMemberWithUnselectable"
+              },
+              "ModifierName": "MAvatar_Robin_00_SkillTree01_SpeedUp"
+            },
+            {
+              "$type": "RPG.GameCore.RemoveModifier",
+              "TargetType": {
+                "$type": "RPG.GameCore.TargetAlias",
+                "Alias": "AllTeamMemberWithUnselectable"
+              },
+              "ModifierName": "MAvatar_Robin_00_SkillTree03_HealHp"
+            }
+          ]
+        },
+        {
+          "Event": "OnListenAfterSkillUse",
+          "CallbackConfig": [
+            {
+              "$type": "RPG.GameCore.PredicateTaskList",
+              "Predicate": {
+                "$type": "RPG.GameCore.ByTargetTeam",
+                "TargetType": {
+                  "$type": "RPG.GameCore.TargetAlias",
+                  "Alias": "ParamEntity"
+                },
+                "Team": "TeamLight"
+              },
+              "SuccessTaskList": [
+                {
+                  "$type": "RPG.GameCore.AddModifier",
+                  "TargetType": {
+                    "$type": "RPG.GameCore.TargetAlias",
+                    "Alias": "Caster"
+                  },
+                  "ModifierName": "MAvatar_Robin_00_Passive_PassiveCharge",
+                  "MaxLayer": {
+                    "IsDynamic": true,
+                    "PostfixExpr": {
+                      "OpCodes": "AQAK",
+                      "FixedValues": [],
+                      "DynamicHashes": [
+                        -530832035
+                      ]
+                    }
+                  },
+                  "LayerAddWhenStack": {
+                    "IsDynamic": false,
+                    "FixedValue": {
+                      "Value": 1
+                    }
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "Stacking": "ReplaceByCaster",
+      "DynamicValues": {
+        "Values": {
+          "-1554370866": {}
+        }
+      }
+    },
+    "MAvatar_Robin_00_Passive_CriticalDamageUp": {
+      "_CallbackList": [
+        {
+          "Event": "OnStack",
+          "CallbackConfig": [
+            {
+              "$type": "RPG.GameCore.StackProperty",
+              "TargetType": {
+                "$type": "RPG.GameCore.TargetAlias",
+                "Alias": "ModifierOwnerEntity"
+              },
+              "Property": "CriticalDamageConvert",
+              "PropertyValue": {
+                "IsDynamic": true,
+                "PostfixExpr": {
+                  "OpCodes": "AQAK",
+                  "FixedValues": [],
+                  "DynamicHashes": [
+                    -1404523141
+                  ]
+                }
+              }
+            }
+          ]
+        }
+      ],
+      "Stacking": "ReplaceByCaster",
+      "DynamicValues": {
+        "Values": {
+          "-1404523141": {}
+        }
+      }
+    },
+    "MAvatar_Robin_00_SkillTree01_SpeedUp": {
+      "_CallbackList": [
+        {
+          "Event": "OnStack",
+          "CallbackConfig": [
+            {
+              "$type": "RPG.GameCore.StackProperty",
+              "TargetType": {
+                "$type": "RPG.GameCore.TargetAlias",
+                "Alias": "ModifierOwnerEntity"
+              },
+              "Property": "SpeedAddedRatio",
+              "PropertyValue": {
+                "IsDynamic": true,
+                "PostfixExpr": {
+                  "OpCodes": "AQAK",
+                  "FixedValues": [],
+                  "DynamicHashes": [
+                    1577100341
+                  ]
+                }
+              }
+            }
+          ]
+        }
+      ],
+      "Stacking": "ReplaceByCaster",
+      "DynamicValues": {
+        "Values": {
+          "1577100341": {}
+        }
+      }
+    },
+    "MAvatar_Robin_00_SkillTree03_HealHp": {
+      "OnAbilityPropertyChange": [
+        {
+          "Property": "CurrentHP",
+          "Ranges": [
+            {
+              "Min": {
+                "IsDynamic": false,
+                "FixedValue": {
+                  "Value": 0
+                }
+              },
+              "Max": {
+                "IsDynamic": false,
+                "FixedValue": {
+                  "Value": 1E+09
+                }
+              },
+              "OnChange": [
+                {
+                  "$type": "RPG.GameCore.SetDynamicValueByProperty",
+                  "DynamicKey": "DV_Robin_00_MaxHp",
+                  "ReadTargetType": {
+                    "$type": "RPG.GameCore.TargetAlias",
+                    "Alias": "Caster"
+                  },
+                  "Value": "MaxHP"
+                },
+                {
+                  "$type": "RPG.GameCore.PredicateTaskList",
+                  "Predicate": {
+                    "$type": "RPG.GameCore.ByCompareAbilityProperty",
+                    "TargetType": {
+                      "$type": "RPG.GameCore.TargetAlias",
+                      "Alias": "Caster"
+                    },
+                    "Property": "CurrentHP",
+                    "CompareType": "LessEqual",
+                    "CompareValue": {
+                      "IsDynamic": true,
+                      "PostfixExpr": {
+                        "OpCodes": "AQABAQQK",
+                        "FixedValues": [],
+                        "DynamicHashes": [
+                          -2026572471,
+                          -924639504
+                        ]
+                      }
+                    }
+                  },
+                  "SuccessTaskList": [
+                    {
+                      "$type": "RPG.GameCore.HealHP",
+                      "TargetType": {
+                        "$type": "RPG.GameCore.TargetAlias",
+                        "Alias": "Caster"
+                      },
+                      "FormulaType": "HealByHealerMaxHP",
+                      "HealPercentage": {
+                        "IsDynamic": true,
+                        "PostfixExpr": {
+                          "OpCodes": "AQAK",
+                          "FixedValues": [],
+                          "DynamicHashes": [
+                            1538261533
+                          ]
+                        }
+                      }
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "MAvatar_Robin_00_Passive_PassiveCharge": {
+      "_CallbackList": [
+        {
+          "Event": "OnStack",
+          "CallbackConfig": [
+            {
+              "$type": "RPG.GameCore.SetDynamicValueByModifierValue",
+              "ReadTargetType": {
+                "$type": "RPG.GameCore.TargetAlias",
+                "Alias": "ModifierOwnerEntity"
+              },
+              "ValueType": "Layer",
+              "Multiplier": {
+                "IsDynamic": false,
+                "FixedValue": {
+                  "Value": 1
+                }
+              },
+              "DynamicKey": "MDF_CurrentActionCount"
+            },
+            {
+              "$type": "RPG.GameCore.PredicateTaskList",
+              "Predicate": {
+                "$type": "RPG.GameCore.ByCompareModifierValue",
+                "TargetType": {
+                  "$type": "RPG.GameCore.TargetAlias",
+                  "Alias": "ModifierOwnerEntity"
+                },
+                "ModifierName": "MAvatar_Robin_00_Passive_PassiveCharge",
+                "ValueType": "Layer",
+                "CompareType": "Equal",
+                "CompareValue": {
+                  "IsDynamic": true,
+                  "PostfixExpr": {
+                    "OpCodes": "AQAK",
+                    "FixedValues": [],
+                    "DynamicHashes": [
+                      -530832035
+                    ]
+                  }
+                }
+              },
+              "SuccessTaskList": [
+                {
+                  "$type": "RPG.GameCore.AddModifier",
+                  "TargetType": {
+                    "$type": "RPG.GameCore.TargetAlias",
+                    "Alias": "Caster"
+                  },
+                  "ModifierName": "MAvatar_Robin_00_PassiveSkill01_setSp"
+                }
+              ],
+              "FailedTaskList": []
+            }
+          ]
+        }
+      ],
+      "Stacking": "ReplaceByCaster"
+    },
+    "MAvatar_Robin_00_PassiveSkill01_BattleEvent": {
+      "_CallbackList": [
+        {
+          "Event": "OnPhase1",
+          "CallbackConfig": [
+            {
+              "$type": "RPG.GameCore.TriggerAnimState",
+              "TargetType": {
+                "$type": "RPG.GameCore.TargetAlias",
+                "Alias": "BattleEventCaster"
+              },
+              "AnimStateName": "Skill03_End"
+            },
+            {
+              "$type": "RPG.GameCore.SetEntityActionState",
+              "TargetType": {
+                "$type": "RPG.GameCore.TargetAlias",
+                "Alias": "BattleEventCaster"
+              }
+            },
+            {
+              "$type": "RPG.GameCore.SetActionDelay",
+              "TargetType": {
+                "$type": "RPG.GameCore.TargetAlias",
+                "Alias": "BattleEventCaster"
+              },
+              "Value": {
+                "IsDynamic": false,
+                "FixedValue": {
+                  "Value": 0
+                }
+              }
+            },
+            {
+              "$type": "RPG.GameCore.SetEntityVisible",
+              "TargetType": {
+                "$type": "RPG.GameCore.TargetAlias",
+                "Alias": "AllLightTeam"
+              },
+              "Visible": true
+            },
+            {
+              "$type": "RPG.GameCore.VCameraConfigChange",
+              "CameraConfig": {
+                "NormalConfig": {
+                  "CameraState": "UseSkillPerform",
+                  "AnchorTargetType": {
+                    "$type": "RPG.GameCore.TargetAlias",
+                    "Alias": "BattleEventCaster"
+                  },
+                  "IsLocalOffset": true,
+                  "AnchorOffset": {
+                    "X": 0.01,
+                    "Y": -0.35,
+                    "Z": 0.41
+                  },
+                  "AnchorRatio": 1,
+                  "AimTargetType": {
+                    "$type": "RPG.GameCore.TargetAlias",
+                    "Alias": "BattleEventCaster"
+                  },
+                  "AimOffset": {
+                    "X": 0.01,
+                    "Y": -0.25,
+                    "Z": 0.01
+                  },
+                  "AimRatio": 1,
+                  "FollowPoleAngle": 90,
+                  "FollowRadius": 2.39
+                },
+                "BlendConfig": {
+                  "BlendType": "Cut"
+                },
+                "ShowEntityConfig": {
+                  "ShowTargetType": {
+                    "$type": "RPG.GameCore.TargetAlias",
+                    "Alias": "BattleEventCaster"
+                  }
+                }
+              }
+            },
+            {
+              "$type": "RPG.GameCore.WaitSecond",
+              "WaitTime": {
+                "IsDynamic": false,
+                "FixedValue": {
+                  "Value": 0.2
+                }
+              }
+            },
+            {
+              "$type": "RPG.GameCore.WaitSecond",
+              "WaitTime": {
+                "IsDynamic": false,
+                "FixedValue": {
+                  "Value": 0.49
+                }
+              }
+            },
+            {
+              "$type": "RPG.GameCore.VCameraConfigChange",
+              "CameraConfig": {
+                "NormalConfig": {
+                  "CameraState": "UseSkillPerform",
+                  "AnchorTargetType": {
+                    "$type": "RPG.GameCore.TargetAlias",
+                    "Alias": "BattleEventCaster"
+                  },
+                  "IsLocalOffset": true,
+                  "AnchorOffset": {
+                    "X": 0.01,
+                    "Y": -0.35,
+                    "Z": 0.41
+                  },
+                  "AnchorRatio": 1,
+                  "AimTargetType": {
+                    "$type": "RPG.GameCore.TargetAlias",
+                    "Alias": "BattleEventCaster"
+                  },
+                  "AimOffset": {
+                    "X": 0.01,
+                    "Y": -0.25,
+                    "Z": 0.01
+                  },
+                  "AimRatio": 1,
+                  "FollowPoleAngle": 90,
+                  "FollowRadius": 2.39
+                },
+                "BlendConfig": {
+                  "BlendType": "EaseInOut",
+                  "BlendTime": 0.5
+                },
+                "ShowEntityConfig": {
+                  "ShowTargetType": {
+                    "$type": "RPG.GameCore.TargetAlias",
+                    "Alias": "BattleEventCaster"
+                  }
+                }
+              }
+            },
+            {
+              "$type": "RPG.GameCore.WaitSecond",
+              "WaitTime": {
+                "IsDynamic": false,
+                "FixedValue": {
+                  "Value": 0.5
+                }
+              }
+            },
+            {
+              "$type": "RPG.GameCore.VCameraConfigChange",
+              "CameraConfig": {
+                "NormalConfig": {
+                  "CameraState": "UseSkillPerform",
+                  "AnchorTargetType": {
+                    "$type": "RPG.GameCore.TargetAlias",
+                    "Alias": "BattleEventCaster"
+                  },
+                  "IsLocalOffset": true,
+                  "AnchorOffset": {
+                    "X": 0.01,
+                    "Y": -0.35,
+                    "Z": 0.61
+                  },
+                  "AnchorRatio": 1,
+                  "AimTargetType": {
+                    "$type": "RPG.GameCore.TargetAlias",
+                    "Alias": "BattleEventCaster"
+                  },
+                  "AimOffset": {
+                    "X": 0.01,
+                    "Y": -0.25,
+                    "Z": 0.01
+                  },
+                  "AimRatio": 1,
+                  "FollowPoleAngle": 90,
+                  "FollowRadius": 2.39,
+                  "FollowDamp": 4,
+                  "AimDamp": 0.001
+                },
+                "ShowEntityConfig": {
+                  "ShowTargetType": {
+                    "$type": "RPG.GameCore.TargetAlias",
+                    "Alias": "BattleEventCaster"
+                  }
+                }
+              }
+            },
+            {
+              "$type": "RPG.GameCore.RemoveModifier",
+              "TargetType": {
+                "$type": "RPG.GameCore.TargetAlias",
+                "Alias": "BattleEventCaster"
+              },
+              "ModifierName": "MAvatar_Robin_00_Skill03Area"
+            },
+            {
+              "$type": "RPG.GameCore.WaitSecond",
+              "WaitTime": {
+                "IsDynamic": false,
+                "FixedValue": {
+                  "Value": 0.85
+                }
+              }
+            },
+            {
+              "$type": "RPG.GameCore.ForceKill",
+              "TargetType": {
+                "$type": "RPG.GameCore.TargetAlias",
+                "Alias": "Caster"
+              }
+            }
+          ]
+        }
+      ],
+      "Stacking": "ReplaceByCaster"
+    },
+    "MAvatar_Robin_00_PassiveSkill01_setSp": {
+      "_CallbackList": [
+        {
+          "Event": "OnStack",
+          "CallbackConfig": [
+            {
+              "$type": "RPG.GameCore.PredicateTaskList",
+              "Predicate": {
+                "$type": "RPG.GameCore.ByRankActivated",
+                "TriggerKey": {
+                  "Hash": 1686351920
+                }
+              },
+              "SuccessTaskList": [
+                {
+                  "$type": "RPG.GameCore.ModifySPNew",
+                  "TargetType": {
+                    "$type": "RPG.GameCore.TargetAlias",
+                    "Alias": "Caster"
+                  },
+                  "AddValue": {
+                    "IsDynamic": true,
+                    "PostfixExpr": {
+                      "OpCodes": "AQABAQIK",
+                      "FixedValues": [],
+                      "DynamicHashes": [
+                        -388240391,
+                        -1656501135
+                      ]
+                    }
+                  }
+                }
+              ],
+              "FailedTaskList": [
+                {
+                  "$type": "RPG.GameCore.ModifySPNew",
+                  "TargetType": {
+                    "$type": "RPG.GameCore.TargetAlias",
+                    "Alias": "Caster"
+                  },
+                  "AddValue": {
+                    "IsDynamic": true,
+                    "PostfixExpr": {
+                      "OpCodes": "AQAK",
+                      "FixedValues": [],
+                      "DynamicHashes": [
+                        -388240391
+                      ]
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              "$type": "RPG.GameCore.RemoveModifier",
+              "TargetType": {
+                "$type": "RPG.GameCore.TargetAlias",
+                "Alias": "Caster"
+              },
+              "ModifierName": "MAvatar_Robin_00_Passive_PassiveCharge"
+            }
+          ]
+        }
+      ],
+      "Stacking": "ReplaceByCaster"
+    },
+    "MAvatar_Robin_00_Skill03Area": {
+      "_CallbackList": [
+        {
+          "Event": "OnDestroy",
+          "CallbackConfig": [
+            {
+              "$type": "RPG.GameCore.RemoveModifier",
+              "TargetType": {
+                "$type": "RPG.GameCore.TargetAlias",
+                "Alias": "AllTeamMemberWithUnselectable"
+              },
+              "ModifierName": "MAvatar_Robin_00_Skill03_DamageUp"
+            },
+            {
+              "$type": "RPG.GameCore.RemoveEffect",
+              "TargetType": {
+                "$type": "RPG.GameCore.TargetAlias",
+                "Alias": "AllTeamCenter"
+              },
+              "EffectPath": "Effects/Eff_Prefab/Eff_Avatar/Eff_Robin/Eff_Avatar_Robin_00_Passive_Domain.prefab"
+            },
+            {
+              "$type": "RPG.GameCore.RemoveModifier",
+              "TargetType": {
+                "$type": "RPG.GameCore.TargetAlias",
+                "Alias": "Caster"
+              },
+              "ModifierName": "MAvatar_Robin_00_Skill03Area_sub"
+            },
+            {
+              "$type": "RPG.GameCore.RemoveModifier",
+              "TargetType": {
+                "$type": "RPG.GameCore.TargetAlias",
+                "Alias": "Caster"
+              },
+              "ModifierName": "MAvatar_Robin_00_SkillRank01_SpeedAndDamageUp_pre"
+            },
+            {
+              "$type": "RPG.GameCore.RemoveModifier",
+              "TargetType": {
+                "$type": "RPG.GameCore.TargetAlias",
+                "Alias": "AllTeamMemberWithUnselectable"
+              },
+              "ModifierName": "MAvatar_Robin_00_SkillRank01_SpeedAndDamageUp"
+            },
+            {
+              "$type": "RPG.GameCore.RemoveModifier",
+              "TargetType": {
+                "$type": "RPG.GameCore.TargetAlias",
+                "Alias": "AllTeamMemberWithUnselectable"
+              },
+              "ModifierName": "MAvatar_Robin_00_SkillRank06_ResistAll"
+            },
+            {
+              "$type": "RPG.GameCore.SetEntityActionState",
+              "TargetType": {
+                "$type": "RPG.GameCore.TargetAlias",
+                "Alias": "Caster"
+              }
+            },
+            {
+              "$type": "RPG.GameCore.ResetBattleBGMToStage"
+            }
+          ]
+        },
+        {
+          "Event": "OnStack",
+          "CallbackConfig": [
+            {
+              "$type": "RPG.GameCore.SetEntityActionState",
+              "TargetType": {
+                "$type": "RPG.GameCore.TargetAlias",
+                "Alias": "Caster"
+              },
+              "ActionState": false
+            },
+            {
+              "$type": "RPG.GameCore.AddModifier",
+              "TargetType": {
+                "$type": "RPG.GameCore.TargetAlias",
+                "Alias": "Caster"
+              },
+              "ModifierName": "MAvatar_Robin_00_Skill03Area_sub"
+            },
+            {
+              "$type": "RPG.GameCore.AddModifier",
+              "TargetType": {
+                "$type": "RPG.GameCore.TargetAlias",
+                "Alias": "AllTeammate"
+              },
+              "ModifierName": "MAvatar_Robin_00_Skill03_BonusAction",
+              "InheritCaster": "TargetSelf"
+            },
+            {
+              "$type": "RPG.GameCore.PredicateTaskList",
+              "Predicate": {
+                "$type": "RPG.GameCore.ByRankActivated",
+                "TriggerKey": {
+                  "Hash": 2089636447
+                }
+              },
+              "SuccessTaskList": [
+                {
+                  "$type": "RPG.GameCore.AddModifier",
+                  "TargetType": {
+                    "$type": "RPG.GameCore.TargetAlias",
+                    "Alias": "Caster"
+                  },
+                  "ModifierName": "MAvatar_Robin_00_SkillRank01_SpeedAndDamageUp_pre"
+                }
+              ]
+            },
+            {
+              "$type": "RPG.GameCore.PredicateTaskList",
+              "Predicate": {
+                "$type": "RPG.GameCore.ByRankActivated",
+                "TriggerKey": {
+                  "Hash": -1445815962
+                }
+              },
+              "SuccessTaskList": [
+                {
+                  "$type": "RPG.GameCore.PredicateTaskList",
+                  "Predicate": {
+                    "$type": "RPG.GameCore.ByRankActivated",
+                    "TriggerKey": {
+                      "Hash": -1445815962
+                    }
+                  },
+                  "SuccessTaskList": [
+                    {
+                      "$type": "RPG.GameCore.StackStatusDesc",
+                      "TextID": {
+                        "Hash": -351209203
+                      }
+                    }
+                  ]
+                },
+                {
+                  "$type": "RPG.GameCore.DispelStatus",
+                  "TargetType": {
+                    "$type": "RPG.GameCore.TargetAlias",
+                    "Alias": "AllLightTeam"
+                  }
+                },
+                {
+                  "$type": "RPG.GameCore.AddModifier",
+                  "TargetType": {
+                    "$type": "RPG.GameCore.TargetAlias",
+                    "Alias": "AllLightTeam"
+                  },
+                  "ModifierName": "MAvatar_Robin_00_SkillRank06_ResistAll"
+                },
+                {
+                  "$type": "RPG.GameCore.AddModifier",
+                  "TargetType": {
+                    "$type": "RPG.GameCore.TargetAlias",
+                    "Alias": "AllTeammate"
+                  },
+                  "ModifierName": "MAvatar_Robin_00_Skill03_DamageUp",
+                  "DynamicValues": {
+                    "Skill03_P1_DamagePercentage": {
+                      "IsDynamic": true,
+                      "PostfixExpr": {
+                        "OpCodes": "AQABAQIK",
+                        "FixedValues": [],
+                        "DynamicHashes": [
+                          -56289053,
+                          1893196919
+                        ]
+                      }
+                    }
+                  }
+                }
+              ],
+              "FailedTaskList": [
+                {
+                  "$type": "RPG.GameCore.AddModifier",
+                  "TargetType": {
+                    "$type": "RPG.GameCore.TargetAlias",
+                    "Alias": "AllTeammate"
+                  },
+                  "ModifierName": "MAvatar_Robin_00_Skill03_DamageUp",
+                  "DynamicValues": {
+                    "Skill03_P1_DamagePercentage": {
+                      "IsDynamic": true,
+                      "PostfixExpr": {
+                        "OpCodes": "AQAK",
+                        "FixedValues": [],
+                        "DynamicHashes": [
+                          -56289053
+                        ]
+                      }
+                    }
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Event": "OnLimboWaitHeal",
+          "CallbackConfig": [
+            {
+              "$type": "RPG.GameCore.ForceKill",
+              "TargetType": {
+                "$type": "RPG.GameCore.TargetAlias",
+                "Alias": "TAvatar_Robin_00_BETarget"
+              }
+            },
+            {
+              "$type": "RPG.GameCore.RemoveModifier",
+              "TargetType": {
+                "$type": "RPG.GameCore.TargetAlias",
+                "Alias": "AllTeamMemberWithUnselectable"
+              },
+              "ModifierName": "MAvatar_Robin_00_Skill03_DamageUp",
+              "OnlyRemoveCasterAdded": true
+            },
+            {
+              "$type": "RPG.GameCore.RemoveEffect",
+              "TargetType": {
+                "$type": "RPG.GameCore.TargetAlias",
+                "Alias": "AllTeamCenter"
+              },
+              "EffectPath": "Effects/Eff_Prefab/Eff_Avatar/Eff_Robin/Eff_Avatar_Robin_00_Passive_Domain.prefab"
+            },
+            {
+              "$type": "RPG.GameCore.RemoveModifier",
+              "TargetType": {
+                "$type": "RPG.GameCore.TargetAlias",
+                "Alias": "Caster"
+              },
+              "ModifierName": "MAvatar_Robin_00_Skill03Area_sub"
+            },
+            {
+              "$type": "RPG.GameCore.RemoveModifier",
+              "TargetType": {
+                "$type": "RPG.GameCore.TargetAlias",
+                "Alias": "Caster"
+              },
+              "ModifierName": "MAvatar_Robin_00_SkillRank01_SpeedAndDamageUp_pre"
+            },
+            {
+              "$type": "RPG.GameCore.RemoveModifier",
+              "TargetType": {
+                "$type": "RPG.GameCore.TargetAlias",
+                "Alias": "AllTeamMemberWithUnselectable"
+              },
+              "ModifierName": "MAvatar_Robin_00_SkillRank01_SpeedAndDamageUp"
+            },
+            {
+              "$type": "RPG.GameCore.RemoveModifier",
+              "TargetType": {
+                "$type": "RPG.GameCore.TargetAlias",
+                "Alias": "AllTeamMemberWithUnselectable"
+              },
+              "ModifierName": "MAvatar_Robin_00_SkillRank06_ResistAll"
+            },
+            {
+              "$type": "RPG.GameCore.ResetBattleBGMToStage"
+            }
+          ]
+        },
+        {
+          "Event": "OnBeforeDying",
+          "CallbackConfig": [
+            {
+              "$type": "RPG.GameCore.RemoveModifier",
+              "TargetType": {
+                "$type": "RPG.GameCore.TargetAlias",
+                "Alias": "AllTeamMemberWithUnselectable"
+              },
+              "ModifierName": "MAvatar_Robin_00_Skill03_DamageUp",
+              "OnlyRemoveCasterAdded": true
+            },
+            {
+              "$type": "RPG.GameCore.RemoveEffect",
+              "TargetType": {
+                "$type": "RPG.GameCore.TargetAlias",
+                "Alias": "AllTeamCenter"
+              },
+              "EffectPath": "Effects/Eff_Prefab/Eff_Avatar/Eff_Robin/Eff_Avatar_Robin_00_Passive_Domain.prefab"
+            },
+            {
+              "$type": "RPG.GameCore.RemoveModifier",
+              "TargetType": {
+                "$type": "RPG.GameCore.TargetAlias",
+                "Alias": "Caster"
+              },
+              "ModifierName": "MAvatar_Robin_00_Skill03Area_sub"
+            },
+            {
+              "$type": "RPG.GameCore.RemoveModifier",
+              "TargetType": {
+                "$type": "RPG.GameCore.TargetAlias",
+                "Alias": "Caster"
+              },
+              "ModifierName": "MAvatar_Robin_00_SkillRank01_SpeedAndDamageUp_pre"
+            },
+            {
+              "$type": "RPG.GameCore.RemoveModifier",
+              "TargetType": {
+                "$type": "RPG.GameCore.TargetAlias",
+                "Alias": "AllTeamMemberWithUnselectable"
+              },
+              "ModifierName": "MAvatar_Robin_00_SkillRank01_SpeedAndDamageUp"
+            },
+            {
+              "$type": "RPG.GameCore.RemoveModifier",
+              "TargetType": {
+                "$type": "RPG.GameCore.TargetAlias",
+                "Alias": "AllTeamMemberWithUnselectable"
+              },
+              "ModifierName": "MAvatar_Robin_00_SkillRank06_ResistAll"
+            },
+            {
+              "$type": "RPG.GameCore.SetEntityActionState",
+              "TargetType": {
+                "$type": "RPG.GameCore.TargetAlias",
+                "Alias": "Caster"
+              }
+            },
+            {
+              "$type": "RPG.GameCore.ResetBattleBGMToStage"
+            }
+          ]
+        }
+      ],
+      "Stacking": "ReplaceByCaster"
+    },
+    "MAvatar_Robin_00_SkillRank01_SpeedAndDamageUp_pre": {
+      "_CallbackList": [
+        {
+          "Event": "OnListenAllowAction",
+          "CallbackConfig": [
+            {
+              "$type": "RPG.GameCore.PredicateTaskList",
+              "Predicate": {
+                "$type": "RPG.GameCore.ByTargetTeam",
+                "TargetType": {
+                  "$type": "RPG.GameCore.TargetAlias",
+                  "Alias": "ParamEntity"
+                },
+                "Team": "TeamLight"
+              },
+              "SuccessTaskList": [
+                {
+                  "$type": "RPG.GameCore.AddModifier",
+                  "TargetType": {
+                    "$type": "RPG.GameCore.TargetAlias",
+                    "Alias": "ParamEntity"
+                  },
+                  "ModifierName": "MAvatar_Robin_00_SkillRank01_SpeedAndDamageUp",
+                  "MaxLayer": {
+                    "IsDynamic": true,
+                    "PostfixExpr": {
+                      "OpCodes": "AQAK",
+                      "FixedValues": [],
+                      "DynamicHashes": [
+                        -544119912
+                      ]
+                    }
+                  },
+                  "LayerAddWhenStack": {
+                    "IsDynamic": false,
+                    "FixedValue": {
+                      "Value": 1
+                    }
+                  },
+                  "DynamicValues": {
+                    "SkillRank_Rank01_P1_SpeedUpRatio": {
+                      "IsDynamic": true,
+                      "PostfixExpr": {
+                        "OpCodes": "AQAK",
+                        "FixedValues": [],
+                        "DynamicHashes": [
+                          425776308
+                        ]
+                      }
+                    },
+                    "SkillRank_Rank01_P2_AttackUpRatio": {
+                      "IsDynamic": true,
+                      "PostfixExpr": {
+                        "OpCodes": "AQAK",
+                        "FixedValues": [],
+                        "DynamicHashes": [
+                          314956586
+                        ]
+                      }
+                    }
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "Stacking": "Replace"
+    },
+    "MAvatar_Robin_00_SkillRank01_SpeedAndDamageUp": {
+      "LifeStepMoment": "ModifierPhase1End",
+      "_CallbackList": [
+        {
+          "Event": "OnPhase1",
+          "CallbackConfig": [
+            {
+              "$type": "RPG.GameCore.TriggerEffect",
+              "TargetType": {
+                "$type": "RPG.GameCore.TargetAlias",
+                "Alias": "ModifierOwnerEntity"
+              },
+              "EffectPath": "Effects/Eff_Prefab/Eff_Common/Eff_Buff_Common_AttackUp.prefab"
+            }
+          ]
+        },
+        {
+          "Event": "OnStack",
+          "CallbackConfig": [
+            {
+              "$type": "RPG.GameCore.SetDynamicValueByModifierValue",
+              "ReadTargetType": {
+                "$type": "RPG.GameCore.TargetAlias",
+                "Alias": "ModifierOwnerEntity"
+              },
+              "ValueType": "Layer",
+              "Multiplier": {
+                "IsDynamic": false,
+                "FixedValue": {
+                  "Value": 1
+                }
+              },
+              "DynamicKey": "_current_layer"
+            },
+            {
+              "$type": "RPG.GameCore.StackProperty",
+              "TargetType": {
+                "$type": "RPG.GameCore.TargetAlias",
+                "Alias": "ModifierOwnerEntity"
+              },
+              "Property": "SpeedAddedRatio",
+              "PropertyValue": {
+                "IsDynamic": true,
+                "PostfixExpr": {
+                  "OpCodes": "AQABAQQK",
+                  "FixedValues": [],
+                  "DynamicHashes": [
+                    651729778,
+                    1633516157
+                  ]
+                }
+              }
+            },
+            {
+              "$type": "RPG.GameCore.SetDynamicValue",
+              "DynamicKey": "SpeedUpRatioForShow",
+              "Value": {
+                "IsDynamic": true,
+                "PostfixExpr": {
+                  "OpCodes": "AQABAQQK",
+                  "FixedValues": [],
+                  "DynamicHashes": [
+                    651729778,
+                    1633516157
+                  ]
+                }
+              }
+            },
+            {
+              "$type": "RPG.GameCore.StackProperty",
+              "TargetType": {
+                "$type": "RPG.GameCore.TargetAlias",
+                "Alias": "ModifierOwnerEntity"
+              },
+              "Property": "AttackAddedRatio",
+              "PropertyValue": {
+                "IsDynamic": true,
+                "PostfixExpr": {
+                  "OpCodes": "AQABAQQK",
+                  "FixedValues": [],
+                  "DynamicHashes": [
+                    651729778,
+                    -1396331631
+                  ]
+                }
+              }
+            },
+            {
+              "$type": "RPG.GameCore.SetDynamicValue",
+              "DynamicKey": "AttackUpRatioForShow",
+              "Value": {
+                "IsDynamic": true,
+                "PostfixExpr": {
+                  "OpCodes": "AQABAQQK",
+                  "FixedValues": [],
+                  "DynamicHashes": [
+                    651729778,
+                    -1396331631
+                  ]
+                }
+              }
+            }
+          ]
+        }
+      ],
+      "Stacking": "Replace",
+      "DynamicValues": {
+        "Values": {
+          "1633516157": {},
+          "-1396331631": {},
+          "651729778": {},
+          "-1310923649": {},
+          "1694933348": {}
+        }
+      }
+    },
+    "MAvatar_Robin_00_SkillRank06_ResistAll": {
+      "BehaviorFlagList": [
+        "Endurance",
+        "ResistDebuff",
+        "ImmuneDot"
+      ],
+      "Stacking": "ReplaceByCaster"
+    },
+    "MAvatar_Robin_00_Skill03Area_sub": {
+      "BehaviorFlagList": [
+        "Endurance"
+      ],
+      "_CallbackList": [
+        {
+          "Event": "OnDestroy",
+          "CallbackConfig": [
+            {
+              "$type": "RPG.GameCore.SetResilience",
+              "DoReset": true
+            },
+            {
+              "$type": "RPG.GameCore.CharacterChangePhase",
+              "TargetType": {
+                "$type": "RPG.GameCore.TargetAlias",
+                "Alias": "Caster"
+              },
+              "PhaseName": "Phase1",
+              "PhaseAnimConfig": {
+                "StandBy": "StandBy",
+                "Hit": "Hit",
+                "HitH": "Hit_H"
+              }
+            },
+            {
+              "$type": "RPG.GameCore.LockAnimatorSpeed",
+              "IsReset": true
+            },
+            {
+              "$type": "RPG.GameCore.RemoveModifier",
+              "TargetType": {
+                "$type": "RPG.GameCore.TargetAlias",
+                "Alias": "Caster"
+              },
+              "ModifierName": "MAvatar_Robin_00_Skill03Area_sub_disableAction"
+            },
+            {
+              "$type": "RPG.GameCore.RemoveEffect",
+              "TargetType": {
+                "$type": "RPG.GameCore.TargetAlias",
+                "Alias": "Caster"
+              },
+              "EffectPath": "Effects/Eff_Prefab/Eff_Avatar/Eff_Robin/Eff_Avatar_Robin_00_Passive_Buff_Loop.prefab"
+            }
+          ]
+        },
+        {
+          "Event": "OnStack",
+          "CallbackConfig": [
+            {
+              "$type": "RPG.GameCore.PredicateTaskList",
+              "Predicate": {
+                "$type": "RPG.GameCore.BySkillPointActivated",
+                "PointTriggerKey": {
+                  "Hash": 1455742904
+                }
+              },
+              "SuccessTaskList": [
+                {
+                  "$type": "RPG.GameCore.StackProperty",
+                  "TargetType": {
+                    "$type": "RPG.GameCore.TargetAlias",
+                    "Alias": "Caster"
+                  },
+                  "Property": "AggroAddedRatio",
+                  "PropertyValue": {
+                    "IsDynamic": true,
+                    "PostfixExpr": {
+                      "OpCodes": "AAABAAMK",
+                      "FixedValues": [
+                        {
+                          "Value": 0
+                        }
+                      ],
+                      "DynamicHashes": [
+                        1024469668
+                      ]
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              "$type": "RPG.GameCore.CreateBattleEvent",
+              "EventID": {
+                "IsDynamic": false,
+                "FixedValue": {
+                  "Value": 11309
+                }
+              },
+              "DynamicValues": {
+                "BattleEvent_Geji_00_BaseSpeed": {
+                  "IsDynamic": true,
+                  "PostfixExpr": {
+                    "OpCodes": "AQAK",
+                    "FixedValues": [],
+                    "DynamicHashes": [
+                      1521926375
+                    ]
+                  }
+                }
+              },
+              "Team": "TeamLight"
+            },
+            {
+              "$type": "RPG.GameCore.SetResilience"
+            },
+            {
+              "$type": "RPG.GameCore.ModifierOverrideOnHitEffect",
+              "EffectPath": "Effects/Eff_Prefab/Eff_Avatar/Eff_Robin/Eff_Avatar_Robin_00_Passive_Hit.prefab",
+              "ModifierOverrideOnHitEffectPriority": "ModifyOthers",
+              "HitEffectStacking": "Multiple"
+            },
+            {
+              "$type": "RPG.GameCore.CharacterChangePhase",
+              "TargetType": {
+                "$type": "RPG.GameCore.TargetAlias",
+                "Alias": "Caster"
+              },
+              "PhaseName": "Phase2",
+              "PhaseAnimConfig": {
+                "StandBy": "Skill03_Loop",
+                "Hit": "Skill03_Loop",
+                "HitH": "Skill03_Loop"
+              }
+            },
+            {
+              "$type": "RPG.GameCore.AddModifier",
+              "TargetType": {
+                "$type": "RPG.GameCore.TargetAlias",
+                "Alias": "Caster"
+              },
+              "ModifierName": "MAvatar_Robin_00_Skill03Area_sub_disableAction"
+            }
+          ]
+        },
+        {
+          "Event": "OnModifierAdd",
+          "CallbackConfig": [
+            {
+              "$type": "RPG.GameCore.PredicateTaskList",
+              "Predicate": {
+                "$type": "RPG.GameCore.ByCheckModifierCallBackBehaviorFlag",
+                "TargetType": {
+                  "$type": "RPG.GameCore.TargetAlias",
+                  "Alias": "ParamEntity"
+                },
+                "Flag": "STAT_ForceControl"
+              },
+              "SuccessTaskList": [
+                {
+                  "$type": "RPG.GameCore.ForceKill",
+                  "TargetType": {
+                    "$type": "RPG.GameCore.TargetAlias",
+                    "Alias": "TAvatar_Robin_00_BETarget"
+                  }
+                },
+                {
+                  "$type": "RPG.GameCore.RemoveModifier",
+                  "TargetType": {
+                    "$type": "RPG.GameCore.TargetAlias",
+                    "Alias": "ModifierOwnerEntity"
+                  },
+                  "ModifierName": "MAvatar_Robin_00_Skill03Area"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "Stacking": "ReplaceByCaster"
+    },
+    "MAvatar_Robin_00_Skill03Area_sub_disableAction": {
+      "BehaviorFlagList": [
+        "DisableAction"
+      ]
+    },
+    "MAvatar_Robin_00_Skill03_DamageUp": {
+      "_CallbackList": [
+        {
+          "Event": "OnStack",
+          "CallbackConfig": [
+            {
+              "$type": "RPG.GameCore.StackProperty",
+              "TargetType": {
+                "$type": "RPG.GameCore.TargetAlias",
+                "Alias": "ModifierOwnerEntity"
+              },
+              "Property": "AllDamageTypeAddedRatio",
+              "PropertyValue": {
+                "IsDynamic": true,
+                "PostfixExpr": {
+                  "OpCodes": "AQAK",
+                  "FixedValues": [],
+                  "DynamicHashes": [
+                    898701636
+                  ]
+                }
+              }
+            },
+            {
+              "$type": "RPG.GameCore.PredicateTaskList",
+              "Predicate": {
+                "$type": "RPG.GameCore.ByRankActivated",
+                "TriggerKey": {
+                  "Hash": -1445815962
+                }
+              },
+              "SuccessTaskList": [
+                {
+                  "$type": "RPG.GameCore.StackStatusDesc",
+                  "TextID": {
+                    "Hash": -351209038
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "Stacking": "ReplaceByCaster",
+      "DynamicValues": {
+        "Values": {
+          "898701636": {}
+        }
+      }
+    },
+    "MAvatar_Robin_00_Skill03_BonusAction": {
+      "_CallbackList": [
+        {
+          "Event": "OnStack",
+          "CallbackConfig": [
+            {
+              "$type": "RPG.GameCore.OwnerEntityAddAbility",
+              "AbilityName": "Avatar_Dr_Ratio_00_Bonus_Camera"
+            },
+            {
+              "$type": "RPG.GameCore.AddModifier",
+              "TargetType": {
+                "$type": "RPG.GameCore.TargetAlias",
+                "Alias": "ModifierOwnerEntity"
+              },
+              "ModifierName": "MAvatar_Robin_00_Skill03_BonusAction_Sub"
+            }
+          ]
+        },
+        {
+          "Event": "OnModifierRemove",
+          "CallbackConfig": [
+            {
+              "$type": "RPG.GameCore.PredicateTaskList",
+              "Predicate": {
+                "$type": "RPG.GameCore.ByAnd",
+                "PredicateList": [
+                  {
+                    "$type": "RPG.GameCore.ByCheckModifierCallBackName",
+                    "ModifierName": "MAvatar_Robin_00_Skill03_BonusAction_Sub"
+                  }
+                ]
+              },
+              "SuccessTaskList": [
+                {
+                  "$type": "RPG.GameCore.RemoveSelfModifier"
+                }
+              ],
+              "FailedTaskList": []
+            }
+          ]
+        }
+      ]
+    },
+    "MAvatar_Robin_00_Skill03_BonusAction_Sub": {
+      "_CallbackList": [
+        {
+          "Event": "OnStack",
+          "CallbackConfig": [
+            {
+              "$type": "RPG.GameCore.SetActionDelay",
+              "TargetType": {
+                "$type": "RPG.GameCore.TargetAlias",
+                "Alias": "ModifierOwnerEntity"
+              },
+              "Value": {
+                "IsDynamic": false,
+                "FixedValue": {
+                  "Value": 0
+                }
+              }
+            }
+          ]
+        },
+        {
+          "Event": "OnAfterSkillUse",
+          "CallbackConfig": [
+            {
+              "$type": "RPG.GameCore.RemoveSelfModifier"
+            }
+          ]
+        }
+      ]
+    },
+    "MAvatar_Robin_00_Skill02_AttackUp": {
+      "_CallbackList": [
+        {
+          "Event": "OnStack",
+          "CallbackConfig": [
+            {
+              "$type": "RPG.GameCore.PredicateTaskList",
+              "Predicate": {
+                "$type": "RPG.GameCore.ByRankActivated",
+                "TriggerKey": {
+                  "Hash": 523552506
+                }
+              },
+              "SuccessTaskList": [
+                {
+                  "$type": "RPG.GameCore.StackProperty",
+                  "TargetType": {
+                    "$type": "RPG.GameCore.TargetAlias",
+                    "Alias": "ModifierOwnerEntity"
+                  },
+                  "Property": "AttackAddedRatio",
+                  "PropertyValue": {
+                    "IsDynamic": true,
+                    "PostfixExpr": {
+                      "OpCodes": "AQABAQIK",
+                      "FixedValues": [],
+                      "DynamicHashes": [
+                        -1308608036,
+                        688178811
+                      ]
+                    }
+                  }
+                },
+                {
+                  "$type": "RPG.GameCore.SetDynamicValue",
+                  "DynamicKey": "Skill02_P1_AttackUpForShow",
+                  "Value": {
+                    "IsDynamic": true,
+                    "PostfixExpr": {
+                      "OpCodes": "AQABAQIK",
+                      "FixedValues": [],
+                      "DynamicHashes": [
+                        -1308608036,
+                        688178811
+                      ]
+                    }
+                  }
+                }
+              ],
+              "FailedTaskList": [
+                {
+                  "$type": "RPG.GameCore.StackProperty",
+                  "TargetType": {
+                    "$type": "RPG.GameCore.TargetAlias",
+                    "Alias": "ModifierOwnerEntity"
+                  },
+                  "Property": "AttackAddedRatio",
+                  "PropertyValue": {
+                    "IsDynamic": true,
+                    "PostfixExpr": {
+                      "OpCodes": "AQAK",
+                      "FixedValues": [],
+                      "DynamicHashes": [
+                        -1308608036
+                      ]
+                    }
+                  }
+                },
+                {
+                  "$type": "RPG.GameCore.SetDynamicValue",
+                  "DynamicKey": "Skill02_P1_AttackUpForShow",
+                  "Value": {
+                    "IsDynamic": true,
+                    "PostfixExpr": {
+                      "OpCodes": "AQAK",
+                      "FixedValues": [],
+                      "DynamicHashes": [
+                        -1308608036
+                      ]
+                    }
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "Stacking": "ReplaceByCaster"
+    },
+    "MAvatar_Robin_00_Skill02_AttackUpCasterListener": {
+      "LifeStepMoment": "ModifierPhase1End",
+      "_CallbackList": [
+        {
+          "Event": "OnDestroy",
+          "CallbackConfig": [
+            {
+              "$type": "RPG.GameCore.RemoveModifier",
+              "TargetType": {
+                "$type": "RPG.GameCore.TargetAlias",
+                "Alias": "AllLightTeam"
+              },
+              "ModifierName": "MAvatar_Robin_00_Skill02_AttackUp"
+            },
+            {
+              "$type": "RPG.GameCore.RemoveModifier",
+              "TargetType": {
+                "$type": "RPG.GameCore.TargetAlias",
+                "Alias": "AllTeammate"
+              },
+              "ModifierName": "MAvatar_Robin_00_Skill02_AttackUpFriendListener"
+            }
+          ]
+        },
+        {
+          "Event": "OnStack",
+          "CallbackConfig": [
+            {
+              "$type": "RPG.GameCore.AddModifier",
+              "TargetType": {
+                "$type": "RPG.GameCore.TargetAlias",
+                "Alias": "AllTeammate"
+              },
+              "ModifierName": "MAvatar_Robin_00_Skill02_AttackUpFriendListener"
+            }
+          ]
+        }
+      ],
+      "Stacking": "ReplaceByCaster"
+    },
+    "MAvatar_Robin_00_Skill02_AttackUpFriendListener": {
+      "Stacking": "ReplaceByCaster"
+    }
+  }
+}

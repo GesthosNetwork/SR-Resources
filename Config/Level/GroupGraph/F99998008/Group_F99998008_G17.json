@@ -1,0 +1,58 @@
+{
+  "OnInitSequece": [],
+  "OnStartSequece": [
+    {
+      "IsLoop": true,
+      "TaskList": [
+        {
+          "$type": "RPG.GameCore.WaitFloorCustomValueChange",
+          "Name": "FirePropEvent",
+          "OnChange": [
+            {
+              "$type": "RPG.GameCore.TriggerEntityEvent",
+              "EventName": "PropOpen",
+              "InstanceID": 300001
+            }
+          ],
+          "Condition": {
+            "$type": "RPG.GameCore.ByCheckFloorCustomBool",
+            "Name": "FirePropEvent"
+          }
+        }
+      ]
+    },
+    {
+      "TaskList": [
+        {
+          "$type": "RPG.GameCore.WaitEntityEvent",
+          "EventName": "OnPropOpen",
+          "OnEvent": [
+            {
+              "$type": "RPG.GameCore.DebugLog",
+              "Level": "Warn",
+              "Message": "Event_OnPropOpen"
+            }
+          ],
+          "InstanceID": 300001
+        }
+      ]
+    },
+    {
+      "TaskList": [
+        {
+          "$type": "RPG.GameCore.WaitEntityEvent",
+          "EventName": "OnPropClosed",
+          "OnEvent": [
+            {
+              "$type": "RPG.GameCore.DebugLog",
+              "Level": "Warn",
+              "Message": "Event_OnPropClose"
+            }
+          ],
+          "InstanceID": 300001
+        }
+      ]
+    }
+  ],
+  "Type": "Group"
+}

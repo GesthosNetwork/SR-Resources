@@ -1,0 +1,105 @@
+{
+  "GroupGUID": "60d6262d-99de-4a47-8281-1dad625c364c",
+  "GroupName": "MainMission0_",
+  "AreaAnchorName": "LevelArea_P10102_F10102003_G3",
+  "SaveType": "Reset",
+  "LoadCondition": {
+    "Conditions": [
+      {
+        "Type": "SubMission",
+        "ID": 101040102
+      },
+      {
+        "Type": "SubMission",
+        "ID": 101040103
+      },
+      {
+        "Type": "SubMission",
+        "ID": 101040114
+      }
+    ],
+    "Operation": "Or"
+  },
+  "UnloadCondition": {
+    "Conditions": [
+      {
+        "Type": "SubMission",
+        "Phase": "Finish",
+        "ID": 101040103
+      }
+    ]
+  },
+  "GroupRefreshID": 1,
+  "ConflictIDList": [],
+  "AnchorList": [],
+  "MonsterList": [],
+  "PropList": [
+    {
+      "ID": 300001,
+      "PosX": -1.03,
+      "PosY": 1.41,
+      "PosZ": -0.329,
+      "Name": "Prop1",
+      "RotY": 186.0433,
+      "PropID": 100,
+      "IsOverrideInitLevelGraph": true,
+      "Trigger": {
+        "Radius": 2.0,
+        "DimX": 1.0,
+        "DimY": 1.0,
+        "DimZ": 1.0,
+        "PointList": []
+      },
+      "CampID": 4,
+      "MapLayerID": 1,
+      "CustomTriggerMap": {},
+      "BridgeStateRotations": [],
+      "DialogueGroups": [
+        101040102
+      ],
+      "TalkDialogGroupIDList": [],
+      "ServerInteractVerificationIDList": []
+    }
+  ],
+  "NPCList": [
+    {
+      "ID": 400001,
+      "PosX": -1.03,
+      "PosZ": -0.329,
+      "Name": "NPC1",
+      "RotY": 186.0433,
+      "NPCID": 1105,
+      "Trigger": {
+        "Radius": 2.0,
+        "DimX": 1.0,
+        "DimY": 1.0,
+        "DimZ": 1.0,
+        "PointList": []
+      },
+      "DialogueGroups": [
+        101040113
+      ],
+      "ServerInteractVerificationIDList": [],
+      "DefaultLookAtMode": "Closed",
+      "MapLayerID": 1,
+      "BoardShowList": [
+        4
+      ],
+      "TalkDialogGroupIDList": [],
+      "DefaultIdleFreeStyleMotionID": 311050000,
+      "InitialHiddenNodeList": [],
+      "Dialog": {
+        "LevelGraph": "Config/Level/NPCDialogue/P10102/F10102003_G3/DialogueMain_F10102003_G3_N400001.json",
+        "EnableCondition": {
+          "Conditions": [
+            {
+              "Type": "SubMission",
+              "ID": 101040103
+            }
+          ],
+          "Operation": "Or"
+        }
+      }
+    }
+  ]
+}

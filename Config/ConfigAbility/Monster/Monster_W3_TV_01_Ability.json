@@ -1,0 +1,1659 @@
+{
+  "AbilityList": [
+    {
+      "Name": "Monster_W3_TV_01_PassiveSkill",
+      "TargetInfo": {
+        "TargetType": "SkillTargetEntityList"
+      },
+      "OnStart": [
+        {
+          "$type": "RPG.GameCore.PredicateTaskList",
+          "Predicate": {
+            "$type": "RPG.GameCore.ByCompareDynamicValue",
+            "TargetType": {
+              "$type": "RPG.GameCore.TargetAlias",
+              "Alias": "LevelEntity"
+            },
+            "DynamicKey": "TV_01_GroupFlag",
+            "ContextScope": "TargetEntity",
+            "CompareType": "Equal",
+            "CompareValue": {
+              "IsDynamic": false,
+              "FixedValue": {
+                "Value": 0
+              }
+            }
+          },
+          "SuccessTaskList": [
+            {
+              "$type": "RPG.GameCore.DefineDynamicValue",
+              "TargetType": {
+                "$type": "RPG.GameCore.TargetAlias",
+                "Alias": "LevelEntity"
+              },
+              "DynamicKey": "TV_01_GroupFlag",
+              "ContextScope": "TargetEntity"
+            }
+          ]
+        },
+        {
+          "$type": "RPG.GameCore.PredicateTaskList",
+          "Predicate": {
+            "$type": "RPG.GameCore.ByCompareDynamicValue",
+            "TargetType": {
+              "$type": "RPG.GameCore.TargetAlias",
+              "Alias": "LevelEntity"
+            },
+            "DynamicKey": "TV_01_EliteFlag",
+            "ContextScope": "TargetEntity",
+            "CompareType": "Equal",
+            "CompareValue": {
+              "IsDynamic": false,
+              "FixedValue": {
+                "Value": 0
+              }
+            }
+          },
+          "SuccessTaskList": [
+            {
+              "$type": "RPG.GameCore.DefineDynamicValue",
+              "TargetType": {
+                "$type": "RPG.GameCore.TargetAlias",
+                "Alias": "LevelEntity"
+              },
+              "DynamicKey": "TV_01_EliteFlag",
+              "ContextScope": "TargetEntity"
+            }
+          ]
+        },
+        {
+          "$type": "RPG.GameCore.DefineDynamicValue",
+          "TargetType": {
+            "$type": "RPG.GameCore.TargetAlias",
+            "Alias": "Caster"
+          },
+          "DynamicKey": "RandomFlagTemp"
+        },
+        {
+          "$type": "RPG.GameCore.SetActionDelay",
+          "TargetType": {
+            "$type": "RPG.GameCore.TargetAlias",
+            "Alias": "Caster"
+          },
+          "NormalizedValue": {
+            "IsDynamic": false,
+            "FixedValue": {
+              "Value": 0
+            }
+          }
+        }
+      ]
+    },
+    {
+      "Name": "Monster_W3_TV_01_Skill01_Phase01",
+      "TargetInfo": {
+        "TargetType": "SkillTargetEntityList"
+      },
+      "OnStart": [
+        {
+          "$type": "RPG.GameCore.TriggerAbility",
+          "TargetType": {
+            "$type": "RPG.GameCore.TargetAlias",
+            "Alias": "Caster"
+          },
+          "AbilityName": "Monster_W3_TV_01_Skill01_Phase02",
+          "IsSkillPerform": true
+        },
+        {
+          "$type": "RPG.GameCore.TriggerAbility",
+          "TargetType": {
+            "$type": "RPG.GameCore.TargetAlias",
+            "Alias": "Caster"
+          },
+          "AbilityName": "Monster_W3_TV_01_Skill01_Camera",
+          "IsSkillPerform": true
+        },
+        {
+          "$type": "RPG.GameCore.TriggerAnimState",
+          "AnimStateName": "Skill01",
+          "NormalizedTimeEnd": {
+            "IsDynamic": false,
+            "FixedValue": {
+              "Value": 1
+            }
+          },
+          "NormalizedTimeWait": {
+            "IsDynamic": false,
+            "FixedValue": {
+              "Value": 0.72
+            }
+          },
+          "NormalizedTransitionDuration": {
+            "IsDynamic": false,
+            "FixedValue": {
+              "Value": 0.15
+            }
+          }
+        },
+        {
+          "$type": "RPG.GameCore.TriggerAnimState",
+          "AnimLogicState": "Idle"
+        }
+      ]
+    },
+    {
+      "Modifiers": {
+        "Monster_W3_TV_01_SummonMonster": {
+          "_CallbackList": [
+            {
+              "Event": "OnActionEnd",
+              "CallbackConfig": [
+                {
+                  "$type": "RPG.GameCore.PredicateTaskList",
+                  "Predicate": {
+                    "$type": "RPG.GameCore.ByCompareDynamicValue",
+                    "DynamicKey": "MDF_LeaveFlag",
+                    "CompareType": "Equal",
+                    "CompareValue": {
+                      "IsDynamic": false,
+                      "FixedValue": {
+                        "Value": 1
+                      }
+                    }
+                  },
+                  "SuccessTaskList": [
+                    {
+                      "$type": "RPG.GameCore.CharacterLeaveStage",
+                      "TargetType": {
+                        "$type": "RPG.GameCore.TargetAlias",
+                        "Alias": "Caster"
+                      },
+                      "AliveOnly": false,
+                      "ReasonKey": "Vanish"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "Event": "OnStack",
+              "CallbackConfig": [
+                {
+                  "$type": "RPG.GameCore.SummonMonster",
+                  "SummonMonsterDataList": [
+                    {
+                      "MonsterID": {
+                        "IsDynamic": true,
+                        "PostfixExpr": {
+                          "OpCodes": "AQAK",
+                          "FixedValues": [],
+                          "DynamicHashes": [
+                            1694320882
+                          ]
+                        }
+                      },
+                      "LocationType": "FormationRecord",
+                      "InitAnimStateName": "StandBy"
+                    }
+                  ],
+                  "InheritAllProperties": true,
+                  "DelayRatio": {
+                    "IsDynamic": false,
+                    "FixedValue": {
+                      "Value": 0
+                    }
+                  },
+                  "RefreshTeamLocation": false
+                },
+                {
+                  "$type": "RPG.GameCore.InfectModifier",
+                  "SourceType": {
+                    "$type": "RPG.GameCore.TargetAlias",
+                    "Alias": "ModifierOwnerEntity"
+                  },
+                  "TargetType": {
+                    "$type": "RPG.GameCore.TargetAlias",
+                    "Alias": "LastSummonMonsters"
+                  },
+                  "BehaviorFlagFilter": [
+                    "STAT_AttachWeakness",
+                    "STAT_CTRL",
+                    "STAT_DOT",
+                    "STAT_Fatigue",
+                    "STAT_DefenceDown",
+                    "STAT_SpeedDown",
+                    "STAT_SpeedUp",
+                    "Taunt",
+                    "DisableHealHP",
+                    "ResistDebuff"
+                  ],
+                  "InfectType": "Initial"
+                },
+                {
+                  "$type": "RPG.GameCore.AddModifier",
+                  "TargetType": {
+                    "$type": "RPG.GameCore.TargetAlias",
+                    "Alias": "LastSummonMonsters"
+                  },
+                  "ModifierName": "Monster_W3_TV_01_SummonMonsterKillTogether"
+                },
+                {
+                  "$type": "RPG.GameCore.ModifyActionDelay",
+                  "TargetType": {
+                    "$type": "RPG.GameCore.TargetAlias",
+                    "Alias": "LastSummonMonsters"
+                  },
+                  "AddNormalizedValue": {
+                    "IsDynamic": false,
+                    "FixedValue": {
+                      "Value": 1
+                    }
+                  }
+                },
+                {
+                  "$type": "RPG.GameCore.SetTeamFormation",
+                  "Team": "TeamDark",
+                  "FormationType": "DarkTeamNormal"
+                },
+                {
+                  "$type": "RPG.GameCore.PredicateTaskList",
+                  "Predicate": {
+                    "$type": "RPG.GameCore.ByCompareDynamicValue",
+                    "TargetType": {
+                      "$type": "RPG.GameCore.TargetAlias",
+                      "Alias": "ModifierOwnerEntity"
+                    },
+                    "DynamicKey": "MDF_isElite",
+                    "CompareType": "Equal",
+                    "CompareValue": {
+                      "IsDynamic": false,
+                      "FixedValue": {
+                        "Value": 1
+                      }
+                    }
+                  },
+                  "SuccessTaskList": [
+                    {
+                      "$type": "RPG.GameCore.SetDynamicValue",
+                      "TargetType": {
+                        "$type": "RPG.GameCore.TargetAlias",
+                        "Alias": "LevelEntity"
+                      },
+                      "DynamicKey": "TV_01_EliteFlag",
+                      "ContextScope": "TargetEntity",
+                      "Value": {
+                        "IsDynamic": false,
+                        "FixedValue": {
+                          "Value": 1
+                        }
+                      }
+                    }
+                  ]
+                },
+                {
+                  "$type": "RPG.GameCore.StackProperty",
+                  "TargetType": {
+                    "$type": "RPG.GameCore.TargetAlias",
+                    "Alias": "Caster"
+                  },
+                  "Property": "BaseSpeed",
+                  "PropertyValue": {
+                    "IsDynamic": false,
+                    "FixedValue": {
+                      "Value": 0
+                    }
+                  }
+                },
+                {
+                  "$type": "RPG.GameCore.SetDynamicValue",
+                  "DynamicKey": "MDF_LeaveFlag",
+                  "Value": {
+                    "IsDynamic": false,
+                    "FixedValue": {
+                      "Value": 1
+                    }
+                  }
+                }
+              ]
+            }
+          ],
+          "Stacking": "Replace",
+          "DynamicValues": {
+            "Values": {
+              "1694320882": {},
+              "-2043065033": {},
+              "209487743": {}
+            }
+          }
+        },
+        "Monster_W3_TV_01_SummonMonsterKillTogether": {
+          "_CallbackList": [
+            {
+              "Event": "OnBeforeDying",
+              "CallbackConfig": [
+                {
+                  "$type": "RPG.GameCore.DestroyBattleCharacter",
+                  "TargetType": {
+                    "$type": "RPG.GameCore.TargetAlias",
+                    "Alias": "ModifierOwnerSummoner"
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      },
+      "Name": "Monster_W3_TV_01_Skill01_Phase02",
+      "TargetInfo": {
+        "TargetType": "SkillTargetEntityList"
+      },
+      "OnStart": [
+        {
+          "$type": "RPG.GameCore.SkillExecutionStart"
+        },
+        {
+          "$type": "RPG.GameCore.WaitAnimState",
+          "TargetType": {
+            "$type": "RPG.GameCore.TargetAlias",
+            "Alias": "Caster"
+          },
+          "AnimStateName": "Skill01",
+          "NormalizedTimeEnd": {
+            "IsDynamic": false,
+            "FixedValue": {
+              "Value": 0.9
+            }
+          }
+        },
+        {
+          "$type": "RPG.GameCore.PredicateTaskList",
+          "Predicate": {
+            "$type": "RPG.GameCore.ByAny",
+            "PredicateList": [
+              {
+                "$type": "RPG.GameCore.ByCompareMonsterID",
+                "TargetType": {
+                  "$type": "RPG.GameCore.TargetAlias",
+                  "Alias": "Caster"
+                },
+                "TargetMonsterID": {
+                  "IsDynamic": false,
+                  "FixedValue": {
+                    "Value": 900230000
+                  }
+                }
+              },
+              {
+                "$type": "RPG.GameCore.ByCompareMonsterID",
+                "TargetType": {
+                  "$type": "RPG.GameCore.TargetAlias",
+                  "Alias": "Caster"
+                },
+                "TargetMonsterID": {
+                  "IsDynamic": false,
+                  "FixedValue": {
+                    "Value": 900230000
+                  }
+                }
+              }
+            ]
+          },
+          "SuccessTaskList": [
+            {
+              "$type": "RPG.GameCore.PredicateTaskList",
+              "Predicate": {
+                "$type": "RPG.GameCore.ByCompareMonsterID",
+                "TargetType": {
+                  "$type": "RPG.GameCore.TargetAlias",
+                  "Alias": "Caster"
+                },
+                "TargetMonsterID": {
+                  "IsDynamic": false,
+                  "FixedValue": {
+                    "Value": 900230000
+                  }
+                }
+              },
+              "SuccessTaskList": [
+                {
+                  "$type": "RPG.GameCore.PredicateTaskList",
+                  "Predicate": {
+                    "$type": "RPG.GameCore.ByCompareDynamicValue",
+                    "TargetType": {
+                      "$type": "RPG.GameCore.TargetAlias",
+                      "Alias": "LevelEntity"
+                    },
+                    "DynamicKey": "TV_01_EliteFlag",
+                    "ContextScope": "TargetEntity",
+                    "CompareType": "Equal",
+                    "CompareValue": {
+                      "IsDynamic": false,
+                      "FixedValue": {
+                        "Value": 0
+                      }
+                    }
+                  },
+                  "SuccessTaskList": [
+                    {
+                      "$type": "RPG.GameCore.RecordEntityFormationIndex",
+                      "TargetType": {
+                        "$type": "RPG.GameCore.TargetAlias",
+                        "Alias": "Caster"
+                      }
+                    },
+                    {
+                      "$type": "RPG.GameCore.MakeCharacterHUDVisible",
+                      "TargetType": {
+                        "$type": "RPG.GameCore.TargetAlias",
+                        "Alias": "ModifierOwnerEntity"
+                      },
+                      "IndependentControl": true
+                    },
+                    {
+                      "$type": "RPG.GameCore.RemoveEntityFromTeamFormation",
+                      "TargetType": {
+                        "$type": "RPG.GameCore.TargetAlias",
+                        "Alias": "ModifierOwnerEntity"
+                      }
+                    },
+                    {
+                      "$type": "RPG.GameCore.SetEntityVisible",
+                      "TargetType": {
+                        "$type": "RPG.GameCore.TargetAlias",
+                        "Alias": "ModifierOwnerEntity"
+                      }
+                    },
+                    {
+                      "$type": "RPG.GameCore.RandomConfig",
+                      "OddsList": [
+                        {
+                          "IsDynamic": true,
+                          "PostfixExpr": {
+                            "OpCodes": "AAABAAABBQMK",
+                            "FixedValues": [
+                              {
+                                "Value": 0.5
+                              },
+                              {
+                                "Value": 2
+                              }
+                            ],
+                            "DynamicHashes": [
+                              -1932462471
+                            ]
+                          }
+                        },
+                        {
+                          "IsDynamic": true,
+                          "PostfixExpr": {
+                            "OpCodes": "AAABAAABBQMK",
+                            "FixedValues": [
+                              {
+                                "Value": 0.5
+                              },
+                              {
+                                "Value": 2
+                              }
+                            ],
+                            "DynamicHashes": [
+                              -1932462471
+                            ]
+                          }
+                        },
+                        {
+                          "IsDynamic": true,
+                          "PostfixExpr": {
+                            "OpCodes": "AQAK",
+                            "FixedValues": [],
+                            "DynamicHashes": [
+                              -1932462471
+                            ]
+                          }
+                        }
+                      ],
+                      "TaskList": [
+                        {
+                          "$type": "RPG.GameCore.AddModifier",
+                          "TargetType": {
+                            "$type": "RPG.GameCore.TargetAlias",
+                            "Alias": "Caster"
+                          },
+                          "ModifierName": "Monster_W3_TV_01_SummonMonster",
+                          "DynamicValues": {
+                            "MDF_SummonID": {
+                              "IsDynamic": false,
+                              "FixedValue": {
+                                "Value": 2002010
+                              }
+                            },
+                            "MDF_isElite": {
+                              "IsDynamic": false,
+                              "FixedValue": {
+                                "Value": 0
+                              }
+                            }
+                          }
+                        },
+                        {
+                          "$type": "RPG.GameCore.AddModifier",
+                          "TargetType": {
+                            "$type": "RPG.GameCore.TargetAlias",
+                            "Alias": "Caster"
+                          },
+                          "ModifierName": "Monster_W3_TV_01_SummonMonster",
+                          "DynamicValues": {
+                            "MDF_SummonID": {
+                              "IsDynamic": false,
+                              "FixedValue": {
+                                "Value": 2002030
+                              }
+                            },
+                            "MDF_isElite": {
+                              "IsDynamic": false,
+                              "FixedValue": {
+                                "Value": 0
+                              }
+                            }
+                          }
+                        },
+                        {
+                          "$type": "RPG.GameCore.AddModifier",
+                          "TargetType": {
+                            "$type": "RPG.GameCore.TargetAlias",
+                            "Alias": "Caster"
+                          },
+                          "ModifierName": "Monster_W3_TV_01_SummonMonster",
+                          "DynamicValues": {
+                            "MDF_SummonID": {
+                              "IsDynamic": false,
+                              "FixedValue": {
+                                "Value": 2013020
+                              }
+                            },
+                            "MDF_isElite": {
+                              "IsDynamic": false,
+                              "FixedValue": {
+                                "Value": 1
+                              }
+                            }
+                          }
+                        }
+                      ]
+                    },
+                    {
+                      "$type": "RPG.GameCore.ClearRecordEntityFormation",
+                      "Team": "TeamDark"
+                    }
+                  ],
+                  "FailedTaskList": [
+                    {
+                      "$type": "RPG.GameCore.RecordEntityFormationIndex",
+                      "TargetType": {
+                        "$type": "RPG.GameCore.TargetAlias",
+                        "Alias": "Caster"
+                      }
+                    },
+                    {
+                      "$type": "RPG.GameCore.MakeCharacterHUDVisible",
+                      "TargetType": {
+                        "$type": "RPG.GameCore.TargetAlias",
+                        "Alias": "ModifierOwnerEntity"
+                      },
+                      "IndependentControl": true
+                    },
+                    {
+                      "$type": "RPG.GameCore.RemoveEntityFromTeamFormation",
+                      "TargetType": {
+                        "$type": "RPG.GameCore.TargetAlias",
+                        "Alias": "ModifierOwnerEntity"
+                      }
+                    },
+                    {
+                      "$type": "RPG.GameCore.SetEntityVisible",
+                      "TargetType": {
+                        "$type": "RPG.GameCore.TargetAlias",
+                        "Alias": "ModifierOwnerEntity"
+                      }
+                    },
+                    {
+                      "$type": "RPG.GameCore.RandomConfig",
+                      "OddsList": [
+                        {
+                          "IsDynamic": false,
+                          "FixedValue": {
+                            "Value": 0.5
+                          }
+                        },
+                        {
+                          "IsDynamic": false,
+                          "FixedValue": {
+                            "Value": 0.5
+                          }
+                        }
+                      ],
+                      "TaskList": [
+                        {
+                          "$type": "RPG.GameCore.AddModifier",
+                          "TargetType": {
+                            "$type": "RPG.GameCore.TargetAlias",
+                            "Alias": "Caster"
+                          },
+                          "ModifierName": "Monster_W3_TV_01_SummonMonster",
+                          "DynamicValues": {
+                            "MDF_SummonID": {
+                              "IsDynamic": false,
+                              "FixedValue": {
+                                "Value": 2002010
+                              }
+                            },
+                            "MDF_isElite": {
+                              "IsDynamic": false,
+                              "FixedValue": {
+                                "Value": 0
+                              }
+                            }
+                          }
+                        },
+                        {
+                          "$type": "RPG.GameCore.AddModifier",
+                          "TargetType": {
+                            "$type": "RPG.GameCore.TargetAlias",
+                            "Alias": "Caster"
+                          },
+                          "ModifierName": "Monster_W3_TV_01_SummonMonster",
+                          "DynamicValues": {
+                            "MDF_SummonID": {
+                              "IsDynamic": false,
+                              "FixedValue": {
+                                "Value": 2002030
+                              }
+                            },
+                            "MDF_isElite": {
+                              "IsDynamic": false,
+                              "FixedValue": {
+                                "Value": 0
+                              }
+                            }
+                          }
+                        }
+                      ]
+                    },
+                    {
+                      "$type": "RPG.GameCore.ClearRecordEntityFormation",
+                      "Team": "TeamDark"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "$type": "RPG.GameCore.PredicateTaskList",
+              "Predicate": {
+                "$type": "RPG.GameCore.ByCompareMonsterID",
+                "TargetType": {
+                  "$type": "RPG.GameCore.TargetAlias",
+                  "Alias": "Caster"
+                },
+                "TargetMonsterID": {
+                  "IsDynamic": false,
+                  "FixedValue": {
+                    "Value": 900230000
+                  }
+                }
+              },
+              "SuccessTaskList": [
+                {
+                  "$type": "RPG.GameCore.PredicateTaskList",
+                  "Predicate": {
+                    "$type": "RPG.GameCore.ByCompareDynamicValue",
+                    "TargetType": {
+                      "$type": "RPG.GameCore.TargetAlias",
+                      "Alias": "LevelEntity"
+                    },
+                    "DynamicKey": "TV_01_EliteFlag",
+                    "ContextScope": "TargetEntity",
+                    "CompareType": "Equal",
+                    "CompareValue": {
+                      "IsDynamic": false,
+                      "FixedValue": {
+                        "Value": 0
+                      }
+                    }
+                  },
+                  "SuccessTaskList": [
+                    {
+                      "$type": "RPG.GameCore.RecordEntityFormationIndex",
+                      "TargetType": {
+                        "$type": "RPG.GameCore.TargetAlias",
+                        "Alias": "Caster"
+                      }
+                    },
+                    {
+                      "$type": "RPG.GameCore.MakeCharacterHUDVisible",
+                      "TargetType": {
+                        "$type": "RPG.GameCore.TargetAlias",
+                        "Alias": "ModifierOwnerEntity"
+                      },
+                      "IndependentControl": true
+                    },
+                    {
+                      "$type": "RPG.GameCore.RemoveEntityFromTeamFormation",
+                      "TargetType": {
+                        "$type": "RPG.GameCore.TargetAlias",
+                        "Alias": "ModifierOwnerEntity"
+                      }
+                    },
+                    {
+                      "$type": "RPG.GameCore.SetEntityVisible",
+                      "TargetType": {
+                        "$type": "RPG.GameCore.TargetAlias",
+                        "Alias": "ModifierOwnerEntity"
+                      }
+                    },
+                    {
+                      "$type": "RPG.GameCore.RandomConfig",
+                      "OddsList": [
+                        {
+                          "IsDynamic": true,
+                          "PostfixExpr": {
+                            "OpCodes": "AAABAAABBQMK",
+                            "FixedValues": [
+                              {
+                                "Value": 0.5
+                              },
+                              {
+                                "Value": 2
+                              }
+                            ],
+                            "DynamicHashes": [
+                              -1932462471
+                            ]
+                          }
+                        },
+                        {
+                          "IsDynamic": true,
+                          "PostfixExpr": {
+                            "OpCodes": "AAABAAABBQMK",
+                            "FixedValues": [
+                              {
+                                "Value": 0.5
+                              },
+                              {
+                                "Value": 2
+                              }
+                            ],
+                            "DynamicHashes": [
+                              -1932462471
+                            ]
+                          }
+                        },
+                        {
+                          "IsDynamic": true,
+                          "PostfixExpr": {
+                            "OpCodes": "AQAK",
+                            "FixedValues": [],
+                            "DynamicHashes": [
+                              -1932462471
+                            ]
+                          }
+                        }
+                      ],
+                      "TaskList": [
+                        {
+                          "$type": "RPG.GameCore.AddModifier",
+                          "TargetType": {
+                            "$type": "RPG.GameCore.TargetAlias",
+                            "Alias": "Caster"
+                          },
+                          "ModifierName": "Monster_W3_TV_01_SummonMonster",
+                          "DynamicValues": {
+                            "MDF_SummonID": {
+                              "IsDynamic": false,
+                              "FixedValue": {
+                                "Value": 8032010
+                              }
+                            },
+                            "MDF_isElite": {
+                              "IsDynamic": false,
+                              "FixedValue": {
+                                "Value": 0
+                              }
+                            }
+                          }
+                        },
+                        {
+                          "$type": "RPG.GameCore.AddModifier",
+                          "TargetType": {
+                            "$type": "RPG.GameCore.TargetAlias",
+                            "Alias": "Caster"
+                          },
+                          "ModifierName": "Monster_W3_TV_01_SummonMonster",
+                          "DynamicValues": {
+                            "MDF_SummonID": {
+                              "IsDynamic": false,
+                              "FixedValue": {
+                                "Value": 8032020
+                              }
+                            },
+                            "MDF_isElite": {
+                              "IsDynamic": false,
+                              "FixedValue": {
+                                "Value": 0
+                              }
+                            }
+                          }
+                        },
+                        {
+                          "$type": "RPG.GameCore.AddModifier",
+                          "TargetType": {
+                            "$type": "RPG.GameCore.TargetAlias",
+                            "Alias": "Caster"
+                          },
+                          "ModifierName": "Monster_W3_TV_01_SummonMonster",
+                          "DynamicValues": {
+                            "MDF_SummonID": {
+                              "IsDynamic": false,
+                              "FixedValue": {
+                                "Value": 8033010
+                              }
+                            },
+                            "MDF_isElite": {
+                              "IsDynamic": false,
+                              "FixedValue": {
+                                "Value": 1
+                              }
+                            }
+                          }
+                        }
+                      ]
+                    },
+                    {
+                      "$type": "RPG.GameCore.ClearRecordEntityFormation",
+                      "Team": "TeamDark"
+                    }
+                  ],
+                  "FailedTaskList": [
+                    {
+                      "$type": "RPG.GameCore.RecordEntityFormationIndex",
+                      "TargetType": {
+                        "$type": "RPG.GameCore.TargetAlias",
+                        "Alias": "Caster"
+                      }
+                    },
+                    {
+                      "$type": "RPG.GameCore.MakeCharacterHUDVisible",
+                      "TargetType": {
+                        "$type": "RPG.GameCore.TargetAlias",
+                        "Alias": "ModifierOwnerEntity"
+                      },
+                      "IndependentControl": true
+                    },
+                    {
+                      "$type": "RPG.GameCore.RemoveEntityFromTeamFormation",
+                      "TargetType": {
+                        "$type": "RPG.GameCore.TargetAlias",
+                        "Alias": "ModifierOwnerEntity"
+                      }
+                    },
+                    {
+                      "$type": "RPG.GameCore.SetEntityVisible",
+                      "TargetType": {
+                        "$type": "RPG.GameCore.TargetAlias",
+                        "Alias": "ModifierOwnerEntity"
+                      }
+                    },
+                    {
+                      "$type": "RPG.GameCore.RandomConfig",
+                      "OddsList": [
+                        {
+                          "IsDynamic": false,
+                          "FixedValue": {
+                            "Value": 0.5
+                          }
+                        },
+                        {
+                          "IsDynamic": false,
+                          "FixedValue": {
+                            "Value": 0.5
+                          }
+                        }
+                      ],
+                      "TaskList": [
+                        {
+                          "$type": "RPG.GameCore.AddModifier",
+                          "TargetType": {
+                            "$type": "RPG.GameCore.TargetAlias",
+                            "Alias": "Caster"
+                          },
+                          "ModifierName": "Monster_W3_TV_01_SummonMonster",
+                          "DynamicValues": {
+                            "MDF_SummonID": {
+                              "IsDynamic": false,
+                              "FixedValue": {
+                                "Value": 8032010
+                              }
+                            },
+                            "MDF_isElite": {
+                              "IsDynamic": false,
+                              "FixedValue": {
+                                "Value": 0
+                              }
+                            }
+                          }
+                        },
+                        {
+                          "$type": "RPG.GameCore.AddModifier",
+                          "TargetType": {
+                            "$type": "RPG.GameCore.TargetAlias",
+                            "Alias": "Caster"
+                          },
+                          "ModifierName": "Monster_W3_TV_01_SummonMonster",
+                          "DynamicValues": {
+                            "MDF_SummonID": {
+                              "IsDynamic": false,
+                              "FixedValue": {
+                                "Value": 8032020
+                              }
+                            },
+                            "MDF_isElite": {
+                              "IsDynamic": false,
+                              "FixedValue": {
+                                "Value": 0
+                              }
+                            }
+                          }
+                        }
+                      ]
+                    },
+                    {
+                      "$type": "RPG.GameCore.ClearRecordEntityFormation",
+                      "Team": "TeamDark"
+                    }
+                  ]
+                }
+              ]
+            }
+          ],
+          "FailedTaskList": [
+            {
+              "$type": "RPG.GameCore.PredicateTaskList",
+              "Predicate": {
+                "$type": "RPG.GameCore.ByCompareDynamicValue",
+                "TargetType": {
+                  "$type": "RPG.GameCore.TargetAlias",
+                  "Alias": "LevelEntity"
+                },
+                "DynamicKey": "TV_01_GroupFlag",
+                "ContextScope": "TargetEntity",
+                "CompareType": "Equal",
+                "CompareValue": {
+                  "IsDynamic": false,
+                  "FixedValue": {
+                    "Value": 0
+                  }
+                }
+              },
+              "SuccessTaskList": [
+                {
+                  "$type": "RPG.GameCore.SetDynamicValueByRandom",
+                  "DynamicKey": "RandomFlagTemp",
+                  "IsInt": true,
+                  "Min": {
+                    "IsDynamic": false,
+                    "FixedValue": {
+                      "Value": 1
+                    }
+                  },
+                  "Max": {
+                    "IsDynamic": false,
+                    "FixedValue": {
+                      "Value": 3
+                    }
+                  }
+                },
+                {
+                  "$type": "RPG.GameCore.SetDynamicValue",
+                  "TargetType": {
+                    "$type": "RPG.GameCore.TargetAlias",
+                    "Alias": "LevelEntity"
+                  },
+                  "DynamicKey": "TV_01_GroupFlag",
+                  "Value": {
+                    "IsDynamic": true,
+                    "PostfixExpr": {
+                      "OpCodes": "AQAK",
+                      "FixedValues": [],
+                      "DynamicHashes": [
+                        490684615
+                      ]
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              "$type": "RPG.GameCore.PredicateTaskList",
+              "Predicate": {
+                "$type": "RPG.GameCore.ByCompareDynamicValue",
+                "TargetType": {
+                  "$type": "RPG.GameCore.TargetAlias",
+                  "Alias": "LevelEntity"
+                },
+                "DynamicKey": "TV_01_GroupFlag",
+                "ContextScope": "TargetEntity",
+                "CompareType": "Equal",
+                "CompareValue": {
+                  "IsDynamic": false,
+                  "FixedValue": {
+                    "Value": 1
+                  }
+                }
+              },
+              "SuccessTaskList": [
+                {
+                  "$type": "RPG.GameCore.PredicateTaskList",
+                  "Predicate": {
+                    "$type": "RPG.GameCore.ByCompareDynamicValue",
+                    "TargetType": {
+                      "$type": "RPG.GameCore.TargetAlias",
+                      "Alias": "LevelEntity"
+                    },
+                    "DynamicKey": "TV_01_EliteFlag",
+                    "ContextScope": "TargetEntity",
+                    "CompareType": "Equal",
+                    "CompareValue": {
+                      "IsDynamic": false,
+                      "FixedValue": {
+                        "Value": 0
+                      }
+                    }
+                  },
+                  "SuccessTaskList": [
+                    {
+                      "$type": "RPG.GameCore.RecordEntityFormationIndex",
+                      "TargetType": {
+                        "$type": "RPG.GameCore.TargetAlias",
+                        "Alias": "Caster"
+                      }
+                    },
+                    {
+                      "$type": "RPG.GameCore.MakeCharacterHUDVisible",
+                      "TargetType": {
+                        "$type": "RPG.GameCore.TargetAlias",
+                        "Alias": "ModifierOwnerEntity"
+                      },
+                      "IndependentControl": true
+                    },
+                    {
+                      "$type": "RPG.GameCore.RemoveEntityFromTeamFormation",
+                      "TargetType": {
+                        "$type": "RPG.GameCore.TargetAlias",
+                        "Alias": "ModifierOwnerEntity"
+                      }
+                    },
+                    {
+                      "$type": "RPG.GameCore.SetEntityVisible",
+                      "TargetType": {
+                        "$type": "RPG.GameCore.TargetAlias",
+                        "Alias": "ModifierOwnerEntity"
+                      }
+                    },
+                    {
+                      "$type": "RPG.GameCore.RandomConfig",
+                      "OddsList": [
+                        {
+                          "IsDynamic": true,
+                          "PostfixExpr": {
+                            "OpCodes": "AAABAAABBQMK",
+                            "FixedValues": [
+                              {
+                                "Value": 0.5
+                              },
+                              {
+                                "Value": 2
+                              }
+                            ],
+                            "DynamicHashes": [
+                              -1932462471
+                            ]
+                          }
+                        },
+                        {
+                          "IsDynamic": true,
+                          "PostfixExpr": {
+                            "OpCodes": "AAABAAABBQMK",
+                            "FixedValues": [
+                              {
+                                "Value": 0.5
+                              },
+                              {
+                                "Value": 2
+                              }
+                            ],
+                            "DynamicHashes": [
+                              -1932462471
+                            ]
+                          }
+                        },
+                        {
+                          "IsDynamic": true,
+                          "PostfixExpr": {
+                            "OpCodes": "AQAK",
+                            "FixedValues": [],
+                            "DynamicHashes": [
+                              -1932462471
+                            ]
+                          }
+                        }
+                      ],
+                      "TaskList": [
+                        {
+                          "$type": "RPG.GameCore.AddModifier",
+                          "TargetType": {
+                            "$type": "RPG.GameCore.TargetAlias",
+                            "Alias": "Caster"
+                          },
+                          "ModifierName": "Monster_W3_TV_01_SummonMonster",
+                          "DynamicValues": {
+                            "MDF_SummonID": {
+                              "IsDynamic": false,
+                              "FixedValue": {
+                                "Value": 2002010
+                              }
+                            },
+                            "MDF_isElite": {
+                              "IsDynamic": false,
+                              "FixedValue": {
+                                "Value": 0
+                              }
+                            }
+                          }
+                        },
+                        {
+                          "$type": "RPG.GameCore.AddModifier",
+                          "TargetType": {
+                            "$type": "RPG.GameCore.TargetAlias",
+                            "Alias": "Caster"
+                          },
+                          "ModifierName": "Monster_W3_TV_01_SummonMonster",
+                          "DynamicValues": {
+                            "MDF_SummonID": {
+                              "IsDynamic": false,
+                              "FixedValue": {
+                                "Value": 2002030
+                              }
+                            },
+                            "MDF_isElite": {
+                              "IsDynamic": false,
+                              "FixedValue": {
+                                "Value": 0
+                              }
+                            }
+                          }
+                        },
+                        {
+                          "$type": "RPG.GameCore.AddModifier",
+                          "TargetType": {
+                            "$type": "RPG.GameCore.TargetAlias",
+                            "Alias": "Caster"
+                          },
+                          "ModifierName": "Monster_W3_TV_01_SummonMonster",
+                          "DynamicValues": {
+                            "MDF_SummonID": {
+                              "IsDynamic": false,
+                              "FixedValue": {
+                                "Value": 2013020
+                              }
+                            },
+                            "MDF_isElite": {
+                              "IsDynamic": false,
+                              "FixedValue": {
+                                "Value": 1
+                              }
+                            }
+                          }
+                        }
+                      ]
+                    },
+                    {
+                      "$type": "RPG.GameCore.ClearRecordEntityFormation",
+                      "Team": "TeamDark"
+                    }
+                  ],
+                  "FailedTaskList": [
+                    {
+                      "$type": "RPG.GameCore.RecordEntityFormationIndex",
+                      "TargetType": {
+                        "$type": "RPG.GameCore.TargetAlias",
+                        "Alias": "Caster"
+                      }
+                    },
+                    {
+                      "$type": "RPG.GameCore.MakeCharacterHUDVisible",
+                      "TargetType": {
+                        "$type": "RPG.GameCore.TargetAlias",
+                        "Alias": "ModifierOwnerEntity"
+                      },
+                      "IndependentControl": true
+                    },
+                    {
+                      "$type": "RPG.GameCore.RemoveEntityFromTeamFormation",
+                      "TargetType": {
+                        "$type": "RPG.GameCore.TargetAlias",
+                        "Alias": "ModifierOwnerEntity"
+                      }
+                    },
+                    {
+                      "$type": "RPG.GameCore.SetEntityVisible",
+                      "TargetType": {
+                        "$type": "RPG.GameCore.TargetAlias",
+                        "Alias": "ModifierOwnerEntity"
+                      }
+                    },
+                    {
+                      "$type": "RPG.GameCore.RandomConfig",
+                      "OddsList": [
+                        {
+                          "IsDynamic": false,
+                          "FixedValue": {
+                            "Value": 0.5
+                          }
+                        },
+                        {
+                          "IsDynamic": false,
+                          "FixedValue": {
+                            "Value": 0.5
+                          }
+                        }
+                      ],
+                      "TaskList": [
+                        {
+                          "$type": "RPG.GameCore.AddModifier",
+                          "TargetType": {
+                            "$type": "RPG.GameCore.TargetAlias",
+                            "Alias": "Caster"
+                          },
+                          "ModifierName": "Monster_W3_TV_01_SummonMonster",
+                          "DynamicValues": {
+                            "MDF_SummonID": {
+                              "IsDynamic": false,
+                              "FixedValue": {
+                                "Value": 2002010
+                              }
+                            },
+                            "MDF_isElite": {
+                              "IsDynamic": false,
+                              "FixedValue": {
+                                "Value": 0
+                              }
+                            }
+                          }
+                        },
+                        {
+                          "$type": "RPG.GameCore.AddModifier",
+                          "TargetType": {
+                            "$type": "RPG.GameCore.TargetAlias",
+                            "Alias": "Caster"
+                          },
+                          "ModifierName": "Monster_W3_TV_01_SummonMonster",
+                          "DynamicValues": {
+                            "MDF_SummonID": {
+                              "IsDynamic": false,
+                              "FixedValue": {
+                                "Value": 2002030
+                              }
+                            },
+                            "MDF_isElite": {
+                              "IsDynamic": false,
+                              "FixedValue": {
+                                "Value": 0
+                              }
+                            }
+                          }
+                        }
+                      ]
+                    },
+                    {
+                      "$type": "RPG.GameCore.ClearRecordEntityFormation",
+                      "Team": "TeamDark"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "$type": "RPG.GameCore.PredicateTaskList",
+              "Predicate": {
+                "$type": "RPG.GameCore.ByCompareDynamicValue",
+                "TargetType": {
+                  "$type": "RPG.GameCore.TargetAlias",
+                  "Alias": "LevelEntity"
+                },
+                "DynamicKey": "TV_01_GroupFlag",
+                "ContextScope": "TargetEntity",
+                "CompareType": "Equal",
+                "CompareValue": {
+                  "IsDynamic": false,
+                  "FixedValue": {
+                    "Value": 2
+                  }
+                }
+              },
+              "SuccessTaskList": [
+                {
+                  "$type": "RPG.GameCore.PredicateTaskList",
+                  "Predicate": {
+                    "$type": "RPG.GameCore.ByCompareDynamicValue",
+                    "TargetType": {
+                      "$type": "RPG.GameCore.TargetAlias",
+                      "Alias": "LevelEntity"
+                    },
+                    "DynamicKey": "TV_01_EliteFlag",
+                    "ContextScope": "TargetEntity",
+                    "CompareType": "Equal",
+                    "CompareValue": {
+                      "IsDynamic": false,
+                      "FixedValue": {
+                        "Value": 0
+                      }
+                    }
+                  },
+                  "SuccessTaskList": [
+                    {
+                      "$type": "RPG.GameCore.RecordEntityFormationIndex",
+                      "TargetType": {
+                        "$type": "RPG.GameCore.TargetAlias",
+                        "Alias": "Caster"
+                      }
+                    },
+                    {
+                      "$type": "RPG.GameCore.MakeCharacterHUDVisible",
+                      "TargetType": {
+                        "$type": "RPG.GameCore.TargetAlias",
+                        "Alias": "ModifierOwnerEntity"
+                      },
+                      "IndependentControl": true
+                    },
+                    {
+                      "$type": "RPG.GameCore.RemoveEntityFromTeamFormation",
+                      "TargetType": {
+                        "$type": "RPG.GameCore.TargetAlias",
+                        "Alias": "ModifierOwnerEntity"
+                      }
+                    },
+                    {
+                      "$type": "RPG.GameCore.SetEntityVisible",
+                      "TargetType": {
+                        "$type": "RPG.GameCore.TargetAlias",
+                        "Alias": "ModifierOwnerEntity"
+                      }
+                    },
+                    {
+                      "$type": "RPG.GameCore.RandomConfig",
+                      "OddsList": [
+                        {
+                          "IsDynamic": true,
+                          "PostfixExpr": {
+                            "OpCodes": "AAABAAABBQMK",
+                            "FixedValues": [
+                              {
+                                "Value": 0.5
+                              },
+                              {
+                                "Value": 2
+                              }
+                            ],
+                            "DynamicHashes": [
+                              -1932462471
+                            ]
+                          }
+                        },
+                        {
+                          "IsDynamic": true,
+                          "PostfixExpr": {
+                            "OpCodes": "AAABAAABBQMK",
+                            "FixedValues": [
+                              {
+                                "Value": 0.5
+                              },
+                              {
+                                "Value": 2
+                              }
+                            ],
+                            "DynamicHashes": [
+                              -1932462471
+                            ]
+                          }
+                        },
+                        {
+                          "IsDynamic": true,
+                          "PostfixExpr": {
+                            "OpCodes": "AQAK",
+                            "FixedValues": [],
+                            "DynamicHashes": [
+                              -1932462471
+                            ]
+                          }
+                        }
+                      ],
+                      "TaskList": [
+                        {
+                          "$type": "RPG.GameCore.AddModifier",
+                          "TargetType": {
+                            "$type": "RPG.GameCore.TargetAlias",
+                            "Alias": "Caster"
+                          },
+                          "ModifierName": "Monster_W3_TV_01_SummonMonster",
+                          "DynamicValues": {
+                            "MDF_SummonID": {
+                              "IsDynamic": false,
+                              "FixedValue": {
+                                "Value": 8032010
+                              }
+                            },
+                            "MDF_isElite": {
+                              "IsDynamic": false,
+                              "FixedValue": {
+                                "Value": 0
+                              }
+                            }
+                          }
+                        },
+                        {
+                          "$type": "RPG.GameCore.AddModifier",
+                          "TargetType": {
+                            "$type": "RPG.GameCore.TargetAlias",
+                            "Alias": "Caster"
+                          },
+                          "ModifierName": "Monster_W3_TV_01_SummonMonster",
+                          "DynamicValues": {
+                            "MDF_SummonID": {
+                              "IsDynamic": false,
+                              "FixedValue": {
+                                "Value": 8032020
+                              }
+                            },
+                            "MDF_isElite": {
+                              "IsDynamic": false,
+                              "FixedValue": {
+                                "Value": 0
+                              }
+                            }
+                          }
+                        },
+                        {
+                          "$type": "RPG.GameCore.AddModifier",
+                          "TargetType": {
+                            "$type": "RPG.GameCore.TargetAlias",
+                            "Alias": "Caster"
+                          },
+                          "ModifierName": "Monster_W3_TV_01_SummonMonster",
+                          "DynamicValues": {
+                            "MDF_SummonID": {
+                              "IsDynamic": false,
+                              "FixedValue": {
+                                "Value": 8033010
+                              }
+                            },
+                            "MDF_isElite": {
+                              "IsDynamic": false,
+                              "FixedValue": {
+                                "Value": 1
+                              }
+                            }
+                          }
+                        }
+                      ]
+                    },
+                    {
+                      "$type": "RPG.GameCore.ClearRecordEntityFormation",
+                      "Team": "TeamDark"
+                    }
+                  ],
+                  "FailedTaskList": [
+                    {
+                      "$type": "RPG.GameCore.RecordEntityFormationIndex",
+                      "TargetType": {
+                        "$type": "RPG.GameCore.TargetAlias",
+                        "Alias": "Caster"
+                      }
+                    },
+                    {
+                      "$type": "RPG.GameCore.MakeCharacterHUDVisible",
+                      "TargetType": {
+                        "$type": "RPG.GameCore.TargetAlias",
+                        "Alias": "ModifierOwnerEntity"
+                      },
+                      "IndependentControl": true
+                    },
+                    {
+                      "$type": "RPG.GameCore.RemoveEntityFromTeamFormation",
+                      "TargetType": {
+                        "$type": "RPG.GameCore.TargetAlias",
+                        "Alias": "ModifierOwnerEntity"
+                      }
+                    },
+                    {
+                      "$type": "RPG.GameCore.SetEntityVisible",
+                      "TargetType": {
+                        "$type": "RPG.GameCore.TargetAlias",
+                        "Alias": "ModifierOwnerEntity"
+                      }
+                    },
+                    {
+                      "$type": "RPG.GameCore.RandomConfig",
+                      "OddsList": [
+                        {
+                          "IsDynamic": false,
+                          "FixedValue": {
+                            "Value": 0.5
+                          }
+                        },
+                        {
+                          "IsDynamic": false,
+                          "FixedValue": {
+                            "Value": 0.5
+                          }
+                        }
+                      ],
+                      "TaskList": [
+                        {
+                          "$type": "RPG.GameCore.AddModifier",
+                          "TargetType": {
+                            "$type": "RPG.GameCore.TargetAlias",
+                            "Alias": "Caster"
+                          },
+                          "ModifierName": "Monster_W3_TV_01_SummonMonster",
+                          "DynamicValues": {
+                            "MDF_SummonID": {
+                              "IsDynamic": false,
+                              "FixedValue": {
+                                "Value": 8032010
+                              }
+                            },
+                            "MDF_isElite": {
+                              "IsDynamic": false,
+                              "FixedValue": {
+                                "Value": 0
+                              }
+                            }
+                          }
+                        },
+                        {
+                          "$type": "RPG.GameCore.AddModifier",
+                          "TargetType": {
+                            "$type": "RPG.GameCore.TargetAlias",
+                            "Alias": "Caster"
+                          },
+                          "ModifierName": "Monster_W3_TV_01_SummonMonster",
+                          "DynamicValues": {
+                            "MDF_SummonID": {
+                              "IsDynamic": false,
+                              "FixedValue": {
+                                "Value": 8032020
+                              }
+                            },
+                            "MDF_isElite": {
+                              "IsDynamic": false,
+                              "FixedValue": {
+                                "Value": 0
+                              }
+                            }
+                          }
+                        }
+                      ]
+                    },
+                    {
+                      "$type": "RPG.GameCore.ClearRecordEntityFormation",
+                      "Team": "TeamDark"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "$type": "RPG.GameCore.WaitSecond",
+          "WaitTime": {
+            "IsDynamic": false,
+            "FixedValue": {
+              "Value": 2
+            }
+          }
+        },
+        {
+          "$type": "RPG.GameCore.SkillPerformFinish"
+        }
+      ]
+    },
+    {
+      "Name": "Monster_W3_TV_01_Skill02_Phase01",
+      "TargetInfo": {
+        "TargetType": "SkillTargetEntityList"
+      },
+      "OnStart": [
+        {
+          "$type": "RPG.GameCore.TriggerAbility",
+          "TargetType": {
+            "$type": "RPG.GameCore.TargetAlias",
+            "Alias": "Caster"
+          },
+          "AbilityName": "Monster_W3_TV_01_Skill02_Phase02",
+          "IsSkillPerform": true
+        }
+      ]
+    },
+    {
+      "Name": "Monster_W3_TV_01_Skill02_Phase02",
+      "TargetInfo": {
+        "TargetType": "SkillTargetEntityList"
+      },
+      "OnStart": [
+        {
+          "$type": "RPG.GameCore.SkillPerformFinish"
+        }
+      ]
+    }
+  ]
+}

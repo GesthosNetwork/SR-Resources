@@ -1,0 +1,97 @@
+{
+  "GroupGUID": "5c4965d9-194b-4887-be0a-948658540d6c",
+  "GroupName": "MainMission2020303_",
+  "Category": "Mission",
+  "AreaAnchorName": "LevelArea_P10201_F10201001_G58",
+  "SaveType": "Reset",
+  "LoadCondition": {
+    "Conditions": [
+      {
+        "Type": "SubMission",
+        "ID": 202030315
+      },
+      {
+        "Type": "SubMission",
+        "ID": 202030335
+      }
+    ],
+    "Operation": "Or"
+  },
+  "UnloadCondition": {
+    "Conditions": [
+      {
+        "Type": "SubMission",
+        "Phase": "Finish",
+        "ID": 202030335
+      }
+    ]
+  },
+  "LoadSide": "Server",
+  "OwnerMainMissionID": 2020303,
+  "ConflictIDList": [],
+  "AnchorList": [],
+  "MonsterList": [],
+  "PropList": [
+    {
+      "ID": 300001,
+      "PosX": 3.351,
+      "PosY": 0.949,
+      "PosZ": -8.891,
+      "Name": "Prop1",
+      "RotY": 180.0,
+      "PropID": 100,
+      "IsOverrideInitLevelGraph": true,
+      "InitLevelGraph": "Config/Level/Maze/MazeExtra/LogisticsRobot/LogisticsRobot_X100Mission_Start.json",
+      "ValueSource": {
+        "Values": [
+          {
+            "$type": "SharedUint",
+            "Key": "Group"
+          },
+          {
+            "$type": "SharedUint",
+            "Key": "ID"
+          }
+        ]
+      },
+      "CampID": 4,
+      "MapLayerID": 1,
+      "CustomTriggerMap": {},
+      "BridgeStateRotations": [],
+      "DialogueGroups": [],
+      "TalkDialogGroupIDList": [],
+      "ServerInteractVerificationIDList": []
+    }
+  ],
+  "NPCList": [
+    {
+      "ID": 400001,
+      "PosX": 3.328,
+      "PosY": 1.0E-6,
+      "PosZ": -8.59,
+      "Name": "NPC1",
+      "RotY": 90.0,
+      "NPCID": 3011,
+      "LevelGraph": "Config/Level/Maze/MazeExtra/LogisticsRobot/LogisticsRobot_X100Mission.json",
+      "AIConfig": {
+        "AIFile": "Config/ConfigAI/Adventure/Special_NPC_Adventure/MazeNPC_FollowPlayer_Special_RobCrane_3011.json",
+        "PathwayList": [
+          {
+            "UseOwnerGroup": true,
+            "UseGroup": 58,
+            "UseID": 1
+          }
+        ],
+        "SlaveConfigList": []
+      },
+      "DialogueGroups": [],
+      "ServerInteractVerificationIDList": [],
+      "DefaultLookAtMode": "Closed",
+      "MapLayerID": 1,
+      "BoardShowList": [],
+      "TalkDialogGroupIDList": [],
+      "DefaultAnimationType": "IdleState",
+      "InitialHiddenNodeList": []
+    }
+  ]
+}
