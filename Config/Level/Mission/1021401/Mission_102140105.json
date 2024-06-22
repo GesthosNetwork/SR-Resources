@@ -1,0 +1,47 @@
+{
+  "OnInitSequece": [],
+  "OnStartSequece": [
+    {
+      "TaskList": [
+        {
+          "$type": "RPG.GameCore.CreateProp",
+          "GroupID": 18,
+          "GroupPropID": 300001,
+          "CreateList": []
+        }
+      ]
+    },
+    {
+      "TaskList": [
+        {
+          "$type": "RPG.GameCore.WaitCustomString",
+          "CustomString": {
+            "Value": "Talk_102140105"
+          }
+        },
+        {
+          "$type": "RPG.GameCore.DestroyProp",
+          "ID": 300001,
+          "GroupID": 18,
+          "DestroyList": []
+        },
+        {
+          "$type": "RPG.GameCore.TriggerPerformance",
+          "ValueSource": {},
+          "PerformanceType": "PlayVideo",
+          "PerformanceID": 102140106
+        },
+        {
+          "$type": "RPG.GameCore.CreateProp",
+          "GroupID": 18,
+          "GroupPropID": 300001,
+          "CreateList": []
+        },
+        {
+          "$type": "RPG.GameCore.FinishPerformanceMission",
+          "Key": "Mission_102140105"
+        }
+      ]
+    }
+  ]
+}

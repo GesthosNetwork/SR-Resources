@@ -1,0 +1,94 @@
+{
+  "OnInitSequece": [],
+  "OnStartSequece": [
+    {
+      "TaskList": [
+        {
+          "$type": "RPG.GameCore.PropStateChangeListenerConfig",
+          "ToState": "Open",
+          "OnChange": [
+            {
+              "$type": "RPG.GameCore.PropMoveTo",
+              "Duration": {
+                "IsDynamic": false,
+                "FixedValue": {
+                  "Value": 1.5000000004656613
+                }
+              },
+              "LevelAreaKey": {
+                "Custom": true,
+                "Key": "High"
+              },
+              "TargetType": {
+                "$type": "RPG.GameCore.TargetFetchAdvPropEx"
+              }
+            }
+          ],
+          "TargetType": {
+            "$type": "RPG.GameCore.TargetFetchAdvPropEx",
+            "FetchType": "SinglePropByPropKey",
+            "SinglePropKey": {
+              "Custom": true,
+              "Key": "BindWater"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "TaskList": [
+        {
+          "$type": "RPG.GameCore.PropStateChangeListenerConfig",
+          "FromState": "Open",
+          "OnChange": [
+            {
+              "$type": "RPG.GameCore.PropMoveTo",
+              "Duration": {
+                "IsDynamic": false,
+                "FixedValue": {
+                  "Value": 1.5000000004656613
+                }
+              },
+              "LevelAreaKey": {
+                "Custom": true,
+                "Key": "Low"
+              },
+              "TargetType": {
+                "$type": "RPG.GameCore.TargetFetchAdvPropEx"
+              }
+            }
+          ],
+          "TargetType": {
+            "$type": "RPG.GameCore.TargetFetchAdvPropEx",
+            "FetchType": "SinglePropByPropKey",
+            "SinglePropKey": {
+              "Custom": true,
+              "Key": "BindWater"
+            }
+          }
+        }
+      ]
+    }
+  ],
+  "ValueSource": {
+    "Values": [
+      {
+        "$type": "RPG.GameCore.SharedString",
+        "Key": "High",
+        "Comment": "高水位",
+        "EditorHint": "LevelAnchor"
+      },
+      {
+        "$type": "RPG.GameCore.SharedString",
+        "Key": "Low",
+        "Comment": "低水位",
+        "EditorHint": "LevelAnchor"
+      },
+      {
+        "$type": "RPG.GameCore.SharedString",
+        "Key": "BindWater",
+        "EditorHint": "LevelObject"
+      }
+    ]
+  }
+}

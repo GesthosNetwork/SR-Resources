@@ -1,0 +1,98 @@
+{
+  "OnInitSequece": [],
+  "OnStartSequece": [
+    {
+      "TaskList": [
+        {
+          "$type": "RPG.GameCore.PropSetupTrigger",
+          "TargetType": {
+            "$type": "RPG.GameCore.TargetFetchAdvPropEx",
+            "FetchType": "SinglePropByPropID",
+            "SinglePropID": {
+              "GroupID": {
+                "IsDynamic": false,
+                "FixedValue": {
+                  "Value": 18
+                }
+              },
+              "ID": {
+                "IsDynamic": false,
+                "FixedValue": {
+                  "Value": 300001
+                }
+              }
+            }
+          },
+          "TargetGroupID": {
+            "IsDynamic": false,
+            "FixedValue": {
+              "Value": 0
+            }
+          },
+          "TargetID": {
+            "IsDynamic": false,
+            "FixedValue": {
+              "Value": 0
+            }
+          },
+          "TargetTypes": [],
+          "DestroyAfterTriggered": true,
+          "OnTriggerEnter": [
+            {
+              "$type": "RPG.GameCore.TriggerCustomString",
+              "CustomString": {
+                "Value": "Mission_102070110_Prop_18_300001_OnEnter"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "TaskList": [
+        {
+          "$type": "RPG.GameCore.WaitCustomString",
+          "CustomString": {
+            "Value": "Mission_102070110_Prop_18_300001_OnEnter"
+          }
+        },
+        {
+          "$type": "RPG.GameCore.SetAudioEmotionState",
+          "StateName": "State_Joyful"
+        },
+        {
+          "$type": "RPG.GameCore.TriggerPerformance",
+          "ValueSource": {},
+          "PerformanceType": "C",
+          "PerformanceID": 102070110
+        },
+        {
+          "$type": "RPG.GameCore.PerformanceTransition",
+          "SwitchInTime": 0,
+          "CreateNpcList": [],
+          "CaptureNpcList": [],
+          "DestroyNpcList": [
+            {
+              "GroupID": 24,
+              "GroupNpcID": 400001
+            }
+          ],
+          "ActiveVirtualCamera": {
+            "TaskEnabled": false
+          },
+          "SwitchCharacterAnchor": {
+            "TaskEnabled": false
+          }
+        },
+        {
+          "$type": "RPG.GameCore.SetAudioEmotionState",
+          "ResetToFloorDefault": true
+        },
+        {
+          "$type": "RPG.GameCore.FinishPerformanceMission",
+          "Key": "Mission_102070110"
+        }
+      ]
+    }
+  ]
+}

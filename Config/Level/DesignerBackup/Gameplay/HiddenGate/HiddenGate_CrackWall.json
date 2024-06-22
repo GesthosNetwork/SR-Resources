@@ -1,0 +1,78 @@
+{
+  "OnInitSequece": [],
+  "OnStartSequece": [
+    {
+      "TaskList": [
+        {
+          "$type": "RPG.GameCore.SetPropCanBePlayerLock"
+        }
+      ]
+    },
+    {
+      "TaskList": [
+        {
+          "$type": "RPG.GameCore.PropSetupHitBox",
+          "OnBeHit": [
+            {
+              "$type": "RPG.GameCore.TriggerEffectList",
+              "TargetType": {
+                "$type": "RPG.GameCore.TargetFetchAdvPropEx"
+              },
+              "EffectList": [
+                {
+                  "EffectPath": "Stages/DesignerBackup/GamePlayWhitebox/CloseView/HiddenGate/CrackWallSmoke.prefab",
+                  "Scale": {
+                    "X": 1,
+                    "Y": 1,
+                    "Z": 1
+                  }
+                }
+              ]
+            },
+            {
+              "$type": "RPG.GameCore.WaitSecond",
+              "WaitTime": 0.5
+            },
+            {
+              "$type": "RPG.GameCore.PropSetVisibility",
+              "SpecifiedRelativePaths": [],
+              "TargetType": {
+                "$type": "RPG.GameCore.TargetFetchAdvPropEx"
+              }
+            },
+            {
+              "$type": "RPG.GameCore.PropEnableCollider",
+              "TargetType": {
+                "$type": "RPG.GameCore.TargetFetchAdvPropEx"
+              }
+            }
+          ],
+          "TargetType": {
+            "$type": "RPG.GameCore.TargetFetchAdvPropEx"
+          }
+        }
+      ]
+    }
+  ],
+  "ValueSource": {
+    "Values": [
+      {
+        "$type": "RPG.GameCore.SharedString",
+        "Key": "Maze_Prop_Chap02_OpenDoor",
+        "Comment": "对应门的ConfigID【GroupID,PropID】",
+        "EditorHint": "LevelObject"
+      },
+      {
+        "$type": "RPG.GameCore.SharedString",
+        "Key": "Maze_Prop_Chap02_OpenOtherDoor",
+        "Comment": "对应另一个门的ConfigID【GroupID,PropID】",
+        "EditorHint": "LevelObject"
+      },
+      {
+        "$type": "RPG.GameCore.SharedString",
+        "Key": "Maze_Prop_OpenrDoorCamera",
+        "EditorHint": "LevelAnchor"
+      }
+    ]
+  }
+}

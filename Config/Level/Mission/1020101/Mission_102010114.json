@@ -1,0 +1,45 @@
+{
+  "OnInitSequece": [],
+  "OnStartSequece": [
+    {
+      "TaskList": [
+        {
+          "$type": "RPG.GameCore.LockCurrentTeleportAction",
+          "Enable": true,
+          "ToastTextString": "TalkSentenceConfig_TalkSentenceText_100003008"
+        }
+      ]
+    },
+    {
+      "TaskList": [
+        {
+          "$type": "RPG.GameCore.WaitCustomString",
+          "CustomString": {
+            "Value": "Talk_102010114"
+          }
+        },
+        {
+          "$type": "RPG.GameCore.DestroyProp",
+          "ID": 300002,
+          "GroupID": 54
+        },
+        {
+          "$type": "RPG.GameCore.LockCurrentTeleportAction"
+        },
+        {
+          "$type": "RPG.GameCore.FinishPerformanceMission",
+          "Key": "Mission_102010114"
+        }
+      ]
+    },
+    {
+      "TaskList": [
+        {
+          "$type": "RPG.GameCore.CreateProp",
+          "GroupID": 54,
+          "GroupPropID": 300002
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "OnInitSequece": [],
+  "OnStartSequece": [
+    {
+      "TaskList": [
+        {
+          "$type": "RPG.GameCore.CollectDataConditions",
+          "TaskIDList": [
+            101150231
+          ],
+          "PerformanceIDList": []
+        },
+        {
+          "$type": "RPG.GameCore.AddMenuItem",
+          "MenuItemID": 501027103,
+          "MenuIconType": "ChatIcon",
+          "DialoguePath": "Config/Level/Mission/5010271/Act/Act501027103.json"
+        },
+        {
+          "$type": "RPG.GameCore.PredicateTaskList",
+          "Predicate": {
+            "$type": "RPG.GameCore.ByCompareSubMissionState",
+            "SubMissionID": 101150231,
+            "SubMissionState": "Finish"
+          },
+          "SuccessTaskList": [
+            {
+              "$type": "RPG.GameCore.AddMenuItem",
+              "MenuItemID": 501027105,
+              "MenuIconType": "ChatIcon",
+              "DialoguePath": "Config/Level/Mission/5010271/Act/Act501027105.json"
+            }
+          ]
+        },
+        {
+          "$type": "RPG.GameCore.AddMenuItem",
+          "MenuItemID": 501027104,
+          "MenuIconType": "ChatOutIcon",
+          "DialoguePath": "Config/Level/Mission/5010271/Act/Act501027104.json",
+          "Important": true
+        }
+      ]
+    }
+  ]
+}

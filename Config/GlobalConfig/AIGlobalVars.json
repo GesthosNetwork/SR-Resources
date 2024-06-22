@@ -1,0 +1,85 @@
+{
+  "GlobalVars": [
+    {
+      "$type": "RPG.GameCore.AIVariableDefaultSelectorConfigList",
+      "DefaultSelectorConfigList": [
+        {
+          "SelectorType": "OneDamageSelector",
+          "Selector": {
+            "$type": "RPG.GameCore.AIComposeSelector",
+            "ComposeType": "ByOr",
+            "SelectorList": [
+              {
+                "$type": "RPG.GameCore.AIComposeSelector",
+                "SelectorList": [
+                  {
+                    "$type": "RPG.GameCore.AIModifierNameSelector",
+                    "ModifierName": "MCommon_DOT_Bleed"
+                  },
+                  {
+                    "$type": "RPG.GameCore.AIPropertySelector",
+                    "PropertyStrategy": "Min",
+                    "Property": "CurrentHP"
+                  }
+                ]
+              },
+              {
+                "$type": "RPG.GameCore.AIPropertySelector",
+                "PropertyStrategy": "Min",
+                "Property": "CurrentHP"
+              }
+            ]
+          }
+        },
+        {
+          "SelectorType": "SpreadDamageSelector",
+          "Selector": {
+            "$type": "RPG.GameCore.AIComposeSelector",
+            "ComposeType": "ByOr",
+            "SelectorList": [
+              {
+                "$type": "RPG.GameCore.AIComposeSelector",
+                "SelectorList": [
+                  {
+                    "$type": "RPG.GameCore.AIModifierNameSelector",
+                    "ModifierName": "MCommon_DOT_Bleed"
+                  },
+                  {
+                    "$type": "RPG.GameCore.AIPropertySelector",
+                    "PropertyStrategy": "Min",
+                    "Property": "CurrentHP"
+                  }
+                ]
+              },
+              {
+                "$type": "RPG.GameCore.AIPropertySelector",
+                "PropertyStrategy": "Min",
+                "Property": "CurrentHP"
+              }
+            ]
+          }
+        },
+        {
+          "SelectorType": "OneHealSelector",
+          "Selector": {
+            "$type": "RPG.GameCore.AIComposeSelector",
+            "ComposeType": "ByOr",
+            "SelectorList": [
+              {
+                "$type": "RPG.GameCore.AIPropertySelector",
+                "PropertyStrategy": "MinRatio",
+                "Property": "CurrentHP"
+              },
+              {
+                "$type": "RPG.GameCore.AIPropertySelector",
+                "PropertyStrategy": "Min",
+                "Property": "CurrentHP"
+              }
+            ]
+          }
+        }
+      ],
+      "Name": "DefaultSelectorConfigList"
+    }
+  ]
+}

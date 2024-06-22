@@ -1,0 +1,136 @@
+{
+  "AbilityList": [
+    {
+      "Name": "MazeMonster_AML_Minion01_02_NormalAtk01",
+      "TargetInfo": {
+        "TargetType": "SkillPointEntity"
+      },
+      "OnStart": [
+        {
+          "$type": "RPG.GameCore.LookAt",
+          "TargetType": "AbilityTargetEntity",
+          "Duration": 0.2
+        },
+        {
+          "$type": "RPG.GameCore.AdventureTriggerAnimStateWithMove",
+          "TargetType": {
+            "$type": "RPG.GameCore.TargetAlias",
+            "Alias": "Caster"
+          },
+          "AnimLogicState": "NormalAtk",
+          "AnimStateName": "Attack",
+          "MovingRangeList": [
+            {
+              "TargetType": {
+                "$type": "RPG.GameCore.TargetAlias",
+                "Alias": "AdvLocalPlayer"
+              },
+              "SteerNormalizedTimeStart": {
+                "IsDynamic": false,
+                "FixedValue": {
+                  "Value": 0.10000000009313226
+                }
+              },
+              "SteerNormalizedTimeEnd": {
+                "IsDynamic": false,
+                "FixedValue": {
+                  "Value": 0.40000000037252903
+                }
+              },
+              "MaxSteerSpeed": {
+                "IsDynamic": false,
+                "FixedValue": {
+                  "Value": 70
+                }
+              }
+            }
+          ]
+        },
+        {
+          "$type": "RPG.GameCore.WaitAnimState",
+          "TargetType": {
+            "$type": "RPG.GameCore.TargetAlias",
+            "Alias": "Caster"
+          },
+          "AnimStateName": "Attack",
+          "NormalizedTimeEnd": {
+            "IsDynamic": false,
+            "FixedValue": {
+              "Value": 0.46500000008381903
+            }
+          }
+        },
+        {
+          "$type": "RPG.GameCore.AdventureFireProjectile",
+          "TargetType": {
+            "$type": "RPG.GameCore.TargetAlias",
+            "Alias": "None"
+          },
+          "Projectile": {
+            "ColliderTemplate": "CapsuleZ_MazeMonsterLaserBullet",
+            "Behavior": "LinearWithHitDetect",
+            "FlySpeed": 100,
+            "EnableRayCast": true,
+            "Gravity": 0,
+            "MaxLifeTime": 0.5,
+            "AttachPoint": "Aim",
+            "AlignWithAttachPoint": true,
+            "AttachPointAxis": "Y",
+            "TargetAttachPoint": "Root",
+            "FlyEffect": "Effects/Eff_Prefab/Eff_Common/Eff_Empty_Projectile.prefab",
+            "LinearPitchAngle": {
+              "IsDynamic": false,
+              "FixedValue": {
+                "Value": 0.10000000009313226
+              }
+            }
+          },
+          "OnProjectileHit": [
+            {
+              "$type": "RPG.GameCore.AdventureTriggerAttack",
+              "AttackTargetType": {
+                "$type": "RPG.GameCore.TargetAlias",
+                "Alias": "ProjectileHitEntity"
+              },
+              "AttackRootTargetType": {
+                "$type": "RPG.GameCore.TargetAlias",
+                "Alias": "ProjectileHitEntity"
+              },
+              "TriggerBattleDelay": 0.1,
+              "AttackDetectConfig": {
+                "$type": "RPG.GameCore.AdventureAttackDetectCircleConfig",
+                "MaxRadius": 0.1,
+                "FanAngle": 360
+              },
+              "HitConfig": {
+                "HitAnimation": "Hit",
+                "HitEffect": "Effects/Eff_Prefab/Eff_Monster/Eff_AML_Minion01_00/Eff_Monster_AML_Minion01_00_Skill01_Hit.prefab",
+                "HitSoundEvent": "Ev_sfx_monster_skill_01_hit_aml_minion01_white"
+              }
+            },
+            {
+              "$type": "RPG.GameCore.VCameraConfigChange",
+              "CameraConfig": {
+                "ShakeTemplateName": "Impact_Middle"
+              }
+            }
+          ]
+        },
+        {
+          "$type": "RPG.GameCore.WaitAnimState",
+          "TargetType": {
+            "$type": "RPG.GameCore.TargetAlias",
+            "Alias": "Caster"
+          },
+          "AnimStateName": "Attack",
+          "NormalizedTimeEnd": {
+            "IsDynamic": false,
+            "FixedValue": {
+              "Value": 1
+            }
+          }
+        }
+      ]
+    }
+  ]
+}

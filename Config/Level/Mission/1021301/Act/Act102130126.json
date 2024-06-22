@@ -1,0 +1,110 @@
+{
+  "OnInitSequece": [],
+  "OnStartSequece": [
+    {
+      "TaskList": [
+        {
+          "$type": "RPG.GameCore.LevelPerformanceInitialize",
+          "PerformanceType": "D",
+          "CreateCharacterList": [],
+          "EntityVisiableList": [],
+          "PropVisiableList": [],
+          "MarkStreamingItems": []
+        },
+        {
+          "$type": "RPG.GameCore.AdvNpcFaceToPlayer",
+          "FinishImmadiate": true
+        },
+        {
+          "$type": "RPG.GameCore.CaptureLocalPlayer",
+          "CharacterUniqueName": "LocalPlayer"
+        },
+        {
+          "$type": "RPG.GameCore.PlayAndWaitSimpleTalk",
+          "SimpleTalkList": [
+            {
+              "TalkSentenceID": 102122542,
+              "ProtectTime": 0.3
+            }
+          ]
+        },
+        {
+          "$type": "RPG.GameCore.CharacterTriggerFreeStyle",
+          "CharacterUniqueName": "LocalPlayer",
+          "StoryAvatarID": "NPC_Avatar_Lad_DanHeng_00",
+          "StartMotion": "HoldArm01BS"
+        },
+        {
+          "$type": "RPG.GameCore.PlayAndWaitSimpleTalk",
+          "SimpleTalkList": [
+            {
+              "TalkSentenceID": 102122543
+            },
+            {
+              "TalkSentenceID": 102122544
+            },
+            {
+              "TalkSentenceID": 102122546
+            }
+          ]
+        },
+        {
+          "$type": "RPG.GameCore.CharacterTriggerFreeStyle",
+          "CharacterUniqueName": "LocalPlayer",
+          "StoryAvatarID": "NPC_Avatar_Lad_DanHeng_00",
+          "StartMotion": "HoldArm01AS"
+        },
+        {
+          "$type": "RPG.GameCore.PlayAndWaitSimpleTalk",
+          "SimpleTalkList": [
+            {
+              "TalkSentenceID": 102122545
+            }
+          ]
+        },
+        {
+          "$type": "RPG.GameCore.PerformanceTransition",
+          "SwitchOutTime": -1,
+          "CreateNpcList": [],
+          "CaptureNpcList": [],
+          "DestroyNpcList": [],
+          "CreateProp": {
+            "TaskEnabled": false
+          },
+          "DestroyProp": {
+            "TaskEnabled": false
+          },
+          "ActiveVirtualCamera": {
+            "TaskEnabled": false
+          },
+          "ActiveTemplateVirtualCamera": {
+            "TaskEnabled": false
+          },
+          "SwitchCharacterAnchor": {
+            "CharacterUniqueName": "LocalPlayer",
+            "AnchorName": {
+              "Value": "Anchor2"
+            },
+            "TaskEnabled": false
+          },
+          "AdvNpcFaceToPlayer": {
+            "TaskEnabled": false
+          }
+        },
+        {
+          "$type": "RPG.GameCore.EndPerformance"
+        }
+      ]
+    },
+    {
+      "TaskList": [
+        {
+          "$type": "RPG.GameCore.WaitPerformanceEnd"
+        },
+        {
+          "$type": "RPG.GameCore.FinishLevelGraph"
+        }
+      ]
+    }
+  ]
+}

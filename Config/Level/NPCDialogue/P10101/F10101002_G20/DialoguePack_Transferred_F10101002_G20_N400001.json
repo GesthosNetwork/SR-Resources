@@ -1,0 +1,46 @@
+{
+  "OnInitSequece": [],
+  "OnStartSequece": [
+    {
+      "TaskList": [
+        {
+          "$type": "RPG.GameCore.CollectDataConditions",
+          "TaskIDList": [
+            201150108
+          ],
+          "PerformanceIDList": []
+        },
+        {
+          "$type": "RPG.GameCore.PredicateTaskList",
+          "Predicate": {
+            "$type": "RPG.GameCore.ByCompareSubMissionState",
+            "SubMissionID": 201150108,
+            "SubMissionState": "Started"
+          },
+          "SuccessTaskList": [
+            {
+              "$type": "RPG.GameCore.AddMenuItem",
+              "MenuItemID": 201150108,
+              "DialoguePath": "Config/Level/Mission/2011501/Talk/Talk_201150108.json",
+              "ExtraInfo": 2,
+              "MissionID": 201150108
+            }
+          ]
+        },
+        {
+          "$type": "RPG.GameCore.AddMenuItem",
+          "MenuItemID": 501029102,
+          "MenuIconType": "ChatIcon",
+          "DialoguePath": "Config/Level/NPC/W1/NPC_DefaultStory_501029102.json"
+        },
+        {
+          "$type": "RPG.GameCore.AddMenuItem",
+          "MenuItemID": 501029104,
+          "MenuIconType": "ChatOutIcon",
+          "DialoguePath": "Config/Level/NPC/W1/NPC_DefaultStory_501029104.json",
+          "Important": true
+        }
+      ]
+    }
+  ]
+}

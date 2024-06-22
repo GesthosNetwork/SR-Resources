@@ -1,0 +1,69 @@
+{
+  "OnInitSequece": [],
+  "OnStartSequece": [
+    {
+      "IsLoop": true,
+      "TaskList": [
+        {
+          "$type": "RPG.GameCore.WaitCustomString",
+          "CustomString": {
+            "Custom": true,
+            "Key": "InitPuzzle_Str"
+          },
+          "GoNextImmediately": true
+        },
+        {
+          "$type": "RPG.GameCore.HideWaypointByProp",
+          "PropKey": {
+            "Custom": true,
+            "Key": "BirdSet"
+          },
+          "OnNameBoard": true
+        }
+      ]
+    },
+    {
+      "IsLoop": true,
+      "TaskList": [
+        {
+          "$type": "RPG.GameCore.WaitCustomString",
+          "CustomString": {
+            "Custom": true,
+            "Key": "ClosePuzzle_Str"
+          },
+          "GoNextImmediately": true
+        },
+        {
+          "$type": "RPG.GameCore.ShowWaypointByProp",
+          "PropKey": {
+            "Custom": true,
+            "Key": "BirdSet"
+          },
+          "MaxRange": 10,
+          "IconPath": "SpriteOutput/MapPics/NaviIcons/IconMapPlay6.png",
+          "OnNameBoard": true
+        }
+      ]
+    }
+  ],
+  "ValueSource": {
+    "Values": [
+      {
+        "$type": "RPG.GameCore.SharedString",
+        "Key": "InitPuzzle_Str",
+        "Comment": "从外部开启玩法"
+      },
+      {
+        "$type": "RPG.GameCore.SharedString",
+        "Key": "ClosePuzzle_Str",
+        "Comment": "从外部关闭玩法"
+      },
+      {
+        "$type": "RPG.GameCore.SharedString",
+        "Key": "BirdSet",
+        "Comment": "屏蔽对象",
+        "EditorHint": "LevelObject"
+      }
+    ]
+  }
+}

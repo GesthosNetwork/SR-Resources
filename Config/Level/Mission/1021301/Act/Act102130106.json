@@ -1,0 +1,114 @@
+{
+  "OnInitSequece": [],
+  "OnStartSequece": [
+    {
+      "TaskList": [
+        {
+          "$type": "RPG.GameCore.LevelPerformanceInitialize",
+          "PerformanceType": "E",
+          "CreateCharacterList": [],
+          "EntityVisiableList": [],
+          "HideMunicipalCrowd": false,
+          "HideMunicipalPedestrian": false,
+          "HideMunicipalOther": false,
+          "PropVisiableList": [],
+          "MarkStreamingItems": []
+        },
+        {
+          "$type": "RPG.GameCore.PerformanceTransition",
+          "CreateNpcList": [],
+          "CaptureNpcList": [],
+          "DestroyNpcList": [],
+          "CreateProp": {
+            "TaskEnabled": false
+          },
+          "DestroyProp": {
+            "TaskEnabled": false
+          },
+          "ActiveVirtualCamera": {
+            "AreaName": "LevelArea_P40231_F40231001_G8",
+            "AnchorName": "Anchor2"
+          },
+          "ActiveTemplateVirtualCamera": {
+            "TaskEnabled": false
+          },
+          "SwitchCharacterAnchor": {
+            "IsLocalPlayer": true,
+            "CharacterUniqueName": "LocalPlayer",
+            "AreaName": {
+              "Value": "LevelArea_P40231_F40231001_G8"
+            },
+            "AnchorName": {
+              "Value": "Anchor1"
+            }
+          },
+          "AdvNpcFaceToPlayer": {
+            "TaskEnabled": false
+          },
+          "WaitStreamingFinish": true
+        },
+        {
+          "$type": "RPG.GameCore.CharacterTriggerFreeStyle",
+          "CharacterUniqueName": "LocalPlayer",
+          "StoryAvatarID": "NPC_Avatar_Maid_Mar_7th_00",
+          "StartMotion": "HoldHead01BS"
+        },
+        {
+          "$type": "RPG.GameCore.PlayAndWaitSimpleTalk",
+          "SimpleTalkList": [
+            {
+              "TalkSentenceID": 102122574
+            },
+            {
+              "TalkSentenceID": 102122575
+            }
+          ]
+        },
+        {
+          "$type": "RPG.GameCore.ActiveVirtualCamera",
+          "AreaName": "LevelArea_P40231_F40231001_G8",
+          "AnchorName": "Anchor2",
+          "IsEntryPointCamera": true,
+          "IsActive": false,
+          "BlendConfig": {
+            "ExportToJson": true,
+            "BlendType": "Custom",
+            "CustomCurveName": "BlendCut11",
+            "BlendTime": 2
+          }
+        },
+        {
+          "$type": "RPG.GameCore.PlayAndWaitSimpleTalk",
+          "SimpleTalkList": [
+            {
+              "TalkSentenceID": 102122576
+            }
+          ]
+        },
+        {
+          "$type": "RPG.GameCore.CharacterTriggerFreeStyle",
+          "CharacterUniqueName": "LocalPlayer",
+          "StoryAvatarID": "NPC_Avatar_Maid_Mar_7th_00",
+          "StartMotion": "HoldHead01AS"
+        },
+        {
+          "$type": "RPG.GameCore.WaitSecond",
+          "WaitTime": 1.3
+        },
+        {
+          "$type": "RPG.GameCore.EndPerformance"
+        }
+      ]
+    },
+    {
+      "TaskList": [
+        {
+          "$type": "RPG.GameCore.WaitPerformanceEnd"
+        },
+        {
+          "$type": "RPG.GameCore.FinishLevelGraph"
+        }
+      ]
+    }
+  ]
+}

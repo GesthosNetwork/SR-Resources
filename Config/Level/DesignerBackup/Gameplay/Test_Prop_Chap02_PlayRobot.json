@@ -1,0 +1,163 @@
+{
+  "OnInitSequece": [],
+  "OnStartSequece": [
+    {
+      "TaskList": [
+        {
+          "$type": "RPG.GameCore.PropSetupUITrigger",
+          "ButtonCallback": [
+            {
+              "$type": "RPG.GameCore.PlayerRemoteControlOtherEntity",
+              "TargetEntity": {
+                "$type": "RPG.GameCore.TargetFetchAdvNpcEx",
+                "FetchType": "SingleNpcByNpcID",
+                "SingleNpcID": {
+                  "GroupID": {
+                    "IsDynamic": false,
+                    "FixedValue": {
+                      "Value": 20
+                    }
+                  },
+                  "GroupNpcID": {
+                    "IsDynamic": false,
+                    "FixedValue": {
+                      "Value": 400001
+                    }
+                  }
+                }
+              },
+              "SpecialNPCID": 12113
+            },
+            {
+              "$type": "RPG.GameCore.ShowFuncBtn",
+              "PuzzleFunc": "TriggerCustomString",
+              "CDDuration": 5,
+              "CustomString": {
+                "Value": "Boom"
+              },
+              "ShowBtnEffect": true
+            }
+          ],
+          "OverrideTargetTypes": [],
+          "TargetType": {
+            "$type": "RPG.GameCore.TargetFetchAdvPropEx"
+          }
+        }
+      ]
+    },
+    {
+      "IsLoop": true,
+      "TaskList": [
+        {
+          "$type": "RPG.GameCore.WaitCustomString",
+          "CustomString": {
+            "Value": "Boom"
+          },
+          "GoNextImmediately": true
+        },
+        {
+          "$type": "RPG.GameCore.AnimSetParameter",
+          "TargetType": {
+            "$type": "RPG.GameCore.TargetFetchAdvLocalPlayer"
+          },
+          "ParameterName": "IsNearBoom",
+          "ParameterType": "Bool",
+          "Value": 1,
+          "TaskEnabled": false
+        },
+        {
+          "$type": "RPG.GameCore.AnimSetParameter",
+          "TargetType": {
+            "$type": "RPG.GameCore.TargetFetchAdvLocalPlayer"
+          },
+          "ParameterName": "StartBoom",
+          "ParameterType": "Trigger",
+          "TaskEnabled": false
+        },
+        {
+          "$type": "RPG.GameCore.TriggerEffectList",
+          "TargetType": {
+            "$type": "RPG.GameCore.TargetFetchAdvLocalPlayer"
+          },
+          "EffectList": [
+            {
+              "EffectPath": "Effects/Eff_Prefab/Eff_Monster/Eff_W1_Mecha01_00/Eff_Monster_W1_Mecha01_00_Skill03_Start01.prefab",
+              "PositionOffset": {
+                "X": 0,
+                "Y": -0.3,
+                "Z": 0
+              }
+            }
+          ],
+          "TaskEnabled": false
+        },
+        {
+          "$type": "RPG.GameCore.WaitSecond",
+          "WaitTime": 1.4,
+          "TaskEnabled": false
+        },
+        {
+          "$type": "RPG.GameCore.AnimSetParameter",
+          "TargetType": {
+            "$type": "RPG.GameCore.TargetFetchAdvLocalPlayer"
+          },
+          "ParameterName": "Flash",
+          "ParameterType": "Trigger"
+        },
+        {
+          "$type": "RPG.GameCore.WaitSecond",
+          "WaitTime": 1,
+          "TaskEnabled": false
+        },
+        {
+          "$type": "RPG.GameCore.AnimSetParameter",
+          "TargetType": {
+            "$type": "RPG.GameCore.TargetFetchAdvLocalPlayer"
+          },
+          "ParameterName": "Boom",
+          "ParameterType": "Trigger"
+        },
+        {
+          "$type": "RPG.GameCore.WaitSecond",
+          "WaitTime": 1.2
+        },
+        {
+          "$type": "RPG.GameCore.TriggerEffectList",
+          "TargetType": {
+            "$type": "RPG.GameCore.TargetFetchAdvLocalPlayer"
+          },
+          "EffectList": [
+            {
+              "EffectPath": "Effects/Eff_Prefab/Eff_Monster/Eff_W1_Mecha01_00/Eff_Monster_W1_Mecha01_00_Skill03_Explode.prefab"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "ValueSource": {
+    "Values": [
+      {
+        "$type": "RPG.GameCore.SharedString",
+        "Key": "BoardPath",
+        "Comment": "谜题路径"
+      },
+      {
+        "$type": "RPG.GameCore.SharedString",
+        "Key": "TargetChest",
+        "Comment": "要开的门/宝箱",
+        "EditorHint": "LevelObject"
+      },
+      {
+        "$type": "RPG.GameCore.SharedString",
+        "Key": "Vcam"
+      },
+      {
+        "$type": "RPG.GameCore.SharedString",
+        "Key": "ContainerDoor",
+        "Comment": "对应的门",
+        "EditorHint": "LevelObject"
+      }
+    ]
+  }
+}

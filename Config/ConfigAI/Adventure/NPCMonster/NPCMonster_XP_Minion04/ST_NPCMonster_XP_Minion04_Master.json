@@ -1,0 +1,242 @@
+{
+  "AIName": "ST_NPCMonster_Master_Escape",
+  "VariableList": [],
+  "DecisionList": [],
+  "TransitionTable": [],
+  "RootState": {
+    "Name": "Root",
+    "TaskList": [],
+    "TransitionList": [],
+    "SubStateList": [
+      {
+        "$type": "RPG.GameCore.StateTreeStateConfig",
+        "EnterCondition": {
+          "$type": "RPG.GameCore.ST_ByAIHangUp"
+        },
+        "TaskList": [
+          {
+            "$type": "RPG.GameCore.ST_Main_HangUpByLevel"
+          },
+          {
+            "$type": "RPG.GameCore.ST_Side_OverrideVision",
+            "VisionSetName": "DefaultVision"
+          }
+        ],
+        "TransitionList": [
+          {
+            "Trigger": "OnTick",
+            "TransitionToState": "SystemicState",
+            "Condition": {
+              "$type": "RPG.GameCore.ST_ByAIHangUp",
+              "Inverse": true
+            }
+          }
+        ],
+        "Name": "HangUpState"
+      },
+      {
+        "$type": "RPG.GameCore.StateTreeStateConfig",
+        "TransitionList": [
+          {
+            "Trigger": "OnTick",
+            "TransitionToState": "HangUpState",
+            "Condition": {
+              "$type": "RPG.GameCore.ST_ByAIHangUp"
+            }
+          }
+        ],
+        "SubStateList": [
+          {
+            "$type": "RPG.GameCore.StateTreeStateConfig",
+            "EnterCondition": {
+              "$type": "RPG.GameCore.ST_ByAlertLevel"
+            },
+            "TaskList": [
+              {
+                "$type": "RPG.GameCore.ST_Side_OverrideVision",
+                "VisionSetName": "DefaultVision"
+              }
+            ],
+            "TransitionList": [
+              {
+                "Trigger": "OnTick",
+                "TransitionToState": "EscapeState",
+                "Condition": {
+                  "$type": "RPG.GameCore.ByAnd",
+                  "PredicateList": [
+                    {
+                      "$type": "RPG.GameCore.ST_ByAlertLevel",
+                      "AlertLevel": "Chase"
+                    },
+                    {
+                      "$type": "RPG.GameCore.ST_ByHasTarget"
+                    }
+                  ]
+                }
+              },
+              {
+                "Trigger": "OnTick",
+                "TransitionToState": "AlertState",
+                "Condition": {
+                  "$type": "RPG.GameCore.ST_ByAlertLevel",
+                  "AlertLevel": "Alert"
+                }
+              }
+            ],
+            "SubStateList": [
+              {
+                "$type": "RPG.GameCore.StateTreeStateConfig",
+                "EnterCondition": {
+                  "$type": "RPG.GameCore.ST_ByHasPatrolPath"
+                },
+                "TaskList": [
+                  {
+                    "$type": "RPG.GameCore.ST_Main_MoveAlongPath",
+                    "MoveStance": "Walk"
+                  }
+                ],
+                "Name": "Patrol"
+              },
+              {
+                "$type": "RPG.GameCore.StateTreeStateConfig",
+                "TaskList": [
+                  {
+                    "$type": "RPG.GameCore.ST_Main_Wait",
+                    "Time": -1
+                  }
+                ],
+                "Name": "Idle"
+              }
+            ],
+            "Name": "RelaxState"
+          },
+          {
+            "$type": "RPG.GameCore.StateTreeStateConfig",
+            "EnterCondition": {
+              "$type": "RPG.GameCore.ST_ByAlertLevel",
+              "AlertLevel": "Alert"
+            },
+            "TaskList": [
+              {
+                "$type": "RPG.GameCore.ST_Main_Wait",
+                "Time": -1
+              },
+              {
+                "$type": "RPG.GameCore.ST_Side_OverrideVision",
+                "VisionSetName": "DefaultVision"
+              }
+            ],
+            "TransitionList": [
+              {
+                "Trigger": "OnTick",
+                "TransitionToState": "EscapeState",
+                "Condition": {
+                  "$type": "RPG.GameCore.ByAnd",
+                  "PredicateList": [
+                    {
+                      "$type": "RPG.GameCore.ST_ByAlertLevel",
+                      "AlertLevel": "Chase"
+                    },
+                    {
+                      "$type": "RPG.GameCore.ST_ByHasTarget"
+                    }
+                  ]
+                }
+              },
+              {
+                "Trigger": "OnTick",
+                "TransitionToState": "RelaxState",
+                "Condition": {
+                  "$type": "RPG.GameCore.ST_ByAlertLevel"
+                }
+              }
+            ],
+            "Name": "AlertState"
+          },
+          {
+            "$type": "RPG.GameCore.StateTreeStateConfig",
+            "EnterCondition": {
+              "$type": "RPG.GameCore.ST_ByAlertLevel",
+              "AlertLevel": "Chase"
+            },
+            "TaskList": [
+              {
+                "$type": "RPG.GameCore.ST_Side_OverrideVision",
+                "VisionSetName": "DefaultVision"
+              },
+              {
+                "$type": "RPG.GameCore.ST_Side_MuteAlertValueDecline"
+              },
+              {
+                "$type": "RPG.GameCore.ST_Side_AttachAIStatus",
+                "AIStatusTags": [
+                  "Escape"
+                ]
+              }
+            ],
+            "TransitionList": [],
+            "SubStateList": [
+              {
+                "$type": "RPG.GameCore.StateTreeStateConfig",
+                "TaskList": [
+                  {
+                    "$type": "RPG.GameCore.ST_Main_Escape",
+                    "Radius": 8,
+                    "MoveRadius": 5,
+                    "Angle": 250,
+                    "CandidatePoint": 8,
+                    "Pow": 10,
+                    "MaxRunAwayDistance": 40,
+                    "MaxRunAwayTime": 8
+                  }
+                ],
+                "TransitionList": [
+                  {
+                    "TransitionToState": "EscapeSkill"
+                  },
+                  {
+                    "Trigger": "OnTick",
+                    "TransitionToState": "Root",
+                    "Condition": {
+                      "$type": "RPG.GameCore.ST_ByAlertLevel",
+                      "AlertLevel": "Chase",
+                      "Inverse": true
+                    }
+                  }
+                ],
+                "Name": "EscapeMove"
+              },
+              {
+                "$type": "RPG.GameCore.StateTreeStateConfig",
+                "TaskList": [
+                  {
+                    "$type": "RPG.GameCore.ST_Main_DoSkill",
+                    "Name": "Maze_Escape"
+                  }
+                ],
+                "TransitionList": [
+                  {
+                    "TransitionToState": "Escaped"
+                  }
+                ],
+                "Name": "EscapeSkill"
+              },
+              {
+                "$type": "RPG.GameCore.StateTreeStateConfig",
+                "TaskList": [
+                  {
+                    "$type": "RPG.GameCore.ST_Main_Wait",
+                    "Time": -1
+                  }
+                ],
+                "Name": "Escaped"
+              }
+            ],
+            "Name": "EscapeState"
+          }
+        ],
+        "Name": "SystemicState"
+      }
+    ]
+  }
+}

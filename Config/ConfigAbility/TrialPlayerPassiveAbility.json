@@ -1,0 +1,1079 @@
+{
+  "AbilityList": [
+    {
+      "Modifiers": {
+        "Modifier_TrialSpeedUp": {
+          "_CallbackList": {
+            "OnStack": {
+              "CallbackConfig": [
+                {
+                  "$type": "RPG.GameCore.StackProperty",
+                  "TargetType": {
+                    "$type": "RPG.GameCore.TargetAlias",
+                    "Alias": "ModifierOwnerEntity"
+                  },
+                  "Property": "SpeedDelta",
+                  "PropertyValue": {
+                    "IsDynamic": false,
+                    "FixedValue": {
+                      "Value": 10
+                    }
+                  }
+                }
+              ]
+            }
+          }
+        }
+      },
+      "Name": "TrialPlayer_SpeedUp_Ability",
+      "TargetInfo": {
+        "TargetType": "Caster"
+      },
+      "OnAdd": [
+        {
+          "$type": "RPG.GameCore.AddModifier",
+          "TargetType": {
+            "$type": "RPG.GameCore.TargetAlias",
+            "Alias": "Caster"
+          },
+          "ModifierName": "Modifier_TrialSpeedUp"
+        }
+      ]
+    },
+    {
+      "Modifiers": {
+        "Modifier_AttackNoBP": {
+          "_CallbackList": {
+            "OnCreate": {
+              "CallbackConfig": [
+                {
+                  "$type": "RPG.GameCore.ModifySkillPropertyByName",
+                  "Properties": [
+                    {
+                      "PropertyType": "BPNeed"
+                    },
+                    {
+                      "PropertyType": "BPAdd"
+                    }
+                  ]
+                }
+              ]
+            }
+          }
+        }
+      },
+      "Name": "TrialPlayer_NoBP_Ability",
+      "TargetInfo": {
+        "TargetType": "Caster"
+      },
+      "OnAdd": [
+        {
+          "$type": "RPG.GameCore.AddModifier",
+          "TargetType": {
+            "$type": "RPG.GameCore.TargetAlias",
+            "Alias": "Caster"
+          },
+          "ModifierName": "Modifier_AttackNoBP"
+        }
+      ]
+    },
+    {
+      "Modifiers": {
+        "Modifier_AggroUP": {
+          "_CallbackList": {
+            "OnAfterBeingHit": {
+              "CallbackConfig": [
+                {
+                  "$type": "RPG.GameCore.SetDynamicValue",
+                  "DynamicKey": "isBeHit",
+                  "Value": {
+                    "IsDynamic": false,
+                    "FixedValue": {
+                      "Value": 1
+                    }
+                  }
+                }
+              ]
+            },
+            "OnStack": {
+              "CallbackConfig": [
+                {
+                  "$type": "RPG.GameCore.StackProperty",
+                  "TargetType": {
+                    "$type": "RPG.GameCore.TargetAlias",
+                    "Alias": "Caster"
+                  },
+                  "Property": "AggroAddedRatio",
+                  "PropertyValue": {
+                    "IsDynamic": false,
+                    "FixedValue": {
+                      "Value": 6
+                    }
+                  }
+                },
+                {
+                  "$type": "RPG.GameCore.SetDynamicValue",
+                  "DynamicKey": "isBeHit",
+                  "Value": {
+                    "IsDynamic": false,
+                    "FixedValue": {
+                      "Value": 0
+                    }
+                  }
+                },
+                {
+                  "$type": "RPG.GameCore.SetDynamicValue",
+                  "DynamicKey": "BeHitTime",
+                  "Value": {
+                    "IsDynamic": false,
+                    "FixedValue": {
+                      "Value": 0
+                    }
+                  }
+                }
+              ]
+            },
+            "OnListenAfterSkillUse": {
+              "CallbackConfig": [
+                {
+                  "$type": "RPG.GameCore.PredicateTaskList",
+                  "Predicate": {
+                    "$type": "RPG.GameCore.ByCompareDynamicValue",
+                    "DynamicKey": "BeHitTime",
+                    "CompareType": "GreaterEqual",
+                    "CompareValue": {
+                      "IsDynamic": false,
+                      "FixedValue": {
+                        "Value": 3
+                      }
+                    }
+                  },
+                  "SuccessTaskList": [
+                    {
+                      "$type": "RPG.GameCore.StackProperty",
+                      "TargetType": {
+                        "$type": "RPG.GameCore.TargetAlias",
+                        "Alias": "Caster"
+                      },
+                      "Property": "AggroAddedRatio",
+                      "PropertyValue": {
+                        "IsDynamic": false,
+                        "FixedValue": {
+                          "Value": -10
+                        }
+                      }
+                    }
+                  ],
+                  "FailedTaskList": [
+                    {
+                      "$type": "RPG.GameCore.PredicateTaskList",
+                      "Predicate": {
+                        "$type": "RPG.GameCore.ByCompareDynamicValue",
+                        "DynamicKey": "isBeHit",
+                        "CompareType": "Equal",
+                        "CompareValue": {
+                          "IsDynamic": false,
+                          "FixedValue": {
+                            "Value": 1
+                          }
+                        }
+                      },
+                      "SuccessTaskList": [
+                        {
+                          "$type": "RPG.GameCore.SetDynamicValue",
+                          "DynamicKey": "isBeHit",
+                          "Value": {
+                            "IsDynamic": true,
+                            "PostfixExpr": {
+                              "OpCodes": "AQAAAAIJ",
+                              "FixedValues": [
+                                {
+                                  "Value": 1
+                                }
+                              ],
+                              "DynamicHashes": [
+                                934037191
+                              ]
+                            }
+                          }
+                        },
+                        {
+                          "$type": "RPG.GameCore.SetDynamicValue",
+                          "DynamicKey": "isBeHit",
+                          "Value": {
+                            "IsDynamic": false,
+                            "FixedValue": {
+                              "Value": 0
+                            }
+                          }
+                        }
+                      ],
+                      "FailedTaskList": []
+                    }
+                  ]
+                }
+              ]
+            }
+          },
+          "DynamicValues": {
+            "Values": {
+              "-241082092": {},
+              "934037191": {}
+            }
+          }
+        }
+      },
+      "Name": "TrialPlayer_AggroUP_Ability",
+      "TargetInfo": {
+        "TargetType": "Caster"
+      },
+      "OnAdd": [
+        {
+          "$type": "RPG.GameCore.AddModifier",
+          "TargetType": {
+            "$type": "RPG.GameCore.TargetAlias",
+            "Alias": "Caster"
+          },
+          "ModifierName": "Modifier_AggroUP"
+        }
+      ]
+    },
+    {
+      "Modifiers": {
+        "TrialPlayer_1021209_Yanqing_AttackFlag_Modifier": {
+          "_CallbackList": {
+            "OnPhase1": {
+              "CallbackConfig": [
+                {
+                  "$type": "RPG.GameCore.RemoveModifier",
+                  "TargetType": {
+                    "$type": "RPG.GameCore.TargetAlias",
+                    "Alias": "AllEnemy"
+                  },
+                  "ModifierName": "TrialPlayer_1021209_Yanqing_Flag_Modifier",
+                  "OnlyRemoveCasterAdded": true,
+                  "RemoveAllInstance": true
+                }
+              ]
+            },
+            "OnAfterHit": {
+              "CallbackConfig": [
+                {
+                  "$type": "RPG.GameCore.AddModifier",
+                  "TargetType": {
+                    "$type": "RPG.GameCore.TargetAlias",
+                    "Alias": "ParamEntity"
+                  },
+                  "ModifierName": "TrialPlayer_1021209_Yanqing_Flag_Modifier"
+                }
+              ]
+            }
+          }
+        },
+        "TrialPlayer_1021209_Yanqing_Flag_Modifier": {
+          "_CallbackList": {
+            "OnStack": {
+              "CallbackConfig": []
+            }
+          }
+        },
+        "TrialPlayer_1021209_Yanqing_Talk_Modifier": {
+          "_CallbackList": {
+            "OnStack": {
+              "CallbackConfig": [
+                {
+                  "$type": "RPG.GameCore.SetDynamicValue",
+                  "TargetType": {
+                    "$type": "RPG.GameCore.TargetAlias",
+                    "Alias": "ModifierOwnerEntity"
+                  },
+                  "DynamicKey": "MDF_KillTalk",
+                  "ContextScope": "ContextModifier",
+                  "Value": {
+                    "IsDynamic": true,
+                    "PostfixExpr": {
+                      "OpCodes": "AAAJ",
+                      "FixedValues": [
+                        {
+                          "Value": 1
+                        }
+                      ],
+                      "DynamicHashes": []
+                    }
+                  }
+                }
+              ]
+            },
+            "OnTriggerDeath": {
+              "CallbackConfig": [
+                {
+                  "$type": "RPG.GameCore.PredicateTaskList",
+                  "Predicate": {
+                    "$type": "RPG.GameCore.ByAnd",
+                    "PredicateList": [
+                      {
+                        "$type": "RPG.GameCore.ByCompareDynamicValue",
+                        "TargetType": {
+                          "$type": "RPG.GameCore.TargetAlias",
+                          "Alias": "ModifierOwnerEntity"
+                        },
+                        "DynamicKey": "MDF_KillTalk",
+                        "ContextScope": "ContextModifier",
+                        "CompareType": "Equal",
+                        "CompareValue": {
+                          "IsDynamic": false,
+                          "FixedValue": {
+                            "Value": 1
+                          }
+                        }
+                      },
+                      {
+                        "$type": "RPG.GameCore.ByCompareDynamicValue",
+                        "TargetType": {
+                          "$type": "RPG.GameCore.TargetAlias",
+                          "Alias": "ModifierOwnerEntity"
+                        },
+                        "DynamicKey": "MDF_ActionTime",
+                        "ContextScope": "ContextModifier",
+                        "CompareType": "Greater",
+                        "CompareValue": {
+                          "IsDynamic": false,
+                          "FixedValue": {
+                            "Value": 3
+                          }
+                        }
+                      }
+                    ]
+                  },
+                  "SuccessTaskList": [
+                    {
+                      "$type": "RPG.GameCore.TriggerCustomString",
+                      "CustomString": {
+                        "Value": "Stage_40222203_Yanqing_03"
+                      }
+                    },
+                    {
+                      "$type": "RPG.GameCore.SetDynamicValue",
+                      "TargetType": {
+                        "$type": "RPG.GameCore.TargetAlias",
+                        "Alias": "ModifierOwnerEntity"
+                      },
+                      "DynamicKey": "MDF_KillTalk",
+                      "ContextScope": "ContextModifier",
+                      "Value": {
+                        "IsDynamic": true,
+                        "PostfixExpr": {
+                          "OpCodes": "AQAAAAIJ",
+                          "FixedValues": [
+                            {
+                              "Value": 1
+                            }
+                          ],
+                          "DynamicHashes": [
+                            1995265094
+                          ]
+                        }
+                      }
+                    }
+                  ],
+                  "FailedTaskList": []
+                }
+              ]
+            },
+            "OnBeforeAttack": {
+              "CallbackConfig": [
+                {
+                  "$type": "RPG.GameCore.PredicateTaskList",
+                  "Predicate": {
+                    "$type": "RPG.GameCore.ByCompareDynamicValue",
+                    "TargetType": {
+                      "$type": "RPG.GameCore.TargetAlias",
+                      "Alias": "ModifierOwnerEntity"
+                    },
+                    "DynamicKey": "MDF_ActionTime",
+                    "ContextScope": "ContextModifier",
+                    "CompareType": "Equal",
+                    "CompareValue": {
+                      "IsDynamic": true,
+                      "PostfixExpr": {
+                        "OpCodes": "AAAJ",
+                        "FixedValues": [
+                          {
+                            "Value": 0
+                          }
+                        ],
+                        "DynamicHashes": []
+                      }
+                    }
+                  },
+                  "SuccessTaskList": [
+                    {
+                      "$type": "RPG.GameCore.TriggerCustomString",
+                      "CustomString": {
+                        "Value": "Stage_40222203_Jingliu_01"
+                      }
+                    }
+                  ],
+                  "FailedTaskList": [
+                    {
+                      "$type": "RPG.GameCore.PredicateTaskList",
+                      "Predicate": {
+                        "$type": "RPG.GameCore.ByCompareDynamicValue",
+                        "TargetType": {
+                          "$type": "RPG.GameCore.TargetAlias",
+                          "Alias": "ModifierOwnerEntity"
+                        },
+                        "DynamicKey": "MDF_ActionTime",
+                        "ContextScope": "ContextModifier",
+                        "CompareType": "Equal",
+                        "CompareValue": {
+                          "IsDynamic": true,
+                          "PostfixExpr": {
+                            "OpCodes": "AAAJ",
+                            "FixedValues": [
+                              {
+                                "Value": 1
+                              }
+                            ],
+                            "DynamicHashes": []
+                          }
+                        }
+                      },
+                      "SuccessTaskList": [],
+                      "FailedTaskList": []
+                    }
+                  ]
+                },
+                {
+                  "$type": "RPG.GameCore.SetDynamicValue",
+                  "TargetType": {
+                    "$type": "RPG.GameCore.TargetAlias",
+                    "Alias": "ModifierOwnerEntity"
+                  },
+                  "DynamicKey": "MDF_ActionTime",
+                  "ContextScope": "ContextModifier",
+                  "Value": {
+                    "IsDynamic": true,
+                    "PostfixExpr": {
+                      "OpCodes": "AQAAAAIJ",
+                      "FixedValues": [
+                        {
+                          "Value": 1
+                        }
+                      ],
+                      "DynamicHashes": [
+                        -1398284645
+                      ]
+                    }
+                  }
+                }
+              ]
+            }
+          },
+          "DynamicValues": {
+            "Values": {
+              "-1398284645": {},
+              "1995265094": {}
+            }
+          }
+        }
+      },
+      "Name": "TrialPlayer_1021209_Yanqing_Ability",
+      "TargetInfo": {
+        "TargetType": "Caster"
+      },
+      "OnStart": [
+        {
+          "$type": "RPG.GameCore.AddModifier",
+          "TargetType": {
+            "$type": "RPG.GameCore.TargetAlias",
+            "Alias": "Caster"
+          },
+          "ModifierName": "TrialPlayer_1021209_Yanqing_AttackFlag_Modifier",
+          "LifeStepImmediately": true
+        },
+        {
+          "$type": "RPG.GameCore.AddModifier",
+          "TargetType": {
+            "$type": "RPG.GameCore.TargetAlias",
+            "Alias": "Caster"
+          },
+          "ModifierName": "TrialPlayer_1021209_Yanqing_Talk_Modifier",
+          "LifeStepImmediately": true
+        }
+      ]
+    },
+    {
+      "Modifiers": {
+        "TrialPlayer_1021212_Jingliu_AddDisableAction_Modifier": {
+          "_CallbackList": {
+            "OnPhase1": {
+              "CallbackConfig": [
+                {
+                  "$type": "RPG.GameCore.PredicateTaskList",
+                  "Predicate": {
+                    "$type": "RPG.GameCore.ByCompareDynamicValue",
+                    "TargetType": {
+                      "$type": "RPG.GameCore.TargetAlias",
+                      "Alias": "ModifierOwnerEntity"
+                    },
+                    "DynamicKey": "MDF_ActionTime",
+                    "ContextScope": "ContextModifier",
+                    "CompareType": "GreaterEqual",
+                    "CompareValue": {
+                      "IsDynamic": true,
+                      "PostfixExpr": {
+                        "OpCodes": "AAAJ",
+                        "FixedValues": [
+                          {
+                            "Value": 1
+                          }
+                        ],
+                        "DynamicHashes": []
+                      }
+                    }
+                  },
+                  "SuccessTaskList": [
+                    {
+                      "$type": "RPG.GameCore.PredicateTaskList",
+                      "Predicate": {
+                        "$type": "RPG.GameCore.ByCompareDynamicValue",
+                        "TargetType": {
+                          "$type": "RPG.GameCore.TargetAlias",
+                          "Alias": "ModifierOwnerEntity"
+                        },
+                        "DynamicKey": "MDF_ActionTime",
+                        "ContextScope": "ContextModifier",
+                        "CompareType": "Equal",
+                        "CompareValue": {
+                          "IsDynamic": true,
+                          "PostfixExpr": {
+                            "OpCodes": "AAAJ",
+                            "FixedValues": [
+                              {
+                                "Value": 1
+                              }
+                            ],
+                            "DynamicHashes": []
+                          }
+                        }
+                      },
+                      "SuccessTaskList": [
+                        {
+                          "$type": "RPG.GameCore.TriggerCustomString",
+                          "CustomString": {
+                            "Value": "Stage_40222203_Jingliu_02"
+                          }
+                        },
+                        {
+                          "$type": "RPG.GameCore.SetDynamicValue",
+                          "TargetType": {
+                            "$type": "RPG.GameCore.TargetAlias",
+                            "Alias": "ModifierOwnerEntity"
+                          },
+                          "DynamicKey": "MDF_ActionTime",
+                          "ContextScope": "ContextModifier",
+                          "Value": {
+                            "IsDynamic": true,
+                            "PostfixExpr": {
+                              "OpCodes": "AQAAAAIJ",
+                              "FixedValues": [
+                                {
+                                  "Value": 1
+                                }
+                              ],
+                              "DynamicHashes": [
+                                -1398284645
+                              ]
+                            }
+                          }
+                        }
+                      ],
+                      "FailedTaskList": [
+                        {
+                          "$type": "RPG.GameCore.PredicateTaskList",
+                          "Predicate": {
+                            "$type": "RPG.GameCore.ByCompareDynamicValue",
+                            "TargetType": {
+                              "$type": "RPG.GameCore.TargetAlias",
+                              "Alias": "ModifierOwnerEntity"
+                            },
+                            "DynamicKey": "MDF_ActionTime",
+                            "ContextScope": "ContextModifier",
+                            "CompareType": "Equal",
+                            "CompareValue": {
+                              "IsDynamic": true,
+                              "PostfixExpr": {
+                                "OpCodes": "AAAJ",
+                                "FixedValues": [
+                                  {
+                                    "Value": 2
+                                  }
+                                ],
+                                "DynamicHashes": []
+                              }
+                            }
+                          },
+                          "SuccessTaskList": [
+                            {
+                              "$type": "RPG.GameCore.TriggerCustomString",
+                              "CustomString": {
+                                "Value": "Stage_40222203_Jingliu_03"
+                              }
+                            },
+                            {
+                              "$type": "RPG.GameCore.SetDynamicValue",
+                              "TargetType": {
+                                "$type": "RPG.GameCore.TargetAlias",
+                                "Alias": "ModifierOwnerEntity"
+                              },
+                              "DynamicKey": "MDF_ActionTime",
+                              "ContextScope": "ContextModifier",
+                              "Value": {
+                                "IsDynamic": true,
+                                "PostfixExpr": {
+                                  "OpCodes": "AQAAAAIJ",
+                                  "FixedValues": [
+                                    {
+                                      "Value": 1
+                                    }
+                                  ],
+                                  "DynamicHashes": [
+                                    -1398284645
+                                  ]
+                                }
+                              }
+                            }
+                          ],
+                          "FailedTaskList": [
+                            {
+                              "$type": "RPG.GameCore.PredicateTaskList",
+                              "Predicate": {
+                                "$type": "RPG.GameCore.ByCompareDynamicValue",
+                                "TargetType": {
+                                  "$type": "RPG.GameCore.TargetAlias",
+                                  "Alias": "ModifierOwnerEntity"
+                                },
+                                "DynamicKey": "MDF_ActionTime",
+                                "ContextScope": "ContextModifier",
+                                "CompareType": "Equal",
+                                "CompareValue": {
+                                  "IsDynamic": true,
+                                  "PostfixExpr": {
+                                    "OpCodes": "AAAJ",
+                                    "FixedValues": [
+                                      {
+                                        "Value": 3
+                                      }
+                                    ],
+                                    "DynamicHashes": []
+                                  }
+                                }
+                              },
+                              "SuccessTaskList": [
+                                {
+                                  "$type": "RPG.GameCore.SetDynamicValue",
+                                  "TargetType": {
+                                    "$type": "RPG.GameCore.TargetAlias",
+                                    "Alias": "ModifierOwnerEntity"
+                                  },
+                                  "DynamicKey": "MDF_ActionTime",
+                                  "ContextScope": "ContextModifier",
+                                  "Value": {
+                                    "IsDynamic": true,
+                                    "PostfixExpr": {
+                                      "OpCodes": "AQAAAAIJ",
+                                      "FixedValues": [
+                                        {
+                                          "Value": 1
+                                        }
+                                      ],
+                                      "DynamicHashes": [
+                                        -1398284645
+                                      ]
+                                    }
+                                  }
+                                }
+                              ],
+                              "FailedTaskList": []
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ],
+                  "FailedTaskList": [
+                    {
+                      "$type": "RPG.GameCore.PredicateTaskList",
+                      "Predicate": {
+                        "$type": "RPG.GameCore.ByCompareDynamicValue",
+                        "TargetType": {
+                          "$type": "RPG.GameCore.TargetAlias",
+                          "Alias": "ModifierOwnerEntity"
+                        },
+                        "DynamicKey": "MDF_ActionTime",
+                        "ContextScope": "ContextModifier",
+                        "CompareType": "Equal",
+                        "CompareValue": {
+                          "IsDynamic": true,
+                          "PostfixExpr": {
+                            "OpCodes": "AAAJ",
+                            "FixedValues": [
+                              {
+                                "Value": 0
+                              }
+                            ],
+                            "DynamicHashes": []
+                          }
+                        }
+                      },
+                      "SuccessTaskList": [],
+                      "FailedTaskList": []
+                    },
+                    {
+                      "$type": "RPG.GameCore.AddModifier",
+                      "TargetType": {
+                        "$type": "RPG.GameCore.TargetAlias",
+                        "Alias": "ModifierOwnerEntity"
+                      },
+                      "AliveOnly": false,
+                      "ModifierName": "TrialPlayer_1021212_Jingliu_DisableAction_Modifier",
+                      "LifeStepImmediately": true,
+                      "LifeTime": {
+                        "IsDynamic": false,
+                        "FixedValue": {
+                          "Value": 1
+                        }
+                      }
+                    },
+                    {
+                      "$type": "RPG.GameCore.SetDynamicValue",
+                      "TargetType": {
+                        "$type": "RPG.GameCore.TargetAlias",
+                        "Alias": "ModifierOwnerEntity"
+                      },
+                      "DynamicKey": "MDF_ActionTime",
+                      "ContextScope": "ContextModifier",
+                      "Value": {
+                        "IsDynamic": true,
+                        "PostfixExpr": {
+                          "OpCodes": "AQAAAAIJ",
+                          "FixedValues": [
+                            {
+                              "Value": 1
+                            }
+                          ],
+                          "DynamicHashes": [
+                            -1398284645
+                          ]
+                        }
+                      }
+                    }
+                  ]
+                }
+              ]
+            },
+            "OnStack": {
+              "CallbackConfig": []
+            }
+          },
+          "DynamicValues": {
+            "Values": {
+              "-1398284645": {}
+            }
+          }
+        },
+        "TrialPlayer_1021212_Jingliu_DisableAction_Modifier": {
+          "BehaviorFlagList": [
+            "DisableAction"
+          ]
+        },
+        "TrialPlayer_1021212_Jingliu_OneMore_Modifier": {
+          "BehaviorFlagList": [
+            "OneMore"
+          ],
+          "_CallbackList": {
+            "OnBeforeAttack": {
+              "CallbackConfig": [
+                {
+                  "$type": "RPG.GameCore.PredicateTaskList",
+                  "Predicate": {
+                    "$type": "RPG.GameCore.ByCompareDynamicValue",
+                    "TargetType": {
+                      "$type": "RPG.GameCore.TargetAlias",
+                      "Alias": "ModifierOwnerEntity"
+                    },
+                    "DynamicKey": "MDF_OneMoreTime",
+                    "ContextScope": "ContextModifier",
+                    "CompareType": "Equal",
+                    "CompareValue": {
+                      "IsDynamic": true,
+                      "PostfixExpr": {
+                        "OpCodes": "AAAJ",
+                        "FixedValues": [
+                          {
+                            "Value": 1
+                          }
+                        ],
+                        "DynamicHashes": []
+                      }
+                    }
+                  },
+                  "SuccessTaskList": [
+                    {
+                      "$type": "RPG.GameCore.RemoveSelfModifier"
+                    }
+                  ],
+                  "FailedTaskList": [
+                    {
+                      "$type": "RPG.GameCore.SetDynamicValue",
+                      "DynamicKey": "MDF_OneMoreTime",
+                      "Value": {
+                        "IsDynamic": false,
+                        "FixedValue": {
+                          "Value": 1
+                        }
+                      }
+                    }
+                  ]
+                }
+              ]
+            }
+          },
+          "DynamicValues": {
+            "Values": {
+              "1480576528": {}
+            }
+          }
+        },
+        "TrialPlayer_1021212_Jingliu_AddDisableSkill_Modifier": {
+          "_CallbackList": {
+            "OnStack": {
+              "CallbackConfig": [
+                {
+                  "$type": "RPG.GameCore.AttachSkillTypeDisable",
+                  "TargetType": {
+                    "$type": "RPG.GameCore.TargetAlias",
+                    "Alias": "Caster"
+                  },
+                  "Types": [
+                    "Ultra"
+                  ]
+                }
+              ]
+            }
+          }
+        }
+      },
+      "Name": "TrialPlayer_1021212_Jingliu_Ability",
+      "TargetInfo": {
+        "TargetType": "Caster"
+      },
+      "OnStart": [
+        {
+          "$type": "RPG.GameCore.AddModifier",
+          "TargetType": {
+            "$type": "RPG.GameCore.TargetAlias",
+            "Alias": "Caster"
+          },
+          "ModifierName": "TrialPlayer_1021212_Jingliu_AddDisableAction_Modifier",
+          "LifeStepImmediately": true
+        },
+        {
+          "$type": "RPG.GameCore.AddModifier",
+          "TargetType": {
+            "$type": "RPG.GameCore.TargetAlias",
+            "Alias": "Caster"
+          },
+          "ModifierName": "TrialPlayer_1021212_Jingliu_AddDisableSkill_Modifier"
+        }
+      ]
+    },
+    {
+      "Name": "TrialPlayer_1031213_DanHengIL_Ability",
+      "TargetInfo": {
+        "TargetType": "Caster"
+      },
+      "OnStart": [
+        {
+          "$type": "RPG.GameCore.AddModifier",
+          "TargetType": {
+            "$type": "RPG.GameCore.TargetAlias",
+            "Alias": "Caster"
+          },
+          "ModifierName": "TrialPlayer_Common_Disable_Ultra_Modifier"
+        },
+        {
+          "$type": "RPG.GameCore.SwitchByCommandType",
+          "TargetType": {
+            "$type": "RPG.GameCore.TargetAlias",
+            "Alias": "ModifierOwnerEntity"
+          }
+        },
+        {
+          "$type": "RPG.GameCore.ModifySP",
+          "TargetType": {
+            "$type": "RPG.GameCore.TargetAlias",
+            "Alias": "ModifierOwnerEntity"
+          },
+          "ModifyFunction": "Set",
+          "ModifyValue": {
+            "IsDynamic": false,
+            "FixedValue": {
+              "Value": 0
+            }
+          },
+          "IgnoreBlockAdd": true
+        }
+      ]
+    },
+    {
+      "Name": "TrialPlayer_1021213_DanHengIL_Ability",
+      "TargetInfo": {
+        "TargetType": "Caster"
+      },
+      "OnStart": [
+        {
+          "$type": "RPG.GameCore.AddModifier",
+          "TargetType": {
+            "$type": "RPG.GameCore.TargetAlias",
+            "Alias": "Caster"
+          },
+          "ModifierName": "TrialPlayer_DanHengIL_20231052_Modifier"
+        },
+        {
+          "$type": "RPG.GameCore.AddModifier",
+          "TargetType": {
+            "$type": "RPG.GameCore.TargetAlias",
+            "Alias": "Caster"
+          },
+          "ModifierName": "TrialPlayer_Common_Disable_Ultra_Modifier"
+        }
+      ]
+    }
+  ],
+  "GlobalModifiers": {
+    "TrialPlayer_Common_Disable_Ultra_Modifier": {
+      "_CallbackList": {
+        "OnStack": {
+          "CallbackConfig": [
+            {
+              "$type": "RPG.GameCore.AttachSkillTypeDisable",
+              "TargetType": {
+                "$type": "RPG.GameCore.TargetAlias",
+                "Alias": "Caster"
+              },
+              "Types": [
+                "Ultra"
+              ]
+            }
+          ]
+        }
+      }
+    },
+    "TrialPlayer_DanHengIL_20231052_Modifier": {
+      "_CallbackList": {
+        "OnPhase1": {
+          "CallbackConfig": [
+            {
+              "$type": "RPG.GameCore.SetDynamicValue",
+              "TargetType": {
+                "$type": "RPG.GameCore.TargetAlias",
+                "Alias": "ModifierOwnerEntity"
+              },
+              "DynamicKey": "BPExChange",
+              "ContextScope": "TargetEntity",
+              "Value": {
+                "IsDynamic": false,
+                "FixedValue": {
+                  "Value": 3
+                }
+              }
+            },
+            {
+              "$type": "RPG.GameCore.ModifyEntityBoostPoint",
+              "TargetType": {
+                "$type": "RPG.GameCore.TargetAlias",
+                "Alias": "Caster"
+              },
+              "ModifyFunction": "Set",
+              "ModifyValue": {
+                "IsDynamic": true,
+                "PostfixExpr": {
+                  "OpCodes": "AQAJ",
+                  "FixedValues": [],
+                  "DynamicHashes": [
+                    1140684749
+                  ]
+                }
+              },
+              "IsSilence": true
+            },
+            {
+              "$type": "RPG.GameCore.SetEnergyBarState",
+              "TargetType": {
+                "$type": "RPG.GameCore.TargetAlias",
+                "Alias": "ModifierOwnerEntity"
+              },
+              "Active": "True",
+              "BarType": 3,
+              "CD": {
+                "IsDynamic": false,
+                "FixedValue": {
+                  "Value": 0
+                }
+              },
+              "IconPath": "SpriteOutput/BuffIcon/Inlevel/Icon1213SpecialBP.png",
+              "MaxCount": {
+                "IsDynamic": false,
+                "FixedValue": {
+                  "Value": 3
+                }
+              },
+              "CurrentCount": {
+                "IsDynamic": false,
+                "FixedValue": {
+                  "Value": 3
+                }
+              }
+            },
+            {
+              "$type": "RPG.GameCore.AddModifier",
+              "TargetType": {
+                "$type": "RPG.GameCore.TargetAlias",
+                "Alias": "ModifierOwnerEntity"
+              },
+              "ModifierName": "MAvatar_DanHengIL_00_BPCost_3_Special"
+            }
+          ]
+        },
+        "OnStack": {
+          "CallbackConfig": [
+            {
+              "$type": "RPG.GameCore.SwitchByCommandType",
+              "TargetType": {
+                "$type": "RPG.GameCore.TargetAlias",
+                "Alias": "ModifierOwnerEntity"
+              }
+            },
+            {
+              "$type": "RPG.GameCore.ModifySP",
+              "TargetType": {
+                "$type": "RPG.GameCore.TargetAlias",
+                "Alias": "ModifierOwnerEntity"
+              },
+              "ModifyFunction": "Set",
+              "ModifyValue": {
+                "IsDynamic": false,
+                "FixedValue": {
+                  "Value": 0
+                }
+              },
+              "IgnoreBlockAdd": true
+            }
+          ]
+        }
+      }
+    }
+  }
+}
