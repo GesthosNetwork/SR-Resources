@@ -1,0 +1,52 @@
+{
+  "OnInitSequece": [],
+  "OnStartSequece": [
+    {
+      "TaskList": [
+        {
+          "$type": "RPG.GameCore.LevelPerformanceInitialize",
+          "PerformanceType": "D",
+          "LockCamera": false,
+          "CreateCharacterList": [],
+          "EntityVisiableList": [],
+          "StreamingCentersInBlackMask": [],
+          "StreamingCentersAfterBlackMask": []
+        },
+        {
+          "$type": "RPG.GameCore.PlaySimpleTalk",
+          "BlackMask": true,
+          "SimpleTalkList": [
+            {
+              "TalkSentenceID": 200010901
+            },
+            {
+              "TalkSentenceID": 200010902
+            },
+            {
+              "TalkSentenceID": 200010903
+            },
+            {
+              "TalkSentenceID": 200010904
+            }
+          ]
+        },
+        {
+          "$type": "RPG.GameCore.WaitSimpleTalkFinish"
+        },
+        {
+          "$type": "RPG.GameCore.EndPerformance"
+        }
+      ]
+    },
+    {
+      "TaskList": [
+        {
+          "$type": "RPG.GameCore.WaitPerformanceEnd"
+        },
+        {
+          "$type": "RPG.GameCore.FinishLevelGraph"
+        }
+      ]
+    }
+  ]
+}

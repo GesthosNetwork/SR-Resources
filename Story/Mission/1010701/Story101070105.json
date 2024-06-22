@@ -1,0 +1,63 @@
+{
+  "OnInitSequece": [],
+  "OnStartSequece": [
+    {
+      "TaskList": [
+        {
+          "$type": "RPG.GameCore.LevelPerformanceInitialize",
+          "PerformanceType": "C",
+          "AreaPrefabPath": "Story/Mission/1010701/Story101070105.prefab",
+          "CreateCharacterList": [],
+          "EntityVisiableList": [],
+          "HideProp": true,
+          "HideLocalPlayer": true,
+          "EnableRootMotion": false,
+          "StreamingCentersInBlackMask": [
+            {
+              "CenterName": "Anchor00",
+              "AreaName": "Story101070105",
+              "AnchorName": "cam01"
+            }
+          ],
+          "StreamingCentersAfterBlackMask": [
+            {
+              "CenterName": "cam02",
+              "AreaName": "Story101070105",
+              "AnchorName": "Anchor02"
+            },
+            {
+              "CenterName": "cam03",
+              "AreaName": "Story101070105",
+              "AnchorName": "Anchor03"
+            },
+            {
+              "CenterName": "cam04",
+              "AreaName": "Story101070105",
+              "AnchorName": "Anchor04"
+            }
+          ],
+          "MarkStreamingItems": []
+        },
+        {
+          "$type": "RPG.GameCore.PlayTimeline",
+          "TimelineName": "Story/Mission/1010701/Story10107010501.playable",
+          "Type": "Story",
+          "Parameters": []
+        },
+        {
+          "$type": "RPG.GameCore.EndPerformance"
+        }
+      ]
+    },
+    {
+      "TaskList": [
+        {
+          "$type": "RPG.GameCore.WaitPerformanceEnd"
+        },
+        {
+          "$type": "RPG.GameCore.FinishLevelGraph"
+        }
+      ]
+    }
+  ]
+}

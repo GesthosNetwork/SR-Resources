@@ -1,0 +1,72 @@
+{
+  "OnInitSequece": [],
+  "OnStartSequece": [
+    {
+      "TaskList": [
+        {
+          "$type": "RPG.GameCore.WaitPerformanceCondition",
+          "ConditionType": "BattleStart",
+          "TargetType": {
+            "$type": "RPG.GameCore.TargetAlias",
+            "Alias": "_BattleEventFromStage"
+          },
+          "SuccessTaskList": [
+            {
+              "$type": "RPG.GameCore.InsertBattlePerform",
+              "BattlePerformPath": "Config/Level/SubLevelGraph/BattlePerform_20222005_1.json"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "TaskList": [
+        {
+          "$type": "RPG.GameCore.WaitCustomString",
+          "CustomString": {
+            "Value": "Level_W2_Xuanlu_00_FirstTurnEnd"
+          }
+        },
+        {
+          "$type": "RPG.GameCore.WaitSecond",
+          "WaitTime": 1
+        },
+        {
+          "$type": "RPG.GameCore.PlayBackgroundTalk",
+          "BackgroundTalkList": [
+            {
+              "AutoSkipTime": 4,
+              "TalkSentenceID": 202223204
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "TaskList": [
+        {
+          "$type": "RPG.GameCore.WaitCustomString",
+          "CustomString": {
+            "Value": "Level_W2_Xuanlu_00_SummonAgain"
+          }
+        },
+        {
+          "$type": "RPG.GameCore.WaitSecond",
+          "WaitTime": 0.5
+        },
+        {
+          "$type": "RPG.GameCore.PlayBackgroundTalk",
+          "BackgroundTalkList": [
+            {
+              "AutoSkipTime": 4,
+              "TalkSentenceID": 202223206
+            }
+          ]
+        },
+        {
+          "$type": "RPG.GameCore.FinishLevelGraph"
+        }
+      ]
+    }
+  ]
+}

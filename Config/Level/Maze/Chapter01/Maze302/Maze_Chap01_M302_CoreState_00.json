@@ -1,0 +1,883 @@
+{
+  "OnInitSequece": [],
+  "OnStartSequece": [
+    {
+      "TaskList": [
+        {
+          "$type": "RPG.GameCore.PropSetupUITrigger",
+          "ButtonCallback": [
+            {
+              "$type": "RPG.GameCore.SelectorConfig",
+              "TaskList": [
+                {
+                  "$type": "RPG.GameCore.PropStateExecute",
+                  "TargetType": {
+                    "$type": "RPG.GameCore.TargetFetchAdvPropEx"
+                  },
+                  "State": "Locked",
+                  "Execute": [
+                    {
+                      "$type": "RPG.GameCore.TriggerCustomString",
+                      "CustomString": {
+                        "Custom": true,
+                        "Key": "Maze_Chap01_M302_MainMission_Locked"
+                      }
+                    }
+                  ]
+                },
+                {
+                  "$type": "RPG.GameCore.PropStateExecute",
+                  "TargetType": {
+                    "$type": "RPG.GameCore.TargetFetchAdvPropEx"
+                  },
+                  "State": "Open",
+                  "Execute": [
+                    {
+                      "$type": "RPG.GameCore.LockPlayerControl"
+                    },
+                    {
+                      "$type": "RPG.GameCore.AdvForceNpcGoBack"
+                    },
+                    {
+                      "$type": "RPG.GameCore.EnableNPCMonsterAI",
+                      "GroupMonsterIDs": [],
+                      "UniqueNames": []
+                    },
+                    {
+                      "$type": "RPG.GameCore.HideTopPage",
+                      "Hide": true
+                    },
+                    {
+                      "$type": "RPG.GameCore.SetPropInteractBtnSwitch"
+                    },
+                    {
+                      "$type": "RPG.GameCore.PlayScreenTransfer",
+                      "Mode": "SwitchOut",
+                      "CustomTime": 0.5,
+                      "TaskEnabled": false
+                    },
+                    {
+                      "$type": "RPG.GameCore.ActiveVirtualCamera",
+                      "LevelAreaCameraKey": {
+                        "Custom": true,
+                        "Key": "Maze_Chap01_M302_LookAtCore_Cam_01"
+                      },
+                      "BlendConfig": {
+                        "ExportToJson": true,
+                        "BlendType": "Cut"
+                      }
+                    },
+                    {
+                      "$type": "RPG.GameCore.WaitSecond",
+                      "WaitTime": 0.5,
+                      "TaskEnabled": false
+                    },
+                    {
+                      "$type": "RPG.GameCore.PlayScreenTransfer",
+                      "CustomTime": 0.5,
+                      "TaskEnabled": false
+                    },
+                    {
+                      "$type": "RPG.GameCore.PropTriggerAnimState",
+                      "AnimStateName": "UnActiving",
+                      "WatiAnimFinish": true,
+                      "TargetType": {
+                        "$type": "RPG.GameCore.TargetFetchAdvPropEx"
+                      }
+                    },
+                    {
+                      "$type": "RPG.GameCore.WaitSecond",
+                      "WaitTime": 1.5
+                    },
+                    {
+                      "$type": "RPG.GameCore.PlayScreenTransfer",
+                      "Mode": "SwitchOut",
+                      "CustomTime": 0.5
+                    },
+                    {
+                      "$type": "RPG.GameCore.ActiveVirtualCamera",
+                      "LevelAreaCameraKey": {
+                        "Custom": true,
+                        "Key": "Maze_Chap01_M302_OpenFogDoor_Cam_01"
+                      },
+                      "BlendConfig": {
+                        "ExportToJson": true,
+                        "BlendType": "Cut"
+                      }
+                    },
+                    {
+                      "$type": "RPG.GameCore.WaitSecond",
+                      "WaitTime": 0.5
+                    },
+                    {
+                      "$type": "RPG.GameCore.SetForceStreamingThisFrame",
+                      "StartLoadingTick": true
+                    },
+                    {
+                      "$type": "RPG.GameCore.WaitStreamingJobFinished",
+                      "StopLoadingTick": true
+                    },
+                    {
+                      "$type": "RPG.GameCore.WaitSecond",
+                      "WaitTime": 0.5
+                    },
+                    {
+                      "$type": "RPG.GameCore.PlayScreenTransfer",
+                      "CustomTime": 0.5
+                    },
+                    {
+                      "$type": "RPG.GameCore.TriggerCustomString",
+                      "CustomString": {
+                        "Custom": true,
+                        "Key": "Maze_Chap01_M302_MainMission_OpenAirWall"
+                      }
+                    },
+                    {
+                      "$type": "RPG.GameCore.SelectorConfig",
+                      "TaskList": [
+                        {
+                          "$type": "RPG.GameCore.PropStateExecute",
+                          "TargetType": {
+                            "$type": "RPG.GameCore.TargetFetchAdvPropEx",
+                            "FetchType": "SinglePropByPropID",
+                            "SinglePropID": {
+                              "GroupID": {
+                                "IsDynamic": false,
+                                "FixedValue": {
+                                  "Value": 5
+                                }
+                              },
+                              "ID": {
+                                "IsDynamic": false,
+                                "FixedValue": {
+                                  "Value": 300005
+                                }
+                              }
+                            }
+                          },
+                          "State": "CustomState01",
+                          "Execute": [
+                            {
+                              "$type": "RPG.GameCore.PropAnimSetParameter",
+                              "ParameterName": "UnLockStep",
+                              "ParameterType": "Int",
+                              "FloatValue": 3.402823E+38,
+                              "IntegerValue": 1,
+                              "TargetType": {
+                                "$type": "RPG.GameCore.TargetFetchAdvPropEx",
+                                "FetchType": "SinglePropByPropID",
+                                "SinglePropID": {
+                                  "GroupID": {
+                                    "IsDynamic": false,
+                                    "FixedValue": {
+                                      "Value": 5
+                                    }
+                                  },
+                                  "ID": {
+                                    "IsDynamic": false,
+                                    "FixedValue": {
+                                      "Value": 300005
+                                    }
+                                  }
+                                }
+                              }
+                            },
+                            {
+                              "$type": "RPG.GameCore.WaitSecond",
+                              "WaitTime": 3
+                            },
+                            {
+                              "$type": "RPG.GameCore.PlayScreenTransfer",
+                              "Mode": "SwitchOut",
+                              "CustomTime": 0.5
+                            },
+                            {
+                              "$type": "RPG.GameCore.ActiveVirtualCamera",
+                              "AreaName": "Chap01_MAZ_M302_LevelArea",
+                              "AnchorName": "FogDoor_Cam_01",
+                              "IsActive": false,
+                              "BlendConfig": {
+                                "ExportToJson": true,
+                                "BlendType": "Cut"
+                              }
+                            },
+                            {
+                              "$type": "RPG.GameCore.WaitSecond",
+                              "WaitTime": 0.5
+                            },
+                            {
+                              "$type": "RPG.GameCore.SetForceStreamingThisFrame",
+                              "StartLoadingTick": true
+                            },
+                            {
+                              "$type": "RPG.GameCore.WaitStreamingJobFinished",
+                              "StopLoadingTick": true
+                            },
+                            {
+                              "$type": "RPG.GameCore.WaitSecond",
+                              "WaitTime": 0.5
+                            },
+                            {
+                              "$type": "RPG.GameCore.PlayScreenTransfer",
+                              "CustomTime": 0.5
+                            },
+                            {
+                              "$type": "RPG.GameCore.EnableNPCMonsterAI",
+                              "Enable": true,
+                              "GroupMonsterIDs": [],
+                              "UniqueNames": []
+                            },
+                            {
+                              "$type": "RPG.GameCore.HideTopPage"
+                            },
+                            {
+                              "$type": "RPG.GameCore.UnLockPlayerControl"
+                            },
+                            {
+                              "$type": "RPG.GameCore.TriggerCustomString",
+                              "CustomString": {
+                                "Value": "302Block_Act_Over"
+                              }
+                            },
+                            {
+                              "$type": "RPG.GameCore.PropReqInteract",
+                              "TargetType": {
+                                "$type": "RPG.GameCore.TargetFetchAdvPropEx"
+                              },
+                              "InteractID": {
+                                "IsDynamic": false,
+                                "FixedValue": {
+                                  "Value": 1100
+                                }
+                              }
+                            }
+                          ]
+                        },
+                        {
+                          "$type": "RPG.GameCore.PropStateExecute",
+                          "TargetType": {
+                            "$type": "RPG.GameCore.TargetFetchAdvPropEx",
+                            "FetchType": "SinglePropByPropID",
+                            "SinglePropID": {
+                              "GroupID": {
+                                "IsDynamic": false,
+                                "FixedValue": {
+                                  "Value": 5
+                                }
+                              },
+                              "ID": {
+                                "IsDynamic": false,
+                                "FixedValue": {
+                                  "Value": 300005
+                                }
+                              }
+                            }
+                          },
+                          "State": "CustomState02",
+                          "Execute": [
+                            {
+                              "$type": "RPG.GameCore.PropAnimSetParameter",
+                              "ParameterName": "UnLockStep",
+                              "ParameterType": "Int",
+                              "FloatValue": 3.402823E+38,
+                              "IntegerValue": 2,
+                              "TargetType": {
+                                "$type": "RPG.GameCore.TargetFetchAdvPropEx",
+                                "FetchType": "SinglePropByPropID",
+                                "SinglePropID": {
+                                  "GroupID": {
+                                    "IsDynamic": false,
+                                    "FixedValue": {
+                                      "Value": 5
+                                    }
+                                  },
+                                  "ID": {
+                                    "IsDynamic": false,
+                                    "FixedValue": {
+                                      "Value": 300005
+                                    }
+                                  }
+                                }
+                              }
+                            },
+                            {
+                              "$type": "RPG.GameCore.WaitSecond",
+                              "WaitTime": 3
+                            },
+                            {
+                              "$type": "RPG.GameCore.PlayScreenTransfer",
+                              "Mode": "SwitchOut",
+                              "CustomTime": 0.5
+                            },
+                            {
+                              "$type": "RPG.GameCore.ActiveVirtualCamera",
+                              "AreaName": "Chap01_MAZ_M302_LevelArea",
+                              "AnchorName": "FogDoor_Cam_01",
+                              "IsActive": false,
+                              "BlendConfig": {
+                                "ExportToJson": true,
+                                "BlendType": "Cut"
+                              }
+                            },
+                            {
+                              "$type": "RPG.GameCore.WaitSecond",
+                              "WaitTime": 0.5
+                            },
+                            {
+                              "$type": "RPG.GameCore.SetForceStreamingThisFrame",
+                              "StartLoadingTick": true
+                            },
+                            {
+                              "$type": "RPG.GameCore.WaitStreamingJobFinished",
+                              "StopLoadingTick": true
+                            },
+                            {
+                              "$type": "RPG.GameCore.WaitSecond",
+                              "WaitTime": 0.5
+                            },
+                            {
+                              "$type": "RPG.GameCore.PlayScreenTransfer",
+                              "CustomTime": 0.5
+                            },
+                            {
+                              "$type": "RPG.GameCore.EnableNPCMonsterAI",
+                              "Enable": true,
+                              "GroupMonsterIDs": [],
+                              "UniqueNames": []
+                            },
+                            {
+                              "$type": "RPG.GameCore.HideTopPage"
+                            },
+                            {
+                              "$type": "RPG.GameCore.UnLockPlayerControl"
+                            },
+                            {
+                              "$type": "RPG.GameCore.TriggerCustomString",
+                              "CustomString": {
+                                "Value": "302Block_Act_Over"
+                              }
+                            },
+                            {
+                              "$type": "RPG.GameCore.PropReqInteract",
+                              "TargetType": {
+                                "$type": "RPG.GameCore.TargetFetchAdvPropEx"
+                              },
+                              "InteractID": {
+                                "IsDynamic": false,
+                                "FixedValue": {
+                                  "Value": 1100
+                                }
+                              }
+                            }
+                          ]
+                        },
+                        {
+                          "$type": "RPG.GameCore.PropStateExecute",
+                          "TargetType": {
+                            "$type": "RPG.GameCore.TargetFetchAdvPropEx",
+                            "FetchType": "SinglePropByPropID",
+                            "SinglePropID": {
+                              "GroupID": {
+                                "IsDynamic": false,
+                                "FixedValue": {
+                                  "Value": 5
+                                }
+                              },
+                              "ID": {
+                                "IsDynamic": false,
+                                "FixedValue": {
+                                  "Value": 300005
+                                }
+                              }
+                            }
+                          },
+                          "State": "CustomState03",
+                          "Execute": [
+                            {
+                              "$type": "RPG.GameCore.PropAnimSetParameter",
+                              "ParameterName": "UnLockStep",
+                              "ParameterType": "Int",
+                              "FloatValue": 3.402823E+38,
+                              "IntegerValue": 3,
+                              "TargetType": {
+                                "$type": "RPG.GameCore.TargetFetchAdvPropEx",
+                                "FetchType": "SinglePropByPropID",
+                                "SinglePropID": {
+                                  "GroupID": {
+                                    "IsDynamic": false,
+                                    "FixedValue": {
+                                      "Value": 5
+                                    }
+                                  },
+                                  "ID": {
+                                    "IsDynamic": false,
+                                    "FixedValue": {
+                                      "Value": 300005
+                                    }
+                                  }
+                                }
+                              }
+                            },
+                            {
+                              "$type": "RPG.GameCore.WaitSecond",
+                              "WaitTime": 3
+                            },
+                            {
+                              "$type": "RPG.GameCore.PlayScreenTransfer",
+                              "Mode": "SwitchOut",
+                              "CustomTime": 0.5
+                            },
+                            {
+                              "$type": "RPG.GameCore.ActiveVirtualCamera",
+                              "AreaName": "Chap01_MAZ_M302_LevelArea",
+                              "AnchorName": "FogDoor_Cam_01",
+                              "IsActive": false,
+                              "BlendConfig": {
+                                "ExportToJson": true,
+                                "BlendType": "Cut"
+                              }
+                            },
+                            {
+                              "$type": "RPG.GameCore.WaitSecond",
+                              "WaitTime": 0.5
+                            },
+                            {
+                              "$type": "RPG.GameCore.SetForceStreamingThisFrame",
+                              "StartLoadingTick": true
+                            },
+                            {
+                              "$type": "RPG.GameCore.WaitStreamingJobFinished",
+                              "StopLoadingTick": true
+                            },
+                            {
+                              "$type": "RPG.GameCore.WaitSecond",
+                              "WaitTime": 0.5
+                            },
+                            {
+                              "$type": "RPG.GameCore.PlayScreenTransfer",
+                              "CustomTime": 0.5
+                            },
+                            {
+                              "$type": "RPG.GameCore.EnableNPCMonsterAI",
+                              "Enable": true,
+                              "GroupMonsterIDs": [],
+                              "UniqueNames": []
+                            },
+                            {
+                              "$type": "RPG.GameCore.HideTopPage"
+                            },
+                            {
+                              "$type": "RPG.GameCore.UnLockPlayerControl"
+                            },
+                            {
+                              "$type": "RPG.GameCore.TriggerCustomString",
+                              "CustomString": {
+                                "Value": "302Block_Act_Over"
+                              }
+                            },
+                            {
+                              "$type": "RPG.GameCore.PropReqInteract",
+                              "TargetType": {
+                                "$type": "RPG.GameCore.TargetFetchAdvPropEx"
+                              },
+                              "InteractID": {
+                                "IsDynamic": false,
+                                "FixedValue": {
+                                  "Value": 1100
+                                }
+                              }
+                            }
+                          ]
+                        },
+                        {
+                          "$type": "RPG.GameCore.PropStateExecute",
+                          "TargetType": {
+                            "$type": "RPG.GameCore.TargetFetchAdvPropEx",
+                            "FetchType": "SinglePropByPropID",
+                            "SinglePropID": {
+                              "GroupID": {
+                                "IsDynamic": false,
+                                "FixedValue": {
+                                  "Value": 5
+                                }
+                              },
+                              "ID": {
+                                "IsDynamic": false,
+                                "FixedValue": {
+                                  "Value": 300005
+                                }
+                              }
+                            }
+                          },
+                          "State": "CustomState04",
+                          "Execute": [
+                            {
+                              "$type": "RPG.GameCore.PropAnimSetParameter",
+                              "ParameterName": "UnLockStep",
+                              "ParameterType": "Int",
+                              "FloatValue": 3.402823E+38,
+                              "IntegerValue": 4,
+                              "TargetType": {
+                                "$type": "RPG.GameCore.TargetFetchAdvPropEx",
+                                "FetchType": "SinglePropByPropID",
+                                "SinglePropID": {
+                                  "GroupID": {
+                                    "IsDynamic": false,
+                                    "FixedValue": {
+                                      "Value": 5
+                                    }
+                                  },
+                                  "ID": {
+                                    "IsDynamic": false,
+                                    "FixedValue": {
+                                      "Value": 300005
+                                    }
+                                  }
+                                }
+                              }
+                            },
+                            {
+                              "$type": "RPG.GameCore.WaitSecond",
+                              "WaitTime": 3
+                            },
+                            {
+                              "$type": "RPG.GameCore.PlayScreenTransfer",
+                              "Mode": "SwitchOut",
+                              "CustomTime": 0.5
+                            },
+                            {
+                              "$type": "RPG.GameCore.ActiveVirtualCamera",
+                              "AreaName": "Chap01_MAZ_M302_LevelArea",
+                              "AnchorName": "FogDoor_Cam_01",
+                              "IsActive": false,
+                              "BlendConfig": {
+                                "ExportToJson": true,
+                                "BlendType": "Cut"
+                              }
+                            },
+                            {
+                              "$type": "RPG.GameCore.WaitSecond",
+                              "WaitTime": 0.5
+                            },
+                            {
+                              "$type": "RPG.GameCore.SetForceStreamingThisFrame",
+                              "StartLoadingTick": true
+                            },
+                            {
+                              "$type": "RPG.GameCore.WaitStreamingJobFinished",
+                              "StopLoadingTick": true
+                            },
+                            {
+                              "$type": "RPG.GameCore.WaitSecond",
+                              "WaitTime": 0.5
+                            },
+                            {
+                              "$type": "RPG.GameCore.PlayScreenTransfer",
+                              "CustomTime": 0.5
+                            },
+                            {
+                              "$type": "RPG.GameCore.EnableNPCMonsterAI",
+                              "Enable": true,
+                              "GroupMonsterIDs": [],
+                              "UniqueNames": []
+                            },
+                            {
+                              "$type": "RPG.GameCore.HideTopPage"
+                            },
+                            {
+                              "$type": "RPG.GameCore.UnLockPlayerControl"
+                            },
+                            {
+                              "$type": "RPG.GameCore.TriggerCustomString",
+                              "CustomString": {
+                                "Value": "302Block_Act_Over"
+                              }
+                            },
+                            {
+                              "$type": "RPG.GameCore.PropReqInteract",
+                              "TargetType": {
+                                "$type": "RPG.GameCore.TargetFetchAdvPropEx"
+                              },
+                              "InteractID": {
+                                "IsDynamic": false,
+                                "FixedValue": {
+                                  "Value": 1100
+                                }
+                              }
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ],
+          "TargetType": {
+            "$type": "RPG.GameCore.TargetFetchAdvPropEx"
+          }
+        }
+      ]
+    },
+    {
+      "TaskList": [
+        {
+          "$type": "RPG.GameCore.PropStateChangeListenerConfig",
+          "FromState": "Open",
+          "OnChange": [
+            {
+              "$type": "RPG.GameCore.SetPropInteractBtnSwitch",
+              "SwitchState": true
+            },
+            {
+              "$type": "RPG.GameCore.SelectorConfig",
+              "TaskList": [
+                {
+                  "$type": "RPG.GameCore.PropStateExecute",
+                  "TargetType": {
+                    "$type": "RPG.GameCore.TargetFetchAdvPropEx",
+                    "FetchType": "SinglePropByPropID",
+                    "SinglePropID": {
+                      "GroupID": {
+                        "IsDynamic": false,
+                        "FixedValue": {
+                          "Value": 5
+                        }
+                      },
+                      "ID": {
+                        "IsDynamic": false,
+                        "FixedValue": {
+                          "Value": 300005
+                        }
+                      }
+                    }
+                  },
+                  "State": "CustomState01",
+                  "Execute": [
+                    {
+                      "$type": "RPG.GameCore.PropReqInteract",
+                      "TargetType": {
+                        "$type": "RPG.GameCore.TargetFetchAdvPropEx",
+                        "FetchType": "SinglePropByPropID",
+                        "SinglePropID": {
+                          "GroupID": {
+                            "IsDynamic": false,
+                            "FixedValue": {
+                              "Value": 5
+                            }
+                          },
+                          "ID": {
+                            "IsDynamic": false,
+                            "FixedValue": {
+                              "Value": 300005
+                            }
+                          }
+                        }
+                      },
+                      "InteractID": {
+                        "IsDynamic": false,
+                        "FixedValue": {
+                          "Value": 101020
+                        }
+                      }
+                    }
+                  ]
+                },
+                {
+                  "$type": "RPG.GameCore.PropStateExecute",
+                  "TargetType": {
+                    "$type": "RPG.GameCore.TargetFetchAdvPropEx",
+                    "FetchType": "SinglePropByPropID",
+                    "SinglePropID": {
+                      "GroupID": {
+                        "IsDynamic": false,
+                        "FixedValue": {
+                          "Value": 5
+                        }
+                      },
+                      "ID": {
+                        "IsDynamic": false,
+                        "FixedValue": {
+                          "Value": 300005
+                        }
+                      }
+                    }
+                  },
+                  "State": "CustomState02",
+                  "Execute": [
+                    {
+                      "$type": "RPG.GameCore.PropReqInteract",
+                      "TargetType": {
+                        "$type": "RPG.GameCore.TargetFetchAdvPropEx",
+                        "FetchType": "SinglePropByPropID",
+                        "SinglePropID": {
+                          "GroupID": {
+                            "IsDynamic": false,
+                            "FixedValue": {
+                              "Value": 5
+                            }
+                          },
+                          "ID": {
+                            "IsDynamic": false,
+                            "FixedValue": {
+                              "Value": 300005
+                            }
+                          }
+                        }
+                      },
+                      "InteractID": {
+                        "IsDynamic": false,
+                        "FixedValue": {
+                          "Value": 101021
+                        }
+                      }
+                    }
+                  ]
+                },
+                {
+                  "$type": "RPG.GameCore.PropStateExecute",
+                  "TargetType": {
+                    "$type": "RPG.GameCore.TargetFetchAdvPropEx",
+                    "FetchType": "SinglePropByPropID",
+                    "SinglePropID": {
+                      "GroupID": {
+                        "IsDynamic": false,
+                        "FixedValue": {
+                          "Value": 5
+                        }
+                      },
+                      "ID": {
+                        "IsDynamic": false,
+                        "FixedValue": {
+                          "Value": 300005
+                        }
+                      }
+                    }
+                  },
+                  "State": "CustomState03",
+                  "Execute": [
+                    {
+                      "$type": "RPG.GameCore.PropReqInteract",
+                      "TargetType": {
+                        "$type": "RPG.GameCore.TargetFetchAdvPropEx",
+                        "FetchType": "SinglePropByPropID",
+                        "SinglePropID": {
+                          "GroupID": {
+                            "IsDynamic": false,
+                            "FixedValue": {
+                              "Value": 5
+                            }
+                          },
+                          "ID": {
+                            "IsDynamic": false,
+                            "FixedValue": {
+                              "Value": 300005
+                            }
+                          }
+                        }
+                      },
+                      "InteractID": {
+                        "IsDynamic": false,
+                        "FixedValue": {
+                          "Value": 101022
+                        }
+                      }
+                    }
+                  ]
+                },
+                {
+                  "$type": "RPG.GameCore.PropStateExecute",
+                  "TargetType": {
+                    "$type": "RPG.GameCore.TargetFetchAdvPropEx",
+                    "FetchType": "SinglePropByPropID",
+                    "SinglePropID": {
+                      "GroupID": {
+                        "IsDynamic": false,
+                        "FixedValue": {
+                          "Value": 5
+                        }
+                      },
+                      "ID": {
+                        "IsDynamic": false,
+                        "FixedValue": {
+                          "Value": 300005
+                        }
+                      }
+                    }
+                  },
+                  "State": "CustomState04",
+                  "Execute": [
+                    {
+                      "$type": "RPG.GameCore.PropReqInteract",
+                      "TargetType": {
+                        "$type": "RPG.GameCore.TargetFetchAdvPropEx",
+                        "FetchType": "SinglePropByPropID",
+                        "SinglePropID": {
+                          "GroupID": {
+                            "IsDynamic": false,
+                            "FixedValue": {
+                              "Value": 5
+                            }
+                          },
+                          "ID": {
+                            "IsDynamic": false,
+                            "FixedValue": {
+                              "Value": 300005
+                            }
+                          }
+                        }
+                      },
+                      "InteractID": {
+                        "IsDynamic": false,
+                        "FixedValue": {
+                          "Value": 101023
+                        }
+                      }
+                    }
+                  ]
+                }
+              ]
+            }
+          ],
+          "TargetType": {
+            "$type": "RPG.GameCore.TargetFetchAdvPropEx"
+          }
+        }
+      ]
+    }
+  ],
+  "ValueSource": {
+    "Values": [
+      {
+        "$type": "RPG.GameCore.SharedString",
+        "Key": "Maze_Chap01_M302_OpenFogDoor_01",
+        "Comment": "解锁屏障的ConfigID",
+        "EditorHint": "LevelObject"
+      },
+      {
+        "$type": "RPG.GameCore.SharedString",
+        "Value": "Chap01_MAZ_M302_LevelArea,FogDoor_Cam_01",
+        "Key": "Maze_Chap01_M302_OpenFogDoor_Cam_01",
+        "Comment": "解锁屏障的Cam"
+      },
+      {
+        "$type": "RPG.GameCore.SharedString",
+        "Value": "Chap01_MAZ_M302_LevelArea,CoreState_Cam_01",
+        "Key": "Maze_Chap01_M302_LookAtCore_Cam_01",
+        "Comment": "看能源装置的Cam"
+      },
+      {
+        "$type": "RPG.GameCore.SharedString",
+        "Value": "Mission_101130107",
+        "Key": "Maze_Chap01_M302_MainMission_OpenAirWall",
+        "Comment": "传参给任务"
+      },
+      {
+        "$type": "RPG.GameCore.SharedString",
+        "Key": "Maze_Chap01_M302_MainMission_Locked",
+        "Comment": "Lock时不同提示"
+      }
+    ]
+  }
+}

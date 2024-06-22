@@ -1,0 +1,92 @@
+{
+  "OnInitSequece": [],
+  "OnStartSequece": [
+    {
+      "IsLoop": true,
+      "Order": 1,
+      "TaskList": [
+        {
+          "$type": "RPG.GameCore.WaitLevelRewardPageShow",
+          "WaitExit": true
+        },
+        {
+          "$type": "RPG.GameCore.ResetCharLightFromEntityDir"
+        }
+      ]
+    },
+    {
+      "IsLoop": true,
+      "Order": 1,
+      "TaskList": [
+        {
+          "$type": "RPG.GameCore.WaitLevelRewardPageShow"
+        },
+        {
+          "$type": "RPG.GameCore.SetCharLightToEntityDir",
+          "TargetType": {
+            "$type": "RPG.GameCore.TargetFetchAdvNpcEx"
+          },
+          "RotationOffset": {
+            "X": 45.00002,
+            "Y": 340.7636,
+            "Z": 0
+          }
+        },
+        {
+          "$type": "RPG.GameCore.PredicateTaskList",
+          "Predicate": {
+            "$type": "RPG.GameCore.ByHasUnGottenLevelReward"
+          },
+          "SuccessTaskList": [
+            {
+              "$type": "RPG.GameCore.TriggerAnimatorLayerEmotion",
+              "TargetType": {
+                "$type": "RPG.GameCore.TargetFetchAdvNpcEx"
+              },
+              "EmotionClipPath": {
+                "Value": "Characters/RecordedEmotion/Pam_00/EmotionClip/Emo_Pam_00_Full_Happy.anim"
+              }
+            }
+          ],
+          "FailedTaskList": [
+            {
+              "$type": "RPG.GameCore.StopAnimatorLayerEmotion",
+              "TargetType": {
+                "$type": "RPG.GameCore.TargetFetchAdvNpcEx"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "IsLoop": true,
+      "TaskList": [
+        {
+          "$type": "RPG.GameCore.WaitGetLevelReward"
+        },
+        {
+          "$type": "RPG.GameCore.CharacterTriggerFreeStyle",
+          "StoryAvatarID": "NPC_Special_Pam_00",
+          "StartMotion": "Congratulate01",
+          "StoryMotionID": 990101227
+        },
+        {
+          "$type": "RPG.GameCore.PredicateTaskList",
+          "Predicate": {
+            "$type": "RPG.GameCore.ByHasUnGottenLevelReward"
+          },
+          "SuccessTaskList": [],
+          "FailedTaskList": [
+            {
+              "$type": "RPG.GameCore.StopAnimatorLayerEmotion",
+              "TargetType": {
+                "$type": "RPG.GameCore.TargetFetchAdvNpcEx"
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

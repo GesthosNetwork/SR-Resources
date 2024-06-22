@@ -1,0 +1,64 @@
+{
+  "OnInitSequece": [],
+  "OnStartSequece": [
+    {
+      "TaskList": [
+        {
+          "$type": "RPG.GameCore.PropInitPuzzle",
+          "BoardPath": {
+            "Custom": true,
+            "Key": "LoadTestPuzzlePrefab"
+          },
+          "LocalPosition": {
+            "X": 0,
+            "Y": 0,
+            "Z": 0
+          }
+        }
+      ]
+    },
+    {
+      "TaskList": [
+        {
+          "$type": "RPG.GameCore.PropPuzzleEventListener",
+          "FinishCallback": [
+            {
+              "$type": "RPG.GameCore.PropAnimSetParameter",
+              "ParameterName": "TriggerUnlock",
+              "ParameterType": "Trigger",
+              "FloatValue": 3.402823E+38,
+              "TargetType": {
+                "$type": "RPG.GameCore.TargetFetchAdvPropEx",
+                "FetchType": "SinglePropByPropKey",
+                "SinglePropKey": {
+                  "Custom": true,
+                  "Key": "UnLockPuzzleCompleteBox"
+                }
+              }
+            },
+            {
+              "$type": "RPG.GameCore.ToastPile",
+              "DescTextID": {
+                "Hash": 362442128
+              }
+            }
+          ],
+          "ResetCallback": []
+        }
+      ]
+    }
+  ],
+  "ValueSource": {
+    "Values": [
+      {
+        "$type": "RPG.GameCore.SharedString",
+        "Key": "LoadTestPuzzlePrefab"
+      },
+      {
+        "$type": "RPG.GameCore.SharedString",
+        "Key": "UnLockPuzzleCompleteBox",
+        "EditorHint": "LevelObject"
+      }
+    ]
+  }
+}

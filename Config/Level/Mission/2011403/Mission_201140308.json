@@ -1,0 +1,47 @@
+{
+  "OnInitSequece": [],
+  "OnStartSequece": [
+    {
+      "IsLoop": true,
+      "TaskList": [
+        {
+          "$type": "RPG.GameCore.WaitCustomString",
+          "CustomString": {
+            "Value": "Talk_201140308"
+          }
+        },
+        {
+          "$type": "RPG.GameCore.BlockInputController",
+          "Enable": true,
+          "ActionNameList": [
+            "Menu_ClosePage",
+            "Menu_Confirm",
+            "Menu_Cancel",
+            "Menu_UnchangeY",
+            "Menu_UnchangeX",
+            "Menu_UnchangeLeftBumper",
+            "Menu_UnchangeRightBumper"
+          ]
+        },
+        {
+          "$type": "RPG.GameCore.OpenTreasureChallenge",
+          "RaidID": 4012101,
+          "OnCancel": [
+            {
+              "$type": "RPG.GameCore.BlockInputController",
+              "ActionNameList": []
+            }
+          ]
+        },
+        {
+          "$type": "RPG.GameCore.BlockInputController",
+          "ActionNameList": []
+        },
+        {
+          "$type": "RPG.GameCore.FinishPerformanceMission",
+          "Key": "Mission_201140308"
+        }
+      ]
+    }
+  ]
+}

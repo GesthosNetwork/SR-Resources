@@ -1,0 +1,200 @@
+{
+  "OnInitSequece": [],
+  "OnStartSequece": [
+    {
+      "TaskList": [
+        {
+          "$type": "RPG.GameCore.LevelPerformanceInitialize",
+          "PerformanceType": "D",
+          "LockCamera": false,
+          "CreateCharacterList": [],
+          "EntityVisiableList": [],
+          "PropVisiableList": [],
+          "StreamingCentersInBlackMask": [],
+          "StreamingCentersAfterBlackMask": [],
+          "MarkStreamingItems": []
+        },
+        {
+          "$type": "RPG.GameCore.PerformanceTransition",
+          "CreateNpcList": [],
+          "CaptureNpcList": [
+            {
+              "GroupID": {
+                "IsDynamic": false,
+                "FixedValue": {
+                  "Value": 18
+                }
+              },
+              "GroupNpcID": {
+                "IsDynamic": false,
+                "FixedValue": {
+                  "Value": 400002
+                }
+              },
+              "CharacterUniqueName": {
+                "Value": "101150213_Klara"
+              }
+            },
+            {
+              "GroupID": {
+                "IsDynamic": false,
+                "FixedValue": {
+                  "Value": 5
+                }
+              },
+              "GroupNpcID": {
+                "IsDynamic": false,
+                "FixedValue": {
+                  "Value": 400002
+                }
+              },
+              "CharacterUniqueName": {
+                "Value": "101150213_Serval"
+              }
+            }
+          ],
+          "DestroyNpcList": [],
+          "ActiveVirtualCamera": {
+            "AreaName": "Mission_1011501_temp",
+            "AnchorName": "Camera_101150213"
+          },
+          "SwitchCharacterAnchor": {
+            "IsLocalPlayer": true,
+            "CharacterUniqueName": "LocalPlayer",
+            "AreaName": {
+              "Value": "LevelArea_P10101_F10101007_G5"
+            },
+            "AnchorName": {
+              "Value": "Anchor1"
+            }
+          }
+        },
+        {
+          "$type": "RPG.GameCore.CharacterTriggerFreeStyle",
+          "CharacterUniqueName": "101150213_Serval",
+          "StoryAvatarID": "NPC_Avatar_Lady_Serval_00",
+          "StartMotion": "Talk01",
+          "StoryMotionID": 1103020
+        },
+        {
+          "$type": "RPG.GameCore.PlaySimpleTalk",
+          "SimpleTalkList": [
+            {
+              "TalkSentenceID": 101013463,
+              "ProtectTime": 0.3
+            }
+          ]
+        },
+        {
+          "$type": "RPG.GameCore.WaitSimpleTalkFinish"
+        },
+        {
+          "$type": "RPG.GameCore.CharacterTriggerFreeStyle",
+          "CharacterUniqueName": "101150213_Klara",
+          "StoryAvatarID": "NPC_Avatar_Girl_Klara_00",
+          "StartMotion": "StrikeChest01BS",
+          "StoryMotionID": 1107065
+        },
+        {
+          "$type": "RPG.GameCore.PlaySimpleTalk",
+          "SimpleTalkList": [
+            {
+              "TalkSentenceID": 101013464,
+              "ProtectTime": 0.3
+            },
+            {
+              "TalkSentenceID": 101013465,
+              "ProtectTime": 0.3
+            },
+            {
+              "TalkSentenceID": 101013466,
+              "ProtectTime": 0.3
+            },
+            {
+              "TalkSentenceID": 101013467,
+              "ProtectTime": 0.3
+            }
+          ]
+        },
+        {
+          "$type": "RPG.GameCore.WaitSimpleTalkFinish"
+        },
+        {
+          "$type": "RPG.GameCore.CharacterTriggerFreeStyle",
+          "CharacterUniqueName": "101150213_Serval",
+          "StoryAvatarID": "NPC_Avatar_Lady_Serval_00",
+          "StartMotion": "Talk01",
+          "StoryMotionID": 1103020
+        },
+        {
+          "$type": "RPG.GameCore.PlaySimpleTalk",
+          "SimpleTalkList": [
+            {
+              "TalkSentenceID": 101013472,
+              "ProtectTime": 0.3
+            },
+            {
+              "TalkSentenceID": 101013473,
+              "ProtectTime": 0.3
+            }
+          ]
+        },
+        {
+          "$type": "RPG.GameCore.WaitSimpleTalkFinish"
+        },
+        {
+          "$type": "RPG.GameCore.AdvNpcFaceToPlayer",
+          "GroupID": 18,
+          "GroupNpcID": 400002,
+          "TryFaceToFace": false,
+          "PlayerLookAtNpc": false,
+          "FinishImmadiate": true
+        },
+        {
+          "$type": "RPG.GameCore.PlaySimpleTalk",
+          "SimpleTalkList": [
+            {
+              "TalkSentenceID": 101013474,
+              "ProtectTime": 0.3
+            },
+            {
+              "TalkSentenceID": 101013475,
+              "ProtectTime": 0.3
+            }
+          ]
+        },
+        {
+          "$type": "RPG.GameCore.WaitSimpleTalkFinish"
+        },
+        {
+          "$type": "RPG.GameCore.PerformanceTransition",
+          "SwitchOutTime": -1,
+          "CreateNpcList": [],
+          "CaptureNpcList": [],
+          "DestroyNpcList": [],
+          "ActiveVirtualCamera": {
+            "AreaName": "Mission_1011501_temp",
+            "AnchorName": "Camera_101150213",
+            "IsActive": false
+          },
+          "SwitchCharacterAnchor": {
+            "TaskEnabled": false
+          }
+        },
+        {
+          "$type": "RPG.GameCore.EndPerformance"
+        }
+      ]
+    },
+    {
+      "TaskList": [
+        {
+          "$type": "RPG.GameCore.WaitPerformanceEnd"
+        },
+        {
+          "$type": "RPG.GameCore.FinishLevelGraph"
+        }
+      ]
+    }
+  ]
+}
