@@ -1,0 +1,62 @@
+{
+  "OnInitSequece": [],
+  "OnStartSequece": [
+    {
+      "TaskList": [
+        {
+          "$type": "RPG.GameCore.TriggerPerformance",
+          "ValueSource": {},
+          "PerformanceType": "E",
+          "PerformanceID": 800223120
+        },
+        {
+          "$type": "RPG.GameCore.PredicateTaskList",
+          "Predicate": {
+            "$type": "RPG.GameCore.ByCompareMissionCustomValue",
+            "MainMissionID": 8002231,
+            "MissionCustomValue": {
+              "Index": 2,
+              "ValidValueParamList": []
+            },
+            "EquationType": "Equal",
+            "TargetValue": 1
+          },
+          "SuccessTaskList": [
+            {
+              "$type": "RPG.GameCore.SetMissionCustomValue",
+              "SubmissionID": 800223103,
+              "MissionCustomValue": {
+                "Index": 2,
+                "ValidValueParamList": []
+              }
+            },
+            {
+              "$type": "RPG.GameCore.TriggerCustomString",
+              "CustomString": {
+                "Value": "RaidStart_3"
+              }
+            },
+            {
+              "$type": "RPG.GameCore.FinishPerformanceMission",
+              "Key": "Mission_800223109"
+            }
+          ],
+          "FailedTaskList": [
+            {
+              "$type": "RPG.GameCore.SetMissionCustomValue",
+              "SubmissionID": 800223103,
+              "MissionCustomValue": {
+                "Index": 2,
+                "ValidValueParamList": []
+              }
+            },
+            {
+              "$type": "RPG.GameCore.FinishPerformanceMission",
+              "Key": "Mission_800223109"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

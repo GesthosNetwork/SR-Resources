@@ -1,0 +1,161 @@
+{
+  "OnInitSequece": [],
+  "OnStartSequece": [
+    {
+      "TaskList": [
+        {
+          "$type": "RPG.GameCore.LevelPerformanceInitialize",
+          "PerformanceType": "E",
+          "HideMunicipalCrowd": false,
+          "HideMunicipalPedestrian": false
+        },
+        {
+          "$type": "RPG.GameCore.ShowTalkBackground",
+          "TalkBgID": 115001
+        },
+        {
+          "$type": "RPG.GameCore.PlayAndWaitSimpleTalk",
+          "SimpleTalkList": [
+            {
+              "TalkSentenceID": 403050381,
+              "ProtectTime": 0.3
+            },
+            {
+              "TalkSentenceID": 403050382,
+              "ProtectTime": 0.3
+            },
+            {
+              "TalkSentenceID": 403050383,
+              "ProtectTime": 0.3
+            },
+            {
+              "TalkSentenceID": 403050384,
+              "ProtectTime": 0.3
+            }
+          ]
+        },
+        {
+          "$type": "RPG.GameCore.PlayOptionTalk",
+          "OptionList": [
+            {
+              "OptionTextmapID": {
+                "Hash": -504649053
+              },
+              "OptionIconType": "ChatContinueIcon",
+              "TriggerCustomString": "TalkSentence_403050386",
+              "DialogueEventID": 115001
+            },
+            {
+              "OptionTextmapID": {
+                "Hash": -504649050
+              },
+              "OptionIconType": "ChatContinueIcon",
+              "TriggerCustomString": "TalkSentence_403050389",
+              "DialogueEventID": 115002
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "TaskList": [
+        {
+          "$type": "RPG.GameCore.WaitCustomString",
+          "CustomString": {
+            "Value": "TalkSentence_403050386"
+          }
+        },
+        {
+          "$type": "RPG.GameCore.TriggerSound",
+          "SoundName": "Ev_sfx_ui_feedback_rogue_musicBox_text",
+          "EmitterType": "DefaultEmitter"
+        },
+        {
+          "$type": "RPG.GameCore.PlayAndWaitSimpleTalk",
+          "SimpleTalkList": [
+            {
+              "TalkSentenceID": 403050386,
+              "ProtectTime": 0.3
+            },
+            {
+              "TalkSentenceID": 403050387,
+              "ProtectTime": 0.3
+            }
+          ]
+        },
+        {
+          "$type": "RPG.GameCore.TriggerCustomString",
+          "CustomString": {
+            "Value": "TalkSentence_403050391"
+          }
+        }
+      ]
+    },
+    {
+      "TaskList": [
+        {
+          "$type": "RPG.GameCore.WaitCustomString",
+          "CustomString": {
+            "Value": "TalkSentence_403050389"
+          }
+        },
+        {
+          "$type": "RPG.GameCore.TriggerSound",
+          "SoundName": "Ev_sfx_ui_feedback_rogue_musicBox_text",
+          "EmitterType": "DefaultEmitter"
+        },
+        {
+          "$type": "RPG.GameCore.PlayAndWaitSimpleTalk",
+          "SimpleTalkList": [
+            {
+              "TalkSentenceID": 403050389,
+              "ProtectTime": 0.3
+            },
+            {
+              "TalkSentenceID": 403050390,
+              "ProtectTime": 0.3
+            }
+          ]
+        },
+        {
+          "$type": "RPG.GameCore.TriggerCustomString",
+          "CustomString": {
+            "Value": "TalkSentence_403050391"
+          }
+        }
+      ]
+    },
+    {
+      "TaskList": [
+        {
+          "$type": "RPG.GameCore.WaitCustomString",
+          "CustomString": {
+            "Value": "TalkSentence_403050391"
+          }
+        },
+        {
+          "$type": "RPG.GameCore.PlayAndWaitSimpleTalk",
+          "SimpleTalkList": [
+            {
+              "TalkSentenceID": 403050391,
+              "ProtectTime": 0.3
+            }
+          ]
+        },
+        {
+          "$type": "RPG.GameCore.EndPerformance"
+        }
+      ]
+    },
+    {
+      "TaskList": [
+        {
+          "$type": "RPG.GameCore.WaitPerformanceEnd"
+        },
+        {
+          "$type": "RPG.GameCore.FinishLevelGraph"
+        }
+      ]
+    }
+  ]
+}

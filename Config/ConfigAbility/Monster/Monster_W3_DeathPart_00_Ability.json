@@ -1,0 +1,543 @@
+{
+  "AbilityList": [
+    {
+      "Modifiers": {
+        "Monster_W3_DeathPart_00_ListenDie": {
+          "BehaviorFlagList": [
+            "Deathrattle",
+            "BlockDamage"
+          ],
+          "_CallbackList": [
+            {
+              "Event": "OnPhase1",
+              "CallbackConfig": []
+            },
+            {
+              "Event": "OnBeforeBeingHitAll",
+              "CallbackConfig": [
+                {
+                  "$type": "RPG.GameCore.PredicateTaskList",
+                  "Predicate": {
+                    "$type": "RPG.GameCore.ByAnd",
+                    "PredicateList": [
+                      {
+                        "$type": "RPG.GameCore.ByAttackType",
+                        "AttackTypes": [
+                          "DOT",
+                          "ElementDamage"
+                        ]
+                      }
+                    ]
+                  },
+                  "SuccessTaskList": [
+                    {
+                      "$type": "RPG.GameCore.LoseHPByRatio",
+                      "TargetType": {
+                        "$type": "RPG.GameCore.TargetAlias",
+                        "Alias": "ModifierOwnerEntity"
+                      },
+                      "RatioType": "MaxHP",
+                      "Ratio": {
+                        "IsDynamic": true,
+                        "PostfixExpr": {
+                          "OpCodes": "AAABAAUJ",
+                          "FixedValues": [
+                            {
+                              "Value": 1.1000000000931323
+                            }
+                          ],
+                          "DynamicHashes": [
+                            235146001
+                          ]
+                        }
+                      }
+                    }
+                  ]
+                },
+                {
+                  "$type": "RPG.GameCore.PredicateTaskList",
+                  "Predicate": {
+                    "$type": "RPG.GameCore.ByAnd",
+                    "PredicateList": [
+                      {
+                        "$type": "RPG.GameCore.ByCompareDynamicValue",
+                        "DynamicKey": "Insert_Flag",
+                        "ContextScope": "TargetEntity",
+                        "CompareType": "Equal",
+                        "CompareValue": {
+                          "IsDynamic": false,
+                          "FixedValue": {
+                            "Value": 1
+                          }
+                        }
+                      },
+                      {
+                        "$type": "RPG.GameCore.ByAttackType",
+                        "AttackTypes": [
+                          "Insert"
+                        ]
+                      }
+                    ]
+                  },
+                  "SuccessTaskList": [
+                    {
+                      "$type": "RPG.GameCore.LoseHPByRatio",
+                      "TargetType": {
+                        "$type": "RPG.GameCore.TargetAlias",
+                        "Alias": "ModifierOwnerEntity"
+                      },
+                      "RatioType": "MaxHP",
+                      "Ratio": {
+                        "IsDynamic": true,
+                        "PostfixExpr": {
+                          "OpCodes": "AAABAAUJ",
+                          "FixedValues": [
+                            {
+                              "Value": 1.1000000000931323
+                            }
+                          ],
+                          "DynamicHashes": [
+                            235146001
+                          ]
+                        }
+                      }
+                    },
+                    {
+                      "$type": "RPG.GameCore.DefineDynamicValue",
+                      "TargetType": {
+                        "$type": "RPG.GameCore.TargetAlias",
+                        "Alias": "Caster"
+                      },
+                      "DynamicKey": "Insert_Flag",
+                      "ContextScope": "TargetEntity"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "Event": "OnBeforeDying",
+              "CallbackConfig": []
+            },
+            {
+              "Event": "OnDeathrattle",
+              "CallbackConfig": [
+                {
+                  "$type": "RPG.GameCore.DispelStatus",
+                  "TargetType": {
+                    "$type": "RPG.GameCore.TargetAlias",
+                    "Alias": "Caster"
+                  },
+                  "OnlyAlive": false,
+                  "IsSlientDispel": true
+                },
+                {
+                  "$type": "RPG.GameCore.SetDieImmediately"
+                },
+                {
+                  "$type": "RPG.GameCore.TurnInsertAbility",
+                  "AbilityName": "Monster_W3_DeathPart_00_SKill01_Insert",
+                  "InsertAbilityPriority": "MonsterDeathRattle",
+                  "OwnerAliveState": "Mask_AliveOrLimbo",
+                  "TargetAliveState": "Mask_AliveOrLimbo",
+                  "ShowInActionBar": true
+                }
+              ]
+            },
+            {
+              "Event": "OnBeforeBeingAttacked",
+              "CallbackConfig": [
+                {
+                  "$type": "RPG.GameCore.PredicateTaskList",
+                  "Predicate": {
+                    "$type": "RPG.GameCore.ByAnd",
+                    "PredicateList": [
+                      {
+                        "$type": "RPG.GameCore.ByAttackType",
+                        "AttackTypes": [
+                          "Insert"
+                        ],
+                        "Inverse": true
+                      }
+                    ]
+                  },
+                  "SuccessTaskList": [
+                    {
+                      "$type": "RPG.GameCore.LoseHPByRatio",
+                      "TargetType": {
+                        "$type": "RPG.GameCore.TargetAlias",
+                        "Alias": "ModifierOwnerEntity"
+                      },
+                      "RatioType": "MaxHP",
+                      "Ratio": {
+                        "IsDynamic": true,
+                        "PostfixExpr": {
+                          "OpCodes": "AAABAAUJ",
+                          "FixedValues": [
+                            {
+                              "Value": 1.1000000000931323
+                            }
+                          ],
+                          "DynamicHashes": [
+                            235146001
+                          ]
+                        }
+                      }
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "Event": "OnListenInsertAbilityStart",
+              "CallbackConfig": [
+                {
+                  "$type": "RPG.GameCore.DefineDynamicValue",
+                  "TargetType": {
+                    "$type": "RPG.GameCore.TargetAlias",
+                    "Alias": "Caster"
+                  },
+                  "DynamicKey": "Insert_Flag",
+                  "ResetValue": {
+                    "IsDynamic": false,
+                    "FixedValue": {
+                      "Value": 1
+                    }
+                  },
+                  "ContextScope": "TargetEntity"
+                }
+              ]
+            },
+            {
+              "Event": "OnListenInsertAbilityFinish",
+              "CallbackConfig": [
+                {
+                  "$type": "RPG.GameCore.DefineDynamicValue",
+                  "TargetType": {
+                    "$type": "RPG.GameCore.TargetAlias",
+                    "Alias": "Caster"
+                  },
+                  "DynamicKey": "Insert_Flag",
+                  "ContextScope": "TargetEntity"
+                }
+              ]
+            }
+          ],
+          "DynamicValues": {
+            "Values": {
+              "-295141034": {}
+            }
+          }
+        }
+      },
+      "Name": "Monster_W3_DeathPart_00_PassiveSkillInitiate",
+      "TargetInfo": {
+        "TargetType": "Caster"
+      },
+      "OnStart": [
+        {
+          "$type": "RPG.GameCore.DefineDynamicValue",
+          "TargetType": {
+            "$type": "RPG.GameCore.TargetAlias",
+            "Alias": "Caster"
+          },
+          "DynamicKey": "Insert_Flag",
+          "ContextScope": "TargetEntity"
+        },
+        {
+          "$type": "RPG.GameCore.AddModifier",
+          "TargetType": {
+            "$type": "RPG.GameCore.TargetAlias",
+            "Alias": "Caster"
+          },
+          "ModifierName": "Monster_W3_DeathPart_00_ListenDie",
+          "DynamicValues": {
+            "MDF_ShowValue": {
+              "IsDynamic": true,
+              "PostfixExpr": {
+                "OpCodes": "AQAJ",
+                "FixedValues": [],
+                "DynamicHashes": [
+                  235146001
+                ]
+              }
+            }
+          }
+        },
+        {
+          "$type": "RPG.GameCore.Retarget",
+          "TargetType": {
+            "$type": "RPG.GameCore.TargetAlias",
+            "Alias": "AllUnselectable"
+          },
+          "Predicate": {
+            "$type": "RPG.GameCore.ByAnd",
+            "PredicateList": [
+              {
+                "$type": "RPG.GameCore.ByIsContainModifier",
+                "TargetType": {
+                  "$type": "RPG.GameCore.TargetAlias",
+                  "Alias": "ParamEntity"
+                },
+                "ModifierName": "W3_DeathPart_Sgin_Modifier",
+                "Inverse": true
+              },
+              {
+                "$type": "RPG.GameCore.ByIsContainModifier",
+                "TargetType": {
+                  "$type": "RPG.GameCore.TargetAlias",
+                  "Alias": "ParamEntity"
+                },
+                "ModifierName": "MMonster_W3_Death_00_IsSummoner",
+                "Inverse": true
+              }
+            ]
+          },
+          "MaxNumber": {
+            "IsDynamic": false,
+            "FixedValue": {
+              "Value": 1
+            }
+          },
+          "TaskList": [
+            {
+              "$type": "RPG.GameCore.AddModifier",
+              "TargetType": {
+                "$type": "RPG.GameCore.TargetAlias",
+                "Alias": "ParamEntity"
+              },
+              "ModifierName": "W3_DeathPart_Sgin_Modifier"
+            },
+            {
+              "$type": "RPG.GameCore.TriggerEffect",
+              "TargetType": {
+                "$type": "RPG.GameCore.TargetAlias",
+                "Alias": "Caster"
+              },
+              "EffectPath": "Effects/Eff_Prefab/Eff_Monster/Eff_W3_DeathPart_00/Eff_Monster_W3_DeathPart_00_ModelCapture.prefab",
+              "AttachPoint": "Eff_Ghost",
+              "ParamEntityUsage": "ModelCapture",
+              "TowardTarget": {
+                "$type": "RPG.GameCore.TargetAlias",
+                "Alias": "ParamEntity"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "Name": "Monster_W3_DeathPart_00_SKill01_Insert",
+      "TargetInfo": {
+        "TargetType": "Caster"
+      },
+      "OnStart": [
+        {
+          "$type": "RPG.GameCore.ShowSkillTextDialog",
+          "SkillName": {
+            "Hash": -1549020483
+          },
+          "IsDark": true
+        },
+        {
+          "$type": "RPG.GameCore.TriggerAbility",
+          "TargetType": {
+            "$type": "RPG.GameCore.TargetAlias",
+            "Alias": "Caster"
+          },
+          "AbilityName": "Monster_W3_DeathPart_00_SKill01_Phase02",
+          "IsSkillPerform": true
+        },
+        {
+          "$type": "RPG.GameCore.TriggerAbility",
+          "TargetType": {
+            "$type": "RPG.GameCore.TargetAlias",
+            "Alias": "Caster"
+          },
+          "AbilityName": "Monster_W3_DeathPart_00_Skill01_Camera",
+          "IsSkillPerform": true
+        },
+        {
+          "$type": "RPG.GameCore.TriggerAnimState",
+          "AnimStateName": "Skill05",
+          "NormalizedTimeEnd": {
+            "IsDynamic": false,
+            "FixedValue": {
+              "Value": 1
+            }
+          }
+        }
+      ]
+    },
+    {
+      "Name": "Monster_W3_DeathPart_00_SKill01_Phase02",
+      "TargetInfo": {
+        "TargetType": "Caster"
+      },
+      "OnStart": [
+        {
+          "$type": "RPG.GameCore.ExitBreakState",
+          "TargetType": {
+            "$type": "RPG.GameCore.TargetAlias",
+            "Alias": "Caster"
+          },
+          "CancelRecoverAnim": true
+        },
+        {
+          "$type": "RPG.GameCore.SetTeamFormation",
+          "Team": "TeamDark",
+          "FormationType": "DarkTeamNormal"
+        },
+        {
+          "$type": "RPG.GameCore.SetTeamFormation",
+          "Team": "TeamLight",
+          "FormationType": "LightTeamNormal"
+        },
+        {
+          "$type": "RPG.GameCore.WaitAnimState",
+          "TargetType": {
+            "$type": "RPG.GameCore.TargetAlias",
+            "Alias": "Caster"
+          },
+          "AnimStateName": "Skill05",
+          "NormalizedTimeEnd": {
+            "IsDynamic": false,
+            "FixedValue": {
+              "Value": 0.5500000005122274
+            }
+          }
+        },
+        {
+          "$type": "RPG.GameCore.WaitSecond",
+          "WaitTime": 1
+        },
+        {
+          "$type": "RPG.GameCore.RemoveModifier",
+          "TargetType": {
+            "$type": "RPG.GameCore.TargetAlias",
+            "Alias": "Monster_Death_01_Unselectable"
+          },
+          "ModifierName": "Death_Control_Modifier"
+        },
+        {
+          "$type": "RPG.GameCore.ShowUIPage",
+          "AssetPath": "UI/Common/Widget/BattleAlertHint.prefab",
+          "UITextNodes": [
+            {
+              "TextPath": "AreaInfoPanel/Title/Text",
+              "TextContent": {
+                "Hash": 2127852562
+              }
+            }
+          ],
+          "LifeTime": 3
+        },
+        {
+          "$type": "RPG.GameCore.RadialBlurEffect",
+          "BlurRadius": 1,
+          "Iteration": 8,
+          "BlurStart": 0.01,
+          "BlurFeather": 0.15
+        },
+        {
+          "$type": "RPG.GameCore.WaitSecond",
+          "WaitTime": 0.05
+        },
+        {
+          "$type": "RPG.GameCore.SetEntityVisible",
+          "TargetType": {
+            "$type": "RPG.GameCore.TargetAlias",
+            "Alias": "Caster"
+          }
+        },
+        {
+          "$type": "RPG.GameCore.WaitSecond",
+          "WaitTime": 0.25
+        },
+        {
+          "$type": "RPG.GameCore.RadialBlurEffect",
+          "Active": false
+        },
+        {
+          "$type": "RPG.GameCore.WaitSecond",
+          "WaitTime": 0.75
+        },
+        {
+          "$type": "RPG.GameCore.WaitSecond",
+          "WaitTime": 1
+        }
+      ]
+    },
+    {
+      "Name": "Monster_W3_DeathPart_00_Skill02_Phase01",
+      "TargetInfo": {
+        "TargetType": "Caster"
+      },
+      "OnStart": [
+        {
+          "$type": "RPG.GameCore.RemoveModifier",
+          "TargetType": {
+            "$type": "RPG.GameCore.TargetAlias",
+            "Alias": "Caster"
+          },
+          "ModifierName": "OneMore"
+        },
+        {
+          "$type": "RPG.GameCore.TriggerAbility",
+          "TargetType": {
+            "$type": "RPG.GameCore.TargetAlias",
+            "Alias": "Caster"
+          },
+          "AbilityName": "Monster_W3_DeathPart_00_Skill02_Phase02",
+          "IsSkillPerform": true
+        },
+        {
+          "$type": "RPG.GameCore.TriggerAbility",
+          "TargetType": {
+            "$type": "RPG.GameCore.TargetAlias",
+            "Alias": "Caster"
+          },
+          "AbilityName": "Monster_W3_DeathPart_00_Skill02_Camera",
+          "IsSkillPerform": true
+        },
+        {
+          "$type": "RPG.GameCore.TriggerAnimState",
+          "AnimLogicState": "Idle"
+        }
+      ]
+    },
+    {
+      "Name": "Monster_W3_DeathPart_00_Skill02_Phase02",
+      "TargetInfo": {
+        "TargetType": "Caster"
+      },
+      "OnStart": [
+        {
+          "$type": "RPG.GameCore.WaitSecond",
+          "WaitTime": 1
+        },
+        {
+          "$type": "RPG.GameCore.ShowUIPage",
+          "AssetPath": "UI/Common/Widget/BattleAlertHint.prefab",
+          "UITextNodes": [
+            {
+              "TextPath": "AreaInfoPanel/Title/Text",
+              "TextContent": {
+                "Hash": 1627976539
+              }
+            }
+          ],
+          "LifeTime": 3
+        },
+        {
+          "$type": "RPG.GameCore.SkillPerformFinish"
+        }
+      ]
+    }
+  ],
+  "GlobalModifiers": {
+    "W3_DeathPart_Sgin_Modifier": {
+      "Stacking": "Multiple"
+    }
+  }
+}

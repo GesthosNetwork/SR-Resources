@@ -1,0 +1,64 @@
+{
+  "OnInitSequece": [],
+  "OnStartSequece": [
+    {
+      "TaskList": [
+        {
+          "$type": "RPG.GameCore.PropSetupTrigger",
+          "TargetType": {
+            "$type": "RPG.GameCore.TargetFetchAdvPropEx",
+            "FetchType": "SinglePropByPropID",
+            "SinglePropID": {
+              "GroupID": {
+                "IsDynamic": false,
+                "FixedValue": {
+                  "Value": 105
+                }
+              },
+              "ID": {
+                "IsDynamic": false,
+                "FixedValue": {
+                  "Value": 300003
+                }
+              }
+            }
+          },
+          "TargetGroupID": {
+            "IsDynamic": false,
+            "FixedValue": {
+              "Value": 0
+            }
+          },
+          "TargetID": {
+            "IsDynamic": false,
+            "FixedValue": {
+              "Value": 0
+            }
+          },
+          "TargetTypes": [],
+          "OnTriggerEnter": [
+            {
+              "$type": "RPG.GameCore.PlayMunicipalChat",
+              "MunicipalChatConfigPath": "Config/Level/MunicipalChat/MunicipalChatConfig_N3_InMission_2000701.json",
+              "MunicipalChatName": "MunicipalChat03"
+            }
+          ],
+          "OnTriggerExit": [
+            {
+              "$type": "RPG.GameCore.StopMunicipalChat",
+              "MunicipalChatName": "MunicipalChat03"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "ValueSource": {
+    "Values": [
+      {
+        "$type": "RPG.GameCore.SharedString",
+        "Key": "MissionPhotoID"
+      }
+    ]
+  }
+}

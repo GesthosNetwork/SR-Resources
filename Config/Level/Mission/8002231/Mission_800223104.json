@@ -1,0 +1,146 @@
+{
+  "OnInitSequece": [],
+  "OnStartSequece": [
+    {
+      "IsLoop": true,
+      "TaskList": [
+        {
+          "$type": "RPG.GameCore.WaitCustomString",
+          "CustomString": {
+            "Value": "Open_Raid"
+          }
+        },
+        {
+          "$type": "RPG.GameCore.CreateLevelAreas",
+          "AssetPath": {
+            "Value": "Level/Common_Adventure/UseInteractNPC.prefab"
+          }
+        },
+        {
+          "$type": "RPG.GameCore.LockPlayerControl"
+        },
+        {
+          "$type": "RPG.GameCore.CaptureNPCToCharacter",
+          "GroupID": {
+            "IsDynamic": false,
+            "FixedValue": {
+              "Value": 88
+            }
+          },
+          "GroupNpcID": {
+            "IsDynamic": false,
+            "FixedValue": {
+              "Value": 400001
+            }
+          },
+          "CharacterUniqueName": {
+            "Value": "CurrentInteractDialogueEntity"
+          }
+        },
+        {
+          "$type": "RPG.GameCore.WaitFrame"
+        },
+        {
+          "$type": "RPG.GameCore.ActiveVirtualCamera",
+          "AreaName": "UseInteractNPC",
+          "AnchorName": "UseInteractNPC_Camera",
+          "FollowTargetUniqueName": "CurrentInteractDialogueEntity",
+          "LookAtTargetUniqueName": "CurrentInteractDialogueEntity",
+          "BlendConfig": {
+            "ExportToJson": true,
+            "BlendType": "Custom",
+            "CustomCurveName": "BlendCut09",
+            "BlendTime": 0.8
+          },
+          "VCameraDitherNPCOn": true,
+          "VCameraDitherMaxDistance": 3
+        },
+        {
+          "$type": "RPG.GameCore.SetLocalPlayerDitherAlpha"
+        },
+        {
+          "$type": "RPG.GameCore.OpenTreasureChallenge",
+          "RaidID": 43207,
+          "OnCancel": [
+            {
+              "$type": "RPG.GameCore.SetLocalPlayerDitherAlpha",
+              "DitherAlpha": 1,
+              "Duration": 0.2
+            },
+            {
+              "$type": "RPG.GameCore.ActiveVirtualCamera",
+              "AreaName": "UseInteractNPC",
+              "AnchorName": "UseInteractNPC_Camera",
+              "IsActive": false,
+              "FollowTargetAnchorName": "RootPointPropInteract",
+              "LookAtTargetAnchorName": "RootPointPropInteract",
+              "BlendConfig": {
+                "ExportToJson": true,
+                "BlendType": "Cut",
+                "CustomCurveName": "BlendCut10",
+                "BlendTime": 1
+              }
+            },
+            {
+              "$type": "RPG.GameCore.RemoveLevelAreas",
+              "AreaName": {
+                "Value": "UseInteractNPC"
+              }
+            },
+            {
+              "$type": "RPG.GameCore.ReleaseCharacter",
+              "CharacterUniqueName": "CurrentInteractDialogueEntity"
+            },
+            {
+              "$type": "RPG.GameCore.UnLockPlayerControl"
+            },
+            {
+              "$type": "RPG.GameCore.TriggerCustomString",
+              "CustomString": {
+                "Value": "ALL_TALK_END"
+              }
+            }
+          ]
+        },
+        {
+          "$type": "RPG.GameCore.SetLocalPlayerDitherAlpha",
+          "DitherAlpha": 1,
+          "Duration": 0.2
+        },
+        {
+          "$type": "RPG.GameCore.ActiveVirtualCamera",
+          "AreaName": "UseInteractNPC",
+          "AnchorName": "UseInteractNPC_Camera",
+          "IsActive": false,
+          "FollowTargetAnchorName": "RootPointPropInteract",
+          "LookAtTargetAnchorName": "RootPointPropInteract",
+          "BlendConfig": {
+            "ExportToJson": true,
+            "BlendType": "Cut",
+            "CustomCurveName": "BlendCut10",
+            "BlendTime": 1
+          }
+        },
+        {
+          "$type": "RPG.GameCore.RemoveLevelAreas",
+          "AreaName": {
+            "Value": "UseInteractNPC"
+          }
+        },
+        {
+          "$type": "RPG.GameCore.ReleaseCharacter",
+          "CharacterUniqueName": "CurrentInteractDialogueEntity"
+        },
+        {
+          "$type": "RPG.GameCore.UnLockPlayerControl"
+        },
+        {
+          "$type": "RPG.GameCore.TriggerCustomString",
+          "CustomString": {
+            "Value": "ALL_TALK_END"
+          }
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,1961 @@
+{
+  "AbilityList": [
+    {
+      "Name": "Avatar_AetherDivide_AML_Minion02_00_Skill01_Phase01",
+      "TargetInfo": {
+        "TargetType": "SkillTargetEntityList"
+      },
+      "OnStart": [
+        {
+          "$type": "RPG.GameCore.LookAt",
+          "TargetType": "AbilityTargetEntity"
+        },
+        {
+          "$type": "RPG.GameCore.TriggerAbility",
+          "TargetType": {
+            "$type": "RPG.GameCore.TargetAlias",
+            "Alias": "Caster"
+          },
+          "AbilityName": "Avatar_AetherDivide_AML_Minion02_00_Skill01_Camera",
+          "IsSkillPerform": true
+        },
+        {
+          "$type": "RPG.GameCore.TriggerAbility",
+          "TargetType": {
+            "$type": "RPG.GameCore.TargetAlias",
+            "Alias": "Caster"
+          },
+          "AbilityName": "Avatar_AetherDivide_AML_Minion02_00_Skill01_Phase02",
+          "IsSkillPerform": true
+        },
+        {
+          "$type": "RPG.GameCore.TriggerAnimStateWithMove",
+          "TargetType": {
+            "$type": "RPG.GameCore.TargetAlias",
+            "Alias": "Caster"
+          },
+          "AnimStateName": "Skill01",
+          "NormalizedTimeEnd": {
+            "IsDynamic": false,
+            "FixedValue": {
+              "Value": 0.8000000007450581
+            }
+          },
+          "MovingRangeList": [
+            {
+              "TargetType": {
+                "$type": "RPG.GameCore.TargetAlias",
+                "Alias": "AbilityTargetEntity"
+              },
+              "IgnoreRadius": true,
+              "OffsetTargetDistance": {
+                "IsDynamic": false,
+                "FixedValue": {
+                  "Value": 1.5000000004656613
+                }
+              },
+              "NormalizedTimeStart": {
+                "IsDynamic": false,
+                "FixedValue": {
+                  "Value": 0.058999999426305294
+                }
+              },
+              "NormalizedTimeEnd": {
+                "IsDynamic": false,
+                "FixedValue": {
+                  "Value": 0.19599999976344407
+                }
+              }
+            },
+            {
+              "TargetType": {
+                "$type": "RPG.GameCore.TargetAlias",
+                "Alias": "TeamFormation"
+              },
+              "IgnoreRadius": true,
+              "OffsetTargetDistance": {
+                "IsDynamic": false,
+                "FixedValue": {
+                  "Value": 0
+                }
+              },
+              "NormalizedTimeStart": {
+                "IsDynamic": false,
+                "FixedValue": {
+                  "Value": 0.6589999999850988
+                }
+              },
+              "NormalizedTimeEnd": {
+                "IsDynamic": false,
+                "FixedValue": {
+                  "Value": 0.6750000002793968
+                }
+              }
+            }
+          ]
+        },
+        {
+          "$type": "RPG.GameCore.RadialBlurEffect",
+          "TargetType": {
+            "$type": "RPG.GameCore.TargetAlias",
+            "Alias": "Caster"
+          },
+          "Active": false
+        },
+        {
+          "$type": "RPG.GameCore.TriggerAnimState",
+          "AnimLogicState": "Idle"
+        }
+      ]
+    },
+    {
+      "Name": "Avatar_AetherDivide_AML_Minion02_00_Skill01_Phase02",
+      "TargetInfo": {
+        "TargetType": "SkillTargetEntityList"
+      },
+      "OnStart": [
+        {
+          "$type": "RPG.GameCore.ModifySPNew",
+          "TargetType": {
+            "$type": "RPG.GameCore.TargetAlias",
+            "Alias": "Caster"
+          },
+          "FixedAddValue": {
+            "IsDynamic": false,
+            "FixedValue": {
+              "Value": 1
+            }
+          }
+        },
+        {
+          "$type": "RPG.GameCore.WaitAnimState",
+          "TargetType": {
+            "$type": "RPG.GameCore.TargetAlias",
+            "Alias": "Caster"
+          },
+          "AnimStateName": "Skill01",
+          "NormalizedTimeEnd": {
+            "IsDynamic": false,
+            "FixedValue": {
+              "Value": 0.10000000009313226
+            }
+          }
+        },
+        {
+          "$type": "RPG.GameCore.WaitAnimState",
+          "TargetType": {
+            "$type": "RPG.GameCore.TargetAlias",
+            "Alias": "Caster"
+          },
+          "AnimStateName": "Skill01",
+          "NormalizedTimeEnd": {
+            "IsDynamic": false,
+            "FixedValue": {
+              "Value": 0.22699999972246587
+            }
+          }
+        },
+        {
+          "$type": "RPG.GameCore.VCameraConfigChange",
+          "CameraConfig": {
+            "ShakeConfigV2": {
+              "ShakeScale": 0.5,
+              "ShakeRange": 0.5,
+              "ShakeTime": 0.1,
+              "ShakeDir": {
+                "X": 0,
+                "Y": 0.1,
+                "Z": 0.2
+              },
+              "BaseCycle": 0.05,
+              "CycleDamping": 0,
+              "RangeAttenuation": 1
+            }
+          }
+        },
+        {
+          "$type": "RPG.GameCore.DamageByAttackProperty",
+          "TargetType": {
+            "$type": "RPG.GameCore.TargetAlias",
+            "Alias": "AbilityTargetEntity"
+          },
+          "AttackProperty": {
+            "DamageType": "Imaginary",
+            "DamagePercentage": {
+              "IsDynamic": true,
+              "PostfixExpr": {
+                "OpCodes": "AQAAAAQJ",
+                "FixedValues": [
+                  {
+                    "Value": 0.25000000023283064
+                  }
+                ],
+                "DynamicHashes": [
+                  -1126825319
+                ]
+              }
+            },
+            "AttackType": "Normal",
+            "HitAnimation": "Hit",
+            "HitEffect": "Effects/Eff_Prefab/Eff_Monster/Eff_AML_Minion02_00/Eff_Monster_AML_Minion02_00_Skill01_Hit.prefab",
+            "HitEffectHeight": 0.88
+          },
+          "TriggerHitSound": true,
+          "SpecialHitSoundEvent": "Ev_sfx_monster_skill_01_hit_aml_minion02",
+          "DisplayData": {
+            "UIMessageHeight": 1
+          }
+        },
+        {
+          "$type": "RPG.GameCore.WaitAnimState",
+          "TargetType": {
+            "$type": "RPG.GameCore.TargetAlias",
+            "Alias": "Caster"
+          },
+          "AnimStateName": "Skill01",
+          "NormalizedTimeEnd": {
+            "IsDynamic": false,
+            "FixedValue": {
+              "Value": 0.25000000023283064
+            }
+          }
+        },
+        {
+          "$type": "RPG.GameCore.VCameraConfigChange",
+          "CameraConfig": {
+            "ShakeConfigV2": {
+              "ShakeScale": 0.5,
+              "ShakeRange": 0.5,
+              "ShakeTime": 0.1,
+              "ShakeDir": {
+                "X": 0,
+                "Y": 0.1,
+                "Z": 0.2
+              },
+              "BaseCycle": 0.05,
+              "CycleDamping": 0,
+              "RangeAttenuation": 1
+            }
+          }
+        },
+        {
+          "$type": "RPG.GameCore.DamageByAttackProperty",
+          "TargetType": {
+            "$type": "RPG.GameCore.TargetAlias",
+            "Alias": "AbilityTargetEntity"
+          },
+          "AttackProperty": {
+            "DamageType": "Imaginary",
+            "DamagePercentage": {
+              "IsDynamic": true,
+              "PostfixExpr": {
+                "OpCodes": "AQAAAAQJ",
+                "FixedValues": [
+                  {
+                    "Value": 0.25000000023283064
+                  }
+                ],
+                "DynamicHashes": [
+                  -1126825319
+                ]
+              }
+            },
+            "AttackType": "Normal",
+            "HitAnimation": "Hit",
+            "HitEffect": "Effects/Eff_Prefab/Eff_Monster/Eff_AML_Minion02_00/Eff_Monster_AML_Minion02_00_Skill01_Hit.prefab",
+            "HitEffectHeight": 0.88
+          },
+          "TriggerHitSound": true,
+          "SpecialHitSoundEvent": "Ev_sfx_monster_skill_01_hit_aml_minion02",
+          "DisplayData": {
+            "UIMessageHeight": 1
+          }
+        },
+        {
+          "$type": "RPG.GameCore.WaitAnimState",
+          "TargetType": {
+            "$type": "RPG.GameCore.TargetAlias",
+            "Alias": "Caster"
+          },
+          "AnimStateName": "Skill01",
+          "NormalizedTimeEnd": {
+            "IsDynamic": false,
+            "FixedValue": {
+              "Value": 0.3710000002756715
+            }
+          }
+        },
+        {
+          "$type": "RPG.GameCore.AddModifier",
+          "TargetType": {
+            "$type": "RPG.GameCore.TargetAlias",
+            "Alias": "AbilityTargetEntity"
+          },
+          "ModifierName": "MAvatar_AML_Minion02_00_Critical"
+        },
+        {
+          "$type": "RPG.GameCore.VCameraConfigChange",
+          "CameraConfig": {
+            "ShakeConfigV2": {
+              "ShakeScale": 0.5,
+              "ShakeRange": 0.5,
+              "ShakeTime": 0.1,
+              "ShakeDir": {
+                "X": 0,
+                "Y": 0.1,
+                "Z": 0.2
+              },
+              "BaseCycle": 0.05,
+              "CycleDamping": 0,
+              "RangeAttenuation": 1
+            }
+          }
+        },
+        {
+          "$type": "RPG.GameCore.DamageByAttackProperty",
+          "TargetType": {
+            "$type": "RPG.GameCore.TargetAlias",
+            "Alias": "AbilityTargetEntity"
+          },
+          "AttackProperty": {
+            "DamageType": "Imaginary",
+            "DamagePercentage": {
+              "IsDynamic": true,
+              "PostfixExpr": {
+                "OpCodes": "AQAAAAQJ",
+                "FixedValues": [
+                  {
+                    "Value": 0.5000000004656613
+                  }
+                ],
+                "DynamicHashes": [
+                  -1126825319
+                ]
+              }
+            },
+            "AttackType": "Normal",
+            "HitAnimation": "Hit_H",
+            "HitEffect": "Effects/Eff_Prefab/Eff_Monster/Eff_AML_Minion02_00/Eff_Monster_AML_Minion02_00_Skill01_Hit_02.prefab",
+            "HitEffectHeight": 0.88
+          },
+          "TriggerHitSound": true,
+          "SpecialHitSoundEvent": "Ev_sfx_monster_skill_01_hit_aml_minion02",
+          "DisplayData": {
+            "UIMessageHeight": 1
+          }
+        },
+        {
+          "$type": "RPG.GameCore.DamagePerformFinish"
+        },
+        {
+          "$type": "RPG.GameCore.WaitAnimState",
+          "TargetType": {
+            "$type": "RPG.GameCore.TargetAlias",
+            "Alias": "Caster"
+          },
+          "AnimStateName": "Skill01",
+          "NormalizedTimeEnd": {
+            "IsDynamic": false,
+            "FixedValue": {
+              "Value": 0.6470000001136214
+            }
+          }
+        },
+        {
+          "$type": "RPG.GameCore.SetEntityVisible",
+          "TargetType": {
+            "$type": "RPG.GameCore.TargetAlias",
+            "Alias": "Caster"
+          }
+        },
+        {
+          "$type": "RPG.GameCore.WaitAnimState",
+          "TargetType": {
+            "$type": "RPG.GameCore.TargetAlias",
+            "Alias": "Caster"
+          },
+          "AnimStateName": "Skill01",
+          "NormalizedTimeEnd": {
+            "IsDynamic": false,
+            "FixedValue": {
+              "Value": 0.6750000002793968
+            }
+          }
+        },
+        {
+          "$type": "RPG.GameCore.SetEntityVisible",
+          "TargetType": {
+            "$type": "RPG.GameCore.TargetAlias",
+            "Alias": "Caster"
+          },
+          "Visible": true
+        },
+        {
+          "$type": "RPG.GameCore.SkillPerformFinish"
+        }
+      ]
+    },
+    {
+      "Name": "Avatar_AetherDivide_AML_Minion02_00_Skill02_Phase01",
+      "TargetInfo": {
+        "TargetType": "SkillTargetEntityList"
+      },
+      "OnStart": [
+        {
+          "$type": "RPG.GameCore.LookAt",
+          "TargetType": "AbilityTargetEntity"
+        },
+        {
+          "$type": "RPG.GameCore.TriggerAbility",
+          "TargetType": {
+            "$type": "RPG.GameCore.TargetAlias",
+            "Alias": "Caster"
+          },
+          "AbilityName": "Avatar_AetherDivide_AML_Minion02_00_Skill01_Camera",
+          "IsSkillPerform": true
+        },
+        {
+          "$type": "RPG.GameCore.TriggerAbility",
+          "TargetType": {
+            "$type": "RPG.GameCore.TargetAlias",
+            "Alias": "Caster"
+          },
+          "AbilityName": "Avatar_AetherDivide_AML_Minion02_00_Skill02_Phase02",
+          "IsSkillPerform": true
+        },
+        {
+          "$type": "RPG.GameCore.TriggerAnimStateWithMove",
+          "TargetType": {
+            "$type": "RPG.GameCore.TargetAlias",
+            "Alias": "Caster"
+          },
+          "AnimStateName": "Skill01",
+          "NormalizedTimeEnd": {
+            "IsDynamic": false,
+            "FixedValue": {
+              "Value": 0.8000000007450581
+            }
+          },
+          "MovingRangeList": [
+            {
+              "TargetType": {
+                "$type": "RPG.GameCore.TargetAlias",
+                "Alias": "AbilityTargetEntity"
+              },
+              "IgnoreRadius": true,
+              "OffsetTargetDistance": {
+                "IsDynamic": false,
+                "FixedValue": {
+                  "Value": 1.5000000004656613
+                }
+              },
+              "NormalizedTimeStart": {
+                "IsDynamic": false,
+                "FixedValue": {
+                  "Value": 0.058999999426305294
+                }
+              },
+              "NormalizedTimeEnd": {
+                "IsDynamic": false,
+                "FixedValue": {
+                  "Value": 0.19599999976344407
+                }
+              }
+            },
+            {
+              "TargetType": {
+                "$type": "RPG.GameCore.TargetAlias",
+                "Alias": "TeamFormation"
+              },
+              "IgnoreRadius": true,
+              "OffsetTargetDistance": {
+                "IsDynamic": false,
+                "FixedValue": {
+                  "Value": 0
+                }
+              },
+              "NormalizedTimeStart": {
+                "IsDynamic": false,
+                "FixedValue": {
+                  "Value": 0.6589999999850988
+                }
+              },
+              "NormalizedTimeEnd": {
+                "IsDynamic": false,
+                "FixedValue": {
+                  "Value": 0.6750000002793968
+                }
+              }
+            }
+          ]
+        },
+        {
+          "$type": "RPG.GameCore.RadialBlurEffect",
+          "TargetType": {
+            "$type": "RPG.GameCore.TargetAlias",
+            "Alias": "Caster"
+          },
+          "Active": false
+        },
+        {
+          "$type": "RPG.GameCore.TriggerAnimState",
+          "AnimLogicState": "Idle"
+        }
+      ]
+    },
+    {
+      "Name": "Avatar_AetherDivide_AML_Minion02_00_Skill02_Phase02",
+      "TargetInfo": {
+        "TargetType": "SkillTargetEntityList"
+      },
+      "OnStart": [
+        {
+          "$type": "RPG.GameCore.ModifySPNew",
+          "TargetType": {
+            "$type": "RPG.GameCore.TargetAlias",
+            "Alias": "Caster"
+          },
+          "FixedAddValue": {
+            "IsDynamic": false,
+            "FixedValue": {
+              "Value": 1
+            }
+          }
+        },
+        {
+          "$type": "RPG.GameCore.LoseHPByRatio",
+          "TargetType": {
+            "$type": "RPG.GameCore.TargetAlias",
+            "Alias": "Caster"
+          },
+          "RatioType": "MaxHP",
+          "Ratio": {
+            "IsDynamic": true,
+            "PostfixExpr": {
+              "OpCodes": "AQAJ",
+              "FixedValues": [],
+              "DynamicHashes": [
+                -1048223245
+              ]
+            }
+          },
+          "Floor": {
+            "Value": 1
+          }
+        },
+        {
+          "$type": "RPG.GameCore.WaitAnimState",
+          "TargetType": {
+            "$type": "RPG.GameCore.TargetAlias",
+            "Alias": "Caster"
+          },
+          "AnimStateName": "Skill01",
+          "NormalizedTimeEnd": {
+            "IsDynamic": false,
+            "FixedValue": {
+              "Value": 0.22699999972246587
+            }
+          }
+        },
+        {
+          "$type": "RPG.GameCore.VCameraConfigChange",
+          "CameraConfig": {
+            "ShakeConfigV2": {
+              "ShakeScale": 0.5,
+              "ShakeRange": 0.5,
+              "ShakeTime": 0.1,
+              "ShakeDir": {
+                "X": 0,
+                "Y": 0.1,
+                "Z": 0.2
+              },
+              "BaseCycle": 0.05,
+              "CycleDamping": 0,
+              "RangeAttenuation": 1
+            }
+          }
+        },
+        {
+          "$type": "RPG.GameCore.DamageByAttackProperty",
+          "TargetType": {
+            "$type": "RPG.GameCore.TargetAlias",
+            "Alias": "AbilityTargetEntity"
+          },
+          "AttackProperty": {
+            "DamageType": "Imaginary",
+            "DamagePercentage": {
+              "IsDynamic": true,
+              "PostfixExpr": {
+                "OpCodes": "AQAAAAQJ",
+                "FixedValues": [
+                  {
+                    "Value": 0.25000000023283064
+                  }
+                ],
+                "DynamicHashes": [
+                  -1847083384
+                ]
+              }
+            },
+            "HitAnimation": "Hit",
+            "HitEffect": "Effects/Eff_Prefab/Eff_Monster/Eff_AML_Minion02_00/Eff_Monster_AML_Minion02_00_Skill01_Hit.prefab",
+            "HitEffectHeight": 0.88
+          },
+          "TriggerHitSound": true,
+          "SpecialHitSoundEvent": "Ev_sfx_monster_skill_01_hit_aml_minion02",
+          "DisplayData": {
+            "UIMessageHeight": 1
+          }
+        },
+        {
+          "$type": "RPG.GameCore.WaitAnimState",
+          "TargetType": {
+            "$type": "RPG.GameCore.TargetAlias",
+            "Alias": "Caster"
+          },
+          "AnimStateName": "Skill01",
+          "NormalizedTimeEnd": {
+            "IsDynamic": false,
+            "FixedValue": {
+              "Value": 0.25000000023283064
+            }
+          }
+        },
+        {
+          "$type": "RPG.GameCore.VCameraConfigChange",
+          "CameraConfig": {
+            "ShakeConfigV2": {
+              "ShakeScale": 0.5,
+              "ShakeRange": 0.5,
+              "ShakeTime": 0.1,
+              "ShakeDir": {
+                "X": 0,
+                "Y": 0.1,
+                "Z": 0.2
+              },
+              "BaseCycle": 0.05,
+              "CycleDamping": 0,
+              "RangeAttenuation": 1
+            }
+          }
+        },
+        {
+          "$type": "RPG.GameCore.DamageByAttackProperty",
+          "TargetType": {
+            "$type": "RPG.GameCore.TargetAlias",
+            "Alias": "AbilityTargetEntity"
+          },
+          "AttackProperty": {
+            "DamageType": "Imaginary",
+            "DamagePercentage": {
+              "IsDynamic": true,
+              "PostfixExpr": {
+                "OpCodes": "AQAAAAQJ",
+                "FixedValues": [
+                  {
+                    "Value": 0.25000000023283064
+                  }
+                ],
+                "DynamicHashes": [
+                  -1847083384
+                ]
+              }
+            },
+            "HitAnimation": "Hit",
+            "HitEffect": "Effects/Eff_Prefab/Eff_Monster/Eff_AML_Minion02_00/Eff_Monster_AML_Minion02_00_Skill01_Hit.prefab",
+            "HitEffectHeight": 0.88
+          },
+          "TriggerHitSound": true,
+          "SpecialHitSoundEvent": "Ev_sfx_monster_skill_01_hit_aml_minion02",
+          "DisplayData": {
+            "UIMessageHeight": 1
+          }
+        },
+        {
+          "$type": "RPG.GameCore.WaitAnimState",
+          "TargetType": {
+            "$type": "RPG.GameCore.TargetAlias",
+            "Alias": "Caster"
+          },
+          "AnimStateName": "Skill01",
+          "NormalizedTimeEnd": {
+            "IsDynamic": false,
+            "FixedValue": {
+              "Value": 0.3710000002756715
+            }
+          }
+        },
+        {
+          "$type": "RPG.GameCore.AddModifier",
+          "TargetType": {
+            "$type": "RPG.GameCore.TargetAlias",
+            "Alias": "AbilityTargetEntity"
+          },
+          "ModifierName": "MAvatar_AML_Minion02_00_Critical"
+        },
+        {
+          "$type": "RPG.GameCore.VCameraConfigChange",
+          "CameraConfig": {
+            "ShakeConfigV2": {
+              "ShakeScale": 0.5,
+              "ShakeRange": 0.5,
+              "ShakeTime": 0.1,
+              "ShakeDir": {
+                "X": 0,
+                "Y": 0.1,
+                "Z": 0.2
+              },
+              "BaseCycle": 0.05,
+              "CycleDamping": 0,
+              "RangeAttenuation": 1
+            }
+          }
+        },
+        {
+          "$type": "RPG.GameCore.DamageByAttackProperty",
+          "TargetType": {
+            "$type": "RPG.GameCore.TargetAlias",
+            "Alias": "AbilityTargetEntity"
+          },
+          "AttackProperty": {
+            "DamageType": "Imaginary",
+            "DamagePercentage": {
+              "IsDynamic": true,
+              "PostfixExpr": {
+                "OpCodes": "AQAAAAQJ",
+                "FixedValues": [
+                  {
+                    "Value": 0.5000000004656613
+                  }
+                ],
+                "DynamicHashes": [
+                  -1847083384
+                ]
+              }
+            },
+            "HitAnimation": "Hit_H",
+            "HitEffect": "Effects/Eff_Prefab/Eff_Monster/Eff_AML_Minion02_00/Eff_Monster_AML_Minion02_00_Skill01_Hit_02.prefab",
+            "HitEffectHeight": 0.88
+          },
+          "TriggerHitSound": true,
+          "SpecialHitSoundEvent": "Ev_sfx_monster_skill_01_hit_aml_minion02",
+          "DisplayData": {
+            "UIMessageHeight": 1
+          }
+        },
+        {
+          "$type": "RPG.GameCore.DamagePerformFinish"
+        },
+        {
+          "$type": "RPG.GameCore.ModifyCurrentSkillDelayCost",
+          "NormalizedValue": {
+            "IsDynamic": true,
+            "PostfixExpr": {
+              "OpCodes": "AQAGCQ==",
+              "FixedValues": [],
+              "DynamicHashes": [
+                -1048331118
+              ]
+            }
+          }
+        },
+        {
+          "$type": "RPG.GameCore.WaitAnimState",
+          "TargetType": {
+            "$type": "RPG.GameCore.TargetAlias",
+            "Alias": "Caster"
+          },
+          "AnimStateName": "Skill01",
+          "NormalizedTimeEnd": {
+            "IsDynamic": false,
+            "FixedValue": {
+              "Value": 0.6470000001136214
+            }
+          }
+        },
+        {
+          "$type": "RPG.GameCore.SetEntityVisible",
+          "TargetType": {
+            "$type": "RPG.GameCore.TargetAlias",
+            "Alias": "Caster"
+          }
+        },
+        {
+          "$type": "RPG.GameCore.WaitAnimState",
+          "TargetType": {
+            "$type": "RPG.GameCore.TargetAlias",
+            "Alias": "Caster"
+          },
+          "AnimStateName": "Skill01",
+          "NormalizedTimeEnd": {
+            "IsDynamic": false,
+            "FixedValue": {
+              "Value": 0.6750000002793968
+            }
+          }
+        },
+        {
+          "$type": "RPG.GameCore.SetEntityVisible",
+          "TargetType": {
+            "$type": "RPG.GameCore.TargetAlias",
+            "Alias": "Caster"
+          },
+          "Visible": true
+        },
+        {
+          "$type": "RPG.GameCore.SkillPerformFinish"
+        }
+      ]
+    },
+    {
+      "Name": "Avatar_AetherDivide_AML_Minion02_00_Skill03_EnterReady",
+      "TargetInfo": {
+        "TargetType": "InherentTargetEntity"
+      },
+      "OnStart": [
+        {
+          "$type": "RPG.GameCore.AlignTargetToTeamCenter",
+          "TargetType": {
+            "$type": "RPG.GameCore.TargetAlias",
+            "Alias": "Caster"
+          }
+        },
+        {
+          "$type": "RPG.GameCore.LookAt",
+          "TargetType": "DarkTeamCenter"
+        },
+        {
+          "$type": "RPG.GameCore.HeadLookAt",
+          "PerformerType": {
+            "$type": "RPG.GameCore.TargetAlias",
+            "Alias": "AllDarkTeam"
+          },
+          "TargetType": {
+            "$type": "RPG.GameCore.TargetAlias",
+            "Alias": "Caster"
+          },
+          "DoRootRotate": true
+        },
+        {
+          "$type": "RPG.GameCore.VCameraConfigChange",
+          "CameraConfig": {
+            "NormalConfig": {
+              "CameraState": "SelectDarkTeamEntity",
+              "IsLocalOffset": true,
+              "AnchorOffset": {
+                "X": 0.67,
+                "Y": -0.46,
+                "Z": -0.18
+              },
+              "AimTargetType": {
+                "$type": "RPG.GameCore.TargetAlias",
+                "Alias": "AbilityTargetEntity"
+              },
+              "AimOffset": {
+                "X": -2,
+                "Y": 1.41,
+                "Z": 0.17
+              },
+              "AimRatio": 1,
+              "FollowRadius": 2,
+              "AnchorToAimAngle": 26,
+              "Dutch": 4.5,
+              "FOV": 57
+            },
+            "BlendConfig": {
+              "BlendType": "Cut"
+            },
+            "ShowEntityConfig": {
+              "ShowTargetType": {
+                "$type": "RPG.GameCore.TargetAlias",
+                "Alias": "CasterWithAllEnemy"
+              }
+            }
+          }
+        },
+        {
+          "$type": "RPG.GameCore.WaitSecond",
+          "WaitTime": 0.5
+        },
+        {
+          "$type": "RPG.GameCore.VCameraConfigChange",
+          "CameraConfig": {
+            "NormalConfig": {
+              "CameraState": "SelectDarkTeamEntity",
+              "IsLocalOffset": true,
+              "AnchorOffset": {
+                "X": 0.67,
+                "Y": -0.46,
+                "Z": -0.18
+              },
+              "AimTargetType": {
+                "$type": "RPG.GameCore.TargetAlias",
+                "Alias": "AbilityTargetEntity"
+              },
+              "AimOffset": {
+                "X": -2,
+                "Y": 1.41,
+                "Z": 0.17
+              },
+              "AimRatio": 1,
+              "FollowRadius": 2,
+              "AnchorToAimAngle": 26,
+              "Dutch": 4.5,
+              "FOV": 55
+            },
+            "BlendConfig": {
+              "BlendType": "Custom",
+              "CustomCurveName": "Blend_UltraReady",
+              "BlendTime": 1.5
+            },
+            "ShowEntityConfig": {
+              "ShowTargetType": {
+                "$type": "RPG.GameCore.TargetAlias",
+                "Alias": "CasterWithAllEnemy"
+              }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "Name": "Avatar_AetherDivide_AML_Minion02_00_Skill03_Phase01",
+      "TargetInfo": {
+        "TargetType": "SkillTargetEntityList",
+        "MaxTargetCount": 3
+      },
+      "OnStart": [
+        {
+          "$type": "RPG.GameCore.TriggerAbility",
+          "TargetType": {
+            "$type": "RPG.GameCore.TargetAlias",
+            "Alias": "Caster"
+          },
+          "AbilityName": "Avatar_AetherDivide_AML_Minion02_00_Skill03_Camera",
+          "IsSkillPerform": true
+        },
+        {
+          "$type": "RPG.GameCore.TriggerAbility",
+          "TargetType": {
+            "$type": "RPG.GameCore.TargetAlias",
+            "Alias": "Caster"
+          },
+          "AbilityName": "Avatar_AetherDivide_AML_Minion02_00_Skill03_Phase02",
+          "IsSkillPerform": true
+        },
+        {
+          "$type": "RPG.GameCore.LookAt",
+          "TargetType": "AbilityTargetEntity"
+        },
+        {
+          "$type": "RPG.GameCore.TriggerAnimStateWithMove",
+          "TargetType": {
+            "$type": "RPG.GameCore.TargetAlias",
+            "Alias": "Caster"
+          },
+          "AnimStateName": "Skill03",
+          "NormalizedTimeEnd": {
+            "IsDynamic": false,
+            "FixedValue": {
+              "Value": 1
+            }
+          },
+          "MovingRangeList": [
+            {
+              "TargetType": {
+                "$type": "RPG.GameCore.TargetAlias",
+                "Alias": "AbilityTargetEntity"
+              },
+              "IgnoreRadius": true,
+              "OffsetTargetDistance": {
+                "IsDynamic": false,
+                "FixedValue": {
+                  "Value": 2.700000000651926
+                }
+              },
+              "NormalizedTimeStart": {
+                "IsDynamic": false,
+                "FixedValue": {
+                  "Value": 0.23200000007636845
+                }
+              },
+              "NormalizedTimeEnd": {
+                "IsDynamic": false,
+                "FixedValue": {
+                  "Value": 0.3079999997280538
+                }
+              }
+            },
+            {
+              "TargetType": {
+                "$type": "RPG.GameCore.TargetAlias",
+                "Alias": "TeamFormation"
+              },
+              "IgnoreRadius": true,
+              "OffsetTargetDistance": {
+                "IsDynamic": false,
+                "FixedValue": {
+                  "Value": 0
+                }
+              },
+              "NormalizedTimeStart": {
+                "IsDynamic": false,
+                "FixedValue": {
+                  "Value": 0.7630000005010515
+                }
+              },
+              "NormalizedTimeEnd": {
+                "IsDynamic": false,
+                "FixedValue": {
+                  "Value": 0.8670000003185123
+                }
+              }
+            }
+          ]
+        },
+        {
+          "$type": "RPG.GameCore.RadialBlurEffect",
+          "TargetType": {
+            "$type": "RPG.GameCore.TargetAlias",
+            "Alias": "Caster"
+          },
+          "Active": false
+        },
+        {
+          "$type": "RPG.GameCore.TriggerAnimState",
+          "AnimLogicState": "Idle"
+        }
+      ]
+    },
+    {
+      "Modifiers": {
+        "MAvatar_AML_Minion02_00_Skill03_Damage": {
+          "_CallbackList": [
+            {
+              "Event": "OnBeforeHit",
+              "CallbackConfig": [
+                {
+                  "$type": "RPG.GameCore.ModifyDamageData",
+                  "Attacker_AllDamageTypeAddedRatio": {
+                    "IsDynamic": true,
+                    "PostfixExpr": {
+                      "OpCodes": "AQAJ",
+                      "FixedValues": [],
+                      "DynamicHashes": [
+                        2128130574
+                      ]
+                    }
+                  }
+                }
+              ]
+            }
+          ],
+          "DynamicValues": {
+            "Values": {
+              "2128130574": {}
+            }
+          }
+        },
+        "MAvatar_AML_Minion02_00_Skill03_Mark": {
+          "BehaviorFlagList": [
+            "Deathrattle"
+          ],
+          "_CallbackList": [
+            {
+              "Event": "OnDeathrattle",
+              "CallbackConfig": [
+                {
+                  "$type": "RPG.GameCore.SetDieImmediately"
+                },
+                {
+                  "$type": "RPG.GameCore.TriggerEffect",
+                  "TargetType": {
+                    "$type": "RPG.GameCore.TargetAlias",
+                    "Alias": "ModifierOwnerEntity"
+                  },
+                  "EffectPath": "Effects/Eff_Prefab/Eff_Common/Eff_StanceBreak_Common_Imaginary.prefab"
+                },
+                {
+                  "$type": "RPG.GameCore.DamageByAttackProperty",
+                  "TargetType": {
+                    "$type": "RPG.GameCore.TargetAlias",
+                    "Alias": "ModifierOwnerAdjoinEntity"
+                  },
+                  "AttackProperty": {
+                    "DamageType": "Imaginary",
+                    "FormulaType": "ByMaxHP",
+                    "DamagePercentage": {
+                      "IsDynamic": true,
+                      "PostfixExpr": {
+                        "OpCodes": "AQAJ",
+                        "FixedValues": [],
+                        "DynamicHashes": [
+                          2128130574
+                        ]
+                      }
+                    },
+                    "AttackType": "Pursued",
+                    "HitAnimation": "Hit"
+                  }
+                },
+                {
+                  "$type": "RPG.GameCore.DamagePerformFinish"
+                },
+                {
+                  "$type": "RPG.GameCore.DestroyBattleCharacter",
+                  "TargetType": {
+                    "$type": "RPG.GameCore.TargetAlias",
+                    "Alias": "ModifierOwnerEntity"
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      },
+      "Name": "Avatar_AetherDivide_AML_Minion02_00_Skill03_Phase02",
+      "TargetInfo": {
+        "TargetType": "SkillTargetEntityList",
+        "MaxTargetCount": 3
+      },
+      "OnStart": [
+        {
+          "$type": "RPG.GameCore.ModifySP",
+          "TargetType": {
+            "$type": "RPG.GameCore.TargetAlias",
+            "Alias": "Caster"
+          },
+          "ModifyFunction": "Set",
+          "ModifyValue": {
+            "IsDynamic": false,
+            "FixedValue": {
+              "Value": 0
+            }
+          }
+        },
+        {
+          "$type": "RPG.GameCore.WaitAnimState",
+          "AnimStateName": "Skill03",
+          "NormalizedTimeEnd": {
+            "IsDynamic": false,
+            "FixedValue": {
+              "Value": 0.23599999980069697
+            }
+          }
+        },
+        {
+          "$type": "RPG.GameCore.SetEntityVisible",
+          "TargetType": {
+            "$type": "RPG.GameCore.TargetAlias",
+            "Alias": "Caster"
+          }
+        },
+        {
+          "$type": "RPG.GameCore.LookAt",
+          "TargetType": "AbilityTargetEntity"
+        },
+        {
+          "$type": "RPG.GameCore.WaitAnimState",
+          "AnimStateName": "Skill03",
+          "NormalizedTimeEnd": {
+            "IsDynamic": false,
+            "FixedValue": {
+              "Value": 0.31899999966844916
+            }
+          }
+        },
+        {
+          "$type": "RPG.GameCore.SetDynamicValueByHPRatio",
+          "DynamicKey": "_TargetHpRatio",
+          "ReadTargetType": {
+            "$type": "RPG.GameCore.TargetAlias",
+            "Alias": "AbilityTargetEntity"
+          }
+        },
+        {
+          "$type": "RPG.GameCore.AddModifier",
+          "TargetType": {
+            "$type": "RPG.GameCore.TargetAlias",
+            "Alias": "Caster"
+          },
+          "ModifierName": "MAvatar_AML_Minion02_00_Skill03_Damage",
+          "DynamicValues": {
+            "MDF_PropertyValue": {
+              "IsDynamic": true,
+              "PostfixExpr": {
+                "OpCodes": "AQAAAAEBAwQJ",
+                "FixedValues": [
+                  {
+                    "Value": 1
+                  }
+                ],
+                "DynamicHashes": [
+                  1324533879,
+                  1430754963
+                ]
+              }
+            }
+          }
+        },
+        {
+          "$type": "RPG.GameCore.SetEntityVisible",
+          "TargetType": {
+            "$type": "RPG.GameCore.TargetAlias",
+            "Alias": "Caster"
+          },
+          "Visible": true
+        },
+        {
+          "$type": "RPG.GameCore.WaitAnimState",
+          "TargetType": {
+            "$type": "RPG.GameCore.TargetAlias",
+            "Alias": "Caster"
+          },
+          "AnimStateName": "Skill03",
+          "NormalizedTimeEnd": {
+            "IsDynamic": false,
+            "FixedValue": {
+              "Value": 0.39200000022538006
+            }
+          }
+        },
+        {
+          "$type": "RPG.GameCore.DamageByAttackProperty",
+          "TargetType": {
+            "$type": "RPG.GameCore.TargetAlias",
+            "Alias": "AbilityTargetEntity"
+          },
+          "AttackProperty": {
+            "DamageType": "Imaginary",
+            "DamagePercentage": {
+              "IsDynamic": true,
+              "PostfixExpr": {
+                "OpCodes": "AQAAAAQJ",
+                "FixedValues": [
+                  {
+                    "Value": 0.20000000018626451
+                  }
+                ],
+                "DynamicHashes": [
+                  -56289053
+                ]
+              }
+            },
+            "HitAnimation": "Hit",
+            "HitEffect": "Effects/Eff_Prefab/Eff_Monster/Eff_AML_Minion02_00/Eff_Monster_AML_Minion02_00_Skill02_Hit.prefab",
+            "HitEffectHeight": 0.88
+          },
+          "TriggerHitSound": true,
+          "SpecialHitSoundEvent": "Ev_sfx_monster_skill_02_hit_aml_minion02",
+          "DisplayData": {
+            "UIMessageHeight": 1
+          }
+        },
+        {
+          "$type": "RPG.GameCore.DamageByAttackProperty",
+          "TargetType": {
+            "$type": "RPG.GameCore.TargetAlias",
+            "Alias": "AbilityTargetAdjoinEntity"
+          },
+          "AttackProperty": {
+            "DamageType": "Imaginary",
+            "DamagePercentage": {
+              "IsDynamic": true,
+              "PostfixExpr": {
+                "OpCodes": "AQAAAAQJ",
+                "FixedValues": [
+                  {
+                    "Value": 0.20000000018626451
+                  }
+                ],
+                "DynamicHashes": [
+                  734867428
+                ]
+              }
+            },
+            "HitAnimation": "Hit",
+            "HitEffect": "Effects/Eff_Prefab/Eff_Monster/Eff_AML_Minion02_00/Eff_Monster_AML_Minion02_00_Skill02_Hit.prefab",
+            "HitEffectHeight": 0.88
+          },
+          "TriggerHitSound": true,
+          "SpecialHitSoundEvent": "Ev_sfx_monster_skill_02_hit_aml_minion02",
+          "DisplayData": {
+            "UIMessageHeight": 1
+          }
+        },
+        {
+          "$type": "RPG.GameCore.WaitAnimState",
+          "TargetType": {
+            "$type": "RPG.GameCore.TargetAlias",
+            "Alias": "Caster"
+          },
+          "AnimStateName": "Skill03",
+          "NormalizedTimeEnd": {
+            "IsDynamic": false,
+            "FixedValue": {
+              "Value": 0.4200000003911555
+            }
+          }
+        },
+        {
+          "$type": "RPG.GameCore.DamageByAttackProperty",
+          "TargetType": {
+            "$type": "RPG.GameCore.TargetAlias",
+            "Alias": "AbilityTargetEntity"
+          },
+          "AttackProperty": {
+            "DamageType": "Imaginary",
+            "DamagePercentage": {
+              "IsDynamic": true,
+              "PostfixExpr": {
+                "OpCodes": "AQAAAAQJ",
+                "FixedValues": [
+                  {
+                    "Value": 0.20000000018626451
+                  }
+                ],
+                "DynamicHashes": [
+                  -56289053
+                ]
+              }
+            },
+            "HitAnimation": "Hit",
+            "HitEffect": "Effects/Eff_Prefab/Eff_Monster/Eff_AML_Minion02_00/Eff_Monster_AML_Minion02_00_Skill02_Hit.prefab",
+            "HitEffectHeight": 0.88
+          },
+          "TriggerHitSound": true,
+          "SpecialHitSoundEvent": "Ev_sfx_monster_skill_02_hit_aml_minion02",
+          "DisplayData": {
+            "UIMessageHeight": 1
+          }
+        },
+        {
+          "$type": "RPG.GameCore.DamageByAttackProperty",
+          "TargetType": {
+            "$type": "RPG.GameCore.TargetAlias",
+            "Alias": "AbilityTargetAdjoinEntity"
+          },
+          "AttackProperty": {
+            "DamageType": "Imaginary",
+            "DamagePercentage": {
+              "IsDynamic": true,
+              "PostfixExpr": {
+                "OpCodes": "AQAAAAQJ",
+                "FixedValues": [
+                  {
+                    "Value": 0.20000000018626451
+                  }
+                ],
+                "DynamicHashes": [
+                  734867428
+                ]
+              }
+            },
+            "HitAnimation": "Hit",
+            "HitEffect": "Effects/Eff_Prefab/Eff_Monster/Eff_AML_Minion02_00/Eff_Monster_AML_Minion02_00_Skill02_Hit.prefab",
+            "HitEffectHeight": 0.88
+          },
+          "TriggerHitSound": true,
+          "SpecialHitSoundEvent": "Ev_sfx_monster_skill_02_hit_aml_minion02",
+          "DisplayData": {
+            "UIMessageHeight": 1
+          }
+        },
+        {
+          "$type": "RPG.GameCore.WaitAnimState",
+          "TargetType": {
+            "$type": "RPG.GameCore.TargetAlias",
+            "Alias": "Caster"
+          },
+          "AnimStateName": "Skill03",
+          "NormalizedTimeEnd": {
+            "IsDynamic": false,
+            "FixedValue": {
+              "Value": 0.4430000002030283
+            }
+          }
+        },
+        {
+          "$type": "RPG.GameCore.DamageByAttackProperty",
+          "TargetType": {
+            "$type": "RPG.GameCore.TargetAlias",
+            "Alias": "AbilityTargetEntity"
+          },
+          "AttackProperty": {
+            "DamageType": "Imaginary",
+            "DamagePercentage": {
+              "IsDynamic": true,
+              "PostfixExpr": {
+                "OpCodes": "AQAAAAQJ",
+                "FixedValues": [
+                  {
+                    "Value": 0.20000000018626451
+                  }
+                ],
+                "DynamicHashes": [
+                  -56289053
+                ]
+              }
+            },
+            "HitAnimation": "Hit",
+            "HitEffect": "Effects/Eff_Prefab/Eff_Monster/Eff_AML_Minion02_00/Eff_Monster_AML_Minion02_00_Skill02_Hit.prefab",
+            "HitEffectHeight": 0.88
+          },
+          "TriggerHitSound": true,
+          "SpecialHitSoundEvent": "Ev_sfx_monster_skill_02_hit_aml_minion02",
+          "DisplayData": {
+            "UIMessageHeight": 1
+          }
+        },
+        {
+          "$type": "RPG.GameCore.DamageByAttackProperty",
+          "TargetType": {
+            "$type": "RPG.GameCore.TargetAlias",
+            "Alias": "AbilityTargetAdjoinEntity"
+          },
+          "AttackProperty": {
+            "DamageType": "Imaginary",
+            "DamagePercentage": {
+              "IsDynamic": true,
+              "PostfixExpr": {
+                "OpCodes": "AQAAAAQJ",
+                "FixedValues": [
+                  {
+                    "Value": 0.20000000018626451
+                  }
+                ],
+                "DynamicHashes": [
+                  734867428
+                ]
+              }
+            },
+            "HitAnimation": "Hit",
+            "HitEffect": "Effects/Eff_Prefab/Eff_Monster/Eff_AML_Minion02_00/Eff_Monster_AML_Minion02_00_Skill02_Hit.prefab",
+            "HitEffectHeight": 0.88
+          },
+          "TriggerHitSound": true,
+          "SpecialHitSoundEvent": "Ev_sfx_monster_skill_02_hit_aml_minion02",
+          "DisplayData": {
+            "UIMessageHeight": 1
+          }
+        },
+        {
+          "$type": "RPG.GameCore.WaitAnimState",
+          "TargetType": {
+            "$type": "RPG.GameCore.TargetAlias",
+            "Alias": "Caster"
+          },
+          "AnimStateName": "Skill03",
+          "NormalizedTimeEnd": {
+            "IsDynamic": false,
+            "FixedValue": {
+              "Value": 0.5270000000018626
+            }
+          }
+        },
+        {
+          "$type": "RPG.GameCore.AddModifier",
+          "TargetType": {
+            "$type": "RPG.GameCore.TargetAlias",
+            "Alias": "AbilityTargetAndAdjoinEntity"
+          },
+          "ModifierName": "MAvatar_AML_Minion02_00_Critical"
+        },
+        {
+          "$type": "RPG.GameCore.DamageByAttackProperty",
+          "TargetType": {
+            "$type": "RPG.GameCore.TargetAlias",
+            "Alias": "AbilityTargetEntity"
+          },
+          "AttackProperty": {
+            "DamageType": "Imaginary",
+            "DamagePercentage": {
+              "IsDynamic": true,
+              "PostfixExpr": {
+                "OpCodes": "AQAAAAQJ",
+                "FixedValues": [
+                  {
+                    "Value": 0.40000000037252903
+                  }
+                ],
+                "DynamicHashes": [
+                  -56289053
+                ]
+              }
+            },
+            "HitAnimation": "Hit_H",
+            "HitEffect": "Effects/Eff_Prefab/Eff_Monster/Eff_AML_Minion02_00/Eff_Monster_AML_Minion02_00_Skill02_Hit_02.prefab",
+            "HitEffectHeight": 0.7
+          },
+          "TriggerHitSound": true,
+          "SpecialHitSoundEvent": "Ev_sfx_monster_skill_02_hit_hvy_aml_minion02",
+          "DisplayData": {
+            "UIMessageHeight": 1
+          }
+        },
+        {
+          "$type": "RPG.GameCore.DamageByAttackProperty",
+          "TargetType": {
+            "$type": "RPG.GameCore.TargetAlias",
+            "Alias": "AbilityTargetAdjoinEntity"
+          },
+          "AttackProperty": {
+            "DamageType": "Imaginary",
+            "DamagePercentage": {
+              "IsDynamic": true,
+              "PostfixExpr": {
+                "OpCodes": "AQAAAAQJ",
+                "FixedValues": [
+                  {
+                    "Value": 0.40000000037252903
+                  }
+                ],
+                "DynamicHashes": [
+                  734867428
+                ]
+              }
+            },
+            "HitAnimation": "Hit_H",
+            "HitEffect": "Effects/Eff_Prefab/Eff_Monster/Eff_AML_Minion02_00/Eff_Monster_AML_Minion02_00_Skill02_Hit_02.prefab",
+            "HitEffectHeight": 0.7
+          },
+          "TriggerHitSound": true,
+          "SpecialHitSoundEvent": "Ev_sfx_monster_skill_02_hit_hvy_aml_minion02",
+          "DisplayData": {
+            "UIMessageHeight": 1
+          }
+        },
+        {
+          "$type": "RPG.GameCore.DamagePerformFinish"
+        },
+        {
+          "$type": "RPG.GameCore.WaitAnimState",
+          "TargetType": {
+            "$type": "RPG.GameCore.TargetAlias",
+            "Alias": "Caster"
+          },
+          "AnimStateName": "Skill03",
+          "NormalizedTimeEnd": {
+            "IsDynamic": false,
+            "FixedValue": {
+              "Value": 0.7400000006891787
+            }
+          }
+        },
+        {
+          "$type": "RPG.GameCore.RemoveModifier",
+          "TargetType": {
+            "$type": "RPG.GameCore.TargetAlias",
+            "Alias": "Caster"
+          },
+          "ModifierName": "MAvatar_AML_Minion02_00_Effect"
+        },
+        {
+          "$type": "RPG.GameCore.RemoveModifier",
+          "TargetType": {
+            "$type": "RPG.GameCore.TargetAlias",
+            "Alias": "Caster"
+          },
+          "ModifierName": "MAvatar_AML_Minion02_00_Skill03_Damage"
+        },
+        {
+          "$type": "RPG.GameCore.WaitAnimState",
+          "TargetType": {
+            "$type": "RPG.GameCore.TargetAlias",
+            "Alias": "Caster"
+          },
+          "AnimStateName": "Skill03",
+          "NormalizedTimeEnd": {
+            "IsDynamic": false,
+            "FixedValue": {
+              "Value": 0.840000000782311
+            }
+          }
+        },
+        {
+          "$type": "RPG.GameCore.AddModifier",
+          "TargetType": {
+            "$type": "RPG.GameCore.TargetAlias",
+            "Alias": "Caster"
+          },
+          "ModifierName": "MAvatar_AML_Minion02_00_Effect"
+        },
+        {
+          "$type": "RPG.GameCore.SkillPerformFinish"
+        }
+      ]
+    },
+    {
+      "Modifiers": {
+        "MAvatar_AML_Minion02_00_Preshow": {
+          "ModifierAffectedPreshowConfig": {
+            "SkillTypes": [
+              "Skill"
+            ],
+            "TargetType": {
+              "$type": "RPG.GameCore.TargetAlias",
+              "Alias": "ModifierOwnerEntity"
+            },
+            "ActionDelayPreshowConfig": {
+              "AddDelayRatio": {
+                "IsDynamic": true,
+                "PostfixExpr": {
+                  "OpCodes": "AQAGCQ==",
+                  "FixedValues": [],
+                  "DynamicHashes": [
+                    -1048331118
+                  ]
+                }
+              }
+            }
+          }
+        },
+        "MAvatar_AML_Minion02_00_Skill03_Check": {
+          "_CallbackList": [
+            {
+              "Event": "OnTriggerDeath",
+              "CallbackConfig": [
+                {
+                  "$type": "RPG.GameCore.PredicateTaskList",
+                  "Predicate": {
+                    "$type": "RPG.GameCore.ByCurrentSkillType",
+                    "SkillType": "Ultra"
+                  },
+                  "SuccessTaskList": [
+                    {
+                      "$type": "RPG.GameCore.ModifySPNew",
+                      "TargetType": {
+                        "$type": "RPG.GameCore.TargetAlias",
+                        "Alias": "Caster"
+                      },
+                      "FixedAddValue": {
+                        "IsDynamic": false,
+                        "FixedValue": {
+                          "Value": 5
+                        }
+                      }
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "Event": "OnTriggerDeathrattle",
+              "CallbackConfig": [
+                {
+                  "$type": "RPG.GameCore.PredicateTaskList",
+                  "Predicate": {
+                    "$type": "RPG.GameCore.ByCurrentSkillType",
+                    "SkillType": "Ultra"
+                  },
+                  "SuccessTaskList": [
+                    {
+                      "$type": "RPG.GameCore.ModifySPNew",
+                      "TargetType": {
+                        "$type": "RPG.GameCore.TargetAlias",
+                        "Alias": "Caster"
+                      },
+                      "FixedAddValue": {
+                        "IsDynamic": false,
+                        "FixedValue": {
+                          "Value": 5
+                        }
+                      }
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        "MAvatar_AML_Minion02_00_UltraSelect": {
+          "_CallbackList": [
+            {
+              "Event": "OnStack",
+              "CallbackConfig": [
+                {
+                  "$type": "RPG.GameCore.SetDynamicValueByProperty",
+                  "DynamicKey": "_HP",
+                  "ReadTargetType": {
+                    "$type": "RPG.GameCore.TargetAlias",
+                    "Alias": "ModifierOwnerEntity"
+                  },
+                  "Value": "CurrentHP"
+                }
+              ]
+            }
+          ],
+          "DynamicValues": {
+            "Values": {
+              "480963307": {}
+            }
+          }
+        },
+        "MAvatar_AML_Minion02_00_Ultra": {
+          "OnDynamicValueChange": [],
+          "_CallbackList": [
+            {
+              "Event": "OnStack",
+              "CallbackConfig": []
+            },
+            {
+              "Event": "OnUltraSkillPrepare",
+              "CallbackConfig": []
+            }
+          ],
+          "DynamicValues": {
+            "Values": {
+              "-64118774": {}
+            }
+          }
+        }
+      },
+      "Name": "Avatar_AetherDivide_AML_Minion02_00_PassiveSkill01",
+      "TargetInfo": {
+        "TargetType": "Caster"
+      },
+      "OnStart": [
+        {
+          "$type": "RPG.GameCore.AddModifier",
+          "TargetType": {
+            "$type": "RPG.GameCore.TargetAlias",
+            "Alias": "Caster"
+          },
+          "ModifierName": "MAvatar_AetherDivide_Common_P"
+        },
+        {
+          "$type": "RPG.GameCore.AddModifier",
+          "TargetType": {
+            "$type": "RPG.GameCore.TargetAlias",
+            "Alias": "ModifierOwnerEntity"
+          },
+          "ModifierName": "MAvatar_AML_Minion02_00_Effect"
+        },
+        {
+          "$type": "RPG.GameCore.AddModifier",
+          "TargetType": {
+            "$type": "RPG.GameCore.TargetAlias",
+            "Alias": "Caster"
+          },
+          "ModifierName": "MAvatar_AML_Minion02_00_Ultra"
+        },
+        {
+          "$type": "RPG.GameCore.AddModifier",
+          "TargetType": {
+            "$type": "RPG.GameCore.TargetAlias",
+            "Alias": "Caster"
+          },
+          "ModifierName": "MAvatar_AML_Minion02_00_Preshow"
+        },
+        {
+          "$type": "RPG.GameCore.AddModifier",
+          "TargetType": {
+            "$type": "RPG.GameCore.TargetAlias",
+            "Alias": "Caster"
+          },
+          "ModifierName": "MAvatar_AML_Minion02_00_Skill03_Check"
+        }
+      ]
+    },
+    {
+      "Name": "Avatar_AetherDivide_AML_Minion02_00_SkillMazeInLevel",
+      "TargetInfo": {
+        "TargetType": "Caster"
+      },
+      "OnStart": []
+    }
+  ],
+  "GlobalModifiers": {
+    "MAvatar_AML_Minion02_00_MHP": {
+      "MaxLayer": 6,
+      "LayerAddWhenStack": {
+        "IsDynamic": false,
+        "FixedValue": {
+          "Value": 1
+        }
+      },
+      "_CallbackList": [
+        {
+          "Event": "OnStack",
+          "CallbackConfig": [
+            {
+              "$type": "RPG.GameCore.SetDynamicValueByModifierValue",
+              "ReadTargetType": {
+                "$type": "RPG.GameCore.TargetAlias",
+                "Alias": "ModifierOwnerEntity"
+              },
+              "ModifierName": "MAvatar_AML_Minion02_00_MHP",
+              "ValueType": "Layer",
+              "Multiplier": {
+                "IsDynamic": false,
+                "FixedValue": {
+                  "Value": 1
+                }
+              },
+              "DynamicKey": "MDF_Layer"
+            },
+            {
+              "$type": "RPG.GameCore.SetDynamicValue",
+              "DynamicKey": "_MHPD",
+              "Value": {
+                "IsDynamic": true,
+                "PostfixExpr": {
+                  "OpCodes": "AQABAQQJ",
+                  "FixedValues": [],
+                  "DynamicHashes": [
+                    2128130574,
+                    1662446059
+                  ]
+                }
+              }
+            },
+            {
+              "$type": "RPG.GameCore.StackProperty",
+              "TargetType": {
+                "$type": "RPG.GameCore.TargetAlias",
+                "Alias": "ModifierOwnerEntity"
+              },
+              "Property": "HPAddedRatio",
+              "PropertyValue": {
+                "IsDynamic": true,
+                "PostfixExpr": {
+                  "OpCodes": "AQAGCQ==",
+                  "FixedValues": [],
+                  "DynamicHashes": [
+                    123489934
+                  ]
+                }
+              }
+            }
+          ]
+        }
+      ],
+      "Stacking": "ReplaceByCaster",
+      "DynamicValues": {
+        "Values": {
+          "2128130574": {},
+          "123489934": {},
+          "1662446059": {}
+        }
+      }
+    },
+    "MAvatar_AML_Minion02_00_Damage": {
+      "_CallbackList": [
+        {
+          "Event": "OnBeforeHitAll",
+          "CallbackConfig": []
+        }
+      ],
+      "DynamicValues": {
+        "Values": {
+          "2128130574": {}
+        }
+      }
+    },
+    "MAvatar_AML_Minion02_00_Effect": {
+      "_CallbackList": [
+        {
+          "Event": "OnCreate",
+          "CallbackConfig": [
+            {
+              "$type": "RPG.GameCore.ModifierAttachEffect",
+              "TargetType": {
+                "$type": "RPG.GameCore.TargetAlias",
+                "Alias": "ModifierOwnerEntity"
+              },
+              "EffectPath": "Effects/Eff_Prefab/Eff_Monster/Eff_AML_Minion02_00/Eff_Monster_AML_Minion02_00_Trail.prefab",
+              "AttachPoint": "Head",
+              "MinMutexTime": -1,
+              "MutexType": "Entity"
+            }
+          ]
+        }
+      ]
+    },
+    "MAvatar_AML_Minion02_00_Buff": {},
+    "MAvatar_AML_Minion02_00_Critical": {
+      "_CallbackList": [
+        {
+          "Event": "OnStack",
+          "CallbackConfig": [
+            {
+              "$type": "RPG.GameCore.PredicateTaskList",
+              "Predicate": {
+                "$type": "RPG.GameCore.ByIsContainModifier",
+                "TargetType": {
+                  "$type": "RPG.GameCore.TargetAlias",
+                  "Alias": "ModifierOwnerEntity"
+                },
+                "ModifierName": "MAvatar_AetherDivide_Common_B"
+              },
+              "SuccessTaskList": [
+                {
+                  "$type": "RPG.GameCore.TriggerEffect",
+                  "TargetType": {
+                    "$type": "RPG.GameCore.TargetAlias",
+                    "Alias": "ModifierOwnerEntity"
+                  },
+                  "EffectPath": "Effects/Eff_Prefab/Eff_Common/Eff_StanceBreak_Common_Imaginary.prefab"
+                },
+                {
+                  "$type": "RPG.GameCore.RadialBlurEffect",
+                  "TargetType": {
+                    "$type": "RPG.GameCore.TargetAlias",
+                    "Alias": "ModifierOwnerEntity"
+                  },
+                  "Duration": 0.45,
+                  "Iteration": 5,
+                  "BlurStart": 0.1,
+                  "BlurFeather": 0.15
+                }
+              ]
+            },
+            {
+              "$type": "RPG.GameCore.RemoveSelfModifier"
+            }
+          ]
+        }
+      ]
+    },
+    "MAvatar_AML_Minion02_00_Passive_Enhance": {
+      "_CallbackList": [
+        {
+          "Event": "OnStack",
+          "CallbackConfig": [
+            {
+              "$type": "RPG.GameCore.StackProperty",
+              "TargetType": {
+                "$type": "RPG.GameCore.TargetAlias",
+                "Alias": "ModifierOwnerEntity"
+              },
+              "Property": "AllDamageTypeAddedRatio",
+              "PropertyValue": {
+                "IsDynamic": true,
+                "PostfixExpr": {
+                  "OpCodes": "AQAJ",
+                  "FixedValues": [],
+                  "DynamicHashes": [
+                    2128130574
+                  ]
+                }
+              }
+            }
+          ]
+        },
+        {
+          "Event": "OnAfterAttack",
+          "CallbackConfig": [
+            {
+              "$type": "RPG.GameCore.RemoveSelfModifier"
+            }
+          ]
+        }
+      ],
+      "DynamicValues": {
+        "Values": {
+          "2128130574": {}
+        }
+      }
+    }
+  }
+}
