@@ -1,0 +1,37 @@
+{
+  "OnInitSequece": [],
+  "OnStartSequece": [
+    {
+      "TaskList": [
+        {
+          "$type": "RPG.GameCore.CreateProp",
+          "GroupID": 66,
+          "GroupPropID": 300003,
+          "CreateList": []
+        }
+      ]
+    },
+    {
+      "TaskList": [
+        {
+          "$type": "RPG.GameCore.WaitPhotoGraphResult",
+          "WaitPhotoResult": [
+            "800320906_All"
+          ],
+          "OnSuccess": [
+            {
+              "$type": "RPG.GameCore.DestroyProp",
+              "ID": 300003,
+              "GroupID": 66,
+              "DestroyList": []
+            },
+            {
+              "$type": "RPG.GameCore.FinishPerformanceMission",
+              "Key": "Mission_800320906"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,148 @@
+{
+  "AbilityList": [
+    {
+      "Name": "Monster_W2_Fuyan_00_PassiveSkillInitiate",
+      "TargetInfo": {
+        "TargetType": "Caster"
+      },
+      "OnStart": [
+        {
+          "$type": "RPG.GameCore.AddModifier",
+          "TargetType": {
+            "$type": "RPG.GameCore.TargetAlias",
+            "Alias": "Caster"
+          },
+          "ModifierName": "MMonster_W2_Fuyan_00_Unselectable"
+        },
+        {
+          "$type": "RPG.GameCore.AddModifier",
+          "TargetType": {
+            "$type": "RPG.GameCore.TargetAlias",
+            "Alias": "Caster"
+          },
+          "ModifierName": "MMonster_W2_Fuyan_00_MonsterDieListener"
+        }
+      ]
+    }
+  ],
+  "GlobalModifiers": {
+    "MMonster_W2_Fuyan_00_Unselectable": {
+      "BehaviorFlagList": [
+        "Stealth",
+        "BlockDamage",
+        "Endurance"
+      ],
+      "_CallbackList": {
+        "OnDestroy": {
+          "CallbackConfig": [
+            {
+              "$type": "RPG.GameCore.SetEntityUnselectable",
+              "TargetType": {
+                "$type": "RPG.GameCore.TargetAlias",
+                "Alias": "ModifierOwnerEntity"
+              }
+            }
+          ]
+        },
+        "OnStack": {
+          "CallbackConfig": [
+            {
+              "$type": "RPG.GameCore.SetEntityUnselectable",
+              "TargetType": {
+                "$type": "RPG.GameCore.TargetAlias",
+                "Alias": "ModifierOwnerEntity"
+              },
+              "Unselectable": true
+            },
+            {
+              "$type": "RPG.GameCore.MakeCharacterHUDVisible",
+              "TargetType": {
+                "$type": "RPG.GameCore.TargetAlias",
+                "Alias": "ModifierOwnerEntity"
+              },
+              "IndependentControl": true
+            },
+            {
+              "$type": "RPG.GameCore.StackProperty",
+              "TargetType": {
+                "$type": "RPG.GameCore.TargetAlias",
+                "Alias": "Caster"
+              },
+              "Property": "BaseSpeed",
+              "PropertyValue": {
+                "IsDynamic": false,
+                "FixedValue": {
+                  "Value": 0
+                }
+              }
+            },
+            {
+              "$type": "RPG.GameCore.ShowBossInfoBar",
+              "TargetType": {
+                "$type": "RPG.GameCore.TargetAlias",
+                "Alias": "ModifierOwnerEntity"
+              },
+              "IsShow": true
+            },
+            {
+              "$type": "RPG.GameCore.RemoveEntityFromTeamFormation",
+              "TargetType": {
+                "$type": "RPG.GameCore.TargetAlias",
+                "Alias": "ModifierOwnerEntity"
+              }
+            },
+            {
+              "$type": "RPG.GameCore.SetEntityVisible",
+              "TargetType": {
+                "$type": "RPG.GameCore.TargetAlias",
+                "Alias": "ModifierOwnerEntity"
+              }
+            }
+          ]
+        }
+      }
+    },
+    "MMonster_W2_Fuyan_00_MonsterDieListener": {
+      "_CallbackList": {
+        "OnCreate": {
+          "CallbackConfig": []
+        },
+        "OnListenCharacterDie": {
+          "CallbackConfig": [
+            {
+              "$type": "RPG.GameCore.PredicateTaskList",
+              "Predicate": {
+                "$type": "RPG.GameCore.ByTargetTeam",
+                "TargetType": {
+                  "$type": "RPG.GameCore.TargetAlias",
+                  "Alias": "ParamEntity"
+                },
+                "Team": "TeamDark"
+              },
+              "SuccessTaskList": [
+                {
+                  "$type": "RPG.GameCore.LoseHPByRatio",
+                  "TargetType": {
+                    "$type": "RPG.GameCore.TargetAlias",
+                    "Alias": "ModifierOwnerEntity"
+                  },
+                  "RatioType": "MaxHP",
+                  "Ratio": {
+                    "IsDynamic": true,
+                    "PostfixExpr": {
+                      "OpCodes": "AQAJ",
+                      "FixedValues": [],
+                      "DynamicHashes": [
+                        1246667513
+                      ]
+                    }
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      }
+    }
+  }
+}

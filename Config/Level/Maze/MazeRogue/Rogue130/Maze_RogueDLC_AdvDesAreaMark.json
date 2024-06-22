@@ -1,0 +1,41 @@
+{
+  "OnInitSequece": [],
+  "OnStartSequece": [
+    {
+      "TaskList": [
+        {
+          "$type": "RPG.GameCore.RogueDLC1Dot3AdventureRoomProcess",
+          "OnSettleFinish": [
+            {
+              "$type": "RPG.GameCore.RogueDLCADVRoomHideDestruct"
+            },
+            {
+              "$type": "RPG.GameCore.TriggerCustomString",
+              "CustomString": {
+                "Value": "OnSettleFinish"
+              }
+            }
+          ],
+          "OnLoginFinished": []
+        }
+      ]
+    },
+    {
+      "TaskList": [
+        {
+          "$type": "RPG.GameCore.WaitCustomString",
+          "CustomString": {
+            "Value": "OnLoginFinished"
+          },
+          "GoNextImmediately": true
+        },
+        {
+          "$type": "RPG.GameCore.RogueDLCADVRoomHideDestruct"
+        }
+      ]
+    }
+  ],
+  "ValueSource": {
+    "Values": []
+  }
+}

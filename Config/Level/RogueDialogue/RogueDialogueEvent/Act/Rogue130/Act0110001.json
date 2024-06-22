@@ -1,0 +1,98 @@
+{
+  "OnInitSequece": [],
+  "OnStartSequece": [
+    {
+      "TaskList": [
+        {
+          "$type": "RPG.GameCore.LevelPerformanceInitialize",
+          "PerformanceType": "E",
+          "CreateCharacterList": [],
+          "EntityVisiableList": [],
+          "HideMunicipalCrowd": false,
+          "HideMunicipalPedestrian": false,
+          "PropVisiableList": [],
+          "MarkStreamingItems": []
+        },
+        {
+          "$type": "RPG.GameCore.ShowTalkBackground",
+          "TalkBgID": 10001
+        },
+        {
+          "$type": "RPG.GameCore.PlaySimpleTalk",
+          "SimpleTalkList": [
+            {
+              "TalkSentenceID": 403810001,
+              "ProtectTime": 0.3
+            },
+            {
+              "TalkSentenceID": 403810002,
+              "ProtectTime": 0.3
+            }
+          ]
+        },
+        {
+          "$type": "RPG.GameCore.WaitSimpleTalkFinish"
+        },
+        {
+          "$type": "RPG.GameCore.PlayOptionTalk",
+          "OptionList": [
+            {
+              "OptionTextmapID": {
+                "Hash": -1526285966
+              },
+              "OptionIconType": "ChatContinueIcon",
+              "TriggerCustomString": "ALL_TALK_END",
+              "DialogueEventID": 110004
+            },
+            {
+              "OptionTextmapID": {
+                "Hash": -1526285963
+              },
+              "OptionIconType": "ChatContinueIcon",
+              "TriggerCustomString": "ALL_TALK_END",
+              "DialogueEventID": 110005
+            },
+            {
+              "OptionTextmapID": {
+                "Hash": -1526285964
+              },
+              "OptionIconType": "ChatContinueIcon",
+              "TriggerCustomString": "ALL_TALK_END",
+              "DialogueEventID": 110006
+            },
+            {
+              "OptionTextmapID": {
+                "Hash": -1526285969
+              },
+              "TriggerCustomString": "ALL_TALK_END",
+              "DialogueEventID": 110007
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "TaskList": [
+        {
+          "$type": "RPG.GameCore.WaitCustomString",
+          "CustomString": {
+            "Value": "ALL_TALK_END"
+          }
+        },
+        {
+          "$type": "RPG.GameCore.EndPerformance"
+        }
+      ]
+    },
+    {
+      "TaskList": [
+        {
+          "$type": "RPG.GameCore.WaitPerformanceEnd"
+        },
+        {
+          "$type": "RPG.GameCore.FinishLevelGraph"
+        }
+      ]
+    }
+  ]
+}

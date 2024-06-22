@@ -1,0 +1,93 @@
+{
+  "OnInitSequece": [],
+  "OnStartSequece": [
+    {
+      "TaskList": [
+        {
+          "$type": "RPG.GameCore.CreateProp",
+          "GroupID": 95,
+          "GroupPropID": 300003,
+          "CreateList": []
+        }
+      ]
+    },
+    {
+      "IsLoop": true,
+      "TaskList": [
+        {
+          "$type": "RPG.GameCore.WaitCustomString",
+          "CustomString": {
+            "Value": "triggerbattle1"
+          }
+        },
+        {
+          "$type": "RPG.GameCore.TriggerPerformance",
+          "ValueSource": {},
+          "PerformanceType": "C",
+          "PerformanceID": 602010160
+        },
+        {
+          "$type": "RPG.GameCore.TriggerBattle",
+          "EventID": {
+            "IsDynamic": false,
+            "FixedValue": {
+              "Value": 20212206
+            }
+          },
+          "GroupID": {
+            "IsDynamic": false,
+            "FixedValue": {
+              "Value": 1
+            }
+          },
+          "BattleAreaID": {
+            "IsDynamic": false,
+            "FixedValue": {
+              "Value": 1
+            }
+          }
+        }
+      ]
+    },
+    {
+      "TaskList": [
+        {
+          "$type": "RPG.GameCore.PropSetupTrigger",
+          "TargetType": {
+            "$type": "RPG.GameCore.TargetFetchAdvPropEx",
+            "FetchType": "SinglePropByPropID",
+            "SinglePropID": {
+              "GroupID": {
+                "IsDynamic": false,
+                "FixedValue": {
+                  "Value": 95
+                }
+              },
+              "ID": {
+                "IsDynamic": false,
+                "FixedValue": {
+                  "Value": 300005
+                }
+              }
+            }
+          },
+          "TargetTypes": [],
+          "OnTriggerEnter": [
+            {
+              "$type": "RPG.GameCore.TriggerCustomString",
+              "CustomString": {
+                "Value": "triggerbattle1"
+              }
+            },
+            {
+              "$type": "RPG.GameCore.DestroyProp",
+              "ID": 300003,
+              "GroupID": 95,
+              "DestroyList": []
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,74 @@
+{
+  "OnInitSequece": [],
+  "OnStartSequece": [
+    {
+      "TaskList": [
+        {
+          "$type": "RPG.GameCore.WaitCustomString",
+          "CustomString": {
+            "Value": "Hold"
+          },
+          "WaitOwnerOnly": true
+        }
+      ]
+    },
+    {
+      "TaskList": [
+        {
+          "$type": "RPG.GameCore.PropSetupTrigger",
+          "TargetType": {
+            "$type": "RPG.GameCore.TargetFetchAdvPropEx",
+            "FetchType": "SinglePropByPropID",
+            "SinglePropID": {
+              "GroupID": {
+                "IsDynamic": false,
+                "FixedValue": {
+                  "Value": 10
+                }
+              },
+              "ID": {
+                "IsDynamic": false,
+                "FixedValue": {
+                  "Value": 300003
+                }
+              }
+            }
+          },
+          "TargetTypes": [],
+          "ColliderRelativePath": "Trigger",
+          "DestroyAfterTriggered": true,
+          "OnTriggerEnter": [
+            {
+              "$type": "RPG.GameCore.LockPlayerControl"
+            },
+            {
+              "$type": "RPG.GameCore.ShowTalkUI",
+              "Show": true
+            },
+            {
+              "$type": "RPG.GameCore.PlaySimpleTalk",
+              "SimpleTalkList": [
+                {
+                  "TalkSentenceID": 101020401,
+                  "ProtectTime": 0.3
+                }
+              ]
+            },
+            {
+              "$type": "RPG.GameCore.WaitSimpleTalkFinish"
+            },
+            {
+              "$type": "RPG.GameCore.ShowTalkUI"
+            },
+            {
+              "$type": "RPG.GameCore.UnLockPlayerControl"
+            },
+            {
+              "$type": "RPG.GameCore.FinishLevelGraph"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

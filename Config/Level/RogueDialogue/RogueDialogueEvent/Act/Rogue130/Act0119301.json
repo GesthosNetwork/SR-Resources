@@ -1,0 +1,229 @@
+{
+  "OnInitSequece": [],
+  "OnStartSequece": [
+    {
+      "TaskList": [
+        {
+          "$type": "RPG.GameCore.LevelPerformanceInitialize",
+          "PerformanceType": "E",
+          "HideMunicipalCrowd": false,
+          "HideMunicipalPedestrian": false
+        },
+        {
+          "$type": "RPG.GameCore.ShowTalkBackground",
+          "TalkBgID": 119301
+        },
+        {
+          "$type": "RPG.GameCore.PlayAndWaitSimpleTalk",
+          "SimpleTalkList": [
+            {
+              "TalkSentenceID": 403815752,
+              "ProtectTime": 0.3
+            },
+            {
+              "TalkSentenceID": 403815753,
+              "ProtectTime": 0.3
+            },
+            {
+              "TalkSentenceID": 403815754,
+              "ProtectTime": 0.3
+            },
+            {
+              "TalkSentenceID": 403815755,
+              "ProtectTime": 0.3
+            },
+            {
+              "TalkSentenceID": 403815756,
+              "ProtectTime": 0.3
+            }
+          ]
+        },
+        {
+          "$type": "RPG.GameCore.PlayOptionTalk",
+          "OptionList": [
+            {
+              "OptionTextmapID": {
+                "Hash": 1189301058
+              },
+              "OptionIconType": "ChatContinueIcon",
+              "DialogueEventID": 119301
+            },
+            {
+              "OptionTextmapID": {
+                "Hash": 1189301055
+              },
+              "OptionIconType": "ChatContinueIcon",
+              "TriggerCustomString": "193_Exit",
+              "DialogueEventID": 119302
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "IsLoop": true,
+      "TaskList": [
+        {
+          "$type": "RPG.GameCore.WaitDialogueEvent",
+          "DialogueEventList": [
+            {
+              "DialogueEventID": 119305,
+              "SuccessCustomString": "193_Win"
+            },
+            {
+              "DialogueEventID": 119306,
+              "SuccessCustomString": "193_First"
+            },
+            {
+              "DialogueEventID": 119307,
+              "SuccessCustomString": "193_Second"
+            },
+            {}
+          ]
+        }
+      ]
+    },
+    {
+      "IsLoop": true,
+      "TaskList": [
+        {
+          "$type": "RPG.GameCore.WaitCustomString",
+          "CustomString": {
+            "Value": "193_First"
+          }
+        },
+        {
+          "$type": "RPG.GameCore.PlayAndWaitSimpleTalk",
+          "SimpleTalkList": [
+            {
+              "TalkSentenceID": 403815759,
+              "ProtectTime": 0.3
+            },
+            {
+              "TalkSentenceID": 403815760,
+              "ProtectTime": 0.3
+            }
+          ]
+        },
+        {
+          "$type": "RPG.GameCore.PlayOptionTalk",
+          "OptionList": [
+            {
+              "OptionTextmapID": {
+                "Hash": 1189301058
+              },
+              "OptionIconType": "ChatContinueIcon",
+              "DialogueEventID": 119301
+            },
+            {
+              "OptionTextmapID": {
+                "Hash": 1189301055
+              },
+              "OptionIconType": "ChatContinueIcon",
+              "TriggerCustomString": "193_Exit",
+              "DialogueEventID": 119302
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "IsLoop": true,
+      "TaskList": [
+        {
+          "$type": "RPG.GameCore.WaitCustomString",
+          "CustomString": {
+            "Value": "193_Second"
+          }
+        },
+        {
+          "$type": "RPG.GameCore.PlayAndWaitSimpleTalk",
+          "SimpleTalkList": [
+            {
+              "TalkSentenceID": 403815763,
+              "ProtectTime": 0.3
+            },
+            {
+              "TalkSentenceID": 403815764,
+              "ProtectTime": 0.3
+            }
+          ]
+        },
+        {
+          "$type": "RPG.GameCore.PlayOptionTalk",
+          "OptionList": [
+            {
+              "OptionTextmapID": {
+                "Hash": 1189301058
+              },
+              "OptionIconType": "ChatContinueIcon",
+              "DialogueEventID": 119301
+            },
+            {
+              "OptionTextmapID": {
+                "Hash": 1189301055
+              },
+              "OptionIconType": "ChatContinueIcon",
+              "TriggerCustomString": "193_Exit",
+              "DialogueEventID": 119302
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "IsLoop": true,
+      "TaskList": [
+        {
+          "$type": "RPG.GameCore.WaitCustomString",
+          "CustomString": {
+            "Value": "193_Win"
+          }
+        },
+        {
+          "$type": "RPG.GameCore.PlayAndWaitSimpleTalk",
+          "SimpleTalkList": [
+            {
+              "TalkSentenceID": 403815767,
+              "ProtectTime": 0.3
+            },
+            {
+              "TalkSentenceID": 403815768,
+              "ProtectTime": 0.3
+            },
+            {
+              "TalkSentenceID": 403815769,
+              "ProtectTime": 0.3
+            }
+          ]
+        },
+        {
+          "$type": "RPG.GameCore.EndPerformance"
+        }
+      ]
+    },
+    {
+      "TaskList": [
+        {
+          "$type": "RPG.GameCore.WaitCustomString",
+          "CustomString": {
+            "Value": "193_Exit"
+          }
+        },
+        {
+          "$type": "RPG.GameCore.EndPerformance"
+        }
+      ]
+    },
+    {
+      "TaskList": [
+        {
+          "$type": "RPG.GameCore.WaitPerformanceEnd"
+        },
+        {
+          "$type": "RPG.GameCore.FinishLevelGraph"
+        }
+      ]
+    }
+  ]
+}

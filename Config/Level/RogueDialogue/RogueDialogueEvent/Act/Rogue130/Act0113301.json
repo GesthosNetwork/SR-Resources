@@ -1,0 +1,103 @@
+{
+  "OnInitSequece": [],
+  "OnStartSequece": [
+    {
+      "TaskList": [
+        {
+          "$type": "RPG.GameCore.LevelPerformanceInitialize",
+          "PerformanceType": "E",
+          "CreateCharacterList": [],
+          "EntityVisiableList": [],
+          "HideMunicipalCrowd": false,
+          "HideMunicipalPedestrian": false,
+          "PropVisiableList": [],
+          "MarkStreamingItems": []
+        },
+        {
+          "$type": "RPG.GameCore.ShowTalkBackground",
+          "TalkBgID": 113301
+        },
+        {
+          "$type": "RPG.GameCore.PlaySimpleTalk",
+          "SimpleTalkList": [
+            {
+              "TalkSentenceID": 403813301,
+              "ProtectTime": 0.3
+            },
+            {
+              "TalkSentenceID": 403813302,
+              "ProtectTime": 0.3
+            },
+            {
+              "TalkSentenceID": 403813303,
+              "ProtectTime": 0.3
+            }
+          ]
+        },
+        {
+          "$type": "RPG.GameCore.WaitSimpleTalkFinish"
+        },
+        {
+          "$type": "RPG.GameCore.PlayOptionTalk",
+          "OptionList": [
+            {
+              "OptionTextmapID": {
+                "Hash": -222323952
+              },
+              "OptionIconType": "ChatContinueIcon",
+              "TriggerCustomString": "ALL_TALK_END",
+              "DialogueEventID": 113301
+            },
+            {
+              "OptionTextmapID": {
+                "Hash": -222323955
+              },
+              "OptionIconType": "ChatContinueIcon",
+              "TriggerCustomString": "ALL_TALK_END",
+              "DialogueEventID": 113302
+            },
+            {
+              "OptionTextmapID": {
+                "Hash": -222323944
+              },
+              "OptionIconType": "ChatContinueIcon",
+              "TriggerCustomString": "ALL_TALK_END",
+              "DialogueEventID": 113309
+            },
+            {
+              "OptionTextmapID": {
+                "Hash": -1788407894
+              },
+              "OptionIconType": "ChatContinueIcon",
+              "TriggerCustomString": "ALL_TALK_END",
+              "DialogueEventID": 113310
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "TaskList": [
+        {
+          "$type": "RPG.GameCore.WaitCustomString",
+          "CustomString": {
+            "Value": "ALL_TALK_END"
+          }
+        },
+        {
+          "$type": "RPG.GameCore.EndPerformance"
+        }
+      ]
+    },
+    {
+      "TaskList": [
+        {
+          "$type": "RPG.GameCore.WaitPerformanceEnd"
+        },
+        {
+          "$type": "RPG.GameCore.FinishLevelGraph"
+        }
+      ]
+    }
+  ]
+}

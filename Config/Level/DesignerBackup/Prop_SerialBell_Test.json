@@ -1,0 +1,43 @@
+{
+  "OnInitSequece": [
+    {
+      "TaskList": []
+    }
+  ],
+  "OnStartSequece": [
+    {
+      "TaskList": [
+        {
+          "$type": "RPG.GameCore.WaitGroupEvent",
+          "EventName": "EVT_PropStartPlay",
+          "OnEvent": [
+            {
+              "$type": "RPG.GameCore.PlaySerialBells",
+              "SoundEvent": "Ev_sfx_amb_changletian_bianzhong",
+              "OnFinish": [
+                {
+                  "$type": "RPG.GameCore.TriggerGroupEvent",
+                  "EventName": "EVT_StopPlay"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "ValueSource": {
+    "Values": [
+      {
+        "$type": "RPG.GameCore.SharedString",
+        "Key": "1233",
+        "EditorHint": "LevelObject"
+      },
+      {
+        "$type": "RPG.GameCore.SharedString",
+        "Key": "12534",
+        "EditorHint": "LevelAnchor"
+      }
+    ]
+  }
+}

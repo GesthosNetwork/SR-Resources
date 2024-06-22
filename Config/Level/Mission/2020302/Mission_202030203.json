@@ -1,0 +1,70 @@
+{
+  "OnInitSequece": [],
+  "OnStartSequece": [
+    {
+      "TaskList": [
+        {
+          "$type": "RPG.GameCore.CollectDataConditions",
+          "TaskIDList": [
+            202030205
+          ],
+          "PerformanceIDList": []
+        },
+        {
+          "$type": "RPG.GameCore.WaitCustomString",
+          "CustomString": {
+            "Value": "Prop_202030203"
+          }
+        },
+        {
+          "$type": "RPG.GameCore.FinishPerformanceMission",
+          "Key": "Mission_202030203"
+        }
+      ]
+    },
+    {
+      "TaskList": [
+        {
+          "$type": "RPG.GameCore.WaitSecond",
+          "WaitTime": 4
+        },
+        {
+          "$type": "RPG.GameCore.TriggerCustomString",
+          "CustomString": {
+            "Value": "Maze_TriggerSpecialVision_01"
+          }
+        }
+      ]
+    },
+    {
+      "TaskList": [
+        {
+          "$type": "RPG.GameCore.PredicateTaskList",
+          "Predicate": {
+            "$type": "RPG.GameCore.ByCompareSubMissionState",
+            "SubMissionID": 202030205,
+            "SubMissionState": "Started"
+          },
+          "SuccessTaskList": [
+            {
+              "$type": "RPG.GameCore.CreateProp",
+              "GroupID": 29,
+              "GroupPropID": 300004,
+              "CreateList": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "TaskList": [
+        {
+          "$type": "RPG.GameCore.CreateProp",
+          "GroupID": 29,
+          "GroupPropID": 300002,
+          "CreateList": []
+        }
+      ]
+    }
+  ]
+}

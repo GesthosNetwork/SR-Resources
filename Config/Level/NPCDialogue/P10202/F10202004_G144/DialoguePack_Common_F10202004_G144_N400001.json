@@ -1,0 +1,98 @@
+{
+  "OnInitSequece": [],
+  "OnStartSequece": [
+    {
+      "TaskList": [
+        {
+          "$type": "RPG.GameCore.CollectDataConditions",
+          "TaskIDList": [],
+          "MainMissionIDList": [
+            1021702,
+            8003211,
+            1021001
+          ],
+          "PerformanceIDList": [
+            502015201
+          ],
+          "CustomValueMainMissionIDList": []
+        },
+        {
+          "$type": "RPG.GameCore.AddMenuItem",
+          "MenuItemID": 502059218,
+          "MenuIconType": "ShopIcon",
+          "DialoguePath": "Config/Level/NPCDialogue/P10202/F10202004_G144/DialogueItem502059218_F10202004_G144_N400001.json"
+        },
+        {
+          "$type": "RPG.GameCore.PredicateTaskList",
+          "Predicate": {
+            "$type": "RPG.GameCore.ByAnd",
+            "PredicateList": [
+              {
+                "$type": "RPG.GameCore.ByCompareMainMissionState",
+                "MainMissionID": 1021001
+              },
+              {
+                "$type": "RPG.GameCore.ByComparePerformance",
+                "PerformanceID": 502015201
+              },
+              {
+                "$type": "RPG.GameCore.ByCompareMainMissionState",
+                "MainMissionID": 1021702,
+                "Inverse": true
+              }
+            ]
+          },
+          "SuccessTaskList": [
+            {
+              "$type": "RPG.GameCore.AddMenuItem",
+              "MenuItemID": 502013201,
+              "MenuIconType": "ChatLoopIcon",
+              "DialoguePath": "Config/Level/NPCDialogue/P10202/F10202001_G43/DialogueItem502013201_F10202001_G43_N400005.json"
+            }
+          ]
+        },
+        {
+          "$type": "RPG.GameCore.PredicateTaskList",
+          "Predicate": {
+            "$type": "RPG.GameCore.ByCompareMainMissionState",
+            "MainMissionID": 1021702
+          },
+          "SuccessTaskList": [
+            {
+              "$type": "RPG.GameCore.AddMenuItem",
+              "MenuItemID": 502015301,
+              "MenuIconType": "ChatLoopIcon",
+              "DialoguePath": "Config/Level/NPCDialogue/P10202/F10202001_G43/DialogueItem502015301_F10202001_G43_N400005.json"
+            }
+          ]
+        },
+        {
+          "$type": "RPG.GameCore.PredicateTaskList",
+          "Predicate": {
+            "$type": "RPG.GameCore.ByCompareMainMissionState",
+            "MainMissionID": 8003211
+          },
+          "SuccessTaskList": [
+            {
+              "$type": "RPG.GameCore.AddMenuItem",
+              "MenuItemID": 502015401,
+              "MenuIconType": "ChatLoopIcon",
+              "DialoguePath": "Config/Level/NPCDialogue/P10202/F10202001_G43/DialogueItem502015401_F10202001_G43_N400005.json"
+            }
+          ]
+        },
+        {
+          "$type": "RPG.GameCore.AddMenuItem",
+          "MenuItemID": 502059219,
+          "MenuIconType": "ChatLoopIcon",
+          "DialoguePath": "Config/Level/NPCDialogue/P10202/F10202004_G144/DialogueItem502059219_F10202004_G144_N400001.json"
+        },
+        {
+          "$type": "RPG.GameCore.AddMenuItem",
+          "MenuItemID": 502059220,
+          "MenuIconType": "ChatOutIcon"
+        }
+      ]
+    }
+  ]
+}

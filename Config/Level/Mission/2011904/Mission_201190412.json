@@ -1,0 +1,91 @@
+{
+  "OnInitSequece": [],
+  "OnStartSequece": [
+    {
+      "TaskList": [
+        {
+          "$type": "RPG.GameCore.CreateNPC",
+          "GroupID": {
+            "IsDynamic": false,
+            "FixedValue": {
+              "Value": 13
+            }
+          },
+          "GroupNpcID": {
+            "IsDynamic": false,
+            "FixedValue": {
+              "Value": 400004
+            }
+          },
+          "CreateList": []
+        }
+      ]
+    },
+    {
+      "TaskList": [
+        {
+          "$type": "RPG.GameCore.CharacterTriggerFreeStyle",
+          "TargetAlias": {
+            "$type": "RPG.GameCore.TargetFetchAdvNpcEx",
+            "FetchType": "SingleNpcByNpcID",
+            "SingleNpcID": {
+              "GroupID": {
+                "IsDynamic": false,
+                "FixedValue": {
+                  "Value": 13
+                }
+              },
+              "GroupNpcID": {
+                "IsDynamic": false,
+                "FixedValue": {
+                  "Value": 400001
+                }
+              }
+            }
+          },
+          "StoryAvatarID": "NPC_Male",
+          "StartMotion": "Distress01Loop",
+          "StoryMotionID": 100101040
+        },
+        {
+          "$type": "RPG.GameCore.CharacterTriggerFreeStyle",
+          "TargetAlias": {
+            "$type": "RPG.GameCore.TargetFetchAdvNpcEx",
+            "FetchType": "SingleNpcByNpcID",
+            "SingleNpcID": {
+              "GroupID": {
+                "IsDynamic": false,
+                "FixedValue": {
+                  "Value": 13
+                }
+              },
+              "GroupNpcID": {
+                "IsDynamic": false,
+                "FixedValue": {
+                  "Value": 400002
+                }
+              }
+            }
+          },
+          "StoryAvatarID": "NPC_Male",
+          "StartMotion": "HoldHead01BS",
+          "StoryMotionID": 100101034
+        }
+      ]
+    },
+    {
+      "TaskList": [
+        {
+          "$type": "RPG.GameCore.WaitCustomString",
+          "CustomString": {
+            "Value": "Talk_201190412"
+          }
+        },
+        {
+          "$type": "RPG.GameCore.FinishPerformanceMission",
+          "Key": "Mission_201190412"
+        }
+      ]
+    }
+  ]
+}

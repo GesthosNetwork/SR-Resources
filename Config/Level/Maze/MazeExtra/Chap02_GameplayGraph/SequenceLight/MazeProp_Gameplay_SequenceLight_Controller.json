@@ -1,0 +1,359 @@
+{
+  "OnInitSequece": [],
+  "OnStartSequece": [
+    {
+      "TaskList": [
+        {
+          "$type": "RPG.GameCore.PropInitPuzzle",
+          "BoardPath": {
+            "Custom": true,
+            "Key": "PrefabPath"
+          }
+        }
+      ]
+    },
+    {
+      "IsLoop": true,
+      "TaskList": [
+        {
+          "$type": "RPG.GameCore.WaitCustomString",
+          "CustomString": {
+            "Value": "Pillar_Interact_Start"
+          },
+          "WaitOwnerOnly": true
+        },
+        {
+          "$type": "RPG.GameCore.StartPropInteractMode",
+          "TargetType": {
+            "$type": "RPG.GameCore.TargetFetchAdvPillarPuzzleInteractingPillar"
+          },
+          "Mode": "UsePose02"
+        },
+        {
+          "$type": "RPG.GameCore.WaitSecond",
+          "WaitTime": 1
+        },
+        {
+          "$type": "RPG.GameCore.TriggerCustomString",
+          "CustomString": {
+            "Value": "Pillar_Lightup_Start"
+          }
+        },
+        {
+          "$type": "RPG.GameCore.WaitSecond",
+          "WaitTime": 1
+        },
+        {
+          "$type": "RPG.GameCore.TriggerCustomString",
+          "CustomString": {
+            "Value": "Pillar_Lightup_End"
+          }
+        },
+        {
+          "$type": "RPG.GameCore.EndPropInteract"
+        }
+      ]
+    },
+    {
+      "IsLoop": true,
+      "TaskList": [
+        {
+          "$type": "RPG.GameCore.WaitCustomString",
+          "CustomString": {
+            "Value": "Pillar_Reset_Start"
+          },
+          "WaitOwnerOnly": true
+        },
+        {
+          "$type": "RPG.GameCore.WaitSecond",
+          "WaitTime": 1
+        },
+        {
+          "$type": "RPG.GameCore.TriggerCustomString",
+          "CustomString": {
+            "Value": "Pillar_Reset_End"
+          }
+        }
+      ]
+    },
+    {
+      "TaskList": [
+        {
+          "$type": "RPG.GameCore.PropPuzzleEventListener",
+          "FinishCallback": [
+            {
+              "$type": "RPG.GameCore.PropReqInteract",
+              "TargetType": {
+                "$type": "RPG.GameCore.TargetFetchAdvPropEx"
+              },
+              "InteractID": {
+                "IsDynamic": false,
+                "FixedValue": {
+                  "Value": 1010
+                }
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "TaskList": []
+    },
+    {
+      "TaskList": [
+        {
+          "$type": "RPG.GameCore.PropStateChangeListenerConfig",
+          "ToState": "Open",
+          "OnChange": [
+            {
+              "$type": "RPG.GameCore.TriggerCustomString",
+              "CustomString": {
+                "Custom": true,
+                "Key": "Performance_Trigger"
+              }
+            },
+            {
+              "$type": "RPG.GameCore.WaitCustomString",
+              "CustomString": {
+                "Value": "1021501_ActFinish"
+              },
+              "WaitOwnerOnly": true
+            },
+            {
+              "$type": "RPG.GameCore.TriggerCustomString",
+              "CustomString": {
+                "Value": "FlameDone"
+              }
+            }
+          ],
+          "TargetType": {
+            "$type": "RPG.GameCore.TargetFetchAdvPropEx"
+          }
+        }
+      ]
+    },
+    {
+      "TaskList": [
+        {
+          "$type": "RPG.GameCore.WaitCustomString",
+          "CustomString": {
+            "Value": "FlameDone"
+          },
+          "WaitOwnerOnly": true
+        },
+        {
+          "$type": "RPG.GameCore.PlayScreenTransfer",
+          "Mode": "SwitchOut",
+          "CustomTime": 0.5,
+          "TaskEnabled": false
+        },
+        {
+          "$type": "RPG.GameCore.PredicateTaskList",
+          "Predicate": {
+            "$type": "RPG.GameCore.ByAnd",
+            "PredicateList": [
+              {
+                "$type": "RPG.GameCore.ByComparePropState",
+                "TargetType": {
+                  "$type": "RPG.GameCore.TargetFetchAdvPropEx",
+                  "FetchType": "SinglePropByPropKey",
+                  "SinglePropKey": {
+                    "Custom": true,
+                    "Key": "OtherPuzzle02"
+                  }
+                },
+                "State": "Open"
+              },
+              {
+                "$type": "RPG.GameCore.ByComparePropState",
+                "TargetType": {
+                  "$type": "RPG.GameCore.TargetFetchAdvPropEx",
+                  "FetchType": "SinglePropByPropKey",
+                  "SinglePropKey": {
+                    "Custom": true,
+                    "Key": "OtherPuzzle01"
+                  }
+                },
+                "State": "Open"
+              }
+            ]
+          },
+          "SuccessTaskList": [
+            {
+              "$type": "RPG.GameCore.TriggerPerformance",
+              "ValueSource": {},
+              "PerformanceType": "D",
+              "PerformanceID": 102150174
+            },
+            {
+              "$type": "RPG.GameCore.TriggerCustomString",
+              "CustomString": {
+                "Custom": true,
+                "Key": "PuzzleFinishedString"
+              }
+            }
+          ],
+          "FailedTaskList": [
+            {
+              "$type": "RPG.GameCore.TriggerCustomString",
+              "CustomString": {
+                "Custom": true,
+                "Key": "PuzzleFinishedString"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "TaskList": [
+        {
+          "$type": "RPG.GameCore.WaitCustomString",
+          "CustomString": {
+            "Value": "102150171_ActTrigger"
+          },
+          "WaitOwnerOnly": true
+        },
+        {
+          "$type": "RPG.GameCore.TriggerPerformance",
+          "ValueSource": {},
+          "PerformanceType": "D",
+          "PerformanceID": 102150171
+        },
+        {
+          "$type": "RPG.GameCore.TriggerCustomString",
+          "CustomString": {
+            "Value": "1021501_ActFinish"
+          }
+        }
+      ]
+    },
+    {
+      "TaskList": [
+        {
+          "$type": "RPG.GameCore.WaitCustomString",
+          "CustomString": {
+            "Value": "102150172_ActTrigger"
+          },
+          "WaitOwnerOnly": true
+        },
+        {
+          "$type": "RPG.GameCore.TriggerPerformance",
+          "ValueSource": {},
+          "PerformanceType": "D",
+          "PerformanceID": 102150172
+        },
+        {
+          "$type": "RPG.GameCore.TriggerCustomString",
+          "CustomString": {
+            "Value": "1021501_ActFinish"
+          }
+        }
+      ]
+    },
+    {
+      "TaskList": [
+        {
+          "$type": "RPG.GameCore.WaitCustomString",
+          "CustomString": {
+            "Value": "102150173_ActTrigger"
+          },
+          "WaitOwnerOnly": true
+        },
+        {
+          "$type": "RPG.GameCore.TriggerPerformance",
+          "ValueSource": {},
+          "PerformanceType": "D",
+          "PerformanceID": 102150173
+        },
+        {
+          "$type": "RPG.GameCore.TriggerCustomString",
+          "CustomString": {
+            "Value": "1021501_ActFinish"
+          }
+        }
+      ]
+    },
+    {
+      "TaskList": [
+        {
+          "$type": "RPG.GameCore.CreateNPCMonster",
+          "TaskEnabled": true
+        }
+      ]
+    }
+  ],
+  "ValueSource": {
+    "Values": [
+      {
+        "$type": "RPG.GameCore.SharedString",
+        "Value": "Props/DesignerBackup/PillarPuzzle/PillarPuzzleBoardSequenceInteract01.prefab",
+        "Key": "PrefabPath",
+        "Comment": "玩法路径"
+      },
+      {
+        "$type": "RPG.GameCore.SharedString",
+        "Key": "Camera",
+        "Comment": "转场相机",
+        "EditorHint": "LevelAnchor"
+      },
+      {
+        "$type": "RPG.GameCore.SharedString",
+        "Key": "Target1",
+        "Comment": "火焰1",
+        "EditorHint": "LevelObject"
+      },
+      {
+        "$type": "RPG.GameCore.SharedString",
+        "Key": "Target2",
+        "Comment": "火焰2",
+        "EditorHint": "LevelObject"
+      },
+      {
+        "$type": "RPG.GameCore.SharedFloat",
+        "Key": "Pillar_Group",
+        "Comment": "柱子所在Group"
+      },
+      {
+        "$type": "RPG.GameCore.SharedString",
+        "Key": "PuzzleFinishedString",
+        "Comment": "谜题完成时发送的trigger"
+      },
+      {
+        "$type": "RPG.GameCore.SharedString",
+        "Key": "OtherPuzzle01",
+        "Comment": "另外两个谜题",
+        "EditorHint": "LevelObject"
+      },
+      {
+        "$type": "RPG.GameCore.SharedString",
+        "Key": "OtherPuzzle02",
+        "Comment": "另外两个谜题",
+        "EditorHint": "LevelObject"
+      },
+      {
+        "$type": "RPG.GameCore.SharedString",
+        "Key": "FinalCamera",
+        "Comment": "结尾相机",
+        "EditorHint": "LevelAnchor"
+      },
+      {
+        "$type": "RPG.GameCore.SharedString",
+        "Key": "Bridge",
+        "Comment": "终点石桥",
+        "EditorHint": "LevelObject"
+      },
+      {
+        "$type": "RPG.GameCore.SharedString",
+        "Key": "MappingProp",
+        "Comment": "映射给石桥Group的Prop",
+        "EditorHint": "LevelObject"
+      },
+      {
+        "$type": "RPG.GameCore.SharedString",
+        "Key": "Performance_Trigger"
+      }
+    ]
+  }
+}

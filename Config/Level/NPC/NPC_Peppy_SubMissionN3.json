@@ -1,0 +1,59 @@
+{
+  "OnInitSequece": [],
+  "OnStartSequece": [
+    {
+      "TaskList": [
+        {
+          "$type": "RPG.GameCore.CaptureNPCToCharacter",
+          "GroupID": {
+            "IsDynamic": false,
+            "FixedValue": {
+              "Value": 87
+            }
+          },
+          "GroupNpcID": {
+            "IsDynamic": false,
+            "FixedValue": {
+              "Value": 400007
+            }
+          },
+          "CharacterUniqueName": {
+            "Value": "Peppy02"
+          }
+        },
+        {
+          "$type": "RPG.GameCore.CharacterTriggerAnimGroup",
+          "CharacterUniqueName": "Peppy02",
+          "AvatarID": "NPC_Special_Peppy_00",
+          "AnimGroupName": "Sit01"
+        },
+        {
+          "$type": "RPG.GameCore.NpcSetupTrigger",
+          "TargetType": {
+            "$type": "RPG.GameCore.TargetFetchAdvNpcEx"
+          },
+          "TriggerID": "Root",
+          "OnTriggerEnter": [
+            {
+              "$type": "RPG.GameCore.CharacterTriggerAnimGroup",
+              "CharacterUniqueName": "Peppy02",
+              "AvatarID": "NPC_Special_Peppy_00",
+              "AnimGroupName": "Wangwang"
+            },
+            {
+              "$type": "RPG.GameCore.WaitSecond",
+              "WaitTime": 8
+            },
+            {
+              "$type": "RPG.GameCore.CharacterTriggerAnimGroup",
+              "CharacterUniqueName": "Peppy02",
+              "AvatarID": "NPC_Special_Peppy_00",
+              "AnimGroupName": "Sit01"
+            }
+          ],
+          "OnTriggerExit": []
+        }
+      ]
+    }
+  ]
+}

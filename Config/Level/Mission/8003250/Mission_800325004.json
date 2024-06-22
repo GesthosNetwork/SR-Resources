@@ -1,0 +1,197 @@
+{
+  "OnInitSequece": [],
+  "OnStartSequece": [
+    {
+      "TaskList": [
+        {
+          "$type": "RPG.GameCore.CreateNPC",
+          "GroupID": {
+            "IsDynamic": false,
+            "FixedValue": {
+              "Value": 198
+            }
+          },
+          "GroupNpcID": {
+            "IsDynamic": false,
+            "FixedValue": {
+              "Value": 400002
+            }
+          },
+          "CreateList": []
+        },
+        {
+          "$type": "RPG.GameCore.CreateNPC",
+          "GroupID": {
+            "IsDynamic": false,
+            "FixedValue": {
+              "Value": 198
+            }
+          },
+          "GroupNpcID": {
+            "IsDynamic": false,
+            "FixedValue": {
+              "Value": 400003
+            }
+          },
+          "CreateList": []
+        },
+        {
+          "$type": "RPG.GameCore.DestroyProp",
+          "ID": 300001,
+          "GroupID": 198,
+          "DestroyList": []
+        },
+        {
+          "$type": "RPG.GameCore.CreateProp",
+          "GroupID": 199,
+          "GroupPropID": 300002,
+          "CreateList": []
+        },
+        {
+          "$type": "RPG.GameCore.CreateProp",
+          "GroupID": 198,
+          "GroupPropID": 300003,
+          "CreateList": []
+        },
+        {
+          "$type": "RPG.GameCore.CreateProp",
+          "GroupID": 198,
+          "GroupPropID": 300004,
+          "CreateList": []
+        }
+      ]
+    },
+    {
+      "TaskList": [
+        {
+          "$type": "RPG.GameCore.CreateProp",
+          "GroupID": 198,
+          "GroupPropID": 300005,
+          "CreateList": []
+        },
+        {
+          "$type": "RPG.GameCore.AdvEntityFaceTo",
+          "SourceType": {
+            "$type": "RPG.GameCore.TargetFetchAdvNpcEx",
+            "FetchType": "SingleNpcByNpcID",
+            "SingleNpcID": {
+              "GroupID": {
+                "IsDynamic": false,
+                "FixedValue": {
+                  "Value": 198
+                }
+              },
+              "GroupNpcID": {
+                "IsDynamic": false,
+                "FixedValue": {
+                  "Value": 400001
+                }
+              }
+            }
+          },
+          "TargetType": {
+            "$type": "RPG.GameCore.TargetFetchAnchor",
+            "GroupID": 198,
+            "GroupInstanceID": 9
+          },
+          "FinishImmediately": true
+        },
+        {
+          "$type": "RPG.GameCore.AdvEntityFaceTo",
+          "SourceType": {
+            "$type": "RPG.GameCore.TargetFetchAdvNpcEx",
+            "FetchType": "SingleNpcByNpcID",
+            "SingleNpcID": {
+              "GroupID": {
+                "IsDynamic": false,
+                "FixedValue": {
+                  "Value": 198
+                }
+              },
+              "GroupNpcID": {
+                "IsDynamic": false,
+                "FixedValue": {
+                  "Value": 400002
+                }
+              }
+            }
+          },
+          "TargetType": {
+            "$type": "RPG.GameCore.TargetFetchAnchor",
+            "GroupID": 198,
+            "GroupInstanceID": 9
+          },
+          "FinishImmediately": true
+        },
+        {
+          "$type": "RPG.GameCore.AdvEntityFaceTo",
+          "SourceType": {
+            "$type": "RPG.GameCore.TargetFetchAdvNpcEx",
+            "FetchType": "SingleNpcByNpcID",
+            "SingleNpcID": {
+              "GroupID": {
+                "IsDynamic": false,
+                "FixedValue": {
+                  "Value": 198
+                }
+              },
+              "GroupNpcID": {
+                "IsDynamic": false,
+                "FixedValue": {
+                  "Value": 400003
+                }
+              }
+            }
+          },
+          "TargetType": {
+            "$type": "RPG.GameCore.TargetFetchAnchor",
+            "GroupID": 198,
+            "GroupInstanceID": 9
+          }
+        }
+      ]
+    },
+    {
+      "IsLoop": true,
+      "TaskList": [
+        {
+          "$type": "RPG.GameCore.WaitCustomString",
+          "CustomString": {
+            "Value": "Talk_800325004_1"
+          }
+        },
+        {
+          "$type": "RPG.GameCore.WaitCustomString",
+          "CustomString": {
+            "Value": "Talk_800325004_2"
+          }
+        },
+        {
+          "$type": "RPG.GameCore.FinishPerformanceMission",
+          "Key": "Mission_800325004"
+        }
+      ]
+    },
+    {
+      "IsLoop": true,
+      "TaskList": [
+        {
+          "$type": "RPG.GameCore.WaitCustomString",
+          "CustomString": {
+            "Value": "Talk_800325004_2"
+          }
+        },
+        {
+          "$type": "RPG.GameCore.WaitCustomString",
+          "CustomString": {
+            "Value": "Talk_800325004_1"
+          }
+        },
+        {
+          "$type": "RPG.GameCore.FinishPerformanceMission",
+          "Key": "Mission_800325004"
+        }
+      ]
+    }
+  ]
+}

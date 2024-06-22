@@ -1,0 +1,80 @@
+{
+  "AbilityList": [
+    {
+      "Name": "MazeMonster_W3_TV_00_MazeAttack",
+      "TargetInfo": {
+        "TargetType": "SkillPointEntity"
+      },
+      "OnStart": [
+        {
+          "$type": "RPG.GameCore.LookAt",
+          "TargetType": "AbilityTargetEntity",
+          "Duration": 0.45
+        },
+        {
+          "$type": "RPG.GameCore.AdventureTriggerAnimStateWithMove",
+          "TargetType": {
+            "$type": "RPG.GameCore.TargetAlias",
+            "Alias": "Caster"
+          },
+          "AnimLogicState": "NormalAtk",
+          "AnimStateName": "Attack",
+          "MovingRangeList": [
+            {
+              "TargetType": {
+                "$type": "RPG.GameCore.TargetAlias",
+                "Alias": "AdvLocalPlayer"
+              },
+              "SteerNormalizedTimeStart": {
+                "IsDynamic": false,
+                "FixedValue": {
+                  "Value": 0.004999999655410647
+                }
+              },
+              "SteerNormalizedTimeEnd": {
+                "IsDynamic": false,
+                "FixedValue": {
+                  "Value": 0.1900000001769513
+                }
+              },
+              "MaxSteerSpeed": {
+                "IsDynamic": false,
+                "FixedValue": {
+                  "Value": 300
+                }
+              }
+            }
+          ]
+        },
+        {
+          "$type": "RPG.GameCore.WaitAnimState",
+          "TargetType": {
+            "$type": "RPG.GameCore.TargetAlias",
+            "Alias": "Caster"
+          },
+          "AnimStateName": "Attack",
+          "NormalizedTimeEnd": {
+            "IsDynamic": false,
+            "FixedValue": {
+              "Value": 0.2510000001639128
+            }
+          }
+        },
+        {
+          "$type": "RPG.GameCore.WaitAnimState",
+          "TargetType": {
+            "$type": "RPG.GameCore.TargetAlias",
+            "Alias": "Caster"
+          },
+          "AnimStateName": "Attack",
+          "NormalizedTimeEnd": {
+            "IsDynamic": false,
+            "FixedValue": {
+              "Value": 1
+            }
+          }
+        }
+      ]
+    }
+  ]
+}

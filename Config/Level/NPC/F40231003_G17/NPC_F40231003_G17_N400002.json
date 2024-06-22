@@ -1,0 +1,42 @@
+{
+  "OnInitSequece": [
+    {
+      "TaskList": []
+    }
+  ],
+  "OnStartSequece": [
+    {
+      "TaskList": [
+        {
+          "$type": "RPG.GameCore.PredicateTaskList",
+          "Predicate": {
+            "$type": "RPG.GameCore.ByHeroGender",
+            "Gender": "GENDER_MAN"
+          },
+          "SuccessTaskList": [
+            {
+              "$type": "RPG.GameCore.CharacterTriggerFreeStyle",
+              "TargetAlias": {
+                "$type": "RPG.GameCore.TargetFetchAdvNpcEx"
+              },
+              "StoryAvatarID": "NPC_Avatar_Lad_PlayerBoy_00",
+              "StartMotion": "Alert01BS",
+              "StoryMotionID": 8001062
+            }
+          ],
+          "FailedTaskList": [
+            {
+              "$type": "RPG.GameCore.CharacterTriggerFreeStyle",
+              "TargetAlias": {
+                "$type": "RPG.GameCore.TargetFetchAdvNpcEx"
+              },
+              "StoryAvatarID": "NPC_Avatar_Miss_PlayerGirl_00",
+              "StartMotion": "Alert01BS",
+              "StoryMotionID": 8002062
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

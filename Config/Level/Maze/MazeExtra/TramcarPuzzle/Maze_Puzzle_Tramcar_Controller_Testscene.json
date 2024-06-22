@@ -1,0 +1,178 @@
+{
+  "OnInitSequece": [],
+  "OnStartSequece": [
+    {
+      "IsLoop": true,
+      "TaskList": [
+        {
+          "$type": "RPG.GameCore.WaitCustomString",
+          "CustomString": {
+            "Custom": true,
+            "Key": "PuzzleStart"
+          }
+        },
+        {
+          "$type": "RPG.GameCore.DestroyCurvePropGroupPuzzle",
+          "UniqueName": {
+            "Value": "Tramcar_lv"
+          }
+        },
+        {
+          "$type": "RPG.GameCore.CreateCurvePropGroupPuzzle",
+          "UniqueName": {
+            "Value": "Tramcar_lv"
+          },
+          "CurvePropGroupPrefabParam": "Prefab_Path",
+          "CurvePropGroupPrefabPath": "Props/DesignerBackup/Tramcar/Tramcar_Puzzle_Lv0.prefab",
+          "Position": {
+            "X": -130,
+            "Y": -9.69,
+            "Z": 0
+          }
+        },
+        {
+          "$type": "RPG.GameCore.TriggerCustomString",
+          "CustomString": {
+            "Value": "Tramcar_Listen"
+          }
+        }
+      ]
+    },
+    {
+      "IsLoop": true,
+      "TaskList": [
+        {
+          "$type": "RPG.GameCore.WaitCustomString",
+          "CustomString": {
+            "Custom": true,
+            "Key": "Car1_Load"
+          }
+        },
+        {
+          "$type": "RPG.GameCore.PlayScreenTransfer",
+          "Mode": "SwitchOut",
+          "CustomTime": 0.5
+        },
+        {
+          "$type": "RPG.GameCore.ModifyCurvePropGroupObjectState",
+          "UniqueName": {
+            "Value": "Tramcar_lv"
+          },
+          "ObjectUniqueName": "Car_1",
+          "ModifyState": "Load"
+        },
+        {
+          "$type": "RPG.GameCore.PlayScreenTransfer",
+          "CustomTime": 0.5
+        }
+      ]
+    },
+    {
+      "IsLoop": true,
+      "TaskList": [
+        {
+          "$type": "RPG.GameCore.WaitCustomString",
+          "CustomString": {
+            "Custom": true,
+            "Key": "Car2_Load"
+          }
+        },
+        {
+          "$type": "RPG.GameCore.PlayScreenTransfer",
+          "Mode": "SwitchOut",
+          "CustomTime": 0.5
+        },
+        {
+          "$type": "RPG.GameCore.ModifyCurvePropGroupObjectState",
+          "UniqueName": {
+            "Value": "Tramcar_lv"
+          },
+          "ObjectUniqueName": "Car_2",
+          "ModifyState": "Load"
+        },
+        {
+          "$type": "RPG.GameCore.PlayScreenTransfer",
+          "CustomTime": 0.5
+        }
+      ]
+    },
+    {
+      "IsLoop": true,
+      "TaskList": [
+        {
+          "$type": "RPG.GameCore.WaitCustomString",
+          "CustomString": {
+            "Value": "Tramcar_Listen"
+          },
+          "WaitOwnerOnly": true
+        },
+        {
+          "$type": "RPG.GameCore.CurvePropGroupPuzzleFinishListener",
+          "UniqueName": {
+            "Value": "Tramcar_lv"
+          }
+        },
+        {
+          "$type": "RPG.GameCore.TriggerCustomString",
+          "CustomString": {
+            "Custom": true,
+            "Key": "PuzzleEnd"
+          }
+        },
+        {
+          "$type": "RPG.GameCore.PropReqInteract",
+          "TargetType": {
+            "$type": "RPG.GameCore.TargetFetchAdvPropEx",
+            "FetchType": "SinglePropByPropKey",
+            "SinglePropKey": {
+              "Custom": true,
+              "Key": "UnlockChest"
+            }
+          },
+          "InteractID": {
+            "IsDynamic": false,
+            "FixedValue": {
+              "Value": 120120
+            }
+          }
+        }
+      ]
+    }
+  ],
+  "ValueSource": {
+    "Values": [
+      {
+        "$type": "RPG.GameCore.SharedString",
+        "Key": "PuzzleStart",
+        "Comment": "谜题开始String(Tramcar_lv_Start)"
+      },
+      {
+        "$type": "RPG.GameCore.SharedString",
+        "Key": "PuzzleEnd",
+        "Comment": "谜题结束String((Tramcar_lv_Finish)_"
+      },
+      {
+        "$type": "RPG.GameCore.SharedString",
+        "Key": "Car1_Load",
+        "Comment": "车1装卸(Tramcarlv_Car_1_Load)"
+      },
+      {
+        "$type": "RPG.GameCore.SharedString",
+        "Key": "Car2_Load",
+        "Comment": "车1装卸(Tramcarlv_Car_2_Load)"
+      },
+      {
+        "$type": "RPG.GameCore.SharedString",
+        "Key": "UnlockChest",
+        "Comment": "宝箱",
+        "EditorHint": "LevelObject"
+      },
+      {
+        "$type": "RPG.GameCore.SharedString",
+        "Value": "Props/Outputs/Chap01/Chap01_Prop_MineTramcar/Tramcar_Puzzle_Lv0.prefab",
+        "Key": "Prefab_Path",
+        "Comment": "谜题路径"
+      }
+    ]
+  }
+}

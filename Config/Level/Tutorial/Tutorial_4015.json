@@ -1,0 +1,827 @@
+{
+  "OnInitSequece": [],
+  "OnStartSequece": [
+    {
+      "TaskList": [
+        {
+          "$type": "RPG.GameCore.ShowTutorialUI",
+          "AssociatedUIName": "InventoryPage"
+        },
+        {
+          "$type": "RPG.GameCore.WaitTutorial",
+          "Event": "ShowUIContext",
+          "Param": "InventoryPage"
+        },
+        {
+          "$type": "RPG.GameCore.WaitUINodeOpen",
+          "NodeID": "QuickConsumable.btn"
+        },
+        {
+          "$type": "RPG.GameCore.BlockInputController",
+          "Enable": true,
+          "ActionNameList": [
+            "Menu_UnchangeBack"
+          ]
+        },
+        {
+          "$type": "RPG.GameCore.BlockSubmitEvents"
+        },
+        {
+          "$type": "RPG.GameCore.TutorialNotify",
+          "Type": "BlockClick",
+          "Param": "1"
+        },
+        {
+          "$type": "RPG.GameCore.TutorialNotify",
+          "Type": "LockController",
+          "Param": "1"
+        },
+        {
+          "$type": "RPG.GameCore.MoveUINodeToMask",
+          "NodeID": "QuickConsumable.btn",
+          "Follow": true
+        },
+        {
+          "$type": "RPG.GameCore.ShowGuide",
+          "ID": 101,
+          "GuideResID": 2,
+          "NodeID": "QuickConsumable.btn",
+          "Show": true,
+          "CopyAnchorAndSale": true,
+          "Follow": false,
+          "PCGuide": {},
+          "AnimConfig": {}
+        },
+        {
+          "$type": "RPG.GameCore.ShowGuideText",
+          "ID": 201,
+          "GuideResID": 3,
+          "NodeID": "QuickConsumable.btn",
+          "Show": true,
+          "Text": "TutorialTextmap_401501",
+          "ActionName": "Menu_UnchangeBack",
+          "OffsetX": -50,
+          "OffsetY": 40,
+          "PCGuide": {
+            "GuideResID": 9,
+            "Path": "Page",
+            "TextPath": "Contents/Text",
+            "Text": "TutorialTextmap_401501",
+            "ControllerText": "TutorialTextmap_401501",
+            "OffsetX": -50,
+            "OffsetY": 40
+          }
+        },
+        {
+          "$type": "RPG.GameCore.ShowTutorialUIMask",
+          "NodeID": "QuickConsumable.btn",
+          "Show": true,
+          "PCGuide": {},
+          "AnimConfig": {}
+        },
+        {
+          "$type": "RPG.GameCore.WaitTutorial",
+          "Event": "ClickBtnWithPath",
+          "Param": "QuickConsumable.btn"
+        },
+        {
+          "$type": "RPG.GameCore.ShowGuide",
+          "ID": 101,
+          "GuideResID": 1,
+          "NodeID": "QuickConsumable.btn",
+          "CopyAnchorAndSale": true,
+          "PCGuide": {},
+          "AnimConfig": {}
+        },
+        {
+          "$type": "RPG.GameCore.ShowGuideText",
+          "ID": 201,
+          "GuideResID": 15,
+          "NodeID": "QuickConsumable.btn",
+          "Text": "TutorialTextmap_400601",
+          "OffsetX": -75,
+          "PCGuide": {
+            "GuideResID": 5,
+            "Path": "Page",
+            "TextPath": "Contents/Text",
+            "Text": "TutorialTextmap_300201_pc"
+          }
+        },
+        {
+          "$type": "RPG.GameCore.ShowTutorialUIMask",
+          "NodeID": "QuickConsumable.btn",
+          "PCGuide": {},
+          "AnimConfig": {}
+        },
+        {
+          "$type": "RPG.GameCore.MoveUINodeToMask",
+          "NodeID": "QuickConsumable.btn",
+          "Reset": true,
+          "Follow": true
+        },
+        {
+          "$type": "RPG.GameCore.ShowTutorialUI"
+        },
+        {
+          "$type": "RPG.GameCore.WaitTutorial",
+          "Event": "ShowUIContext",
+          "Param": "InventoryItemQuickConsumablePage"
+        },
+        {
+          "$type": "RPG.GameCore.WaitUINodeOpen",
+          "NodeID": "QuickConsume.Exchange"
+        },
+        {
+          "$type": "RPG.GameCore.ShowGuide",
+          "ID": 102,
+          "GuideResID": 2,
+          "NodeID": "InventoryPage.408401",
+          "Show": true,
+          "CopyAnchorAndSale": true,
+          "UseOriginRatio": true,
+          "PCGuide": {},
+          "AnimConfig": {}
+        },
+        {
+          "$type": "RPG.GameCore.ShowGuideText",
+          "ID": 202,
+          "GuideResID": 6,
+          "NodeID": "InventoryPage.408401",
+          "Show": true,
+          "Text": "TutorialTextmap_401502",
+          "OffsetX": 80,
+          "OffsetY": -80,
+          "PCGuide": {
+            "GuideResID": 5,
+            "Path": "Page",
+            "TextPath": "Contents/Text",
+            "Text": "TutorialTextmap_300201_pc"
+          }
+        },
+        {
+          "$type": "RPG.GameCore.ShowTutorialUIMask",
+          "NodeID": "InventoryPage.408401",
+          "Show": true,
+          "PCGuide": {},
+          "AnimConfig": {}
+        },
+        {
+          "$type": "RPG.GameCore.WaitSecond",
+          "WaitTime": 0.3
+        },
+        {
+          "$type": "RPG.GameCore.MoveUINodeToMask",
+          "NodeID": "InventoryPage.408401",
+          "Follow": true
+        },
+        {
+          "$type": "RPG.GameCore.BlockInputController",
+          "Enable": true,
+          "ActionNameList": []
+        },
+        {
+          "$type": "RPG.GameCore.TutorialNotify",
+          "Type": "BlockClick",
+          "Param": "1"
+        },
+        {
+          "$type": "RPG.GameCore.CheckUIMode",
+          "OnMobile": [],
+          "OnPC": [],
+          "OnController": [
+            {
+              "$type": "RPG.GameCore.SetNavigationTarget",
+              "NodeID": "InventoryPage.408401"
+            },
+            {
+              "$type": "RPG.GameCore.BlockSubmitEvents",
+              "Enable": true
+            }
+          ]
+        },
+        {
+          "$type": "RPG.GameCore.WaitTutorial",
+          "Event": "ClickBtnWithPath",
+          "Param": "InventoryPage.408401",
+          "OnSuccessImmediate": []
+        },
+        {
+          "$type": "RPG.GameCore.BlockSubmitEvents"
+        },
+        {
+          "$type": "RPG.GameCore.MoveUINodeToMask",
+          "NodeID": "InventoryPage.408401",
+          "Reset": true,
+          "Follow": true
+        },
+        {
+          "$type": "RPG.GameCore.ShowGuide",
+          "ID": 102,
+          "GuideResID": 1,
+          "NodeID": "QuickConsumable.btn",
+          "CopyAnchorAndSale": true,
+          "PCGuide": {},
+          "AnimConfig": {}
+        },
+        {
+          "$type": "RPG.GameCore.ShowGuideText",
+          "ID": 202,
+          "GuideResID": 15,
+          "NodeID": "QuickConsumable.btn",
+          "Text": "TutorialTextmap_400601",
+          "OffsetX": -75,
+          "PCGuide": {
+            "GuideResID": 5,
+            "Path": "Page",
+            "TextPath": "Contents/Text",
+            "Text": "TutorialTextmap_300201_pc"
+          }
+        },
+        {
+          "$type": "RPG.GameCore.ShowTutorialUIMask",
+          "NodeID": "InventoryPage.408401",
+          "PCGuide": {},
+          "AnimConfig": {}
+        },
+        {
+          "$type": "RPG.GameCore.WaitUINodeOpen",
+          "NodeID": "QuickConsume.Exchange"
+        },
+        {
+          "$type": "RPG.GameCore.ShowGuide",
+          "ID": 103,
+          "GuideResID": 2,
+          "NodeID": "QuickConsume.Exchange",
+          "Show": true,
+          "CopyAnchorAndSale": true,
+          "Follow": false,
+          "PCGuide": {},
+          "AnimConfig": {}
+        },
+        {
+          "$type": "RPG.GameCore.ShowGuideText",
+          "ID": 203,
+          "GuideResID": 3,
+          "NodeID": "QuickConsume.Exchange",
+          "Show": true,
+          "Text": "TutorialTextmap_401503",
+          "ActionName": "Menu_Confirm",
+          "OffsetX": -50,
+          "OffsetY": 40,
+          "PCGuide": {
+            "GuideResID": 5,
+            "Path": "Page",
+            "TextPath": "Contents/Text",
+            "Text": "TutorialTextmap_300201_pc"
+          }
+        },
+        {
+          "$type": "RPG.GameCore.ShowTutorialUIMask",
+          "NodeID": "QuickConsume.Exchange",
+          "Show": true,
+          "PCGuide": {},
+          "AnimConfig": {}
+        },
+        {
+          "$type": "RPG.GameCore.WaitSecond",
+          "WaitTime": 0.3
+        },
+        {
+          "$type": "RPG.GameCore.MoveUINodeToMask",
+          "NodeID": "QuickConsume.Exchange"
+        },
+        {
+          "$type": "RPG.GameCore.BlockInputController",
+          "Enable": true,
+          "ActionNameList": [
+            "Menu_Confirm"
+          ]
+        },
+        {
+          "$type": "RPG.GameCore.WaitTutorial",
+          "Event": "ClickBtnWithPath",
+          "Param": "QuickConsume.Exchange",
+          "OnSuccessImmediate": [
+            {
+              "$type": "RPG.GameCore.BlockSubmitEvents",
+              "Enable": true
+            }
+          ]
+        },
+        {
+          "$type": "RPG.GameCore.MoveUINodeToMask",
+          "NodeID": "QuickConsume.Exchange",
+          "Reset": true
+        },
+        {
+          "$type": "RPG.GameCore.ShowGuide",
+          "ID": 103,
+          "GuideResID": 1,
+          "NodeID": "QuickConsumable.btn",
+          "CopyAnchorAndSale": true,
+          "PCGuide": {},
+          "AnimConfig": {}
+        },
+        {
+          "$type": "RPG.GameCore.ShowGuideText",
+          "ID": 203,
+          "GuideResID": 15,
+          "NodeID": "QuickConsumable.btn",
+          "Text": "TutorialTextmap_400601",
+          "OffsetX": -75,
+          "PCGuide": {
+            "GuideResID": 5,
+            "Path": "Page",
+            "TextPath": "Contents/Text",
+            "Text": "TutorialTextmap_300201_pc"
+          }
+        },
+        {
+          "$type": "RPG.GameCore.ShowTutorialUIMask",
+          "NodeID": "QuickConsumable.btn",
+          "PCGuide": {},
+          "AnimConfig": {}
+        },
+        {
+          "$type": "RPG.GameCore.WaitUINodeOpen",
+          "NodeID": "ConsumablesUse.Confirm"
+        },
+        {
+          "$type": "RPG.GameCore.CheckUIMode",
+          "OnMobile": [
+            {
+              "$type": "RPG.GameCore.ShowGuide",
+              "ID": 106,
+              "GuideResID": 2,
+              "NodeID": "ConsumablesUse.Confirm",
+              "Show": true,
+              "CopyAnchorAndSale": true,
+              "PCGuide": {
+                "UsePCGuide": true,
+                "GuideResID": 2,
+                "CopyAnchorAndSale": true
+              },
+              "AnimConfig": {}
+            },
+            {
+              "$type": "RPG.GameCore.ShowTutorialUIMask",
+              "NodeID": "ConsumablesUse.Confirm",
+              "Show": true,
+              "Type": 1,
+              "PCGuide": {
+                "UsePCGuide": true
+              },
+              "AnimConfig": {
+                "UseAnim": true,
+                "InitScale": 1.0001,
+                "TotalTime": 0.25
+              }
+            },
+            {
+              "$type": "RPG.GameCore.ShowGuideText",
+              "ID": 206,
+              "GuideResID": 14,
+              "NodeID": "ConsumablesUse.Confirm",
+              "Show": true,
+              "Text": "TutorialTextmap_401505",
+              "PCGuide": {
+                "GuideResID": 14,
+                "Text": "TutorialTextmap_400806_pc",
+                "ControllerText": "TutorialTextmap_400806_pc",
+                "ActionName": "Menu_Confirm"
+              }
+            },
+            {
+              "$type": "RPG.GameCore.MoveUINodeToMask",
+              "NodeID": "ConsumablesUse.Confirm",
+              "Follow": true
+            },
+            {
+              "$type": "RPG.GameCore.WaitTutorial",
+              "Event": "ClickBtnWithPath",
+              "Param": "ConsumablesUse.Confirm"
+            },
+            {
+              "$type": "RPG.GameCore.MoveUINodeToMask",
+              "NodeID": "ConsumablesUse.Confirm",
+              "Reset": true,
+              "Follow": true
+            },
+            {
+              "$type": "RPG.GameCore.ShowGuide",
+              "ID": 106,
+              "GuideResID": 2,
+              "NodeID": "ConsumablesUse.Confirm",
+              "CopyAnchorAndSale": true,
+              "UseOriginRatio": true,
+              "PCGuide": {
+                "UsePCGuide": true,
+                "GuideResID": 1,
+                "CopyAnchorAndSale": true
+              },
+              "AnimConfig": {}
+            },
+            {
+              "$type": "RPG.GameCore.ShowTutorialUIMask",
+              "NodeID": "ConsumablesUse.Confirm",
+              "Type": 1,
+              "PCGuide": {
+                "UsePCGuide": true
+              },
+              "AnimConfig": {
+                "UseAnim": true,
+                "InitScale": 1.0001,
+                "TotalTime": 0.25
+              }
+            },
+            {
+              "$type": "RPG.GameCore.ShowGuideText",
+              "ID": 206,
+              "GuideResID": 14,
+              "NodeID": "ConsumablesUse.Confirm",
+              "Text": "TutorialTextmap_400806",
+              "PCGuide": {
+                "UsePCGuide": true,
+                "GuideResID": 4,
+                "Text": "TutorialTextmap_400806_pc",
+                "ControllerText": "TutorialTextmap_400806_pc",
+                "ActionName": "Menu_Confirm"
+              }
+            },
+            {
+              "$type": "RPG.GameCore.TriggerCustomString",
+              "CustomString": {
+                "Value": "tutorial_4015_1"
+              }
+            }
+          ],
+          "OnPC": [
+            {
+              "$type": "RPG.GameCore.ShowGuide",
+              "ID": 106,
+              "GuideResID": 2,
+              "NodeID": "ConsumablesUse.Confirm",
+              "Show": true,
+              "CopyAnchorAndSale": true,
+              "PCGuide": {
+                "UsePCGuide": true,
+                "GuideResID": 2,
+                "CopyAnchorAndSale": true
+              },
+              "AnimConfig": {}
+            },
+            {
+              "$type": "RPG.GameCore.ShowTutorialUIMask",
+              "NodeID": "ConsumablesUse.Confirm",
+              "Show": true,
+              "Type": 1,
+              "PCGuide": {
+                "UsePCGuide": true
+              },
+              "AnimConfig": {
+                "UseAnim": true,
+                "InitScale": 1.0001,
+                "TotalTime": 0.25
+              }
+            },
+            {
+              "$type": "RPG.GameCore.ShowGuideText",
+              "ID": 206,
+              "GuideResID": 14,
+              "NodeID": "ConsumablesUse.Confirm",
+              "Show": true,
+              "Text": "TutorialTextmap_401505",
+              "PCGuide": {
+                "GuideResID": 14,
+                "Text": "TutorialTextmap_400806_pc",
+                "ControllerText": "TutorialTextmap_400806_pc",
+                "ActionName": "Menu_Confirm"
+              }
+            },
+            {
+              "$type": "RPG.GameCore.MoveUINodeToMask",
+              "NodeID": "ConsumablesUse.Confirm",
+              "Follow": true
+            },
+            {
+              "$type": "RPG.GameCore.WaitTutorial",
+              "Event": "ClickBtnWithPath",
+              "Param": "ConsumablesUse.Confirm"
+            },
+            {
+              "$type": "RPG.GameCore.MoveUINodeToMask",
+              "NodeID": "ConsumablesUse.Confirm",
+              "Reset": true,
+              "Follow": true
+            },
+            {
+              "$type": "RPG.GameCore.ShowGuide",
+              "ID": 106,
+              "GuideResID": 2,
+              "NodeID": "ConsumablesUse.Confirm",
+              "CopyAnchorAndSale": true,
+              "UseOriginRatio": true,
+              "PCGuide": {
+                "UsePCGuide": true,
+                "GuideResID": 1,
+                "CopyAnchorAndSale": true
+              },
+              "AnimConfig": {}
+            },
+            {
+              "$type": "RPG.GameCore.ShowTutorialUIMask",
+              "NodeID": "ConsumablesUse.Confirm",
+              "Type": 1,
+              "PCGuide": {
+                "UsePCGuide": true
+              },
+              "AnimConfig": {
+                "UseAnim": true,
+                "InitScale": 1.0001,
+                "TotalTime": 0.25
+              }
+            },
+            {
+              "$type": "RPG.GameCore.ShowGuideText",
+              "ID": 206,
+              "GuideResID": 14,
+              "NodeID": "ConsumablesUse.Confirm",
+              "Text": "TutorialTextmap_400806",
+              "PCGuide": {
+                "UsePCGuide": true,
+                "GuideResID": 4,
+                "Text": "TutorialTextmap_400806_pc",
+                "ControllerText": "TutorialTextmap_400806_pc",
+                "ActionName": "Menu_Confirm"
+              }
+            },
+            {
+              "$type": "RPG.GameCore.TriggerCustomString",
+              "CustomString": {
+                "Value": "tutorial_4015_1"
+              }
+            }
+          ],
+          "OnController": [
+            {
+              "$type": "RPG.GameCore.SetNavigationTarget",
+              "NodeID": "ConsumablesUse.Confirm"
+            },
+            {
+              "$type": "RPG.GameCore.BlockInputController",
+              "Enable": true,
+              "ActionNameList": []
+            },
+            {
+              "$type": "RPG.GameCore.ShowGuide",
+              "ID": 106,
+              "GuideResID": 2,
+              "NodeID": "ConsumablesUse.Confirm",
+              "Show": true,
+              "CopyAnchorAndSale": true,
+              "PCGuide": {
+                "UsePCGuide": true,
+                "GuideResID": 2,
+                "CopyAnchorAndSale": true
+              },
+              "AnimConfig": {}
+            },
+            {
+              "$type": "RPG.GameCore.ShowTutorialUIMask",
+              "NodeID": "ConsumablesUse.Confirm",
+              "Show": true,
+              "Type": 1,
+              "PCGuide": {
+                "UsePCGuide": true
+              },
+              "AnimConfig": {
+                "UseAnim": true,
+                "InitScale": 1.0001,
+                "TotalTime": 0.25
+              }
+            },
+            {
+              "$type": "RPG.GameCore.ShowGuideText",
+              "ID": 206,
+              "GuideResID": 14,
+              "NodeID": "ConsumablesUse.Confirm",
+              "Show": true,
+              "Text": "TutorialTextmap_401505",
+              "PCGuide": {
+                "UsePCGuide": true,
+                "GuideResID": 14,
+                "Text": "TutorialTextmap_401505",
+                "ControllerText": "TutorialTextmap_400806_pc",
+                "ControllerActionName": "Menu_Confirm"
+              }
+            },
+            {
+              "$type": "RPG.GameCore.BlockSubmitEvents"
+            },
+            {
+              "$type": "RPG.GameCore.WaitSecond",
+              "WaitTime": 0.5
+            },
+            {
+              "$type": "RPG.GameCore.BlockInputController",
+              "Enable": true,
+              "ActionNameList": [
+                "Menu_Confirm"
+              ]
+            },
+            {
+              "$type": "RPG.GameCore.WaitTutorial",
+              "Event": "ActionPress",
+              "Param": "Menu_Confirm"
+            },
+            {
+              "$type": "RPG.GameCore.ShowGuide",
+              "ID": 106,
+              "GuideResID": 2,
+              "NodeID": "ConsumablesUse.Confirm",
+              "CopyAnchorAndSale": true,
+              "UseOriginRatio": true,
+              "PCGuide": {
+                "UsePCGuide": true,
+                "GuideResID": 1,
+                "CopyAnchorAndSale": true
+              },
+              "AnimConfig": {}
+            },
+            {
+              "$type": "RPG.GameCore.ShowTutorialUIMask",
+              "NodeID": "ConsumablesUse.Confirm",
+              "Type": 1,
+              "PCGuide": {
+                "UsePCGuide": true
+              },
+              "AnimConfig": {
+                "UseAnim": true,
+                "InitScale": 1.0001,
+                "TotalTime": 0.25
+              }
+            },
+            {
+              "$type": "RPG.GameCore.ShowGuideText",
+              "ID": 206,
+              "GuideResID": 14,
+              "NodeID": "ConsumablesUse.Confirm",
+              "Text": "TutorialTextmap_400806",
+              "PCGuide": {
+                "UsePCGuide": true,
+                "GuideResID": 4,
+                "Text": "TutorialTextmap_400806_pc",
+                "ControllerText": "TutorialTextmap_400806_pc",
+                "ActionName": "Menu_Confirm"
+              }
+            },
+            {
+              "$type": "RPG.GameCore.TriggerCustomString",
+              "CustomString": {
+                "Value": "tutorial_4015_1"
+              }
+            },
+            {
+              "$type": "RPG.GameCore.BlockInputController",
+              "Enable": true,
+              "ActionNameList": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "TaskList": [
+        {
+          "$type": "RPG.GameCore.WaitCustomString",
+          "CustomString": {
+            "Value": "tutorial_4015_1"
+          }
+        },
+        {
+          "$type": "RPG.GameCore.TutorialNotify",
+          "Type": "BlockClick",
+          "Param": "0"
+        },
+        {
+          "$type": "RPG.GameCore.BlockInputController",
+          "ActionNameList": []
+        },
+        {
+          "$type": "RPG.GameCore.BlockSubmitEvents"
+        },
+        {
+          "$type": "RPG.GameCore.WaitTutorial",
+          "Event": "ShowUIContext",
+          "Param": "InventoryItemQuickConsumablePage"
+        },
+        {
+          "$type": "RPG.GameCore.BlockInputController",
+          "Enable": true,
+          "ActionNameList": []
+        },
+        {
+          "$type": "RPG.GameCore.TutorialNotify",
+          "Type": "BlockClick",
+          "Param": "1"
+        },
+        {
+          "$type": "RPG.GameCore.BlockSubmitEvents"
+        },
+        {
+          "$type": "RPG.GameCore.WaitUINodeOpen",
+          "NodeID": "QuickConsume.Circle"
+        },
+        {
+          "$type": "RPG.GameCore.ShowTutorialUIMask",
+          "NodeID": "QuickConsume.Circle",
+          "Show": true,
+          "PCGuide": {},
+          "AnimConfig": {}
+        },
+        {
+          "$type": "RPG.GameCore.ShowGuide",
+          "ID": 104,
+          "GuideResID": 10,
+          "NodeID": "QuickConsume.Circle",
+          "Show": true,
+          "CopyAnchorAndSale": true,
+          "UseOriginRatio": true,
+          "PCGuide": {},
+          "AnimConfig": {}
+        },
+        {
+          "$type": "RPG.GameCore.ShowGuideText",
+          "ID": 204,
+          "GuideResID": 9,
+          "NodeID": "QuickConsume.Circle",
+          "Show": true,
+          "Text": "TutorialTextmap_401504",
+          "OffsetX": -80,
+          "OffsetY": 80,
+          "PCGuide": {
+            "GuideResID": 5,
+            "Path": "Page",
+            "TextPath": "Contents/Text",
+            "Text": "TutorialTextmap_300201_pc"
+          }
+        },
+        {
+          "$type": "RPG.GameCore.WaitTutorial",
+          "Event": "ActionPress"
+        },
+        {
+          "$type": "RPG.GameCore.ShowGuide",
+          "ID": 104,
+          "GuideResID": 1,
+          "NodeID": "QuickConsume.Circle",
+          "CopyAnchorAndSale": true,
+          "PCGuide": {},
+          "AnimConfig": {}
+        },
+        {
+          "$type": "RPG.GameCore.ShowGuideText",
+          "ID": 204,
+          "GuideResID": 15,
+          "NodeID": "QuickConsume.Circle",
+          "Text": "TutorialTextmap_400601",
+          "OffsetX": -75,
+          "PCGuide": {
+            "GuideResID": 5,
+            "Path": "Page",
+            "TextPath": "Contents/Text",
+            "Text": "TutorialTextmap_300201_pc"
+          }
+        },
+        {
+          "$type": "RPG.GameCore.ShowTutorialUIMask",
+          "NodeID": "QuickConsume.Circle",
+          "PCGuide": {},
+          "AnimConfig": {}
+        },
+        {
+          "$type": "RPG.GameCore.TutorialNotify",
+          "Type": "BlockClick",
+          "Param": "0"
+        },
+        {
+          "$type": "RPG.GameCore.TutorialNotify",
+          "Type": "LockController",
+          "Param": "0"
+        },
+        {
+          "$type": "RPG.GameCore.BlockInputController",
+          "ActionNameList": []
+        },
+        {
+          "$type": "RPG.GameCore.BlockSubmitEvents",
+          "Enable": true
+        },
+        {
+          "$type": "RPG.GameCore.TutorialFinish",
+          "TutorialID": 4015
+        }
+      ]
+    }
+  ]
+}

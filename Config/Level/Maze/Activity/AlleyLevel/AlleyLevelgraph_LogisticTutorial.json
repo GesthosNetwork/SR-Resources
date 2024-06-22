@@ -1,0 +1,117 @@
+{
+  "OnInitSequece": [],
+  "OnStartSequece": [
+    {
+      "IsLoop": true,
+      "TaskList": [
+        {
+          "$type": "RPG.GameCore.WaitCustomString",
+          "CustomString": {
+            "Value": "alley_logistic_start_tutorial"
+          }
+        },
+        {
+          "$type": "RPG.GameCore.SetLocalPlayerDitherAlpha"
+        },
+        {
+          "$type": "RPG.GameCore.ActiveVirtualCamera",
+          "LevelAreaCameraKey": {
+            "Custom": true,
+            "Key": "Camera"
+          }
+        },
+        {
+          "$type": "RPG.GameCore.ShowTalkUI",
+          "Show": true
+        },
+        {
+          "$type": "RPG.GameCore.HideTopPage",
+          "Hide": true
+        },
+        {
+          "$type": "RPG.GameCore.PlayNPCBubbleTalk",
+          "BubbleTalkInfoList": [
+            {
+              "GroupID": 39,
+              "GroupNpcID": 400001,
+              "TalkSentenceID": 100000505
+            }
+          ]
+        },
+        {
+          "$type": "RPG.GameCore.WaitSecond",
+          "WaitTime": 0.5
+        },
+        {
+          "$type": "RPG.GameCore.AnimSetParameter",
+          "TargetType": {
+            "$type": "RPG.GameCore.TargetFetchAdvPropEx"
+          },
+          "ParameterName": "Fly",
+          "ParameterType": "Trigger"
+        },
+        {
+          "$type": "RPG.GameCore.WaitSecond",
+          "WaitTime": 2.5
+        },
+        {
+          "$type": "RPG.GameCore.PlayScreenTransfer",
+          "Mode": "SwitchOut",
+          "CustomTime": 0.5
+        },
+        {
+          "$type": "RPG.GameCore.SetLocalPlayerDitherAlpha",
+          "DitherAlpha": 1,
+          "Duration": 1
+        },
+        {
+          "$type": "RPG.GameCore.HideTopPage"
+        },
+        {
+          "$type": "RPG.GameCore.ActiveVirtualCamera",
+          "LevelAreaCameraKey": {
+            "Custom": true,
+            "Key": "Camera"
+          },
+          "IsActive": false
+        },
+        {
+          "$type": "RPG.GameCore.ShowTalkUI"
+        },
+        {
+          "$type": "RPG.GameCore.PlayScreenTransfer",
+          "CustomTime": 0.5
+        },
+        {
+          "$type": "RPG.GameCore.TriggerCustomString",
+          "CustomString": {
+            "Value": "Alley_Logistic_Tutorial_End"
+          }
+        }
+      ]
+    }
+  ],
+  "ValueSource": {
+    "Values": [
+      {
+        "$type": "RPG.GameCore.SharedString",
+        "Key": "Camera",
+        "EditorHint": "LevelAnchor"
+      },
+      {
+        "$type": "RPG.GameCore.SharedString",
+        "Key": "BirdMoveto",
+        "EditorHint": "LevelAnchor"
+      },
+      {
+        "$type": "RPG.GameCore.SharedString",
+        "Key": "Path"
+      },
+      {
+        "$type": "RPG.GameCore.SharedString",
+        "Key": "Cargo_Out",
+        "EditorHint": "LevelAnchor"
+      }
+    ]
+  }
+}

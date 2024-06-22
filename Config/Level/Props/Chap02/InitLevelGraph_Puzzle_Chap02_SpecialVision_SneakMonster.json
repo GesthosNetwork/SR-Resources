@@ -1,0 +1,156 @@
+{
+  "OnInitSequece": [],
+  "OnStartSequece": [
+    {
+      "IsLoop": true,
+      "TaskList": [
+        {
+          "$type": "RPG.GameCore.WaitCustomString",
+          "CustomString": {
+            "Custom": true,
+            "Key": "Maze_TriggerSpecialVision_Key"
+          }
+        },
+        {
+          "$type": "RPG.GameCore.ShowFuncBtn",
+          "PuzzleFunc": "SpecialVisionFindSneakMonster",
+          "CDDuration": 15
+        },
+        {
+          "$type": "RPG.GameCore.TriggerEffect",
+          "TargetType": {
+            "$type": "RPG.GameCore.TargetFetchAdvLocalPlayer",
+            "IncludeStoryPlayer": false
+          },
+          "Flags": [],
+          "EffectPath": "Stages/OriginalResPos/InteractiveProp/Common/Common_GameplayProp_SpecialVision/Common_GameplayProp_SpecialVision_Search_Monster.prefab",
+          "UniqueEffectName": "SpecialVisionTrigger",
+          "AttachPoint": "Root",
+          "SubObjectModifyDataList": [],
+          "MinMutexTime": -1
+        },
+        {
+          "$type": "RPG.GameCore.TriggerCustomString",
+          "CustomString": {
+            "Custom": true,
+            "Key": "Maze_AfterCallPuppy_Key"
+          }
+        }
+      ]
+    },
+    {
+      "IsLoop": true,
+      "TaskList": [
+        {
+          "$type": "RPG.GameCore.WaitCustomString",
+          "CustomString": {
+            "Custom": true,
+            "Key": "Maze_StopSpecialVision_Key"
+          }
+        },
+        {
+          "$type": "RPG.GameCore.ShowFuncBtn",
+          "Show": false,
+          "PuzzleFunc": "SpecialVisionFindSneakMonster",
+          "CDDuration": 15
+        },
+        {
+          "$type": "RPG.GameCore.RemoveEffect",
+          "TargetType": {
+            "$type": "RPG.GameCore.TargetFetchAdvLocalPlayer",
+            "IncludeStoryPlayer": false
+          },
+          "EffectPath": "Stages/OriginalResPos/InteractiveProp/Common/Common_GameplayProp_SpecialVision/Common_GameplayProp_SpecialVision.prefab",
+          "UniqueEffectName": "SpecialVisionTrigger",
+          "Flags": [],
+          "Unbind": true
+        },
+        {
+          "$type": "RPG.GameCore.TriggerCustomString",
+          "CustomString": {
+            "Custom": true,
+            "Key": "Maze_AfterDelPuppy_Key"
+          }
+        }
+      ]
+    },
+    {
+      "IsLoop": true,
+      "TaskList": [
+        {
+          "$type": "RPG.GameCore.WaitCustomString",
+          "CustomString": {
+            "Value": "SpecialVisionOpen"
+          }
+        },
+        {
+          "$type": "RPG.GameCore.TriggerSound",
+          "SoundName": "Ev_sfx_xianzhou_specialvision_on",
+          "EmitterType": "LocalPlayer"
+        },
+        {
+          "$type": "RPG.GameCore.TriggerEffect",
+          "Flags": [],
+          "EffectPath": "Effects/Eff_Prefab/Eff_Scene/InteractiveProp/Eff_Common_Prop_SpecialVision_01_CameraInfiniteTime_Lod0.prefab",
+          "UniqueEffectName": "SpecialVisionCamera",
+          "SubObjectModifyDataList": []
+        }
+      ]
+    },
+    {
+      "IsLoop": true,
+      "TaskList": [
+        {
+          "$type": "RPG.GameCore.WaitCustomString",
+          "CustomString": {
+            "Value": "SpecialVisionClose"
+          }
+        },
+        {
+          "$type": "RPG.GameCore.TriggerSound",
+          "SoundName": "Ev_sfx_xianzhou_specialvision_off",
+          "EmitterType": "LocalPlayer"
+        },
+        {
+          "$type": "RPG.GameCore.TriggerSound",
+          "SoundName": "Ev_sfx_xianzhou_specialvision_on_stop",
+          "EmitterType": "LocalPlayer"
+        },
+        {
+          "$type": "RPG.GameCore.RemoveEffect",
+          "EffectPath": "Effects/Eff_Prefab/Eff_Scene/InteractiveProp/Eff_Common_Prop_SpecialVision_01_CameraInfiniteTime_Lod0.prefab",
+          "UniqueEffectName": "SpecialVisionCamera",
+          "Flags": []
+        }
+      ]
+    }
+  ],
+  "ValueSource": {
+    "Values": [
+      {
+        "$type": "RPG.GameCore.SharedString",
+        "Value": "Maze_TriggerSpecialVision_01",
+        "Key": "Maze_TriggerSpecialVision_Key",
+        "Comment": "隐身的事件"
+      },
+      {
+        "$type": "RPG.GameCore.SharedString",
+        "Value": "Maze_StopSpecialVision_01",
+        "Key": "Maze_StopSpecialVision_Key",
+        "Comment": "取消隐身的事件"
+      },
+      {
+        "$type": "RPG.GameCore.SharedString",
+        "Value": "Maze_AfterSneakMonster_Key_01",
+        "Key": "Maze_AfterSneakMonster_Key",
+        "Comment": "触发隐身出现时的自定义回调"
+      },
+      {
+        "$type": "RPG.GameCore.SharedString",
+        "Value": "Maze_AfterDelSneakMonster_Key_01",
+        "Key": "Maze_AfterDelPSneakMonster_Key",
+        "Comment": "取消隐身时的自定义回调"
+      }
+    ]
+  }
+}

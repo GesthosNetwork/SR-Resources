@@ -1,0 +1,216 @@
+{
+  "OnInitSequece": [],
+  "OnStartSequece": [
+    {
+      "TaskList": [
+        {
+          "$type": "RPG.GameCore.LevelPerformanceInitialize",
+          "PerformanceType": "D",
+          "CreateCharacterList": [],
+          "CaptureNPCList": [],
+          "EntityVisiableList": [],
+          "HideMonster": false,
+          "PropVisiableList": [],
+          "StreamingSourcesInBlackMask": [],
+          "StreamingSourcesAfterBlackMask": [],
+          "MarkStreamingItems": []
+        },
+        {
+          "$type": "RPG.GameCore.PlayAndWaitSimpleTalk",
+          "SimpleTalkList": [
+            {
+              "TalkSentenceID": 407201112,
+              "ProtectTime": 0.3
+            }
+          ]
+        },
+        {
+          "$type": "RPG.GameCore.SetSpecialVisionOn",
+          "VisionType": "PlayerSearchSneakMonster"
+        },
+        {
+          "$type": "RPG.GameCore.AdvSpecialVisionProtect",
+          "enable": true
+        },
+        {
+          "$type": "RPG.GameCore.PerformanceTransition",
+          "SwitchKeepTime": 0,
+          "CreateNpcList": [],
+          "CaptureNpcList": [],
+          "DestroyNpcList": [],
+          "CreateProp": {
+            "CreateList": [],
+            "TaskEnabled": false
+          },
+          "DestroyProp": {
+            "DestroyList": [],
+            "TaskEnabled": false
+          },
+          "AdvCreateGroupEntity": {
+            "TaskEnabled": false
+          },
+          "AdvDestroyGroupEntity": {
+            "TaskEnabled": false
+          },
+          "ActiveVirtualCamera": {
+            "AreaName": "LevelArea_P44201_F44201001_G20",
+            "AnchorName": "Anchor1"
+          },
+          "ActiveTemplateVirtualCamera": {
+            "TaskEnabled": false
+          },
+          "SwitchCharacterAnchor": {
+            "IsLocalPlayer": true,
+            "CharacterUniqueName": "LocalPlayer",
+            "AreaName": {
+              "Value": "LevelArea_P44201_F44201001_G20"
+            },
+            "AnchorName": {
+              "Value": "Anchor3"
+            },
+            "ResetCamera": false
+          },
+          "AdvNpcFaceToPlayer": {
+            "TaskEnabled": false
+          },
+          "WaitStreamingFinish": true
+        },
+        {
+          "$type": "RPG.GameCore.SetSpecialVisionOn",
+          "IsOn": true,
+          "VisionType": "PlayerSearchSneakMonster",
+          "IsInfiniteTime": true
+        },
+        {
+          "$type": "RPG.GameCore.WaitSecond",
+          "WaitTime": 2
+        },
+        {
+          "$type": "RPG.GameCore.PerformanceTransition",
+          "SwitchKeepTime": 0,
+          "CreateNpcList": [],
+          "CaptureNpcList": [],
+          "DestroyNpcList": [],
+          "CreateProp": {
+            "CreateList": [],
+            "TaskEnabled": false
+          },
+          "DestroyProp": {
+            "DestroyList": [],
+            "TaskEnabled": false
+          },
+          "AdvCreateGroupEntity": {
+            "TaskEnabled": false
+          },
+          "AdvDestroyGroupEntity": {
+            "TaskEnabled": false
+          },
+          "ActiveVirtualCamera": {
+            "AreaName": "LevelArea_P44201_F44201001_G20",
+            "AnchorName": "Anchor2"
+          },
+          "ActiveTemplateVirtualCamera": {
+            "TaskEnabled": false
+          },
+          "SwitchCharacterAnchor": {
+            "IsLocalPlayer": true,
+            "CharacterUniqueName": "LocalPlayer",
+            "AreaName": {
+              "Value": "LevelArea_P44201_F44201001_G20"
+            },
+            "AnchorName": {
+              "Value": "Anchor4"
+            },
+            "ResetCamera": false
+          },
+          "AdvNpcFaceToPlayer": {
+            "TaskEnabled": false
+          },
+          "WaitStreamingFinish": true
+        },
+        {
+          "$type": "RPG.GameCore.PlayAndWaitSimpleTalk",
+          "SimpleTalkList": [
+            {
+              "TalkSentenceID": 407201113,
+              "ProtectTime": 0.3
+            }
+          ]
+        },
+        {
+          "$type": "RPG.GameCore.AdvSpecialVisionProtect"
+        },
+        {
+          "$type": "RPG.GameCore.WaitSecond",
+          "WaitTime": 1
+        },
+        {
+          "$type": "RPG.GameCore.SetSpecialVisionOn",
+          "VisionType": "PlayerSearchSneakMonster"
+        },
+        {
+          "$type": "RPG.GameCore.EndPerformance"
+        }
+      ]
+    },
+    {
+      "TaskList": [
+        {
+          "$type": "RPG.GameCore.WaitPerformanceEnd"
+        },
+        {
+          "$type": "RPG.GameCore.PerformanceTransition",
+          "SwitchKeepTime": 0,
+          "CreateNpcList": [],
+          "CaptureNpcList": [],
+          "DestroyNpcList": [],
+          "CreateProp": {
+            "CreateList": [],
+            "TaskEnabled": false
+          },
+          "DestroyProp": {
+            "DestroyList": [],
+            "TaskEnabled": false
+          },
+          "AdvCreateGroupEntity": {
+            "TaskEnabled": false
+          },
+          "AdvDestroyGroupEntity": {
+            "TaskEnabled": false
+          },
+          "ActiveVirtualCamera": {
+            "AreaName": "LevelArea_P44201_F44201001_G20",
+            "AnchorName": "Anchor2",
+            "IsActive": false
+          },
+          "ActiveTemplateVirtualCamera": {
+            "TaskEnabled": false
+          },
+          "SwitchCharacterAnchor": {
+            "IsLocalPlayer": true,
+            "CharacterUniqueName": "LocalPlayer",
+            "AreaName": {
+              "Value": "LevelArea_P44201_F44201001_G20"
+            },
+            "AnchorName": {
+              "Value": "Anchor5"
+            }
+          },
+          "AdvNpcFaceToPlayer": {
+            "TaskEnabled": false
+          },
+          "WaitStreamingFinish": true
+        },
+        {
+          "$type": "RPG.GameCore.TriggerCustomString",
+          "CustomString": {
+            "Value": "TalkEnd_407201103"
+          }
+        },
+        {
+          "$type": "RPG.GameCore.FinishLevelGraph"
+        }
+      ]
+    }
+  ]
+}
