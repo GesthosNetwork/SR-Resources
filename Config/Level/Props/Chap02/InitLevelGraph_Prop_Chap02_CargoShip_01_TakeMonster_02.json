@@ -1,0 +1,793 @@
+{
+  "OnInitSequece": [],
+  "OnStartSequece": [
+    {
+      "Order": 1,
+      "TaskList": [
+        {
+          "$type": "RPG.GameCore.SyncSubPropState",
+          "TaskEnabled": true
+        },
+        {
+          "$type": "RPG.GameCore.SyncSubPropState",
+          "TaskEnabled": true
+        }
+      ]
+    },
+    {
+      "TaskList": [
+        {
+          "$type": "RPG.GameCore.SyncAllSubPropState",
+          "TaskEnabled": true
+        }
+      ]
+    },
+    {
+      "TaskList": [
+        {
+          "$type": "RPG.GameCore.PredicateTaskList",
+          "Predicate": {
+            "$type": "RPG.GameCore.AdvByEntityExist",
+            "TargetType": {
+              "$type": "RPG.GameCore.TargetFetchAdvNpcEx",
+              "FetchType": "SingleNpcByNpcKey",
+              "SingleNpcKey": {
+                "Custom": true,
+                "Key": "PuzzleCompass_MonsterID"
+              },
+              "SingleNpcID": {}
+            }
+          },
+          "SuccessTaskList": [
+            {
+              "$type": "RPG.GameCore.SetNPCPlatformMove",
+              "TargetType": {
+                "$type": "RPG.GameCore.TargetFetchAdvNpcEx",
+                "FetchType": "SingleNpcByNpcKey",
+                "SingleNpcKey": {
+                  "Custom": true,
+                  "Key": "PuzzleCompass_MonsterID"
+                },
+                "SingleNpcID": {}
+              },
+              "EnableMove": true
+            }
+          ],
+          "FailedTaskList": []
+        },
+        {
+          "$type": "RPG.GameCore.PredicateTaskList",
+          "Predicate": {
+            "$type": "RPG.GameCore.AdvByEntityExist",
+            "TargetType": {
+              "$type": "RPG.GameCore.TargetFetchAdvNpcEx",
+              "FetchType": "SingleNpcByNpcKey",
+              "SingleNpcKey": {
+                "Custom": true,
+                "Key": "PuzzleCompass_MonsterID02"
+              },
+              "SingleNpcID": {}
+            }
+          },
+          "SuccessTaskList": [
+            {
+              "$type": "RPG.GameCore.SetNPCPlatformMove",
+              "TargetType": {
+                "$type": "RPG.GameCore.TargetFetchAdvNpcEx",
+                "FetchType": "SingleNpcByNpcKey",
+                "SingleNpcKey": {
+                  "Custom": true,
+                  "Key": "PuzzleCompass_MonsterID02"
+                },
+                "SingleNpcID": {}
+              },
+              "EnableMove": true
+            }
+          ],
+          "FailedTaskList": []
+        }
+      ]
+    },
+    {
+      "TaskList": [
+        {
+          "$type": "RPG.GameCore.SelectorConfig",
+          "TaskList": [
+            {
+              "$type": "RPG.GameCore.PropStateExecute",
+              "TargetType": {
+                "$type": "RPG.GameCore.TargetFetchAdvPropEx"
+              },
+              "Execute": [
+                {
+                  "$type": "RPG.GameCore.PropMoveTo",
+                  "LevelAreaKey": {
+                    "Custom": true,
+                    "Key": "PuzzleCompass_ShipOriginPos"
+                  },
+                  "TargetType": {
+                    "$type": "RPG.GameCore.TargetFetchAdvPropEx"
+                  }
+                },
+                {
+                  "$type": "RPG.GameCore.PropAttachMove",
+                  "TargetType": {
+                    "$type": "RPG.GameCore.TargetFetchAdvPropEx"
+                  },
+                  "AttachPointName": "Cargo01",
+                  "FollowEntity": {
+                    "Custom": true,
+                    "Key": "PuzzleCompass_CargoChest01"
+                  }
+                },
+                {
+                  "$type": "RPG.GameCore.PredicateTaskList",
+                  "Predicate": {
+                    "$type": "RPG.GameCore.AdvByEntityExist",
+                    "TargetType": {
+                      "$type": "RPG.GameCore.TargetFetchAdvNpcEx",
+                      "FetchType": "SingleNpcByNpcKey",
+                      "SingleNpcKey": {
+                        "Custom": true,
+                        "Key": "PuzzleCompass_MonsterID"
+                      },
+                      "SingleNpcID": {}
+                    }
+                  },
+                  "SuccessTaskList": [
+                    {
+                      "$type": "RPG.GameCore.AdvNpcMoveTo",
+                      "TargetType": {
+                        "$type": "RPG.GameCore.TargetFetchAdvNpcEx",
+                        "FetchType": "SingleNpcByNpcKey",
+                        "SingleNpcKey": {
+                          "Custom": true,
+                          "Key": "PuzzleCompass_MonsterID"
+                        },
+                        "SingleNpcID": {}
+                      },
+                      "LevelAreaKey": {
+                        "Custom": true,
+                        "Key": "PuzzleCompass_MonsterOriginPos"
+                      }
+                    }
+                  ],
+                  "FailedTaskList": []
+                },
+                {
+                  "$type": "RPG.GameCore.PredicateTaskList",
+                  "Predicate": {
+                    "$type": "RPG.GameCore.AdvByEntityExist",
+                    "TargetType": {
+                      "$type": "RPG.GameCore.TargetFetchAdvNpcEx",
+                      "FetchType": "SingleNpcByNpcKey",
+                      "SingleNpcKey": {
+                        "Custom": true,
+                        "Key": "PuzzleCompass_MonsterID02"
+                      },
+                      "SingleNpcID": {}
+                    }
+                  },
+                  "SuccessTaskList": [
+                    {
+                      "$type": "RPG.GameCore.AdvNpcMoveTo",
+                      "TargetType": {
+                        "$type": "RPG.GameCore.TargetFetchAdvNpcEx",
+                        "FetchType": "SingleNpcByNpcKey",
+                        "SingleNpcKey": {
+                          "Custom": true,
+                          "Key": "PuzzleCompass_MonsterID02"
+                        },
+                        "SingleNpcID": {}
+                      },
+                      "LevelAreaKey": {
+                        "Custom": true,
+                        "Key": "PuzzleCompass_MonsterOriginPos02"
+                      }
+                    }
+                  ],
+                  "FailedTaskList": []
+                }
+              ]
+            },
+            {
+              "$type": "RPG.GameCore.PropStateExecute",
+              "TargetType": {
+                "$type": "RPG.GameCore.TargetFetchAdvPropEx"
+              },
+              "State": "Open",
+              "Execute": [
+                {
+                  "$type": "RPG.GameCore.PropMoveTo",
+                  "LevelAreaKey": {
+                    "Custom": true,
+                    "Key": "PuzzleCompass_ShipTargetPos"
+                  },
+                  "TargetType": {
+                    "$type": "RPG.GameCore.TargetFetchAdvPropEx"
+                  }
+                },
+                {
+                  "$type": "RPG.GameCore.PropAttachMove",
+                  "TargetType": {
+                    "$type": "RPG.GameCore.TargetFetchAdvPropEx"
+                  },
+                  "AttachPointName": "Cargo01",
+                  "FollowEntity": {
+                    "Custom": true,
+                    "Key": "PuzzleCompass_CargoChest01"
+                  }
+                },
+                {
+                  "$type": "RPG.GameCore.PredicateTaskList",
+                  "Predicate": {
+                    "$type": "RPG.GameCore.AdvByEntityExist",
+                    "TargetType": {
+                      "$type": "RPG.GameCore.TargetFetchAdvNpcEx",
+                      "FetchType": "SingleNpcByNpcKey",
+                      "SingleNpcKey": {
+                        "Custom": true,
+                        "Key": "PuzzleCompass_MonsterID"
+                      },
+                      "SingleNpcID": {}
+                    }
+                  },
+                  "SuccessTaskList": [
+                    {
+                      "$type": "RPG.GameCore.AdvNpcMoveTo",
+                      "TargetType": {
+                        "$type": "RPG.GameCore.TargetFetchAdvNpcEx",
+                        "FetchType": "SingleNpcByNpcKey",
+                        "SingleNpcKey": {
+                          "Custom": true,
+                          "Key": "PuzzleCompass_MonsterID"
+                        },
+                        "SingleNpcID": {}
+                      },
+                      "LevelAreaKey": {
+                        "Custom": true,
+                        "Key": "PuzzleCompass_MonsterTargetPos"
+                      }
+                    }
+                  ],
+                  "FailedTaskList": []
+                },
+                {
+                  "$type": "RPG.GameCore.PredicateTaskList",
+                  "Predicate": {
+                    "$type": "RPG.GameCore.AdvByEntityExist",
+                    "TargetType": {
+                      "$type": "RPG.GameCore.TargetFetchAdvNpcEx",
+                      "FetchType": "SingleNpcByNpcKey",
+                      "SingleNpcKey": {
+                        "Custom": true,
+                        "Key": "PuzzleCompass_MonsterID02"
+                      },
+                      "SingleNpcID": {}
+                    }
+                  },
+                  "SuccessTaskList": [
+                    {
+                      "$type": "RPG.GameCore.AdvNpcMoveTo",
+                      "TargetType": {
+                        "$type": "RPG.GameCore.TargetFetchAdvNpcEx",
+                        "FetchType": "SingleNpcByNpcKey",
+                        "SingleNpcKey": {
+                          "Custom": true,
+                          "Key": "PuzzleCompass_MonsterID02"
+                        },
+                        "SingleNpcID": {}
+                      },
+                      "LevelAreaKey": {
+                        "Custom": true,
+                        "Key": "PuzzleCompass_MonsterTargetPos02"
+                      }
+                    }
+                  ],
+                  "FailedTaskList": []
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "TaskList": [
+        {
+          "$type": "RPG.GameCore.PropStateChangeListenerConfig",
+          "ToState": "Open",
+          "OnChange": [
+            {
+              "$type": "RPG.GameCore.HideWaypointByProp",
+              "TargetType": {
+                "$type": "RPG.GameCore.TargetFetchAdvPropEx",
+                "FetchType": "SinglePropByPropKey",
+                "SinglePropKey": {
+                  "Custom": true,
+                  "Key": "PuzzleCompass_Prop"
+                }
+              },
+              "PropKey": {
+                "Custom": true,
+                "Key": "PuzzleCompass_CargoChest01"
+              }
+            }
+          ],
+          "TargetType": {
+            "$type": "RPG.GameCore.TargetFetchAdvPropEx",
+            "FetchType": "SinglePropByPropKey",
+            "SinglePropKey": {
+              "Custom": true,
+              "Key": "PuzzleCompass_Prop"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "TaskList": [
+        {
+          "$type": "RPG.GameCore.WaitCustomString",
+          "CustomString": {
+            "Value": "Maze_CargoShip_SetCamera02"
+          },
+          "WaitOwnerOnly": true
+        },
+        {
+          "$type": "RPG.GameCore.WaitSecond",
+          "WaitTime": 2
+        },
+        {
+          "$type": "RPG.GameCore.ActiveVirtualCamera",
+          "LevelAreaCameraKey": {
+            "Custom": true,
+            "Key": "PuzzleCompass_Vcam02"
+          }
+        }
+      ]
+    },
+    {
+      "TaskList": [
+        {
+          "$type": "RPG.GameCore.PropStateChangeListenerConfig",
+          "ToState": "Open",
+          "OnChange": [
+            {
+              "$type": "RPG.GameCore.LevelPerformanceInitialize",
+              "PerformanceType": "E",
+              "CreateCharacterList": [],
+              "EntityVisiableList": [],
+              "HideMunicipalCrowd": false,
+              "HideMunicipalPedestrian": false,
+              "HideMonster": false,
+              "PropVisiableList": [],
+              "StreamingCentersInBlackMask": [],
+              "StreamingCentersAfterBlackMask": [],
+              "MarkStreamingItems": []
+            },
+            {
+              "$type": "RPG.GameCore.AdvSetNpcAlertConfig",
+              "TargetType": {
+                "$type": "RPG.GameCore.TargetFetchAdvNpcEx",
+                "FetchType": "SingleNpcByNpcKey",
+                "SingleNpcKey": {
+                  "Custom": true,
+                  "Key": "PuzzleCompass_MonsterID"
+                },
+                "SingleNpcID": {}
+              },
+              "AlertSystemEnable": false,
+              "TaskEnabled": false
+            },
+            {
+              "$type": "RPG.GameCore.AdvSetNpcAlertConfig",
+              "TargetType": {
+                "$type": "RPG.GameCore.TargetFetchAdvNpcEx",
+                "FetchType": "SingleNpcByNpcKey",
+                "SingleNpcKey": {
+                  "Custom": true,
+                  "Key": "PuzzleCompass_MonsterID02"
+                },
+                "SingleNpcID": {}
+              },
+              "AlertSystemEnable": false,
+              "TaskEnabled": false
+            },
+            {
+              "$type": "RPG.GameCore.LockPlayerControl"
+            },
+            {
+              "$type": "RPG.GameCore.WaitSecond",
+              "WaitTime": 1
+            },
+            {
+              "$type": "RPG.GameCore.PerformanceTransition",
+              "SwitchKeepTime": 1.5,
+              "TextEnabled": true,
+              "TalkSentenceID": 401510104,
+              "CreateNpcList": [],
+              "CaptureNpcList": [],
+              "DestroyNpcList": [],
+              "ActiveVirtualCamera": {
+                "TaskEnabled": false
+              },
+              "SwitchCharacterAnchor": {
+                "TaskEnabled": false
+              }
+            },
+            {
+              "$type": "RPG.GameCore.ActiveVirtualCamera",
+              "LevelAreaCameraKey": {
+                "Custom": true,
+                "Key": "PuzzleCompass_Vcam01"
+              }
+            },
+            {
+              "$type": "RPG.GameCore.TriggerCustomString",
+              "CustomString": {
+                "Value": "Maze_CargoShip_SetCamera02"
+              }
+            },
+            {
+              "$type": "RPG.GameCore.PropMoveTo",
+              "Duration": {
+                "IsDynamic": true,
+                "Expressions": [
+                  {
+                    "Type": "DynamicNumber",
+                    "DynamicHash": -200302061
+                  }
+                ]
+              },
+              "LevelAreaKey": {
+                "Custom": true,
+                "Key": "PuzzleCompass_ShipTargetPos"
+              },
+              "WaitFinish": true,
+              "UseCurveData": true,
+              "TargetType": {
+                "$type": "RPG.GameCore.TargetFetchAdvPropEx",
+                "SinglePropKey": {
+                  "Custom": true,
+                  "Key": "ContainerDoor"
+                }
+              }
+            },
+            {
+              "$type": "RPG.GameCore.PropAnimSetParameter",
+              "ParameterName": "TriggerOpen",
+              "ParameterType": "Trigger",
+              "FloatValue": 3.402823E+38,
+              "TargetType": {
+                "$type": "RPG.GameCore.TargetFetchAdvPropEx",
+                "SinglePropKey": {
+                  "Custom": true,
+                  "Key": "ContainerDoor"
+                }
+              }
+            },
+            {
+              "$type": "RPG.GameCore.WaitSecond",
+              "WaitTime": 1.5
+            },
+            {
+              "$type": "RPG.GameCore.TriggerCustomString",
+              "CustomString": {
+                "Value": "Mission_4015101_OpenIsMonster"
+              }
+            },
+            {
+              "$type": "RPG.GameCore.WaitSecond",
+              "WaitTime": 2
+            },
+            {
+              "$type": "RPG.GameCore.ActiveVirtualCamera",
+              "LevelAreaCameraKey": {
+                "Custom": true,
+                "Key": "PuzzleCompass_Vcam02"
+              },
+              "IsActive": false
+            },
+            {
+              "$type": "RPG.GameCore.UnLockPlayerControl"
+            },
+            {
+              "$type": "RPG.GameCore.AdvNpcMoveTo",
+              "TargetType": {
+                "$type": "RPG.GameCore.TargetFetchAdvNpcEx",
+                "FetchType": "SingleNpcByNpcKey",
+                "SingleNpcKey": {
+                  "Custom": true,
+                  "Key": "PuzzleCompass_MonsterID"
+                },
+                "SingleNpcID": {}
+              },
+              "LevelAreaKey": {
+                "Custom": true,
+                "Key": "PuzzleCompass_MonsterTargetPos"
+              }
+            },
+            {
+              "$type": "RPG.GameCore.AdvNpcMoveTo",
+              "TargetType": {
+                "$type": "RPG.GameCore.TargetFetchAdvNpcEx",
+                "FetchType": "SingleNpcByNpcKey",
+                "SingleNpcKey": {
+                  "Custom": true,
+                  "Key": "PuzzleCompass_MonsterID02"
+                },
+                "SingleNpcID": {}
+              },
+              "LevelAreaKey": {
+                "Custom": true,
+                "Key": "PuzzleCompass_MonsterTargetPos02"
+              }
+            },
+            {
+              "$type": "RPG.GameCore.AdvAIRemeberGobackPosition",
+              "TargetType": {
+                "$type": "RPG.GameCore.TargetFetchAdvNpcEx",
+                "FetchType": "SingleNpcByNpcKey",
+                "SingleNpcKey": {
+                  "Custom": true,
+                  "Key": "PuzzleCompass_MonsterID"
+                }
+              }
+            },
+            {
+              "$type": "RPG.GameCore.AdvAIRemeberGobackPosition",
+              "TargetType": {
+                "$type": "RPG.GameCore.TargetFetchAdvNpcEx",
+                "FetchType": "SingleNpcByNpcKey",
+                "SingleNpcKey": {
+                  "Custom": true,
+                  "Key": "PuzzleCompass_MonsterID02"
+                }
+              }
+            },
+            {
+              "$type": "RPG.GameCore.AdvSetNpcAlertConfig",
+              "TargetType": {
+                "$type": "RPG.GameCore.TargetFetchAdvNpcEx",
+                "FetchType": "SingleNpcByNpcKey",
+                "SingleNpcKey": {
+                  "Custom": true,
+                  "Key": "PuzzleCompass_MonsterID"
+                },
+                "SingleNpcID": {}
+              },
+              "TaskEnabled": false
+            },
+            {
+              "$type": "RPG.GameCore.AdvSetNpcAlertConfig",
+              "TargetType": {
+                "$type": "RPG.GameCore.TargetFetchAdvNpcEx",
+                "FetchType": "SingleNpcByNpcKey",
+                "SingleNpcKey": {
+                  "Custom": true,
+                  "Key": "PuzzleCompass_MonsterID02"
+                },
+                "SingleNpcID": {}
+              },
+              "TaskEnabled": false
+            },
+            {
+              "$type": "RPG.GameCore.EndPerformance"
+            }
+          ],
+          "TargetType": {
+            "$type": "RPG.GameCore.TargetFetchAdvPropEx",
+            "SinglePropKey": {
+              "Custom": true,
+              "Key": "ContainerDoor"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "TaskList": [
+        {
+          "$type": "RPG.GameCore.PropStateChangeListenerConfig",
+          "FromState": "ChestLocked",
+          "ToState": "ChestClosed",
+          "OnChange": [
+            {
+              "$type": "RPG.GameCore.PropAnimSetParameter",
+              "ParameterName": "TriggerUnlock",
+              "ParameterType": "Trigger",
+              "FloatValue": 3.402823E+38,
+              "TargetType": {
+                "$type": "RPG.GameCore.TargetFetchAdvPropEx",
+                "FetchType": "SinglePropByPropKey",
+                "SinglePropKey": {
+                  "Custom": true,
+                  "Key": "PuzzleCompass_CargoChest01"
+                }
+              }
+            }
+          ],
+          "TargetType": {
+            "$type": "RPG.GameCore.TargetFetchAdvPropEx",
+            "FetchType": "SinglePropByPropKey",
+            "SinglePropKey": {
+              "Custom": true,
+              "Key": "PuzzleCompass_CargoChest01"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "TaskList": [
+        {
+          "$type": "RPG.GameCore.PropStateChangeListenerConfig",
+          "FromState": "ChestClosed",
+          "ToState": "ChestUsed",
+          "OnChange": [
+            {
+              "$type": "RPG.GameCore.HideWaypointByProp",
+              "TargetType": {
+                "$type": "RPG.GameCore.TargetFetchAdvPropEx",
+                "FetchType": "SinglePropByPropKey",
+                "SinglePropKey": {
+                  "Custom": true,
+                  "Key": "PuzzleCompass_CargoChest01"
+                }
+              },
+              "PropKey": {
+                "Custom": true,
+                "Key": "PuzzleCompass_CargoChest01"
+              }
+            }
+          ],
+          "TargetType": {
+            "$type": "RPG.GameCore.TargetFetchAdvPropEx",
+            "FetchType": "SinglePropByPropKey",
+            "SinglePropKey": {
+              "Custom": true,
+              "Key": "PuzzleCompass_CargoChest01"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "TaskList": [
+        {
+          "$type": "RPG.GameCore.PropStateExecute",
+          "TargetType": {
+            "$type": "RPG.GameCore.TargetFetchAdvPropEx",
+            "FetchType": "SinglePropByPropKey",
+            "SinglePropKey": {
+              "Custom": true,
+              "Key": "PuzzleCompass_CargoChest01"
+            }
+          },
+          "State": "Open",
+          "Execute": [
+            {
+              "$type": "RPG.GameCore.PropStateExecute",
+              "TargetType": {
+                "$type": "RPG.GameCore.TargetFetchAdvPropEx",
+                "FetchType": "SinglePropByPropKey",
+                "SinglePropKey": {
+                  "Custom": true,
+                  "Key": "PuzzleCompass_CargoChest01"
+                }
+              },
+              "State": "ChestClosed",
+              "Execute": [
+                {
+                  "$type": "RPG.GameCore.ShowWaypointByProp",
+                  "TargetType": {
+                    "$type": "RPG.GameCore.TargetFetchAdvPropEx",
+                    "FetchType": "SinglePropByPropKey",
+                    "SinglePropKey": {
+                      "Custom": true,
+                      "Key": "PuzzleCompass_CargoChest01"
+                    }
+                  },
+                  "PropKey": {
+                    "Custom": true,
+                    "Key": "PuzzleCompass_CargoChest01"
+                  },
+                  "MaxRange": 10,
+                  "IconPath": "SpriteOutput/MapPics/Billboard/IconBillboardBox.png",
+                  "Offset": {
+                    "X": 0,
+                    "Y": 1.6,
+                    "Z": 0
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "ValueSource": {
+    "Values": [
+      {
+        "$type": "RPG.GameCore.SharedString",
+        "Key": "PuzzleCompass_Prop",
+        "Comment": "罗盘物件ID",
+        "EditorHint": "LevelObject"
+      },
+      {
+        "$type": "RPG.GameCore.SharedString",
+        "Key": "PuzzleCompass_CargoChest01",
+        "Comment": "货船携带宝箱的ID",
+        "EditorHint": "LevelObject"
+      },
+      {
+        "$type": "RPG.GameCore.SharedFloat",
+        "Value": 4,
+        "Key": "PuzzleCompass_ShipMoveSpeed",
+        "Comment": "船移动速度"
+      },
+      {
+        "$type": "RPG.GameCore.SharedString",
+        "Key": "PuzzleCompass_MonsterID",
+        "Comment": "携带怪物的ID",
+        "EditorHint": "LevelObject"
+      },
+      {
+        "$type": "RPG.GameCore.SharedString",
+        "Key": "PuzzleCompass_MonsterID02",
+        "Comment": "携带怪物的ID02",
+        "EditorHint": "LevelObject"
+      },
+      {
+        "$type": "RPG.GameCore.SharedString",
+        "Key": "PuzzleCompass_ShipOriginPos",
+        "Comment": "货船的默认位置",
+        "EditorHint": "LevelAnchor"
+      },
+      {
+        "$type": "RPG.GameCore.SharedString",
+        "Key": "PuzzleCompass_ShipTargetPos",
+        "Comment": "货船的目标位置",
+        "EditorHint": "LevelAnchor"
+      },
+      {
+        "$type": "RPG.GameCore.SharedString",
+        "Key": "PuzzleCompass_Vcam01",
+        "Comment": "完成后的对位镜头01",
+        "EditorHint": "LevelAnchor"
+      },
+      {
+        "$type": "RPG.GameCore.SharedString",
+        "Key": "PuzzleCompass_Vcam02",
+        "Comment": "完成后的对位镜头02",
+        "EditorHint": "LevelAnchor"
+      },
+      {
+        "$type": "RPG.GameCore.SharedString",
+        "Key": "PuzzleCompass_MonsterOriginPos",
+        "Comment": "怪物01初始位置",
+        "EditorHint": "LevelAnchor"
+      },
+      {
+        "$type": "RPG.GameCore.SharedString",
+        "Key": "PuzzleCompass_MonsterTargetPos",
+        "Comment": "怪物01目标位置",
+        "EditorHint": "LevelAnchor"
+      },
+      {
+        "$type": "RPG.GameCore.SharedString",
+        "Key": "PuzzleCompass_MonsterOriginPos02",
+        "Comment": "怪物02初始位置",
+        "EditorHint": "LevelAnchor"
+      },
+      {
+        "$type": "RPG.GameCore.SharedString",
+        "Key": "PuzzleCompass_MonsterTargetPos02",
+        "Comment": "怪物02目标位置",
+        "EditorHint": "LevelAnchor"
+      }
+    ]
+  }
+}

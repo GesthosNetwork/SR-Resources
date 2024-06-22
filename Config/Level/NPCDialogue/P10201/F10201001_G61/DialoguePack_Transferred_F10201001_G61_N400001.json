@@ -1,0 +1,91 @@
+{
+  "OnInitSequece": [],
+  "OnStartSequece": [
+    {
+      "TaskList": [
+        {
+          "$type": "RPG.GameCore.CollectDataConditions",
+          "TaskIDList": [
+            404022203,
+            404022204,
+            102050116
+          ],
+          "PerformanceIDList": []
+        },
+        {
+          "$type": "RPG.GameCore.PredicateTaskList",
+          "Predicate": {
+            "$type": "RPG.GameCore.ByCompareSubMissionState",
+            "SubMissionID": 404022203,
+            "SubMissionState": "Started"
+          },
+          "SuccessTaskList": [
+            {
+              "$type": "RPG.GameCore.AddMenuItem",
+              "MenuItemID": 502010306,
+              "MenuIconType": "SecretMissionIcon",
+              "DialoguePath": "Config/Level/NPC/W2/NPC_DefaultStory_502010306.json",
+              "ExtraInfo": 2,
+              "MissionID": 404022203
+            }
+          ]
+        },
+        {
+          "$type": "RPG.GameCore.PredicateTaskList",
+          "Predicate": {
+            "$type": "RPG.GameCore.ByCompareSubMissionState",
+            "SubMissionID": 404022204,
+            "SubMissionState": "Started"
+          },
+          "SuccessTaskList": [
+            {
+              "$type": "RPG.GameCore.AddMenuItem",
+              "MenuItemID": 502010307,
+              "MenuIconType": "SecretMissionIcon",
+              "DialoguePath": "Config/Level/NPC/W2/NPC_DefaultStory_502010307.json",
+              "ExtraInfo": 2,
+              "MissionID": 404022204
+            }
+          ]
+        },
+        {
+          "$type": "RPG.GameCore.AddMenuItem",
+          "MenuItemID": 502010305,
+          "MenuIconType": "ShopIcon",
+          "DialoguePath": "Config/Level/NPC/W2/NPC_DefaultStory_502010305.json"
+        },
+        {
+          "$type": "RPG.GameCore.PredicateTaskList",
+          "Predicate": {
+            "$type": "RPG.GameCore.ByCompareSubMissionState",
+            "SubMissionID": 102050116,
+            "SubMissionState": "Started"
+          },
+          "SuccessTaskList": [
+            {
+              "$type": "RPG.GameCore.AddMenuItem",
+              "MenuItemID": 102050120,
+              "MenuIconType": "ChatIcon",
+              "DialoguePath": "Config/Level/Mission/1020501/Act/Act102050120.json",
+              "ExtraInfo": 2,
+              "MissionID": 102050116
+            }
+          ]
+        },
+        {
+          "$type": "RPG.GameCore.AddMenuItem",
+          "MenuItemID": 502010302,
+          "MenuIconType": "ChatIcon",
+          "DialoguePath": "Config/Level/NPC/W2/NPC_DefaultStory_502010302.json"
+        },
+        {
+          "$type": "RPG.GameCore.AddMenuItem",
+          "MenuItemID": 502010303,
+          "MenuIconType": "ChatOutIcon",
+          "DialoguePath": "Config/Level/NPC/W2/NPC_DefaultStory_502010303.json",
+          "Important": true
+        }
+      ]
+    }
+  ]
+}

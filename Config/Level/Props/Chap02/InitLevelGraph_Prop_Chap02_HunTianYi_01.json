@@ -1,0 +1,218 @@
+{
+  "OnInitSequece": [],
+  "OnStartSequece": [
+    {
+      "TaskList": [
+        {
+          "$type": "RPG.GameCore.SelectorConfig",
+          "TaskList": [
+            {
+              "$type": "RPG.GameCore.PropStateExecute",
+              "TargetType": {
+                "$type": "RPG.GameCore.TargetFetchAdvPropEx",
+                "SinglePropKey": {
+                  "Custom": true,
+                  "Key": "HunTianYi"
+                }
+              },
+              "State": "Open",
+              "Execute": [
+                {
+                  "$type": "RPG.GameCore.PropTriggerEffectList",
+                  "TargetType": {
+                    "$type": "RPG.GameCore.TargetFetchAdvPropEx"
+                  },
+                  "EffectList": [
+                    {
+                      "EffectPath": "Effects/Eff_Prefab/Eff_Scene/Interactive Object/Eff_Chap02_MAZ_Prop_HunTianYi_01_Loop_Lod0.prefab",
+                      "Scale": {
+                        "X": 1,
+                        "Y": 1,
+                        "Z": 1
+                      }
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "$type": "RPG.GameCore.PropStateExecute",
+              "TargetType": {
+                "$type": "RPG.GameCore.TargetFetchAdvPropEx",
+                "SinglePropKey": {
+                  "Custom": true,
+                  "Key": "HunTianYi"
+                }
+              },
+              "Execute": [
+                {
+                  "$type": "RPG.GameCore.PropRemoveEffect",
+                  "TargetType": {
+                    "$type": "RPG.GameCore.TargetFetchAdvPropEx"
+                  },
+                  "EffectPath": "Effects/Eff_Prefab/Eff_Scene/Interactive Object/Eff_Chap02_MAZ_Prop_HunTianYi_01_Loop_Lod0.prefab"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "TaskList": [
+        {
+          "$type": "RPG.GameCore.WaitCustomString",
+          "CustomString": {
+            "Value": "Trigger_HunTianYi_Performance"
+          }
+        },
+        {
+          "$type": "RPG.GameCore.PropStateExecute",
+          "TargetType": {
+            "$type": "RPG.GameCore.TargetFetchAdvPropEx",
+            "SinglePropKey": {
+              "Custom": true,
+              "Key": "HunTianYi"
+            }
+          },
+          "Execute": [
+            {
+              "$type": "RPG.GameCore.PropReqInteract",
+              "TargetType": {
+                "$type": "RPG.GameCore.TargetFetchAdvPropEx",
+                "SinglePropKey": {
+                  "Custom": true,
+                  "Key": "HunTianYi"
+                }
+              },
+              "InteractID": {
+                "IsDynamic": false,
+                "FixedValue": {
+                  "Value": 1010
+                }
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "TaskList": [
+        {
+          "$type": "RPG.GameCore.WaitCustomString",
+          "CustomString": {
+            "Value": "Trigger_HunTianYi_Performance_Off"
+          }
+        },
+        {
+          "$type": "RPG.GameCore.PropStateExecute",
+          "TargetType": {
+            "$type": "RPG.GameCore.TargetFetchAdvPropEx",
+            "SinglePropKey": {
+              "Custom": true,
+              "Key": "HunTianYi"
+            }
+          },
+          "State": "Open",
+          "Execute": [
+            {
+              "$type": "RPG.GameCore.PropReqInteract",
+              "TargetType": {
+                "$type": "RPG.GameCore.TargetFetchAdvPropEx",
+                "SinglePropKey": {
+                  "Custom": true,
+                  "Key": "HunTianYi"
+                }
+              },
+              "InteractID": {
+                "IsDynamic": false,
+                "FixedValue": {
+                  "Value": 1100
+                }
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "TaskList": [
+        {
+          "$type": "RPG.GameCore.PropStateChangeListenerConfig",
+          "ToState": "Open",
+          "OnChange": [
+            {
+              "$type": "RPG.GameCore.PropTriggerEffectList",
+              "TargetType": {
+                "$type": "RPG.GameCore.TargetFetchAdvPropEx"
+              },
+              "EffectList": [
+                {
+                  "EffectPath": "Effects/Eff_Prefab/Eff_Scene/Interactive Object/Eff_Chap02_MAZ_Prop_HunTianYi_01_Loop_Lod0.prefab"
+                }
+              ]
+            },
+            {
+              "$type": "RPG.GameCore.PropAnimSetParameter",
+              "ParameterName": "TriggerOpen",
+              "ParameterType": "Trigger",
+              "FloatValue": 3.402823E+38,
+              "TargetType": {
+                "$type": "RPG.GameCore.TargetFetchAdvPropEx"
+              }
+            }
+          ],
+          "TargetType": {
+            "$type": "RPG.GameCore.TargetFetchAdvPropEx",
+            "SinglePropKey": {
+              "Custom": true,
+              "Key": "HunTianYi"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "TaskList": [
+        {
+          "$type": "RPG.GameCore.PropStateChangeListenerConfig",
+          "FromState": "Open",
+          "OnChange": [
+            {
+              "$type": "RPG.GameCore.PropRemoveEffect",
+              "TargetType": {
+                "$type": "RPG.GameCore.TargetFetchAdvPropEx"
+              },
+              "EffectPath": "Effects/Eff_Prefab/Eff_Scene/Interactive Object/Eff_Chap02_MAZ_Prop_HunTianYi_01_Loop_Lod0.prefab"
+            },
+            {
+              "$type": "RPG.GameCore.PropAnimSetParameter",
+              "ParameterName": "TriggerClose",
+              "ParameterType": "Trigger",
+              "FloatValue": 3.402823E+38,
+              "TargetType": {
+                "$type": "RPG.GameCore.TargetFetchAdvPropEx"
+              }
+            }
+          ],
+          "TargetType": {
+            "$type": "RPG.GameCore.TargetFetchAdvPropEx",
+            "SinglePropKey": {
+              "Custom": true,
+              "Key": "HunTianYi"
+            }
+          }
+        }
+      ]
+    }
+  ],
+  "ValueSource": {
+    "Values": [
+      {
+        "$type": "RPG.GameCore.SharedString",
+        "Key": "HunTianYi",
+        "EditorHint": "LevelObject"
+      }
+    ]
+  }
+}

@@ -1,0 +1,283 @@
+{
+  "TaskListTemplate": [
+    {
+      "Name": "Monster_ChangePhase",
+      "TaskList": [
+        {
+          "$type": "RPG.GameCore.ExitBreakState",
+          "TargetType": {
+            "$type": "RPG.GameCore.TargetAlias",
+            "Alias": "Caster"
+          },
+          "CancelRecoverAnim": true
+        },
+        {
+          "$type": "RPG.GameCore.DefineDynamicValue",
+          "TargetType": {
+            "$type": "RPG.GameCore.TargetAlias",
+            "Alias": "Caster"
+          },
+          "DynamicKey": "ChangePhase_MaxHPValue",
+          "ContextScope": "TargetEntity"
+        },
+        {
+          "$type": "RPG.GameCore.SetDynamicValueByProperty",
+          "DynamicKey": "ChangePhase_MaxHPValue",
+          "ReadTargetType": {
+            "$type": "RPG.GameCore.TargetAlias",
+            "Alias": "Caster"
+          },
+          "Value": "MaxHP"
+        },
+        {
+          "$type": "RPG.GameCore.SetHP",
+          "TargetType": {
+            "$type": "RPG.GameCore.TargetAlias",
+            "Alias": "Caster"
+          },
+          "ModifyValue": {
+            "IsDynamic": true,
+            "Expressions": [
+              {
+                "Type": "DynamicNumber",
+                "DynamicHash": 962361353
+              }
+            ]
+          },
+          "ShowText": false
+        },
+        {
+          "$type": "RPG.GameCore.ResetStance",
+          "TargetType": {
+            "$type": "RPG.GameCore.TargetAlias",
+            "Alias": "Caster"
+          },
+          "ForbidWhenEmpty": false
+        },
+        {
+          "$type": "RPG.GameCore.RefreshChangePhaseUI"
+        }
+      ]
+    },
+    {
+      "Name": "Monster_ChangePhase_ParamEntity",
+      "TaskList": [
+        {
+          "$type": "RPG.GameCore.ExitBreakState",
+          "TargetType": {
+            "$type": "RPG.GameCore.TargetAlias",
+            "Alias": "ParamEntity"
+          },
+          "CancelRecoverAnim": true
+        },
+        {
+          "$type": "RPG.GameCore.DefineDynamicValue",
+          "TargetType": {
+            "$type": "RPG.GameCore.TargetAlias",
+            "Alias": "ParamEntity"
+          },
+          "DynamicKey": "ChangePhase_MaxHPValue",
+          "ContextScope": "TargetEntity"
+        },
+        {
+          "$type": "RPG.GameCore.SetDynamicValueByProperty",
+          "DynamicKey": "ChangePhase_MaxHPValue",
+          "ReadTargetType": {
+            "$type": "RPG.GameCore.TargetAlias",
+            "Alias": "ParamEntity"
+          },
+          "Value": "MaxHP"
+        },
+        {
+          "$type": "RPG.GameCore.SetHP",
+          "TargetType": {
+            "$type": "RPG.GameCore.TargetAlias",
+            "Alias": "ParamEntity"
+          },
+          "ModifyValue": {
+            "IsDynamic": true,
+            "Expressions": [
+              {
+                "Type": "DynamicNumber",
+                "DynamicHash": 962361353
+              }
+            ]
+          },
+          "ShowText": false
+        },
+        {
+          "$type": "RPG.GameCore.ResetStance",
+          "TargetType": {
+            "$type": "RPG.GameCore.TargetAlias",
+            "Alias": "ParamEntity"
+          },
+          "ForbidWhenEmpty": false
+        },
+        {
+          "$type": "RPG.GameCore.RefreshChangePhaseUI"
+        }
+      ]
+    },
+    {
+      "Name": "TaskList_WaveMonsterDelayCreate",
+      "TaskList": [
+        {
+          "$type": "RPG.GameCore.PredicateTaskList",
+          "Predicate": {
+            "$type": "RPG.GameCore.ByContainMonsterOnWave",
+            "CreateTiming": "DelayCreate",
+            "AfterWave": true
+          },
+          "SuccessTaskList": [
+            {
+              "$type": "RPG.GameCore.WaitSecond",
+              "WaitTime": 1
+            },
+            {
+              "$type": "RPG.GameCore.WaveMonster",
+              "MonsterList": [],
+              "WaitDie": false,
+              "CreateTiming": "DelayCreate"
+            },
+            {
+              "$type": "RPG.GameCore.SetDynamicValue",
+              "TargetType": {
+                "$type": "RPG.GameCore.TargetAlias",
+                "Alias": "LevelEntity"
+              },
+              "DynamicKey": "ForbiddenLastKill",
+              "ContextScope": "TargetEntity",
+              "Value": {
+                "IsDynamic": false,
+                "FixedValue": {
+                  "Value": 0
+                }
+              }
+            },
+            {
+              "$type": "RPG.GameCore.TriggerCustomString",
+              "CustomString": {
+                "Value": "Stage_WaveMonster_DelayCreate_Begin"
+              }
+            },
+            {
+              "$type": "RPG.GameCore.WaitCustomStringBattleClientOnly",
+              "CustomString": {
+                "Value": "Stage_WaveMonster_DelayCreate_End"
+              },
+              "ResetWhenTaskBegin": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "Name": "CameraTaskList_Puman_DelayCreate",
+      "TaskList": [
+        {
+          "$type": "RPG.GameCore.SetTargetUniqueName",
+          "TargetType": {
+            "$type": "RPG.GameCore.TargetAlias",
+            "Alias": "ParamEntity"
+          },
+          "UniqueName": "_Puman_Create"
+        },
+        {
+          "$type": "RPG.GameCore.MakeCharacterHUDVisible",
+          "TargetType": {
+            "$type": "RPG.GameCore.TargetAlias",
+            "Alias": "AllDarkTeam"
+          }
+        },
+        {
+          "$type": "RPG.GameCore.VCameraConfigChange",
+          "CameraConfig": {
+            "NormalConfig": {
+              "CameraState": "UseSkillPerform",
+              "AnchorTargetType": {
+                "$type": "RPG.GameCore.TargetFetchUniqueNameEntity",
+                "UniqueName": "_Puman_Create"
+              },
+              "IsLocalOffset": true,
+              "AnchorOffset": {
+                "X": 0,
+                "Y": -0.2,
+                "Z": 6.9
+              },
+              "AimTargetType": {
+                "$type": "RPG.GameCore.TargetFetchUniqueNameEntity",
+                "UniqueName": "_Puman_Create"
+              },
+              "AimOffset": {
+                "X": 0,
+                "Y": 1.3,
+                "Z": 0
+              },
+              "FollowPoleAngle": 90,
+              "FollowRadius": 0.88,
+              "ForbidChangeOffset": true
+            },
+            "BlendConfig": {
+              "BlendType": "Cut"
+            },
+            "ShowEntityConfig": {
+              "ShowTargetType": {
+                "$type": "RPG.GameCore.TargetAlias",
+                "Alias": "AllDarkTeam"
+              }
+            }
+          }
+        },
+        {
+          "$type": "RPG.GameCore.WaitSecond",
+          "WaitTime": 1.233
+        },
+        {
+          "$type": "RPG.GameCore.VCameraConfigChange",
+          "CameraConfig": {
+            "NormalConfig": {
+              "CameraState": "UseSkillPerform",
+              "AnchorTargetType": {
+                "$type": "RPG.GameCore.TargetFetchUniqueNameEntity",
+                "UniqueName": "_Puman_Create"
+              },
+              "IsLocalOffset": true,
+              "AnchorOffset": {
+                "X": 0,
+                "Y": -0.2,
+                "Z": 6.9
+              },
+              "AimTargetType": {
+                "$type": "RPG.GameCore.TargetFetchUniqueNameEntity",
+                "UniqueName": "_Puman_Create"
+              },
+              "AimOffset": {
+                "X": 0,
+                "Y": -0.2,
+                "Z": 0
+              },
+              "FollowPoleAngle": 90,
+              "FollowRadius": 0.88,
+              "ForbidChangeOffset": true
+            },
+            "BlendConfig": {
+              "BlendType": "Custom",
+              "CustomCurveName": "Blend_FastToSlow",
+              "BlendTime": 0.7
+            },
+            "ShowEntityConfig": {
+              "ShowTargetType": {
+                "$type": "RPG.GameCore.TargetAlias",
+                "Alias": "AllDarkTeam"
+              }
+            }
+          }
+        },
+        {
+          "$type": "RPG.GameCore.WaitSecond",
+          "WaitTime": 3
+        }
+      ]
+    }
+  ]
+}

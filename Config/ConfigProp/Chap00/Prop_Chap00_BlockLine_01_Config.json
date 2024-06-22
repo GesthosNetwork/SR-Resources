@@ -1,0 +1,105 @@
+{
+  "States": [
+    {
+      "AnimName": "Loop"
+    },
+    {
+      "State": "Open",
+      "AnimName": "Hidden"
+    }
+  ],
+  "DisableAnimEventLayers": [
+    "Dissolve Layer"
+  ],
+  "AnimatorStateGroupEvents": [
+    {
+      "States": [
+        {
+          "Name": "Fade In"
+        }
+      ],
+      "OnEnter": [
+        {
+          "$type": "RPG.GameCore.PropSetVisibility",
+          "Visible": true,
+          "TargetType": {
+            "$type": "RPG.GameCore.TargetFetchAdvPropEx"
+          }
+        },
+        {
+          "$type": "RPG.GameCore.TriggerSound",
+          "SoundName": "Ev_sfx_hertaspacestation_blockline_appear"
+        }
+      ]
+    },
+    {
+      "States": [
+        {
+          "Name": "Loop"
+        }
+      ],
+      "OnEnter": [
+        {
+          "$type": "RPG.GameCore.PropEnableCollider",
+          "OPType": "ColliderOnly",
+          "Enabled": true,
+          "SpecifiedRelativePaths": [
+            "Collider",
+            "Collider_Cam"
+          ],
+          "TargetType": {
+            "$type": "RPG.GameCore.TargetFetchAdvPropEx"
+          }
+        }
+      ]
+    },
+    {
+      "States": [
+        {
+          "Name": "Fade Out"
+        }
+      ],
+      "OnEnter": [
+        {
+          "$type": "RPG.GameCore.TriggerSound",
+          "SoundName": "Ev_sfx_hertaspacestation_blockline_disappear"
+        }
+      ]
+    },
+    {
+      "States": [
+        {
+          "Name": "Hidden"
+        }
+      ],
+      "OnEnter": [
+        {
+          "$type": "RPG.GameCore.PropEnableCollider",
+          "OPType": "ColliderOnly",
+          "SpecifiedRelativePaths": [
+            "Collider",
+            "Collider_Cam"
+          ],
+          "TargetType": {
+            "$type": "RPG.GameCore.TargetFetchAdvPropEx"
+          }
+        },
+        {
+          "$type": "RPG.GameCore.PropSetVisibility",
+          "TargetType": {
+            "$type": "RPG.GameCore.TargetFetchAdvPropEx"
+          }
+        }
+      ],
+      "OnExit": [
+        {
+          "$type": "RPG.GameCore.PropSetVisibility",
+          "Visible": true,
+          "TargetType": {
+            "$type": "RPG.GameCore.TargetFetchAdvPropEx"
+          }
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,154 @@
+{
+  "AbilityList": [
+    {
+      "Modifiers": {
+        "WMonster_W2_Huanlong_02_MuteHitFly": {
+          "BehaviorFlagList": [
+            "MuteHitFly"
+          ]
+        },
+        "Monster_W2_Boss_02_Stop": {
+          "_CallbackList": {
+            "OnStack": {
+              "CallbackConfig": [
+                {
+                  "$type": "RPG.GameCore.SetDynamicValueByProperty",
+                  "DynamicKey": "BaseSpeed",
+                  "ReadTargetType": {
+                    "$type": "RPG.GameCore.TargetAlias",
+                    "Alias": "ModifierOwnerEntity"
+                  },
+                  "Value": "BaseSpeed"
+                },
+                {
+                  "$type": "RPG.GameCore.StackProperty",
+                  "TargetType": {
+                    "$type": "RPG.GameCore.TargetAlias",
+                    "Alias": "ModifierOwnerEntity"
+                  },
+                  "Property": "SpeedDelta",
+                  "PropertyValue": {
+                    "IsDynamic": true,
+                    "Expressions": [
+                      {
+                        "Type": "FixedNumber",
+                        "FixedValue": {
+                          "Value": 0
+                        }
+                      },
+                      {
+                        "Type": "DynamicNumber",
+                        "DynamicHash": -906730870
+                      },
+                      {
+                        "Type": "Sub"
+                      }
+                    ]
+                  }
+                }
+              ]
+            }
+          },
+          "DynamicValues": {
+            "Values": {
+              "-906730870": {}
+            }
+          }
+        }
+      },
+      "Name": "Monster_W2_Huanlong_02_PassiveSkillInitiate",
+      "TargetInfo": {
+        "TargetType": "Caster"
+      },
+      "OnStart": [
+        {
+          "$type": "RPG.GameCore.AddModifier",
+          "TargetType": {
+            "$type": "RPG.GameCore.TargetAlias",
+            "Alias": "Caster"
+          },
+          "ModifierName": "WMonster_W2_Huanlong_02_MuteHitFly"
+        },
+        {
+          "$type": "RPG.GameCore.ShowBossInfoBar",
+          "TargetType": {
+            "$type": "RPG.GameCore.TargetAlias",
+            "Alias": "Caster"
+          },
+          "IsShow": true
+        },
+        {
+          "$type": "RPG.GameCore.AddModifier",
+          "TargetType": {
+            "$type": "RPG.GameCore.TargetAlias",
+            "Alias": "Caster"
+          },
+          "ModifierName": "Monster_W2_Boss_01_Revive"
+        },
+        {
+          "$type": "RPG.GameCore.ModifyDefaultTeamFormation",
+          "FormationWidth": {
+            "IsDynamic": false,
+            "FixedValue": {
+              "Value": 12
+            }
+          }
+        },
+        {
+          "$type": "RPG.GameCore.OverrideSelectDarkTeamEntityCamera",
+          "ChooseEnemyTargetLookAtWeight": 0.05,
+          "ChooseEnemyTargetLookAtWeightByTeamWidth": 0.07,
+          "ChooseEnemyTargetDisToCenterWeight": 7,
+          "ChooseEnemyTargetDisToCenterImpairment": 0.25,
+          "ChooseEnemyTargetLookAtAmplitude": 1.5,
+          "ChooseEnemyTargetCenterOffset1": 0.23,
+          "ChooseEnemyTargetCenterOffset2": 2.8
+        },
+        {
+          "$type": "RPG.GameCore.AddModifier",
+          "TargetType": {
+            "$type": "RPG.GameCore.TargetAlias",
+            "Alias": "Caster"
+          },
+          "ModifierName": "Monster_W2_Boss_02_Stop"
+        }
+      ]
+    },
+    {
+      "Name": "Monster_W2_Huanlong_02_Skill01_Phase01",
+      "TargetInfo": {
+        "TargetType": "SkillTargetEntityList"
+      },
+      "OnStart": []
+    },
+    {
+      "Name": "Monster_W2_Huanlong_02_Skill01_Phase02",
+      "TargetInfo": {
+        "TargetType": "SkillTargetEntityList"
+      },
+      "OnStart": [
+        {
+          "$type": "RPG.GameCore.SkillPerformFinish"
+        }
+      ]
+    },
+    {
+      "Name": "Monster_W2_Huanlong_02_Skill02_Phase01",
+      "TargetInfo": {
+        "TargetType": "AllEnemy"
+      },
+      "OnStart": []
+    },
+    {
+      "Name": "Monster_W2_Huanlong_02_Skill02_Phase02",
+      "TargetInfo": {
+        "TargetType": "AllEnemy"
+      },
+      "OnStart": [
+        {
+          "$type": "RPG.GameCore.SkillPerformFinish"
+        }
+      ]
+    }
+  ]
+}

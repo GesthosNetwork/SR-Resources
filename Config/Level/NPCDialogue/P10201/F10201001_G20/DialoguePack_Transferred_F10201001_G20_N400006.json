@@ -1,0 +1,66 @@
+{
+  "OnInitSequece": [],
+  "OnStartSequece": [
+    {
+      "TaskList": [
+        {
+          "$type": "RPG.GameCore.CollectDataConditions",
+          "TaskIDList": [
+            404022204
+          ],
+          "PerformanceIDList": []
+        },
+        {
+          "$type": "RPG.GameCore.PredicateTaskList",
+          "Predicate": {
+            "$type": "RPG.GameCore.ByCompareSubMissionState",
+            "SubMissionID": 404022204,
+            "SubMissionState": "Started"
+          },
+          "SuccessTaskList": [
+            {
+              "$type": "RPG.GameCore.AddMenuItem",
+              "MenuItemID": 502011205,
+              "MenuIconType": "SecretMissionIcon",
+              "DialoguePath": "Config/Level/NPC/W2/NPC_DefaultStory_502011205.json",
+              "ExtraInfo": 2,
+              "MissionID": 404022204
+            }
+          ]
+        },
+        {
+          "$type": "RPG.GameCore.RandomConfig",
+          "OddsList": [
+            {
+              "Value": 0.5000000004656613
+            },
+            {
+              "Value": 0.5000000004656613
+            }
+          ],
+          "TaskList": [
+            {
+              "$type": "RPG.GameCore.AddMenuItem",
+              "MenuItemID": 502011202,
+              "MenuIconType": "ChatIcon",
+              "DialoguePath": "Config/Level/NPC/W2/NPC_DefaultStory_502011202.json"
+            },
+            {
+              "$type": "RPG.GameCore.AddMenuItem",
+              "MenuItemID": 502011202,
+              "MenuIconType": "ChatIcon",
+              "DialoguePath": "Config/Level/NPC/W2/NPC_DefaultStory_502011206.json"
+            }
+          ]
+        },
+        {
+          "$type": "RPG.GameCore.AddMenuItem",
+          "MenuItemID": 502011203,
+          "MenuIconType": "ChatOutIcon",
+          "DialoguePath": "Config/Level/NPC/W2/NPC_DefaultStory_502011203.json",
+          "Important": true
+        }
+      ]
+    }
+  ]
+}

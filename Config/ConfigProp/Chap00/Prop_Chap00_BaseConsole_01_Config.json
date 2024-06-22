@@ -1,0 +1,59 @@
+{
+  "States": [
+    {
+      "State": "Locked",
+      "AnimName": "Closed",
+      "Behavior": "EnableTrigger",
+      "EnableBillboard": false
+    },
+    {
+      "AnimName": "Closed",
+      "Behavior": "EnableTrigger"
+    },
+    {
+      "State": "Open",
+      "AnimName": "Opened",
+      "Behavior": "DisableTrigger",
+      "EnableBillboard": false
+    }
+  ],
+  "DisableAnimEventLayers": [
+    "Dissolve Layer"
+  ],
+  "AnimatorStateGroupEvents": [
+    {
+      "States": [
+        {
+          "Name": "Open"
+        }
+      ],
+      "OnEnter": [
+        {
+          "$type": "RPG.GameCore.TriggerSound",
+          "SoundName": "Ev_sfx_hertaspacestation_console01_open"
+        }
+      ]
+    },
+    {
+      "States": [
+        {
+          "Name": "Closed"
+        }
+      ],
+      "OnEnter": [
+        {
+          "$type": "RPG.GameCore.TriggerSound",
+          "SoundName": "Ev_sfx_hertaspacestation_console01_idle",
+          "IsPropLodLoop": true
+        }
+      ],
+      "OnExit": [
+        {
+          "$type": "RPG.GameCore.TriggerSound",
+          "SoundName": "Ev_sfx_hertaspacestation_console01_idle_stop"
+        }
+      ]
+    }
+  ],
+  "BillboardIconMaxDistance": 15
+}

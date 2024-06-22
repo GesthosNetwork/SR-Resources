@@ -1,0 +1,63 @@
+{
+  "OnInitSequece": [],
+  "OnStartSequece": [
+    {
+      "TaskList": [
+        {
+          "$type": "RPG.GameCore.CollectDataConditions",
+          "TaskIDList": [],
+          "MainMissionIDList": [
+            1021001
+          ],
+          "PerformanceIDList": [
+            502016201
+          ]
+        },
+        {
+          "$type": "RPG.GameCore.AddMenuItem",
+          "MenuItemID": 502016102,
+          "MenuIconType": "ShopIcon",
+          "DialoguePath": "Config/Level/NPCDialogue/P10202/F10202001_G43/DialogueItem502016102_F10202001_G43_N400006.json",
+          "Important": true
+        },
+        {
+          "$type": "RPG.GameCore.AddMenuItem",
+          "MenuItemID": 502016103,
+          "MenuIconType": "ChatIcon",
+          "DialoguePath": "Config/Level/NPCDialogue/P10202/F10202001_G43/DialogueItem502016103_F10202001_G43_N400006.json"
+        },
+        {
+          "$type": "RPG.GameCore.PredicateTaskList",
+          "Predicate": {
+            "$type": "RPG.GameCore.ByAnd",
+            "PredicateList": [
+              {
+                "$type": "RPG.GameCore.ByCompareMainMissionState",
+                "MainMissionID": 1021001
+              },
+              {
+                "$type": "RPG.GameCore.ByComparePerformance",
+                "PerformanceID": 502016201
+              }
+            ]
+          },
+          "SuccessTaskList": [
+            {
+              "$type": "RPG.GameCore.AddMenuItem",
+              "MenuItemID": 502013201,
+              "MenuIconType": "ChatLoopIcon",
+              "DialoguePath": "Config/Level/NPCDialogue/P10202/F10202001_G78/DialogueItem502013201_F10202001_G78_N400003.json"
+            }
+          ]
+        },
+        {
+          "$type": "RPG.GameCore.AddMenuItem",
+          "MenuItemID": 502016104,
+          "MenuIconType": "ChatOutIcon",
+          "DialoguePath": "Config/Level/NPCDialogue/P10202/F10202001_G43/DialogueItem502016104_F10202001_G43_N400006.json",
+          "Important": true
+        }
+      ]
+    }
+  ]
+}

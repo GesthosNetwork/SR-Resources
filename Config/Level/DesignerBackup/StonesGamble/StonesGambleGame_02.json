@@ -1,0 +1,88 @@
+{
+  "OnInitSequece": [],
+  "OnStartSequece": [
+    {
+      "IsLoop": true,
+      "TaskList": [
+        {
+          "$type": "RPG.GameCore.WaitCustomString",
+          "CustomString": {
+            "Value": "SpecialVisionClose"
+          }
+        },
+        {
+          "$type": "RPG.GameCore.PropAnimSetParameter",
+          "ParameterName": "TriggerAppear",
+          "ParameterType": "Bool",
+          "FloatValue": 3.402823E+38,
+          "TargetType": {
+            "$type": "RPG.GameCore.TargetFetchAdvPropEx"
+          }
+        },
+        {
+          "$type": "RPG.GameCore.PropEnableCollider",
+          "TargetType": {
+            "$type": "RPG.GameCore.TargetFetchAdvPropEx"
+          }
+        }
+      ]
+    },
+    {
+      "IsLoop": true,
+      "TaskList": [
+        {
+          "$type": "RPG.GameCore.WaitCustomString",
+          "CustomString": {
+            "Value": "SpecialVisionOpen"
+          }
+        },
+        {
+          "$type": "RPG.GameCore.PropAnimSetParameter",
+          "ParameterName": "TriggerAppear",
+          "ParameterType": "Bool",
+          "BoolValue": true,
+          "FloatValue": 3.402823E+38,
+          "TargetType": {
+            "$type": "RPG.GameCore.TargetFetchAdvPropEx"
+          }
+        },
+        {
+          "$type": "RPG.GameCore.PropSetupUITrigger",
+          "ButtonText": {
+            "Hash": 1239593898
+          },
+          "ButtonCallback": [
+            {
+              "$type": "RPG.GameCore.PlayMissionTalk",
+              "SimpleTalkList": [
+                {
+                  "TalkSentenceID": 901022435,
+                  "ProtectTime": 2
+                }
+              ]
+            }
+          ],
+          "TargetType": {
+            "$type": "RPG.GameCore.TargetFetchAdvPropEx"
+          }
+        }
+      ]
+    },
+    {
+      "TaskList": [
+        {
+          "$type": "RPG.GameCore.SetPropSpecialVisionConfig",
+          "SpecialVisionConfigs": [
+            {
+              "TargetIsOwner": true,
+              "StencilRefGBuffer": 2
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "ValueSource": {
+    "Values": []
+  }
+}

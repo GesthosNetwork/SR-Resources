@@ -1,0 +1,72 @@
+{
+  "OnInitSequece": [],
+  "OnStartSequece": [
+    {
+      "TaskList": [
+        {
+          "$type": "RPG.GameCore.CollectDataConditions",
+          "TaskIDList": [
+            102050116
+          ],
+          "PerformanceIDList": []
+        },
+        {
+          "$type": "RPG.GameCore.RandomConfig",
+          "OddsList": [
+            {
+              "Value": 1
+            },
+            {
+              "Value": 1
+            }
+          ],
+          "TaskList": [
+            {
+              "$type": "RPG.GameCore.AddMenuItem",
+              "MenuItemID": 502104401,
+              "MenuIconType": "ChatLoopIcon",
+              "DialoguePath": "Config/Level/PropDialogue/W2/Act/Act502104401.json"
+            },
+            {
+              "$type": "RPG.GameCore.AddMenuItem",
+              "MenuItemID": 502104401,
+              "MenuIconType": "ChatLoopIcon",
+              "DialoguePath": "Config/Level/PropDialogue/W2/Act/Act502104402.json"
+            }
+          ]
+        },
+        {
+          "$type": "RPG.GameCore.PredicateTaskList",
+          "Predicate": {
+            "$type": "RPG.GameCore.ByCompareSubMissionState",
+            "SubMissionID": 102050116,
+            "SubMissionState": "Started"
+          },
+          "SuccessTaskList": [
+            {
+              "$type": "RPG.GameCore.AddMenuItem",
+              "MenuItemID": 102050119,
+              "MenuIconType": "ChatIcon",
+              "DialoguePath": "Config/Level/Mission/1020501/Act/Act102050119.json",
+              "ExtraInfo": 2,
+              "MissionID": 102050116
+            }
+          ]
+        },
+        {
+          "$type": "RPG.GameCore.AddMenuItem",
+          "MenuItemID": 502010402,
+          "MenuIconType": "ChatIcon",
+          "DialoguePath": "Config/Level/NPC/W2/NPC_DefaultStory_502010402.json"
+        },
+        {
+          "$type": "RPG.GameCore.AddMenuItem",
+          "MenuItemID": 502010403,
+          "MenuIconType": "ChatOutIcon",
+          "DialoguePath": "Config/Level/NPC/W2/NPC_DefaultStory_502010403.json",
+          "Important": true
+        }
+      ]
+    }
+  ]
+}

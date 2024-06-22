@@ -1,0 +1,94 @@
+{
+  "OnInitSequece": [],
+  "OnStartSequece": [
+    {
+      "TaskList": [
+        {
+          "$type": "RPG.GameCore.TutorialNotify",
+          "Type": "LockController",
+          "Param": "1"
+        },
+        {
+          "$type": "RPG.GameCore.WaitTutorial",
+          "Event": "ShowUIContext",
+          "Param": "RogueSelectMainPage"
+        },
+        {
+          "$type": "RPG.GameCore.WaitSecond",
+          "WaitTime": 0.5
+        },
+        {
+          "$type": "RPG.GameCore.WaitUINodeOpen",
+          "NodeID": "RogueMainPage.Shop"
+        },
+        {
+          "$type": "RPG.GameCore.ShowTutorialUIMask",
+          "NodeID": "RogueMainPage.Shop",
+          "Show": true,
+          "Type": 1,
+          "PCGuide": {},
+          "AnimConfig": {
+            "UseAnim": true,
+            "TotalTime": 0.25
+          }
+        },
+        {
+          "$type": "RPG.GameCore.ShowGuide",
+          "ID": 901,
+          "GuideResID": 10,
+          "NodeID": "RogueMainPage.Shop",
+          "Show": true,
+          "CopyAnchorAndSale": true,
+          "PCGuide": {},
+          "AnimConfig": {}
+        },
+        {
+          "$type": "RPG.GameCore.ShowTutorialGuideTalk",
+          "GuideResID": 20,
+          "GuideTalkIDList": [
+            90088
+          ],
+          "NodeID": "RogueMainPage.Shop",
+          "OffsetX": 100,
+          "OffsetY": -70
+        },
+        {
+          "$type": "RPG.GameCore.ShowTutorialUIMask",
+          "NodeID": "RogueMainPage.Shop",
+          "Type": 1,
+          "PCGuide": {},
+          "AnimConfig": {
+            "UseAnim": true,
+            "TotalTime": 0.25
+          }
+        },
+        {
+          "$type": "RPG.GameCore.ShowGuide",
+          "ID": 901,
+          "GuideResID": 10,
+          "NodeID": "RogueMainPage.Shop",
+          "CopyAnchorAndSale": true,
+          "PCGuide": {},
+          "AnimConfig": {}
+        },
+        {
+          "$type": "RPG.GameCore.ShowTutorialUI",
+          "AssociatedUIName": "RogueSelectMainPage"
+        },
+        {
+          "$type": "RPG.GameCore.ShowTutorialUI",
+          "IsHide": true
+        },
+        {
+          "$type": "RPG.GameCore.TutorialNotify",
+          "Type": "LockController",
+          "Param": "0"
+        },
+        {
+          "$type": "RPG.GameCore.TutorialFinish",
+          "TutorialID": 9022
+        }
+      ]
+    }
+  ]
+}

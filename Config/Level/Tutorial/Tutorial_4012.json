@@ -1,0 +1,169 @@
+{
+  "OnInitSequece": [],
+  "OnStartSequece": [
+    {
+      "TaskList": []
+    },
+    {
+      "TaskList": []
+    },
+    {
+      "TaskList": []
+    },
+    {
+      "IsLoop": true,
+      "TaskList": []
+    },
+    {
+      "IsLoop": true,
+      "TaskList": []
+    },
+    {
+      "IsLoop": true,
+      "TaskList": []
+    },
+    {
+      "TaskList": [
+        {
+          "$type": "RPG.GameCore.ShowTutorialUI"
+        },
+        {
+          "$type": "RPG.GameCore.WaitTutorial",
+          "Event": "ShowUIMainPage",
+          "TaskEnabled": false
+        },
+        {
+          "$type": "RPG.GameCore.WaitTutorial",
+          "Event": "ShowUIContext",
+          "Param": "ActivityPage"
+        },
+        {
+          "$type": "RPG.GameCore.WaitUINodeOpen",
+          "NodeID": "QuestOverviewDialog"
+        },
+        {
+          "$type": "RPG.GameCore.WaitUINodeOpen",
+          "NodeID": "QuestOverviewDialog.Switch"
+        },
+        {
+          "$type": "RPG.GameCore.WaitFrame",
+          "WaitFrameCount": 5
+        },
+        {
+          "$type": "RPG.GameCore.ShowTutorialUI"
+        },
+        {
+          "$type": "RPG.GameCore.ShowGuide",
+          "ID": 105,
+          "GuideResID": 2,
+          "NodeID": "QuestOverviewDialog.Switch",
+          "Show": true,
+          "CopyAnchorAndSale": true,
+          "PCGuide": {},
+          "AnimConfig": {}
+        },
+        {
+          "$type": "RPG.GameCore.ShowGuideText",
+          "ID": 205,
+          "GuideResID": 14,
+          "NodeID": "QuestOverviewDialog.Switch",
+          "Show": true,
+          "Text": "TutorialTextmap_401202",
+          "OffsetX": 60,
+          "PCGuide": {
+            "UsePCGuide": true,
+            "GuideResID": 14,
+            "TextPath": "Contents/Text",
+            "Text": "TutorialTextmap_401202",
+            "ControllerText": "TutorialTextmap_401202_ctr",
+            "ControllerActionName": "Menu_UnchangeRightStickButton",
+            "OffsetX": 60
+          }
+        },
+        {
+          "$type": "RPG.GameCore.TutorialNotify",
+          "Type": "BlockClick",
+          "Param": "1"
+        },
+        {
+          "$type": "RPG.GameCore.BlockInputController",
+          "Enable": true,
+          "ActionNameList": []
+        },
+        {
+          "$type": "RPG.GameCore.WaitSecond",
+          "WaitTime": 1
+        },
+        {
+          "$type": "RPG.GameCore.WaitTutorial",
+          "Event": "ActionPress"
+        },
+        {
+          "$type": "RPG.GameCore.ShowGuide",
+          "ID": 105,
+          "GuideResID": 1,
+          "NodeID": "QuestOverviewDialog.Switch",
+          "CopyAnchorAndSale": true,
+          "PCGuide": {},
+          "AnimConfig": {}
+        },
+        {
+          "$type": "RPG.GameCore.ShowGuideText",
+          "ID": 205,
+          "GuideResID": 14,
+          "NodeID": "QuestOverviewDialog.Switch",
+          "Text": "TutorialTextmap_400601",
+          "ActionName": "Menu_UnchangeRightStickButton",
+          "PCGuide": {
+            "GuideResID": 5,
+            "Path": "Page",
+            "TextPath": "Contents/Text",
+            "Text": "TutorialTextmap_300201_pc"
+          }
+        },
+        {
+          "$type": "RPG.GameCore.WaitFrame",
+          "WaitFrameCount": 5
+        },
+        {
+          "$type": "RPG.GameCore.ShowUINodes",
+          "Nodes": [
+            "AboveDialog/TutorialDialog(Clone)/FullScreenButton",
+            "AboveDialog/TutorialDialog(Clone)/MaskRaycastTarget"
+          ],
+          "TaskEnabled": false
+        },
+        {
+          "$type": "RPG.GameCore.TutorialNotify",
+          "Type": "BlockClick",
+          "Param": "0"
+        },
+        {
+          "$type": "RPG.GameCore.ShowTutorialUI",
+          "IsHide": true
+        },
+        {
+          "$type": "RPG.GameCore.BlockInputController",
+          "ActionNameList": []
+        },
+        {
+          "$type": "RPG.GameCore.TutorialLockControl",
+          "Reset": true
+        },
+        {
+          "$type": "RPG.GameCore.TutorialNotify",
+          "Type": "LockController",
+          "Param": "0"
+        },
+        {
+          "$type": "RPG.GameCore.BlockSubmitEvents",
+          "Enable": true
+        },
+        {
+          "$type": "RPG.GameCore.TutorialFinish",
+          "TutorialID": 4012
+        }
+      ]
+    }
+  ]
+}
