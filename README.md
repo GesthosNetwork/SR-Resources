@@ -110,5 +110,3 @@ Explore the versions of SR resources in an organized manner.
 - **[2.3](https://github.com/GesthosNetwork/SR-Resources/tree/2.3)**: Performance boosts and caching improvements.
 
 ---
-
-This enhanced markdown file now includes the missing version and features a detailed table for version descriptions, an announcements section, quick links, feedback prompt, and a structured table of contents to ensure a highly professional and engaging document.
